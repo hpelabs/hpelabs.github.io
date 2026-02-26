@@ -2,6 +2,7 @@
 layout: post
 title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/banner-image.jpg
+post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 ---
 
 Living Lab experience
@@ -287,8 +288,7 @@ At this point, there are two authentication methods available:
 
 - **Single or Multi-Factor Authentication** (MFA): Authenticate using your email and password, with optional MFA for added security.
 
-- **SAML Single Sign-On (SSO):** SSO is exclusively supported with Okta, Entra ID, and PingID, providing efficient authentication aligned with your organization's SSO configuration. Please note that specific
-    prerequisites must be met for this method, including the requirement for passwordless authentication methods such as push notifications or TOTP. For detailed guidance on configuring SSO and enabling   passwordless authentication, refer to [Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets](https://hpelabs.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/)
+- **SAML Single Sign-On (SSO):** SSO is exclusively supported with Okta, Entra ID, and PingID, providing efficient authentication aligned with your organization's SSO configuration. Please note that specific prerequisites must be met for this method, including the requirement for passwordless authentication methods such as push notifications or TOTP. For detailed guidance on configuring SSO and enabling   passwordless authentication, refer to [Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets](https://hpelabs.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/)
 
 Select the below option according to your user authentication method:
 

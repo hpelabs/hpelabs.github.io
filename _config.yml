@@ -1,7 +1,7 @@
 # Basic site setup
-title: HPE Labs
+title: HPE Compute Technical Enablement Hands-on Labs
 author: HPE Labs
-description: HPE labs content for automation, DevOps, and hands-on infrastructure tutorials.
+description: Hands-on labs on HPE Compute infrastructure, security, technologies, and solutions.
 accent_colour: "#acacac"
 theme_version: 1.0.16
 url: https://hpelabs.github.io
@@ -31,7 +31,6 @@ network:
 minima:
   skin: auto
   social_links:
-    - { platform: github, user_url: "https://github.com/hpelabs" }
     - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }
  
   #   - { platform: devto,          user_url: "https://dev.to/jekyll" }
@@ -54,6 +53,8 @@ minima:
 permalink: /:title/
 timezone: Europe/Paris
 title-logo: #/assets/images/favicon/favicon-32x32.png
+header_pages:
+  - search.md
 
 # Default front matter for all lab-guide posts
 defaults:
@@ -62,11 +63,11 @@ defaults:
       type: "posts"
     values:
       hidden: true
-      hide_header: true
+      hide_header: false
       hide_footer: true
       hide_related_posts: true
       hide_comments: true
-      hide_breadcrumbs: true
+      hide_breadcrumbs: false
       hide_post_meta: true
 
 

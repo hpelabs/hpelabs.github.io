@@ -40,9 +40,12 @@ layout: default
   <hr>
 
   <div class="centred-content">
-    {% if site.post_end_promo != blank? %}
-      {{ site.post_end_promo }}<br><br>
-    {% endif %}
+    {% unless page.hide_post_end_promo == true %}
+      {% assign post_end_promo = page.post_end_promo | default: site.post_end_promo %}
+      {% if post_end_promo != blank? %}
+        {{ post_end_promo }}<br><br>
+      {% endif %}
+    {% endunless %}
 
     {% if site.kofi_button_text != blank? and site.kofi_id != blank? %}
       {% include custom/donatebutton.html %}<br><br>
