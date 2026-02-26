@@ -53,7 +53,8 @@
 }
 
 /* Light theme breadcrumbs */
-html[data-theme="light"] .breadcrumb-item a {
+html[data-theme="light"] .breadcrumb-item a,
+html[data-theme="light"] .breadcrumb-item a:visited {
   color: #03a883 !important;
 }
 
@@ -62,7 +63,8 @@ html[data-theme="light"] .breadcrumb-item a:hover {
 }
 
 /* Dark theme breadcrumbs */
-html[data-theme="dark"] .breadcrumb-item a {
+html[data-theme="dark"] .breadcrumb-item a,
+html[data-theme="dark"] .breadcrumb-item a:visited {
   color: #03a883 !important;
 }
 
@@ -71,7 +73,8 @@ html[data-theme="dark"] .breadcrumb-item a:hover {
 }
 
 /* Fallback: no theme set yet */
-.breadcrumb-item a {
+.breadcrumb-item a,
+.breadcrumb-item a:visited {
   color: #03a883 !important;
 }
 
