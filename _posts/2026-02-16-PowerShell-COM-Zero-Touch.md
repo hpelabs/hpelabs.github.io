@@ -203,7 +203,8 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 7. You can now leave the page and begin your zero-touch automation experience.
 
 # Step 1 - How to Install HPECOMCmdlets
-(Step 1 of 12) ⏱️ ~5 min
+
+<p class="step-meta">(Step 1 of 12) ⏱️ ~5 min</p>
 
 - The first step is to install the library on your Windows virtual machine. Return to the PowerShell console and enter the following command:
 
@@ -223,7 +224,8 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 [⬆ Back to Top](#)
 
 # Step 2 - Get the exported commands
-(Step 2 of 12) ⏱️ ~3 min
+
+<p class="step-meta">(Step 2 of 12) ⏱️ ~3 min</p>
 
 - Now that the module is installed, you can get the list of commands exported by the module using:
 
@@ -281,7 +283,8 @@ example does.
 [⬆ Back to Top](#)
 
 # Step 3 - Connection to HPE GreenLake
-(Step 3 of 12) ⏱️ ~15 min
+
+<p class="step-meta">(Step 3 of 12) ⏱️ ~15 min</p>
 
 After the module is installed, the next first step is to connect to HPE GreenLake using the `Connect-HPEGL` command.
 
@@ -386,7 +389,8 @@ If you already have one or more workspaces available, the command will return a 
 [⬆ Back to Top](#)
 
 # Step 4 - Configuration of your workspace
-(Step 4 of 12) ⏱️ ~20 min
+
+<p class="step-meta">(Step 4 of 12) ⏱️ ~20 min</p>
 
 ## Task 1 -- Create your first workspace
 
@@ -622,8 +626,9 @@ This step is essential for automatically creating a ticket with HPE support.
 
 [⬆ Back to Top](#)
 
-# Step 5 - Onboarding devices 
-(Step 5 of 12) ⏱️ ~15 min
+# Step 5 - Onboarding devices
+
+<p class="step-meta">(Step 5 of 12) ⏱️ ~15 min</p>
 
 You can add devices to a workspace either one at a time or in bulk.
 Another option is to use a COM activation key, which lets you add single
@@ -842,7 +847,8 @@ sheet provided by your instructor. Enter:
 [⬆ Back to Top](#)
 
 # Step 6 - Configuration of Compute Ops Management
-(Step 6 of 12) ⏱️ ~25 min
+
+<p class="step-meta">(Step 6 of 12) ⏱️ ~25 min</p>
 
 The following step involves setting up Compute Ops Management. This
 process includes various tasks like setting up server configurations,
@@ -1123,7 +1129,8 @@ The next task is to add your server to the new group. According to the group pol
 [⬆ Back to Top](#)
 
 # Step 7 - Gathering Comprehensive Server Inventory Information
-(Step 7 of 12) ⏱️ ~5 min
+
+<p class="step-meta">(Step 7 of 12) ⏱️ ~5 min</p>
 
 Keeping accurate server inventory is crucial for effective IT
 management---it enables quick troubleshooting, ensures compliance, and
@@ -1186,7 +1193,8 @@ To obtain detailed server inventory information, use the `Get-HPECOMServerInvent
 [⬆ Back to Top](#)
 
 # Step 8 - Monitoring Server Health, Support, and Warranty Status
-(Step 8 of 12) ⏱️ ~10 min
+
+<p class="step-meta">(Step 8 of 12) ⏱️ ~10 min</p>
 
 One of the key responsibilities in server management is troubleshooting
 issues, managing open cases, monitoring server health, and ensuring that
@@ -1418,7 +1426,8 @@ automatically applied.
 [⬆ Back to Top](#)
 
 # Step 9 - Updating and Ensuring Server Firmware Compliance
-(Step 9 of 12) ⏱️ ~10 min
+
+<p class="step-meta">(Step 9 of 12) ⏱️ ~10 min</p>
 
 This section outlines the procedures for configuring key server
 management functions in COM. It covers maintaining server firmware
@@ -1597,7 +1606,8 @@ weekend (in four days).
 [⬆ Back to Top](#)
 
 # Step 10 - Essential Next Steps for Server Management and Sustainability
-(Step 10 of 12) ⏱️ ~15 min
+
+<p class="step-meta">(Step 10 of 12) ⏱️ ~15 min</p>
 
 After completing setup and firmware updates, the next essential steps
 focus on ongoing server management and sustainability. Use HPE Compute
@@ -1933,8 +1943,8 @@ These points illustrate the effectiveness of COM's policy-based management appro
 [⬆ Back to Top](#)
 
 # Step 11 - Clean the lab for the next participant 
-(Step 11 of 12) ⏱️ ~5 min
 
+<p class="step-meta">(Step 11 of 12) ⏱️ ~5 min</p>
 Before concluding the lab, follow these steps to clean up your
 environment. Skipping these steps may leave resources locked to your
 workspace, which could affect future lab sessions.
@@ -2056,8 +2066,9 @@ your command line terminal.
 
 [⬆ Back to Top](#)
 
-# Step 12 - Explore Zero Touch Automation with the Sample Script (Optional) 
-(Step 12 of 12) ⏱️ ~
+# Step 12 - Explore Zero Touch Automation with the Sample Script (Optional)
+
+<p class="step-meta">(Step 12 of 12) ⏱️ ~</p>
 
 If you would like to see the true value of this library, you can run the
 Zero Touch Automation script available on GitHub:
