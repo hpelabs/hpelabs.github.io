@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html, body, .site-title, .site-nav .page-link {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif;
+    }
+  </style>
   
   <!-- Performance: Preconnect to external domains -->
   <link rel="preconnect" href="https://giscus.app" crossorigin>
@@ -11,7 +16,9 @@
   
   <!-- Performance: Preload critical resources -->
   <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_version }}" as="style">
+  <link rel="preload" href="{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}" as="image" type="image/png" fetchpriority="high">
   <link rel="preload" href="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" as="script">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_version }}" fetchpriority="high">
   
   {%- seo -%}
   
@@ -69,7 +76,6 @@
   </script>
   {%- endif -%}
   
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_version }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
   {%- include google-analytics.html -%}
