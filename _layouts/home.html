@@ -24,7 +24,7 @@ layout: default
     {%- endif -%}
     <ul class="post-list">
       {%- for post in posts -%}
-      {%- unless post.hidden -%}
+      {%- if page.show_hidden_posts or site.show_hidden_posts or post.hidden != true -%}
       <li class="card" data-categories="{% for cat in post.categories %}{{ cat | slugify }} {% endfor %}">
         <a class="post-link" href="{{ post.url | relative_url }}">
           <div class="bg-img" style="background-image: url({{post.image}})"></div>
@@ -47,7 +47,7 @@ layout: default
           {% endif %}
         </div>
       </li>
-      {%- endunless -%}
+      {%- endif -%}
       {%- endfor -%}
     </ul>
 
