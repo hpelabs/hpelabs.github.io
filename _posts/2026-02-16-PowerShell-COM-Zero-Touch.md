@@ -3,6 +3,7 @@ layout: post
 title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/banner-image.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
+excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
 ---
 
 Living Lab experience
