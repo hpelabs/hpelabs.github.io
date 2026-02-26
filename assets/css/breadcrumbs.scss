@@ -53,21 +53,26 @@
 }
 
 /* Light theme breadcrumbs */
-[data-theme="light"] .breadcrumb-item a {
+html[data-theme="light"] .breadcrumb-item a {
   color: #03a883 !important;
 }
 
-[data-theme="light"] .breadcrumb-item a:hover {
+html[data-theme="light"] .breadcrumb-item a:hover {
   color: #027a60 !important;
 }
 
 /* Dark theme breadcrumbs */
-[data-theme="dark"] .breadcrumb-item a {
+html[data-theme="dark"] .breadcrumb-item a {
   color: #03a883 !important;
 }
 
-[data-theme="dark"] .breadcrumb-item a:hover {
+html[data-theme="dark"] .breadcrumb-item a:hover {
   color: #02c9a0 !important;
+}
+
+/* Fallback: no theme set yet */
+.breadcrumb-item a {
+  color: #03a883 !important;
 }
 
 /* Mobile optimization for breadcrumbs */
