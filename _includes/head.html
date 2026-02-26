@@ -10,8 +10,8 @@
   <link rel="dns-prefetch" href="https://giscus.app">
   
   <!-- Performance: Preload critical resources -->
-  <link rel="preload" href="/assets/css/style.css?v={{ asset_version }}" as="style">
-  <link rel="preload" href="/assets/js/theme-toggle.js?v={{ asset_version }}" as="script">
+  <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_version }}" as="style">
+  <link rel="preload" href="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" as="script">
   
   {%- seo -%}
   
@@ -69,7 +69,7 @@
   </script>
   {%- endif -%}
   
-  <link rel="stylesheet" href="/assets/css/style.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ asset_version }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
   {%- include google-analytics.html -%}
@@ -80,15 +80,15 @@
   {% endif %}
   
   {% if site.open_external_links_in_new_tab != false %}
-  <script src="/assets/js/new_window.js" defer></script>
+  <script src="{{ '/assets/js/new_window.js' | relative_url }}" defer></script>
   {% endif %}
   
-  <script src="/assets/js/theme-toggle.js?v={{ asset_version }}"></script>
-  <script src="/assets/js/code-copy.js?v={{ asset_version }}" defer></script>
-  <script src="/assets/js/lazy-load.js?v={{ asset_version }}" defer></script>
-  <script src="/assets/js/category-filter.js?v={{ asset_version }}" defer></script>
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}"></script>
+  <script src="{{ '/assets/js/code-copy.js' | relative_url }}?v={{ asset_version }}" defer></script>
+  <script src="{{ '/assets/js/lazy-load.js' | relative_url }}?v={{ asset_version }}" defer></script>
+  <script src="{{ '/assets/js/category-filter.js' | relative_url }}?v={{ asset_version }}" defer></script>
   {%- if page.layout == 'post' -%}
-  <script src="/assets/js/reading-progress.js?v={{ asset_version }}" defer></script>
+  <script src="{{ '/assets/js/reading-progress.js' | relative_url }}?v={{ asset_version }}" defer></script>
   {%- endif -%}
 
   <link rel="manifest" href="{{ '/assets/manifest.json' | relative_url }}">
@@ -96,19 +96,19 @@
   <link
   rel="apple-touch-icon"
   sizes="180x180"
-  href="{{ 'assets/images/favicon/apple-touch-icon.png' | relative_url }}"
+  href="{{ '/assets/images/favicon/apple-touch-icon.png' | relative_url }}"
   />
   <link
   rel="icon"
   type="image/png"
   sizes="32x32"
-  href="{{ 'assets/images/favicon/favicon-32x32.png' | relative_url }}"
+  href="{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}"
   />
   <link
   rel="icon"
   type="image/png"
   sizes="16x16"
-  href="{{ 'assets/images/favicon/favicon-16x16.png' | relative_url }}"
+  href="{{ '/assets/images/favicon/favicon-16x16.png' | relative_url }}"
   />
   
   <meta name="google-site-verification" content="ekN4eYyUb3noZEqgRg8BWMBhAzrWSCuNkvYByWGRGKk" />
