@@ -63,12 +63,6 @@
     border-left: 1px solid;
   }
 
-  // Row separators
-  tr + tr td,
-  tr + tr th {
-    border-top: 1px solid;
-  }
-
   thead tr:last-child th {
     border-bottom: 2px solid;
   }
@@ -104,11 +98,12 @@
   }
 
   td {
-    border-color: #d4e0ed;
+    border-color: #eaf0f7;
+    color: #1a1a1a;
   }
 
   tr:nth-child(even) td {
-    background-color: #f0f5fb;
+    background-color: #edf2f9;
   }
 
   td:has(+ td:empty) {
@@ -133,11 +128,13 @@
   }
 
   td {
-    border-color: #2a4060;
+    border-color: #253040;
+    background-color: #141923;
+    color: #c8ddf0;
   }
 
   tr:nth-child(even) td {
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: #0d1117;
   }
 
   td:has(+ td:empty) {

@@ -134,31 +134,31 @@ sure to also record your server’s serial number.
 
 | Team Name & Number | HPE iLO7 FQDN | Username | Default Factory Password |
 |---|---|---|---|
-| Team-01 | holgen1201-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-02 | holgen1202-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-03 | holgen1203-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-04 | holgen1204-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-05 | holgen1205-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-06 | holgen1206-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-07 | holgen1207-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-08 | holgen1208-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-09 | holgen1209-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-10 | holgen1210-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-11 | holgen1211-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-12 | holgen1212-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-13 | holgen1213-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-14 | holgen1214-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-15 | holgen1215-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-16 | holgen1216-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-17 | holgen1217-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-18 | holgen1218-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-19 | holgen1219-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-20 | holgen1220-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-21 | holgen1221-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-22 | holgen1222-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-23 | holgen1223-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-24 | holgen1224-ilo.hol.enablement.local | Administrator | hpent123 |
-| Team-25 | holgen1225-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-01** | holgen1201-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-02** | holgen1202-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-03** | holgen1203-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-04** | holgen1204-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-05** | holgen1205-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-06** | holgen1206-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-07** | holgen1207-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-08** | holgen1208-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-09** | holgen1209-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-10** | holgen1210-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-11** | holgen1211-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-12** | holgen1212-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-13** | holgen1213-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-14** | holgen1214-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-15** | holgen1215-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-16** | holgen1216-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-17** | holgen1217-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-18** | holgen1218-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-19** | holgen1219-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-20** | holgen1220-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-21** | holgen1221-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-22** | holgen1222-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-23** | holgen1223-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-24** | holgen1224-ilo.hol.enablement.local | Administrator | hpent123 |
+| **Team-25** | holgen1225-ilo.hol.enablement.local | Administrator | hpent123 |
 
 1.  Use your Horizon enabled Chrome browser session that you connected
     with in the previous section. Remember that for these labs to work,
