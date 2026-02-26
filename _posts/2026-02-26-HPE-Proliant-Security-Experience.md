@@ -45,7 +45,7 @@ Here is an overview of our Compute management portfolio.
 This HOL takes a technical approach to how these tools can be used to
 manage HPE ProLiant Servers with a strong focus around Security.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 1 - Accessing the HPE Compute BU Enablement Environment
 
@@ -101,7 +101,7 @@ this browser session are connected to the remote environment.
 
 This concludes this portion of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 2 - Embedded Server Management with HPE iLO7
 
@@ -202,7 +202,7 @@ sure to also record your server’s serial number.
 
 > This concludes this portion of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 3 - Managing Local Users
 
@@ -288,7 +288,7 @@ process detailed in one of the search results.
 
 This concludes this portion of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 4 - Firmware Verification
 
@@ -355,7 +355,7 @@ Firmware feature.
 
 This concludes this portion of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 5 - Applying a Web Proxy configuration
 
@@ -397,7 +397,7 @@ This concludes this portion of the lab.
 
 This concludes this portion of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 6 - Connecting to HPE Compute Ops Management
 
@@ -490,7 +490,7 @@ this lab.
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 7 - Secure Login Options for Enterprise IT Administrators
 
@@ -551,7 +551,7 @@ lab.\
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 8 - Establishing a connection from HPE iLO7 to HPE GreenLake
 
@@ -651,7 +651,7 @@ Management, we first need to obtain an Activation Key.
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 9 - Securing your Server Fleet with HPE Compute Ops Management
 
@@ -730,7 +730,7 @@ Return to your HOL Horizon Browser session.
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 10 - Creating server groups and associating server settings
 
@@ -857,7 +857,7 @@ group.
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 11 - Advanced Security settings for HPE iLO7
 
@@ -1108,7 +1108,7 @@ monitor and manage security settings proactively.
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 12 - HPE iLO7 SSL Certificate Management
 
@@ -1318,7 +1318,7 @@ configuration, and troubleshooting, refer to the official [HPE Compute
 Ops Management Secure Gateway
 documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00005106en_us).
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 13 - Deploying the Secure Gateway through VCenter
 
@@ -1408,7 +1408,7 @@ function as the Secure Gateway for Compute Ops Management.
 
 This concludes this section of the lab.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 14 - Configuring the Secure Gateway and connecting to COM
 
@@ -1551,7 +1551,7 @@ connect it to HPE Compute Ops Management.
 This concludes this section of the lab.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 15 - Connecting our HPE iLO7 to COM via the Secure Gateway
 
@@ -1684,7 +1684,7 @@ linking it to the Secure Gateway and apply this to our HPE iLO7.
 
 This completes this HOL experience.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Summary
 
@@ -1727,5 +1727,5 @@ strategy.
 ## Learn more at
 [hpe.com/us/en/compute/management-software.html](https://www.hpe.com/us/en/compute/management-software.html?jumpid=in_learnmore)
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 

@@ -221,7 +221,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     This library has no dependencies, so it does not require the installation of any other software or modules to function properly.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 2 - Get the exported commands
 
@@ -280,7 +280,7 @@ example does.
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image20.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image20.png){:class="img-700"}{: data-lightbox="gallery"}
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 3 - Connection to HPE GreenLake
 
@@ -386,7 +386,7 @@ If you already have one or more workspaces available, the command will return a 
 >  `Connect-HPEGL -Credential $credentials -Workspace "My_workspace_name"`
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 4 - Configuration of your workspace
 
@@ -624,7 +624,7 @@ This step is essential for automatically creating a ticket with HPE support.
     > `Set-HPEGLDeviceAutoReassignSubscription -Computes` if it was previously disabled with `Remove-HPEGLDeviceAutoReassignSubscription.`
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 5 - Onboarding devices
 
@@ -844,7 +844,7 @@ sheet provided by your instructor. Enter:
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image40.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image40.png){: data-lightbox="gallery"}
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 6 - Configuration of Compute Ops Management
 
@@ -1126,7 +1126,7 @@ The next task is to add your server to the new group. According to the group pol
     > `Get-HPECOMServer` includes several parameters `-ShowGroupCompliance`, `-ShowGroupiLOSettingsCompliance`, or `-ShowGroupFirmwareCompliance`---that allow you to directly check compliance on a specified server.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 7 - Gathering Comprehensive Server Inventory Information
 
@@ -1190,7 +1190,7 @@ To obtain detailed server inventory information, use the `Get-HPECOMServerInvent
     > to finish before returning.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 8 - Monitoring Server Health, Support, and Warranty Status
 
@@ -1423,7 +1423,7 @@ automatically applied.
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75.png){: data-lightbox="gallery"}
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 9 - Updating and Ensuring Server Firmware Compliance
 
@@ -1603,7 +1603,7 @@ weekend (in four days).
     other tasks while the firmware updates run in the background.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 10 - Essential Next Steps for Server Management and Sustainability
 
@@ -1940,7 +1940,7 @@ best practices.
 These points illustrate the effectiveness of COM's policy-based management approach, enabling administrators to specify desired states within group settings and allowing COM to automatically detect and remediate configuration drift across servers.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 11 - Clean the lab for the next participant 
 
@@ -2064,7 +2064,7 @@ your command line terminal.
     `$HPEGLAPIClientCredentialName` (API credentials created during login), and `$HPEGLworkspaces` (workspace references) are no longer present, confirming their successful removal.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 12 - Explore Zero Touch Automation with the Sample Script (Optional)
 
@@ -2160,7 +2160,7 @@ managed from start to finish.
 
 With this final step complete, you have successfully concluded the hands-on lab experience.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Summary 
 
@@ -2188,7 +2188,7 @@ GreenLake platform.
 Completing this lab provides you with a practical, end‑to‑end understanding of automated server management, enabling faster deployments, consistent configuration at scale, reduced manual effort, and improved operational reliability. It equips you with skills to
 streamline onboarding, enforce policy‑driven governance, automate compliance, and leverage sustainability and utilization insights for smarter infrastructure decisions.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Want more?
 
@@ -2229,5 +2229,5 @@ evaluation](https://www.hpe.com/us/en/hpe-compute-ops-management.html?emodal=/us
 of Compute Ops Management to experience its full capabilities.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 

@@ -30,17 +30,17 @@
 }
 
 .breadcrumb-item a {
-  color: #6db3f2;
+  color: #03a883;
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: #4a90e2;
+    color: #027a60;
     text-decoration: underline;
   }
   
   &:focus-visible {
-    outline: 2px solid #6db3f2;
+    outline: 2px solid #03a883;
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -54,20 +54,20 @@
 
 /* Light theme breadcrumbs */
 [data-theme="light"] .breadcrumb-item a {
-  color: #4a90e2 !important;
+  color: #03a883 !important;
 }
 
 [data-theme="light"] .breadcrumb-item a:hover {
-  color: #2d6ab8 !important;
+  color: #027a60 !important;
 }
 
 /* Dark theme breadcrumbs */
 [data-theme="dark"] .breadcrumb-item a {
-  color: #6db3f2 !important;
+  color: #03a883 !important;
 }
 
 [data-theme="dark"] .breadcrumb-item a:hover {
-  color: #8fc9ff !important;
+  color: #02c9a0 !important;
 }
 
 /* Mobile optimization for breadcrumbs */

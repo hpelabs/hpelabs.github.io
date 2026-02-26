@@ -220,7 +220,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     This library has no dependencies, so it does not require the installation of any other software or modules to function properly.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 2 - Get the exported commands
 (Step 2 of 12) ⏱️ ~3 min
@@ -278,7 +278,7 @@ example does.
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image20.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image20.png){:class="img-700"}{: data-lightbox="gallery"}
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 3 - Connection to HPE GreenLake
 (Step 3 of 12) ⏱️ ~15 min
@@ -383,7 +383,7 @@ If you already have one or more workspaces available, the command will return a 
 >  `Connect-HPEGL -Credential $credentials -Workspace "My_workspace_name"`
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Step 4 - Configuration of your workspace
 (Step 4 of 12) ⏱️ ~20 min
@@ -605,7 +605,7 @@ GreenLake platform.
 Completing this lab provides you with a practical, end‑to‑end understanding of automated server management, enabling faster deployments, consistent configuration at scale, reduced manual effort, and improved operational reliability. It equips you with skills to
 streamline onboarding, enforce policy‑driven governance, automate compliance, and leverage sustainability and utilization insights for smarter infrastructure decisions.
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
 # Want more?
 
@@ -646,5 +646,5 @@ evaluation](https://www.hpe.com/us/en/hpe-compute-ops-management.html?emodal=/us
 of Compute Ops Management to experience its full capabilities.
 
 
-[⬆ Back to Top](#)
+[↑ Back to Top](#)
 
