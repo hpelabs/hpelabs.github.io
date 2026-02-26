@@ -9,7 +9,9 @@ layout: default
 
   {{ content }}
 
-  {% if site.paginate %}
+  {% if page.sort_by == 'title' %}
+    {% assign posts = site.posts | sort_natural: 'title' %}
+  {% elsif site.paginate %}
     {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
@@ -51,7 +53,7 @@ layout: default
       {%- endfor -%}
     </ul>
 
-    {% if site.paginate %}
+    {% if site.paginate and page.sort_by != 'title' %}
     <div class="centred-homepage-content">
       {% include custom/paginator.html %}
     </div>
