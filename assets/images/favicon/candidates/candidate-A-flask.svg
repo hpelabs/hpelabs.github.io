@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="HPE HOL Flask icon">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#01A982"/>
+      <stop offset="100%" stop-color="#0B5D50"/>
+    </linearGradient>
+  </defs>
+  <rect x="36" y="36" width="440" height="440" rx="92" fill="url(#bgA)"/>
+  <rect x="36" y="36" width="440" height="440" rx="92" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="12"/>
+  <path d="M220 150h72M230 150v52l-78 140c-15 28 6 62 38 62h132c32 0 53-34 38-62l-78-140v-52" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="256" cy="328" rx="70" ry="30" fill="#001F1A" opacity=".65"/>
+  <circle cx="220" cy="268" r="11" fill="#fff" opacity=".9"/>
+  <circle cx="292" cy="242" r="9" fill="#fff" opacity=".9"/>
+</svg>

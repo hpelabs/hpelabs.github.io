@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="HPE HOL LabHex icon">
+  <defs>
+    <linearGradient id="bgE" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00A889"/>
+      <stop offset="100%" stop-color="#0C5449"/>
+    </linearGradient>
+  </defs>
+  <rect x="36" y="36" width="440" height="440" rx="92" fill="url(#bgE)"/>
+  <rect x="36" y="36" width="440" height="440" rx="92" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="12"/>
+  <polygon points="256,142 350,196 350,304 256,358 162,304 162,196" fill="none" stroke="#fff" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M202 198l108 108" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+  <path d="M306 296c0 18-12 30-26 30s-26-12-26-30c0-16 12-26 26-44 14 18 26 28 26 44z" fill="#001F1A" opacity=".82"/>
+</svg>
