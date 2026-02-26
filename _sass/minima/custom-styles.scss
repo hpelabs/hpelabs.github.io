@@ -6,3 +6,116 @@
   margin-top: 0.7em;
   margin-bottom: 0.7em;
 }
+
+// ==========================================
+// Enhanced Table Styles
+// ==========================================
+.post-content table {
+  width: auto;
+  max-width: 100%;
+  font-size: 0.9rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  margin: 1.5em 0;
+
+  th, td {
+    padding: 9px 18px;
+    vertical-align: middle;
+    border: none;
+  }
+
+  // Column separators inside rows
+  th + th,
+  td + td {
+    border-left: 1px solid;
+  }
+
+  // Row separators
+  tr + tr td,
+  tr + tr th {
+    border-top: 1px solid;
+  }
+
+  thead tr:last-child th {
+    border-bottom: 2px solid;
+  }
+
+  // Rounded corners on first/last header cells
+  thead tr:first-child th:first-child { border-radius: 6px 0 0 0; }
+  thead tr:first-child th:last-child  { border-radius: 0 6px 0 0; }
+  tbody tr:last-child td:first-child  { border-radius: 0 0 0 6px; }
+  tbody tr:last-child td:last-child   { border-radius: 0 0 6px 0; }
+
+  // Section-header rows: bold first cell with an empty second cell
+  td:has(+ td:empty) {
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  td + td:empty {
+    width: 1px;
+    padding: 0;
+  }
+}
+
+// Light theme
+[data-theme="light"] .post-content table {
+  border-color: #c3d3e5;
+
+  th {
+    background-color: #1b5ea8;
+    color: #ffffff;
+    border-color: #154e8e;
+    font-weight: 600;
+  }
+
+  td {
+    border-color: #d4e0ed;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f0f5fb;
+  }
+
+  td:has(+ td:empty) {
+    background-color: #dde8f4;
+    color: #1b5ea8;
+  }
+  td + td:empty {
+    background-color: #dde8f4;
+    border-left: none !important;
+  }
+}
+
+// Dark theme
+[data-theme="dark"] .post-content table {
+  border-color: #2d4d6e;
+
+  th {
+    background-color: #1a3a5c;
+    color: #c8ddf0;
+    border-color: #243f60;
+    font-weight: 600;
+  }
+
+  td {
+    border-color: #2a4060;
+  }
+
+  tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  td:has(+ td:empty) {
+    background-color: #1a3a5c;
+    color: #7eb3d8;
+  }
+  td + td:empty {
+    background-color: #1a3a5c;
+    border-left: none !important;
+  }
+}

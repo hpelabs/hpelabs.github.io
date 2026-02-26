@@ -8,7 +8,7 @@ excerpt: Explore HPE ProLiant Gen12 security with iLO 7 embedded management, Gre
 
 Living Lab experience
 
-## Overview
+# Overview
 HPE ProLiant Gen12 servers are designed with a security‑first approach and deep remote manageability. In this lab, you will:
 
 - Use **Omnissa Horizon** to access the lab environment.
@@ -16,8 +16,6 @@ HPE ProLiant Gen12 servers are designed with a security‑first approach and dee
 - Onboard servers to **HPE GreenLake / Compute Ops Management (COM)**.
 - Apply security best practices, verify firmware, and manage certificates (ACME).
 - Deploy and use the **COM Secure Gateway**. 
-
-> **Note:** Screenshots from the original PDF are replaced with concise step prompts (e.g., *“Screenshot: iLO Dashboard”*). When publishing on GitHub Pages, you can later add images in the indicated callouts.
 
 
 # HPE ProLiant Security Experience
@@ -268,7 +266,7 @@ The Directory Groups section is where administrators can enter up to six
 directory groups using Kerberos authentication and schema-free directory
 integration.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image19.png){: .bordered-image-thin style="width:7.08338in;height:1.89233in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image19.png){: data-lightbox="gallery"}
+[![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image19.png){: .bordered-image-thin style="width:7.08338in;height:1.89233in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image19.png){: data-lightbox="gallery"}
 
 More information can be found in the HPE iLO7 User Guide at the HPE
 Support Center.
@@ -392,7 +390,7 @@ domain specific applications like Compute Ops Management, Aruba Central,
 Data Services, along with tools to manage governance like OpsRamp and
 gain insights in the HPE Sustainability Insight Center.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27.png){: .bordered-image-thin style="width:7.36876in;height:2.67335in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27.png){: data-lightbox="gallery"}
+[![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27.png){: .bordered-image-thin style="width:7.36876in;height:2.67335in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27.png){: data-lightbox="gallery"}
 
 For this exercise, we are going to focus on the onboarding of our
 devices into the GreenLake platform so that they may be managed by HPE
@@ -407,185 +405,46 @@ Once you have located your username and password, proceed to Step 1 of
 this lab.
 
 1.  Open a new tab and connect to HPE GreenLake at
-    **https://common.cloud.hpe.com/** and then enter your assigned user
+    [https://common.cloud.hpe.com/](https://common.cloud.hpe.com/) and then enter your assigned user
     information from the following table as the Username. Your
     instructor will provide a password if it is different from the table
     below.
 
-<table style="width:56%;">
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 25%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: center;"><blockquote>
-<p><strong>Team Number</strong></p>
-</blockquote></th>
-<th><blockquote>
-<p><strong>GreenLake Username</strong></p>
-</blockquote></th>
-<th style="text-align: center;"><strong>User password</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">Team-01</td>
-<td><a
-href="mailto:comholuser%2B1@gmail.com">comholuser+1@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-02</td>
-<td><a
-href="mailto:comholuser%2B2@gmail.com">comholuser+2@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-03</td>
-<td><a
-href="mailto:comholuser%2B3@gmail.com">comholuser+3@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-04</td>
-<td><a
-href="mailto:comholuser%2B4@gmail.com">comholuser+4@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-05</td>
-<td><a
-href="mailto:comholuser%2B5@gmail.com">comholuser+5@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-06</td>
-<td><a
-href="mailto:comholuser%2B6@gmail.com">comholuser+6@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-07</td>
-<td><a
-href="mailto:comholuser%2B7@gmail.com">comholuser+7@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-08</td>
-<td><a
-href="mailto:comholuser%2B8@gmail.com">comholuser+8@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-09</td>
-<td><a
-href="mailto:comholuser%2B9@gmail.com">comholuser+9@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-10</td>
-<td><a
-href="mailto:comholuser%2B10@gmail.com">comholuser+10@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-11</td>
-<td><a
-href="mailto:comholuser%2B11@gmail.com">comholuser+11@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-12</td>
-<td><a
-href="mailto:comholuser%2B12@gmail.com">comholuser+12@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-13</td>
-<td><a
-href="mailto:comholuser%2B13@gmail.com">comholuser+13@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-14</td>
-<td><a
-href="mailto:comholuser%2B14@gmail.com">comholuser+14@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-15</td>
-<td><a
-href="mailto:comholuser%2B15@gmail.com">comholuser+15@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-16</td>
-<td><a
-href="mailto:comholuser%2B16@gmail.com">comholuser+16@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-17</td>
-<td><a
-href="mailto:comholuser%2B17@gmail.com">comholuser+17@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-18</td>
-<td><a
-href="mailto:comholuser%2B18@gmail.com">comholuser+18@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-19</td>
-<td><a
-href="mailto:comholuser%2B19@gmail.com">comholuser+19@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-20</td>
-<td><a
-href="mailto:comholuser%2B20@gmail.com">comholuser+20@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-21</td>
-<td><a
-href="mailto:comholuser%2B21@gmail.com">comholuser+21@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-22</td>
-<td><a
-href="mailto:comholuser%2B22@gmail.com">comholuser+22@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-23</td>
-<td><a
-href="mailto:comholuser%2B23@gmail.com">comholuser+23@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-24</td>
-<td><a
-href="mailto:comholuser%2B24@gmail.com">comholuser+24@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-<tr>
-<td style="text-align: center;">Team-25</td>
-<td><a
-href="mailto:comholuser%2B25@gmail.com">comholuser+25@gmail.com</a></td>
-<td style="text-align: center;">TechPr02026!</td>
-</tr>
-</tbody>
-</table>
+      | Team Number | GreenLake Username | User Password |
+      |---|---|---|
+      | Team-01 | comholuser+1@gmail.com | Refer to login sheet |
+      | Team-02 | comholuser+2@gmail.com | Refer to login sheet |
+      | Team-03 | comholuser+3@gmail.com | Refer to login sheet |
+      | Team-04 | comholuser+4@gmail.com | Refer to login sheet |
+      | Team-05 | comholuser+5@gmail.com | Refer to login sheet |
+      | Team-06 | comholuser+6@gmail.com | Refer to login sheet |
+      | Team-07 | comholuser+7@gmail.com | Refer to login sheet |
+      | Team-08 | comholuser+8@gmail.com | Refer to login sheet |
+      | Team-09 | comholuser+9@gmail.com | Refer to login sheet |
+      | Team-10 | comholuser+10@gmail.com | Refer to login sheet |
+      | Team-11 | comholuser+11@gmail.com | Refer to login sheet |
+      | Team-12 | comholuser+12@gmail.com | Refer to login sheet |
+      | Team-13 | comholuser+13@gmail.com | Refer to login sheet |
+      | Team-14 | comholuser+14@gmail.com | Refer to login sheet |
+      | Team-15 | comholuser+15@gmail.com | Refer to login sheet |
+      | Team-16 | comholuser+16@gmail.com | Refer to login sheet |
+      | Team-17 | comholuser+17@gmail.com | Refer to login sheet |
+      | Team-18 | comholuser+18@gmail.com | Refer to login sheet |
+      | Team-19 | comholuser+19@gmail.com | Refer to login sheet |
+      | Team-20 | comholuser+20@gmail.com | Refer to login sheet |
+      | Team-21 | comholuser+21@gmail.com | Refer to login sheet |
+      | Team-22 | comholuser+22@gmail.com | Refer to login sheet |
+      | Team-23 | comholuser+23@gmail.com | Refer to login sheet |
+      | Team-24 | comholuser+24@gmail.com | Refer to login sheet |
+      | Team-25 | comholuser+25@gmail.com | Refer to login sheet |
+
+
+
+
 
 2.  Click **Next** to be prompted for a password.
 
-3.  Type in the password of **TechPr02026!** (or the password supplied
+3.  Type in the password of **Refer to login sheet** (or the password supplied
     by your instructor) and press the **Enter** key or click **Sign
     In**.
 
@@ -1136,19 +995,22 @@ monitor and manage security settings proactively.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: .bordered-image-thin style="width:1.7888in;height:2.11904in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: data-lightbox="gallery"}
 
 35. Type the following ilorest commands into the RESTful Interface Tool,
-    pressing enter after each line.\
-    xx represents your Team Number
+    pressing enter after each line. 
+    
+    **xx** represents your Team Number
 
-**ilorest login holgen12xx-ilo.hol.enablement.local -u Administrator -p
-hpent123**
 
-**ilorest select SecureBoot**
+      ```bash
+      ilorest login holgen12xx-ilo.hol.enablement.local -u Administrator -p hpent123
 
-**ilorest set SecureBootEnable=True --commit**
+      ilorest select SecureBoot
 
-**ilorest reboot On**
+      ilorest set SecureBootEnable=True --commit
 
-**ilorest logout**
+      ilorest reboot On
+
+      ilorest logout
+      ```
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: .bordered-image-thin style="width:5.81137in;height:4.2182in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: data-lightbox="gallery"}
 
@@ -1168,59 +1030,14 @@ hpent123**
 
 39. Then click on **Users**.
 
-40. Click **+ Add** above the Local Users frame and enter the following
-    settings to create your new user account.
+40. Click **+ Add** above the Local Users frame and enter the following settings to create your new user account.
 
-<table style="width:53%;">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 27%" />
-</colgroup>
-<thead>
-<tr>
-<th><blockquote>
-<p><strong>Login Name</strong></p>
-</blockquote></th>
-<th><blockquote>
-<p>HPE_Admin1</p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><blockquote>
-<p><strong>User Name</strong></p>
-</blockquote></td>
-<td><blockquote>
-<p>HPE Admin1</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p><strong>New Password</strong></p>
-</blockquote></td>
-<td><blockquote>
-<p>hpent123</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p><strong>Confirm Password</strong></p>
-</blockquote></td>
-<td><blockquote>
-<p>hpent123</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p><strong>Role</strong></p>
-</blockquote></td>
-<td><blockquote>
-<p>Administrator</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
+      | **Login Name** | HPE_Admin1 |
+      |---|---|
+      | **User Name** | HPE Admin1 |
+      | **New Password** | hpent123 |
+      | **Confirm Password** | hpent123 |
+      | **Role** | Administrator |
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png){: .bordered-image-thin style="width:4.24189in;height:3.78383in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png){: data-lightbox="gallery"}
 
@@ -1302,27 +1119,27 @@ Certificate](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_
     We’ve saved you from the trouble and provided the root CA contents
     here.
 
-> -----BEGIN CERTIFICATE-----
->
-> MIIBnDCCAUKgAwIBAgIRANV44hj14S7EMgYtFwMOx+YwCgYIKoZIzj0EAwIwLDEQ
->
-> MA4GA1UEChMHSE9MQ0EwMTEYMBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMB4XDTI2
->
-> MDEwNTAzNTcxMFoXDTM2MDEwMzAzNTcxMFowLDEQMA4GA1UEChMHSE9MQ0EwMTEY
->
-> MBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
->
-> QgAEhZyWmGjWm5TGlOgipIH1pd+ZnGqCt92BdTTF8hv4F6VDod5a4HsVXNp3+aE6
->
-> SFXjt7TQrUEllguFNM7bPVk7FaNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB
->
-> /wQIMAYBAf8CAQEwHQYDVR0OBBYEFKkMIYlOv6LVDXBOFxExMjNWmgDlMAoGCCqG
->
-> SM49BAMCA0gAMEUCIQCDUN6pBnRH/GWaaN3kPrTX5KniGsMwe/JDAwFEtUKgfQIg
->
-> X7RdmJcE9ZM1N4GBw7yl5EOaNrayuWnB9LBWmrN5O2s=
->
-> -----END CERTIFICATE-----
+      > -----BEGIN CERTIFICATE-----
+      >
+      > MIIBnDCCAUKgAwIBAgIRANV44hj14S7EMgYtFwMOx+YwCgYIKoZIzj0EAwIwLDEQ
+      >
+      > MA4GA1UEChMHSE9MQ0EwMTEYMBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMB4XDTI2
+      >
+      > MDEwNTAzNTcxMFoXDTM2MDEwMzAzNTcxMFowLDEQMA4GA1UEChMHSE9MQ0EwMTEY
+      >
+      > MBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
+      >
+      > QgAEhZyWmGjWm5TGlOgipIH1pd+ZnGqCt92BdTTF8hv4F6VDod5a4HsVXNp3+aE6
+      >
+      > SFXjt7TQrUEllguFNM7bPVk7FaNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB
+      >
+      > /wQIMAYBAf8CAQEwHQYDVR0OBBYEFKkMIYlOv6LVDXBOFxExMjNWmgDlMAoGCCqG
+      >
+      > SM49BAMCA0gAMEUCIQCDUN6pBnRH/GWaaN3kPrTX5KniGsMwe/JDAwFEtUKgfQIg
+      >
+      > X7RdmJcE9ZM1N4GBw7yl5EOaNrayuWnB9LBWmrN5O2s=
+      >
+      > -----END CERTIFICATE-----
 
 2.  We can now navigate to our **Security** page in HPE iLO7.
 
@@ -1342,47 +1159,13 @@ Certificate](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_
     Step 1. For other values in the form, see table below. Then click
     **Configure**.
 
-<table style="width:53%;">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 27%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Server URL:</strong></th>
-<th><blockquote>
-<p>See text in step 6</p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Country (C)</strong></td>
-<td><blockquote>
-<p>US</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><strong>State (ST)</strong></td>
-<td><blockquote>
-<p>TX</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><strong>City or Locality (L)</strong></td>
-<td><blockquote>
-<p>Houston</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><strong>Organization Name (O)</strong></td>
-<td><blockquote>
-<p>HPE</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
+      | **Server URL:** | See text in step 6 |
+      |---|---|
+      | **Country (C)** | US |
+      | **State (ST)** | TX |
+      | **City or Locality (L)** | Houston |
+      | **Organization Name (O)** | HPE |
+      
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image104.png){: .bordered-image-thin style="width:5.93385in;height:5.95885in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image104.png){: data-lightbox="gallery"}
 
 7.  You should see that the status of the certificate operation is “**In
@@ -1444,13 +1227,12 @@ Certificate](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image114.png){: .bordered-image-thin style="width:3.90631in;height:4.42977in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image114.png){: data-lightbox="gallery"}
 >
-> **Note**: This process can also be automated using PowerShell with
-> this
+> **Note**: This process can also be automated using PowerShell with this
 > [script](https://github.com/jullienl/HPE-Synergy-OneView-demos/blob/master/Powershell/iLO/Enable%20iLO%20NDES%20automatic%20certificate%20enrollment.ps1).\
-> This concludes this section of the lab.
 
-<span id="_Toc220925652" class="anchor"></span>HPE Compute Ops
-Management Secure Gateway
+This concludes this section of the lab.
+
+<span id="_Toc220925652" class="anchor"></span>HPE Compute Ops Management Secure Gateway
 
 The HPE Compute Ops Management Secure Gateway is an on-premises virtual
 appliance that optimizes secure connectivity between HPE infrastructure
@@ -1480,7 +1262,7 @@ management, traffic efficiency, and operational control:
   capabilities for compliance requirements, troubleshooting, or security
   incidents.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image115.png){: .bordered-image-thin style="width:5.21141in;height:2.88293in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image115.png){: data-lightbox="gallery"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image115.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image115.png){:class="img-700"}{: data-lightbox="gallery"}
 
 For more details on the Secure Gateway, including deployment,
 configuration, and troubleshooting, refer to the official [HPE Compute
@@ -1552,7 +1334,7 @@ function as the Secure Gateway for Compute Ops Management.
 14. One last check and then hit **Finish** to complete the deployment.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image125.png){: .bordered-image-thin style="width:5.63265in;height:1.91065in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image125.png){: data-lightbox="gallery"}
->
+
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image126.png){: .bordered-image-thin style="width:5.61889in;height:2.29978in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image126.png){: data-lightbox="gallery"}
 
 15. You can now navigate back to **Inventory Page** where you will see
@@ -1594,8 +1376,7 @@ connect it to HPE Compute Ops Management.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image132.png){: .bordered-image-thin style="width:4.57684in;height:1.97599in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image132.png){: data-lightbox="gallery"}
 
-**Note:** For navigating through the TUI, you will need to use the
-**TAB** and **Enter** keys.
+      > **Note:** For navigating through the TUI, you will need to use the **TAB** and **Enter** keys.
 
 4.  For the next two screens we will need to Accept the T&C’s. Click
     **Agree** both times.
@@ -1606,327 +1387,58 @@ connect it to HPE Compute Ops Management.
 6.  Click **Next** on **Step 1.**
 
 7.  Enter the fully qualified domain name of your Secure Gateway using
-    the table below.\
-    \
-          [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin style="width:6.08402in;height:0.84569in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}
+    the table below.
+    
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){:class="img-700"}{: data-lightbox="gallery"}
 
-<table style="width:72%;">
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 35%" />
-<col style="width: 19%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: center;"><strong>Team Number</strong></th>
-<th style="text-align: center;"><blockquote>
-<p><strong>Full qualified domain name</strong></p>
-</blockquote></th>
-<th style="text-align: center;"><blockquote>
-<p><strong>IP address</strong></p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-01</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team01-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.51</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-02</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team02-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.52</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-03</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team03-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.53</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-04</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team04-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.54</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-05</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team05-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.55</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-06</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team06-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.56</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-07</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team07-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.57</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-08</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team08-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.58</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-09</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team09-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.59</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-10</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team10-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.60</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-11</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team11-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.61</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-12</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team12-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.62</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-13</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team13-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.63</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-14</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team14-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.64</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-15</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team15-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.65</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-16</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team16-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.66</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-17</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team17-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.67</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-18</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team18-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.68</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-19</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team19-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.69</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-20</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team20-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.70</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-21</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team21-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.71</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-22</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team22-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.72</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-23</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team23-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.73</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-24</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team24-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.74</p>
-</blockquote></td>
-</tr>
-<tr>
-<td style="text-align: center;"><blockquote>
-<p>Team-25</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>team25-sgw.hol.enablement.local</p>
-</blockquote></td>
-<td style="text-align: center;"><blockquote>
-<p>10.18.20.75</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
 
-8.  
+      | Team Number | Full qualified domain name | IP address |
+      |---|---|---|
+      | Team-01 | team01-sgw.hol.enablement.local | 10.18.20.51 |
+      | Team-02 | team02-sgw.hol.enablement.local | 10.18.20.52 |
+      | Team-03 | team03-sgw.hol.enablement.local | 10.18.20.53 |
+      | Team-04 | team04-sgw.hol.enablement.local | 10.18.20.54 |
+      | Team-05 | team05-sgw.hol.enablement.local | 10.18.20.55 |
+      | Team-06 | team06-sgw.hol.enablement.local | 10.18.20.56 |
+      | Team-07 | team07-sgw.hol.enablement.local | 10.18.20.57 |
+      | Team-08 | team08-sgw.hol.enablement.local | 10.18.20.58 |
+      | Team-09 | team09-sgw.hol.enablement.local | 10.18.20.59 |
+      | Team-10 | team10-sgw.hol.enablement.local | 10.18.20.60 |
+      | Team-11 | team11-sgw.hol.enablement.local | 10.18.20.61 |
+      | Team-12 | team12-sgw.hol.enablement.local | 10.18.20.62 |
+      | Team-13 | team13-sgw.hol.enablement.local | 10.18.20.63 |
+      | Team-14 | team14-sgw.hol.enablement.local | 10.18.20.64 |
+      | Team-15 | team15-sgw.hol.enablement.local | 10.18.20.65 |
+      | Team-16 | team16-sgw.hol.enablement.local | 10.18.20.66 |
+      | Team-17 | team17-sgw.hol.enablement.local | 10.18.20.67 |
+      | Team-18 | team18-sgw.hol.enablement.local | 10.18.20.68 |
+      | Team-19 | team19-sgw.hol.enablement.local | 10.18.20.69 |
+      | Team-20 | team20-sgw.hol.enablement.local | 10.18.20.70 |
+      | Team-21 | team21-sgw.hol.enablement.local | 10.18.20.71 |
+      | Team-22 | team22-sgw.hol.enablement.local | 10.18.20.72 |
+      | Team-23 | team23-sgw.hol.enablement.local | 10.18.20.73 |
+      | Team-24 | team24-sgw.hol.enablement.local | 10.18.20.74 |
+      | Team-25 | team25-sgw.hol.enablement.local | 10.18.20.75 |
 
-9.  Tab to **IP Address Source** and then to **Manual.** Use the
+8.  Tab to **IP Address Source** and then to **Manual.** Use the
     spacebar to place a “**X**” in Manual.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin style="width:6.08402in;height:1.5501in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}{:class="img-700"}
 
 10. For the IP address, use the table above to select your corresponding
     IP Address.
 
 11. For the rest of the values use the table below.
 
-| **Prefix length** | 22           |
-|-------------------|--------------|
-| **Gateway**       | 10.18.20.1   |
-| **Primary DNS**   | 10.18.20.111 |
-| **Secondary DNS** | 10.18.20.112 |
+      | **Prefix length** | 22           |
+      |-------------------|--------------|
+      | **Gateway**       | 10.18.20.1   |
+      | **Primary DNS**   | 10.18.20.111 |
+      | **Secondary DNS** | 10.18.20.112 |
 
 12. Once all values are entered correctly, select **Next** to proceed.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin style="width:5.16593in;height:3.45442in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}{:class="img-700"}
 
 13. Leave the default options for **Time and Web Proxy** configuration
     for step 3 of 5. Tab to **Next** and press **\<Enter\>** on your
@@ -1934,7 +1446,7 @@ connect it to HPE Compute Ops Management.
 
 14. For Step 4 of 5, continue below.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image134.png){: .bordered-image-thin style="width:5.16161in;height:2.37886in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image134.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image134.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image134.png){: data-lightbox="gallery"}{:class="img-700"}
 
 15. Now return to your **Web Browser** that’s connected to **HPE Compute
     Ops Management.**
@@ -1981,7 +1493,6 @@ connect it to HPE Compute Ops Management.
 
 This concludes this section of the lab.
 
-25. 
 
 # Connecting our HPE iLO7 to COM via the Secure Gateway
 
@@ -2112,7 +1623,7 @@ linking it to the Secure Gateway and apply this to our HPE iLO7.
 
 This completes this HOL experience.
 
-<span id="_Toc220925656" class="anchor"></span>Summary
+# Summary
 
 In this lab, we explored the robust capabilities of HPE's integrated
 Lights-Out (HPE iLO7) management tools, specifically HPE iLO7, within
@@ -2134,23 +1645,21 @@ remote management. With HPE ProLiant Compute, HPE empowers IT
 administrators with both the flexibility and security needed to maintain
 full control of their hardware, no matter where it’s located.
 
-<span id="_Toc220925657" class="anchor"></span>Want more?
+## Want more?
 
-Back home, you can head to the HPE Demonstration Portal and request a
-time slot\
-(<https://hpedemoportal.ext.hpe.com/>) to demonstrate these products
+Back home, you can head to the [HPE Demonstration Portal](https://hpedemoportal.ext.hpe.com) and request a time slot to demonstrate these products
 
-For COM Interest, request a 90-day evaluation\
-()
+For COM Interest, request a 90-day evaluation
 
 Pull out your phone and view HPE GreenLake and HPE Compute Ops
 Management, to move to the next step in a wholistic IT system management
-strategy.\
-\
-**Login**: com.demouser@gmail.com\
-**Password**: TechPr02026!\
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image160.png){: .bordered-image-thin style="width:1.50302in;height:1.51729in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image160.png){: data-lightbox="gallery"}\
-\
-\
-**LEARN MORE AT\**
-![](/assets/images/HOLs/Proliant-Security/image162.jpeg)<u>https://[hpe.com/us/en/compute/management-software.html](https://www.hpe.com/us/en/compute/management-software.html?jumpid=in_learnmore)</u>
+strategy.
+
+**Login**: com.demouser@gmail.com   
+**Password**: Refer to login sheet
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image160.png){: .bordered-image-thin style="width:1.50302in;height:1.51729in"}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image160.png){: data-lightbox="gallery"}\
+
+
+## Learn more at
+[hpe.com/us/en/compute/management-software.html](https://www.hpe.com/us/en/compute/management-software.html?jumpid=in_learnmore)
