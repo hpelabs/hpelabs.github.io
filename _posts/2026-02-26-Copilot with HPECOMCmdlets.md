@@ -319,7 +319,7 @@ Get used to watching the bottom right of the prompt area, this will give
 you a clue whether Copilot is still thinking or if it's ready to accept
 the next prompt. When it's thinking it will show this icon:
 
-[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png){:class="img-900"}{: data-lightbox="gallery"}
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png){:class="img-300"}{: data-lightbox="gallery"}
 
 When it's ready for your next prompt, it will show this icon instead,
 that you can click to submit your prompt (pressing Enter has the same
