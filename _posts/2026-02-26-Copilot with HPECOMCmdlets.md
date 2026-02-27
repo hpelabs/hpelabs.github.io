@@ -2,15 +2,6 @@
 layout: post
 title: "Use GitHub Copilot to help with your infrastructure automation with COM"
 image: /assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/banner.jpg
-categories:
-    - Hands-on Lab
-tags:
-    - GitHub Copilot
-    - HPE GreenLake
-    - PowerShell
-    - Compute Ops Management
-    - Infrastructure Automation
-    - AI-Assisted Development
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Experience the power of AI and get code written for you by GitHub Copilot, providing just plain English prompts, using a PowerShell library for Compute Ops Management.
 ---
