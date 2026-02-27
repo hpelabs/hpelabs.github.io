@@ -126,6 +126,7 @@ You can also use **VS Code Source Control**:
 1. Open the **Source Control** panel (`Ctrl + Shift + G`).
 2. Click the **… → Pull** (or **Sync Changes** if you have local commits).
 
+    [![]( {{ site.baseurl }}/assets\images\instructions\image-2.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets\images\instructions\image-2.png){: data-lightbox="gallery"}
 
 
 ## 7. Edit the Website
