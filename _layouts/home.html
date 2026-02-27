@@ -22,7 +22,13 @@ layout: default
     {% include custom/category-filter.html %}
     
     {%- if page.list_title -%}
-      <h2 class="post-list-heading">{{ page.list_title }}</h2>
+      {%- assign visible_count = 0 -%}
+      {%- for post in posts -%}
+        {%- if page.show_hidden_posts or site.show_hidden_posts or post.hidden != true -%}
+          {%- assign visible_count = visible_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <h2 class="post-list-heading">{{ page.list_title }}: <span class="post-list-count">{{ visible_count }}</span></h2>
     {%- endif -%}
     <ul class="post-list">
       {%- for post in posts -%}
