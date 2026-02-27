@@ -30,4 +30,4 @@ RUN gem install bundler && bundle install
 EXPOSE 4000
 
 # Start the Jekyll development server with live reloading
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--watch"]
+CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--watch", "--livereload"]
