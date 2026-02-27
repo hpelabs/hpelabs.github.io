@@ -537,14 +537,18 @@ We want to assign our server to the location we created previously. This
 is needed to ensure that support cases are automatically created in the
 event of device failures.
 
+```text
 Assign the location we created previously to the device
+```
 
 **Tags** in HPE GreenLake are metadata labels---key-value pairs---that
 you can attach to cloud resources. Their main purpose is to help you
 categorize, organize, and manage resources based on criteria like
 purpose, owner, environment, cost center, or other custom attributes.
 
+```text
 Add tag "Country=AT, App=AI" to the device
+```
 
 > ⚠️ **Important note**   
 >
@@ -584,15 +588,13 @@ timeout of 10 minutes
 Next, create settings for internal storage
 
 ```text
-Create an internal storage setting with name RAID-1, RAID level 1, take
-the entire disk
+Create an internal storage setting with name RAID-1, RAID level 1, take the entire disk
 ```
 
 Create firmware settings
 
 ``` text
-Create firmware settings with the latest firmware bundles for Gen10 and
-Gen11
+Create firmware settings with the latest firmware bundles for Gen10 and Gen11
 ```
 
 ## Create a server group
@@ -617,15 +619,13 @@ Add our server to the group
 ## Collect servers inventory data
 
 ```text
-Run a job to collect our server inventory data, make sure the job is run
-asynchronously
+Run a job to collect our server inventory data, make sure the job is run asynchronously
 ```
 
 ## Set iLO auto firmware update
 
 ```text
-Set our server to automatically update iLO firmware to the newest
-available
+Set our server to automatically update iLO firmware to the newest available
 ```
 
 ## Update server firmware
@@ -638,8 +638,7 @@ all servers in your group. Do NOT try to run a firmware update
 immediately, keep the schedule to next Sunday.
 
 ```text
-Schedule a server firmware update through the group for next Sunday at
-5am
+Schedule a server firmware update through the group for next Sunday at 5am
 ```
 
 This concludes our code writing exercise. We are now ready to test our
