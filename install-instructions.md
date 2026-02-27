@@ -126,7 +126,7 @@ You can also use **VS Code Source Control**:
 1. Open the **Source Control** panel (`Ctrl + Shift + G`).
 2. Click the **… → Pull** (or **Sync Changes** if you have local commits).
 
-    [![]( {{ site.baseurl }}/assets\images\instructions\image-2.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets\images\instructions\image-2.png){: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/instructions/image-2.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-2.png){:class="img-600"}{: data-lightbox="gallery"}
 
 
 ## 7. Edit the Website
@@ -155,6 +155,8 @@ You can also use **VS Code Source Control**:
    * Click **Sync Changes** (or **… → Push**)
    * Authenticate with GitHub if prompted.
 
+    [![]( {{ site.baseurl }}/assets/images/instructions/image-3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-3.png){:class="img-600"}{: data-lightbox="gallery"}
+
 > **Recommended Workflow:** Always pull the latest changes before editing and commit/push frequently.
 
 
@@ -178,7 +180,7 @@ Where:
 - `<lab-title>`: lab title **without spaces** (use -  instead)
 - Example `\_posts\2026-02-16-PowerShell-COM-Zero-Touch.md`
 
-[![]( {{ site.baseurl }}/assets\images\instructions\image-1.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets\images\instructions\image-1.png){: data-lightbox="gallery"}
+[![]( {{ site.baseurl }}/assets/images/instructions/image-1.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-1.png){:class="img-100pct"}{: data-lightbox="gallery"}
 
 
 
@@ -212,13 +214,13 @@ The first section of every lab guide markdown file must contain metadata.
 This section is mandatory and controls how the website displays your lab.
 
 ```yaml
-
+---
 layout: post
 title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/HOLs/COM-ZeroTouch/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
-
+---
 ```
 
 ### Metadata Fields Explained
@@ -238,6 +240,7 @@ excerpt: Learn to automate HPE server lifecycle management using the HPE Compute
     - In the header of your lab guide
     - On the homepage preview card
 
+    [![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
 
 
 ## 🎨 Generating a Banner Image
