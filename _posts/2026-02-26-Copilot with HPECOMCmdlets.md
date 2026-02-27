@@ -64,8 +64,7 @@ This module is available in the PowerShell Gallery under the name
 [HPECOMCmdlets](https://www.powershellgallery.com/packages/HPECOMCmdlets),
 following the naming convention used by most HPE modules.
 
-![A screenshot of a computer Description automatically
-generated](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image3.png)
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image3.png){:class="img-900"}{: data-lightbox="gallery"}
 
 The PowerShell Gallery is a repository for sharing and distributing
 PowerShell modules and scripts. It's a community-driven platform that
@@ -155,9 +154,7 @@ setup for this lab.
 
 2.  Choose "VMware Horizon HTML Access"
 
-![A screenshot of a phone AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image4.jpg)
-
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image4.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image4.jpg){:class="img-300"}{: data-lightbox="gallery"}
 3.  Login with your provided credentials from the team assignment sheet
 
 4.  Click the "GitHub Copilot" icon
@@ -185,34 +182,30 @@ available for all major operating systems, Windows, MacOS and Linux.
 
 To start VS Code, click its icon in the taskbar
 
-![Une image contenant texte, capture d'écran, plante, plein air Le
-contenu généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image5.png)
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image5.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image5.png){:class="img-600"}{: data-lightbox="gallery"}
 
-This is what the window should look like:\
-![Une image contenant capture d'écran, texte, logiciel, Page web Le
-contenu généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image6.png)
+This is what the window should look like:
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image6.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image6.png){:class="img-900"}{: data-lightbox="gallery"}
 
 Most of your work will be to type or paste text in the Copilot prompt
-field at the bottom right\
-![Une image contenant texte, capture d'écran, Police, ligne Le contenu
-généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image7.png)
+field at the bottom right
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image7.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image7.png){:class="img-400"}{: data-lightbox="gallery"}
 
 But first, let's make sure VS Code is properly configured for Copilot.
-Click the user icon at the bottom of the Activity bar\
-![](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image8.png)
+Click the user icon at the bottom of the Activity bar
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image8.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image8.png){:class="img-100"}{: data-lightbox="gallery"}
 
 A menu should open with at the top bot-compute-labnn_hpeprod (GitHub)
 where nn is your team number. This is the user with which you are logged
 into GitHub, ensuring your rights to Copilot.
 
 You should also look at the bottom right, just below the area where you
-will enter Copilot prompts\
-![Une image contenant texte, Police, ligne, nombre Le contenu généré par
-l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png)
+will enter Copilot prompts
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){:class="img-400"}{: data-lightbox="gallery"}
 
 It shows the mode you will be using (Agent) and the LLM (Large Language
 Model) set to Claude Sonnet 4.5. An LLM, or Large Language Model, is a
@@ -259,16 +252,14 @@ as a parameter and prompt for a password
 After a few seconds, you should see your Copilot's response in plain
 English, explaining what it did. But the code itself is in a file that
 Copilot created. Click on the tab it created in the main editing window,
-as depicted below:\
-![Une image contenant capture d'écran, texte, logiciel, Page web Le
-contenu généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image10.png)
+as depicted below:
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image10.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image10.png){:class="img-900"}{: data-lightbox="gallery"}
 
 The ![](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image11.png) icon next to the file name means the file
-has pending changes from Copilot.\
-![Une image contenant texte, logiciel, Page web, Site web Le contenu
-généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image12.png)
+has pending changes from Copilot.
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image12.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image12.png){:class="img-900"}{: data-lightbox="gallery"}
 
 The generated code is on green background. Click on Keep (either at the
 top or at the bottom) to accept the changes. Later when Copilot wants to
@@ -276,8 +267,9 @@ make multiple changes in one strike, the Keep/Undo at the top relates to
 the particular change where it is displayed, and the one at the bottom
 relates to all the changes (that's why here it says 1 of 1 at the
 bottom, later you will see 1 of n). So, you will click Keep at the
-bottom to accept all changes.\
-![](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image13.png)
+bottom to accept all changes.
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image13.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image13.png){:class="img-100"}{: data-lightbox="gallery"}
 
 The green background will go away, as well as the icon next to the file
 name in the tab header. If you are ever unhappy with the changes
@@ -317,9 +309,7 @@ prompt area. Click the down arrow next to Allow and click the response
 highlighted in red to give Copilot the widest permission so it hopefully
 does not ask you again.
 
-![Une image contenant capture d'écran, texte, Police Le contenu généré
-par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14.png)
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14.png){:class="img-900"}{: data-lightbox="gallery"}
 
 This will take slightly longer as Copilot fetches information from the
 repository. You should see it changes the cmdlet to connect to Greenlake
@@ -327,15 +317,15 @@ to the proper one Connect-HPEGL. Click Keep to accept the changes.
 
 Get used to watching the bottom right of the prompt area, this will give
 you a clue whether Copilot is still thinking or if it's ready to accept
-the next prompt. When it's thinking it will show this icon:\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png)
+the next prompt. When it's thinking it will show this icon:
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image15.png){:class="img-300"}{: data-lightbox="gallery"}
 
 When it's ready for your next prompt, it will show this icon instead,
 that you can click to submit your prompt (pressing Enter has the same
-effect)\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16.png)
+effect)
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16.png){:class="img-300"}{: data-lightbox="gallery"}
 
 Copilot has added a Workspace parameter (which is indeed common when
 using this library) but we don't want that because we are going to
@@ -347,9 +337,10 @@ and create one later
 ```
 
 Code removed in on [red background]{.mark}, code added is on [green
-background]{.mark}. As always, click Keep to accept the changes.![A
-screen shot of a computer screen AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image17.jpg)
+background]{.mark}. As always, click Keep to accept the changes.
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image17.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image17.jpg){:class="img-600"}{: data-lightbox="gallery"}
+
 
 # Create a workspace
 
@@ -471,30 +462,25 @@ We are now ready to add a server to our COM workspace. We will use a
 method that would work just as well if we had dozens or even hundreds of
 servers to add, even though in this lab you will only add one. We should
 prepare a file with the details of the server(s) we want to add. In VS
-Code menu click File -\> New File\
-![Une image contenant texte, Police, nombre, ligne Le contenu généré par
-l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image18.png)
+Code menu click File -\> New File
 
-Type the file name ilos.csv and Enter\
-![Une image contenant texte, Police, capture d'écran, logiciel Le
-contenu généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image19.png)
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image18.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image18.png){:class="img-300"}{: data-lightbox="gallery"}
+
+Type the file name ilos.csv and Enter
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image19.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image19.png){:class="img-600"}{: data-lightbox="gallery"}
 
 A standard Windows dialog will appear to choose the location where you
 want to save the file. It should be in folder HOL09-Tnn \>
 GitHubCopilotLab. Click Create File.
 
-![Une image contenant texte, logiciel, Icône d'ordinateur, Page web Le
-contenu généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png)
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png){:class="img-900"}{: data-lightbox="gallery"}
 
 Decline VS Code's suggestion to install an extension to handle CSV files
 (at the bottom right of the screen), we don't really need it for the
-simple work we have to do\
-![Une image contenant texte, capture d'écran, Police, ligne Le contenu
-généré par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21.png)
+simple work we have to do
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image521.png){:class="img-400"}{: data-lightbox="gallery"}
 
 Copy the following data into the ilos.csv file and replace the
 placeholders in \<red\> with your team\'s information from the login
@@ -678,10 +664,10 @@ coding skills by running the script we created.
 
 If you didn't get it previously, you are likely at this step to get a
 prompt asking you for permission to fetch contents from The GitHub
-repository:\
-![Une image contenant capture d'écran, texte, Police Le contenu généré
-par l'IA peut être
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14.png)\
+repository:
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14.png){:class="img-900"}{: data-lightbox="gallery"}
+
 Click the down arrow next to Allow and click the response highlighted in
 red in the screenshot to give Copilot the widest permission.
 
@@ -691,9 +677,9 @@ appropriate data. It should even create a CORRECTIONS_NEEDED.md file
 which lists all the corrections it made.
 
 Go back to our PowerShell script tab. To execute our script, go to VS
-Code menu Run, and pick Run Without Debugging\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image22.png)
+Code menu Run, and pick Run Without Debugging
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image22.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image22.png){:class="img-300"}{: data-lightbox="gallery"}
 
 Watch the PowerShell terminal at the bottom of the VS Code window. It
 should prompt you for a username, type the email address for the
@@ -710,30 +696,30 @@ what it is doing. In parallel, you can use the Graphical User Interface
 <https://common.cloud.hpe.com/> and logon with the same credentials you
 used in the script. You should see a screen showing a list of workspaces
 and you should click Launch next to the workspace that was just
-created:\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image23.png)
+created:
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image23.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image23.png){:class="img-400"}{: data-lightbox="gallery"}
 
 If you do not see a workspace with a name following the template used in
 this lab, it would indicate that the workspace creation did not work. In
 this case you should inspect the terminal window in VS code and look for
 any errors.
 
-Once you are in the lab's workspace, launch the COM service:\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image24.png)
+Once you are in the lab's workspace, launch the COM service:
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image25.png)
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image24.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image24.png){:class="img-900"}{: data-lightbox="gallery"}
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image26.png)\
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image25.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image25.png){:class="img-600"}{: data-lightbox="gallery"}
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image26.png){:class="img-900"}{: data-lightbox="gallery"}
+
 If you don't see it, either the script didn't reach the step where it
 provisions the service yet, or it encountered an error.
 
-When you are in COM, go to Servers and see if your server is there\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image27.png)\
+When you are in COM, go to Servers and see if your server is there
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image27.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image27.png){:class="img-900"}{: data-lightbox="gallery"}
+
 Even after the script has finished without errors, it can take several
 minutes before the server shows State Connected in COM as in the
 screenshot above. You can also go to the iLO: make a new browser tab and
@@ -741,14 +727,14 @@ connect to <https://10.18.26.xxx/> taking the proper IP address from
 your login sheet. Login with Administrator and the password provided on
 your login sheet. Click the HPE Compute Ops Management tile on the
 dashboard. Do NOT click the Launch HPE Greenlake button as you already
-have a tab connected to Greenlake.\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image28.png)
+have a tab connected to Greenlake.
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image28.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image28.png){:class="img-900"}{: data-lightbox="gallery"}
 
 In the page that opens you can see the connection status and potentially
-the different steps it goes through before reaching Connected\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image29.png)
+the different steps it goes through before reaching Connected
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image29.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image29.png){:class="img-600"}{: data-lightbox="gallery"}
 
 In COM, go to Manage then Settings to explore the Groups and Settings
 you have created with the script. In particular on the Settings page you
@@ -758,9 +744,9 @@ internal storage and firmware. You may note that firmware and internal
 storage are User defined, while BIOS is API defined. This is because it
 is currently not possible to create BIOS settings via the GUI. You must
 use the API (which is what the script does) to create that type of
-settings.\
-![A screenshot of a computer AI-generated content may be
-incorrect.](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image30.png)
+settings.
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image30.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image30.png){:class="img-900"}{: data-lightbox="gallery"}
 
 You should also examine the terminal output in the VS Code window where
 the script ran to look for any errors. If there are any, the next step
