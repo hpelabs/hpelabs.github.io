@@ -18,6 +18,7 @@ HPE ProLiant Gen12 servers are designed with a security‑first approach and dee
 - Deploy and use the **COM Secure Gateway**. 
 
 
+
 # HPE ProLiant Security Experience
 
 HPE is accelerating time to value with our robust portfolio of IT
