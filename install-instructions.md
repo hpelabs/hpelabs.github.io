@@ -63,13 +63,15 @@ After restarting:
     docker run --rm -it -p 4000:4000 -p 35729:35729 -v "${PWD}:/srv/jekyll" myjekyll:latest
     ```
 
+    [![]( {{ site.baseurl }}/assets/images/instructions/image-5.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-5.png){:class="img-800"}{: data-lightbox="gallery"}
+
     > **Tip:** Running Docker in the VS Code terminal keeps your workflow in a single environment and allows you to see logs and errors immediately.
 
 
 
 ## 4. Access the Website Locally
 
-Once the Docker container is running, open your browser and go to http://localhost:4000
+Once the Docker container is running, open your browser and go to [http://localhost:4000](http://localhost:4000)
 
 You can now browse a live copy of the website locally.
 
@@ -97,9 +99,9 @@ git config --global user.name "<github_user>"
 git config --global user.email "<github_email>"
 ```
 
-### Push Your First Changes
+### Run a first Push to force the authentication
 
-After configuring Git, you can push your changes:
+After configuring Git, you can run a git push:
 
 ```bash
 git push
@@ -131,11 +133,10 @@ You can also use **VS Code Source Control**:
 
 ## 7. Edit the Website
 
-* Open the folder where the website was cloned in VS Code.
-* Open a terminal in VS Code (`View → Terminal`) — Docker should already be running.
-* Edit lab guides as needed.
+* Open the markdown file of your lab guide, or create a new one using an existing guide as a template.
+* Make the necessary edits to update or add your content.
 
-> **Tip:** Each time you press **CTRL + S**, the website will automatically refresh in your browser.
+> **Tip:** Each time you press **CTRL + S** (or **File** > **Save**), the website will automatically refresh in your browser.
 
 
 
@@ -146,18 +147,23 @@ You can also use **VS Code Source Control**:
 
    * Click the **+** icon next to individual files, or
    * Click **+ (Stage All Changes)** at the top.
-3. **Commit Your Changes**
+
+3. **Provide a Commit Message**
 
    * Enter a meaningful commit message (e.g., "Updated COM Zero-Touch lab guide screenshots")
-   * Click **Commit**.
-4. **Push to GitHub**
 
-   * Click **Sync Changes** (or **… → Push**)
+4. **Commit and Push Your Changes to GitHub**
+
+   * Click **Commit & Push**.
    * Authenticate with GitHub if prompted.
 
     [![]( {{ site.baseurl }}/assets/images/instructions/image-3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-3.png){:class="img-600"}{: data-lightbox="gallery"}
 
-> **Recommended Workflow:** Always pull the latest changes before editing and commit/push frequently.
+    > **⚠️ Remember**
+    >
+    >{: .small-space}
+    >
+    > Always pull the latest changes before editing and commit/push frequently.
 
 
 
