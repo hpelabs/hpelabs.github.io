@@ -10,7 +10,7 @@ room: 1 # Set to 1 or 2
 
 Three real world AI inferencing solutions powered by HPE ProLiant Compute.
 
-## Accessing the Lab
+## Accessing the Lab Enviornment
 
  Connect to your designated Ubuntu VM using Omnissa Horizon:
 
@@ -40,9 +40,12 @@ Three real world AI inferencing solutions powered by HPE ProLiant Compute.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img04.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img04.png){:class="img-400"}{: data-lightbox="gallery"}
 
-This concludes this section of the lab. Please proceed to the next section.
+&nbsp;
 
-## Vision AI with HPE ProLiant Compute – Facility safety and security
+This concludes Accessing the Lab Enviornment. Please proceed to Section 1.
+
+
+## Section 1: Vision AI with HPE ProLiant Compute – Facility safety and security
 
 Computer vision analyzes video footage from security cameras to detect and track objects, people, and behaviors for enhanced operations, security, and smart space experiences. It can be used for the following use cases:
 
@@ -147,7 +150,7 @@ In this lab we will be using Vaidio’s Vision AI Platform to experience Compute
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img25.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img25.jpg){:class="img-600"}{: data-lightbox="gallery"}
 
-    > 💡 **Note**   
+    > 💡 **Tip**   
     >
     >{: .small-space}
     > 
@@ -156,9 +159,12 @@ In this lab we will be using Vaidio’s Vision AI Platform to experience Compute
 
 20. Return to your browser session, you should be able to find some positive results. Feel free to search for other objects. Try to see how many “yellow” buses have driven through that intersection in the timeframe you have set the search for?
 
-This concludes this section of the lab. Please proceed to the next section.
+&nbsp;
 
-## Text to Image Generation with HPE ProLiant Compute
+This concludes Section 1. Please proceed to the next section.
+
+
+## Section 2: Text to Image Generation with HPE ProLiant Compute
 
 For generative AI workloads such as product design, 3D animation, and image or video generation, the HPE ProLiant DL380a Gen12 server delivers the rendering and design performance required by demanding visual applications across the media and entertainment, healthcare and manufacturing industries.
 
@@ -172,7 +178,7 @@ As an example of Generative AI Inferencing, we will install and use SwarmUI in o
 
 In this lab we will use SwarmUI to experience Generative AI in a live environment.
 
-### Some pre-work to prepare our workstation
+### Task 1: Some pre-work to prepare our workstation
 
 Before we start using our environment, some preliminary work needs to be done to make our installation process work correctly.
 
@@ -180,11 +186,19 @@ Each of these environments needs additional services and applications installed,
 
 We are going to do that pre-work first as it will allow the labs to flow more smoothly.
 
+
+    > 💡 **Tip**   
+    >
+    >{: .small-space}
+    > 
+    > In this lab, you will need to copy and paste multiple commands into the terminal. Use cntrl+shift+v to paste into the terminal.
+
+
 1. From the Linux desktop, click on the Terminal icon.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img26.png){:class="img-600"}{: data-lightbox="gallery"}
 
-2. From the $ command prompt, type the following command to initialize the Docker install and NVIDIA Container toolkit:
+2. From the $ command prompt, copy and paste the following command to initialize the Docker install and NVIDIA Container toolkit:
 
     ```bash
     sudo /etc/init.d/docker_install.sh
@@ -222,9 +236,12 @@ We are going to do that pre-work first as it will allow the labs to flow more sm
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img33.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img33.png){:class="img-900"}{: data-lightbox="gallery"}
 
-This concludes this section of the lab. Please proceed to the next section.
+&nbsp;
 
-### Using SwarmUI for text-to-image generation
+This concludes Task 1. Please proceed to the next task.
+
+
+### Task 2: Using SwarmUI for text-to-image generation (with GPU)
 
 We have preinstalled and setup SwarmUI for this experience.
 
@@ -291,7 +308,12 @@ Your environment has been set up in such a way that your VM has been configured 
 
 13. SwarmUI places significant demands on the GPU, leveraging its parallel processing capabilities to perform the complex calculations required for image generation. Monitoring GPU performance is crucial for understanding how efficiently the model runs and for identifying potential bottlenecks. By keeping an eye on GPU utilization, memory usage, temperature, and power consumption, you can ensure that your system is running optimally and take steps to manage and mitigate any issues that arise.
 
-### Optional Task
+&nbsp;
+
+This concludes Task 2. Please proceed to the next task.
+
+
+### Task 3: (*Optional*) Using SwarmUI for text-to-image generation (without GPU)
 
  We can really showcase the benefit of adding a GPU to help accelerate your AI Workload by rerunning the above steps but only leveraging this Systems CPU resources. No GPU!
 
@@ -310,15 +332,18 @@ Your environment has been set up in such a way that your VM has been configured 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img44.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img44.png){:class="img-600"}{: data-lightbox="gallery"}
 
 4. Now, go back to the Generate tab. Have a try at re-running some of your previous prompts to see how much longer they take to Generate an image. How long did it take? Yep, you guessed it! Over 45mins for a single image on CPU only.
-Feel free to click the Red X next to the generate button when you get tired of waiting as this is the last step in the lab.
+Feel free to click the Red X next to the generate button when you get tired of waiting as this is the last step in the section.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img45.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img45.png){:class="img-600"}{: data-lightbox="gallery"}
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img46.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img46.png){:class="img-200"}{: data-lightbox="gallery"}
 
-This concludes this section of the lab. Please proceed to the next section.
+&nbsp;
 
-## Create your own RAG enabled AI Assistant
+This concludes Section 2. Please proceed to the next section.
+
+
+## Section 3: Create your own RAG enabled AI Assistant
 
 Natural Language Processing AI with Retrieval-Augmented Generation (RAG) – Modifying responses with your own information.
 
@@ -340,7 +365,7 @@ RAG extends LLMs to specific domains or an organization's internal knowledge bas
 
 In this lab, we will install and use Open WebUI. Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform designed to operate entirely offline. It supports various LLM runners like Ollama, vLLM and OpenAI-compatible APIs, with built-in inference engine for RAG, making it a powerful AI deployment solution.
 
-### Installing Open WebUI
+### Task 1: Installing Open WebUI
 
 Our first set of tasks is to download and install Open WebUI bundled with Ollama for Docker. This installation method uses a single container image that bundles Open WebUI with Ollama, allowing for a streamlined setup via a single command. To get started, follow the steps below.
 
@@ -420,9 +445,12 @@ Our first set of tasks is to download and install Open WebUI bundled with Ollama
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img56.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img56.png){:class="img-600"}{: data-lightbox="gallery"}
 
-This concludes the section of the lab. Please proceed to the next section.
+&nbsp;
 
-### Using Open WebUI
+This concludes Task 1. Please proceed to the next task.
+
+
+### Task 2: Using Open WebUI
 
 1. Now that you have downloaded a model, click on the New Chat icon in the left navigation.
 
@@ -440,9 +468,12 @@ This concludes the section of the lab. Please proceed to the next section.
 
 3. The response may vary but will almost always be incorrect. In the next section of the lab, we will work to increase the LLM’s accuracy when asked questions about the HPE DL380a Gen12 using RAG.
 
-This concludes the section of the lab. Please proceed to the next section.
+&nbsp;
 
-## Retrieval-Augmented Generation (RAG) Modifying responses with your own information
+This concludes Task 2. Please proceed to the next task.
+
+
+### Task 3: Retrieval-Augmented Generation (RAG) Modifying responses with your own information
 
 Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an authoritative knowledge base outside of its training data sources before generating a response.
 
@@ -653,7 +684,10 @@ In the following steps of this lab, you will deploy an AI Assistant with RAG cap
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img95.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img95.png){:class="img-600"}{: data-lightbox="gallery"}
 
-This concludes the section of the lab.
+&nbsp;
+
+This concludes Section 3. Please proceed to the Summary.
+
 
 ## Summary
 
@@ -662,5 +696,7 @@ For this HOL you experienced three main AI technology areas all running locally 
 You experienced Vision AI using a solution called Vaidio running on the HPE DL320 Gen11. For text-to-image generation we ran SwarmUI. For natural language processing we used Open WebUI to create a RAG enabled AI assistant.
 
 The servers used for the last two exercises were 2x ProLiant DL380 Gen12 with 2x NVIDIA L40s GPUs each.
+
+&nbsp;
 
 This concludes the hands-on lab experience.
