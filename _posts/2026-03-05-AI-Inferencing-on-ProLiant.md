@@ -44,7 +44,9 @@ Three real world AI inferencing solutions powered by HPE ProLiant Compute.
 
 This concludes Accessing the Lab Enviornment. Please proceed to Section 1.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ## Section 1: Vision AI with HPE ProLiant Compute – Facility safety and security
 
 Computer vision analyzes video footage from security cameras to detect and track objects, people, and behaviors for enhanced operations, security, and smart space experiences. It can be used for the following use cases:
@@ -163,7 +165,9 @@ In this lab we will be using Vaidio’s Vision AI Platform to experience Compute
 
 This concludes Section 1. Please proceed to the next section.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ## Section 2: Text to Image Generation with HPE ProLiant Compute
 
 For generative AI workloads such as product design, 3D animation, and image or video generation, the HPE ProLiant DL380a Gen12 server delivers the rendering and design performance required by demanding visual applications across the media and entertainment, healthcare and manufacturing industries.
@@ -187,18 +191,18 @@ Each of these environments needs additional services and applications installed,
 We are going to do that pre-work first as it will allow the labs to flow more smoothly.
 
 
-    > 💡 **Tip**   
-    >
-    >{: .small-space}
-    > 
-    > In this lab, you will need to copy and paste multiple commands into the terminal. Use cntrl+shift+v to paste into the terminal.
+> 💡 **Tip**   
+>
+>{: .small-space}
+> 
+> In this lab, you will need to copy and paste multiple commands into the terminal. Use `cntrl+shift+v` to paste into the terminal.
 
 
 1. From the Linux desktop, click on the Terminal icon.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img26.png){:class="img-600"}{: data-lightbox="gallery"}
 
-2. From the $ command prompt, copy and paste the following command to initialize the Docker install and NVIDIA Container toolkit:
+2. Copy and paste the following command into the terminal to initialize the Docker and NVIDIA Container toolkit installation. Lab support files will also be copied to the desktop.
 
     ```bash
     sudo /etc/init.d/docker_install.sh
@@ -212,11 +216,11 @@ We are going to do that pre-work first as it will allow the labs to flow more sm
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img29.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img29.png){:class="img-600"}{: data-lightbox="gallery"}
 
-4. After a few minutes, the lab support files will be copied to the Ubuntu desktop. These will be used in a later section of the hands-on-lab experience.
+4. After a few minutes, the lab support files will appear on the desktop. These will be used in a later section of the hands-on-lab experience.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img30.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img30.jpg){:class="img-100"}{: data-lightbox="gallery"}
 
-5. In Terminal, type the following command and press Enter.
+5. In terminal, copy and paste the following command and press Enter.
 
     ```bash
     cd SwarmUI
@@ -224,7 +228,7 @@ We are going to do that pre-work first as it will allow the labs to flow more sm
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img31.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img31.png){:class="img-600"}{: data-lightbox="gallery"}
 
-6. Then type the following command and press Enter to launch SwarmUI.
+6. Then run the following command and press Enter to launch SwarmUI.
 
     ```bash
     bash launch-linux.sh
@@ -240,7 +244,9 @@ We are going to do that pre-work first as it will allow the labs to flow more sm
 
 This concludes Task 1. Please proceed to the next task.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ### Task 2: Using SwarmUI for text-to-image generation (with GPU)
 
 We have preinstalled and setup SwarmUI for this experience.
@@ -261,7 +267,7 @@ Your environment has been set up in such a way that your VM has been configured 
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img36.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img36.png){:class="img-400"}{: data-lightbox="gallery"}
 
-4. In the prompt section, copy and paste one the following prompts and then press the Generate button to start the image generation process.
+4. In the prompt section, copy and paste one of the following prompts and then press the Generate button to start the image generation process.
 
     ```text
     A realistic landscape painting of a cabin in the mountains, wet on wet oil painting, landscape, mountain lake, by Bob Ross.
@@ -312,7 +318,9 @@ Your environment has been set up in such a way that your VM has been configured 
 
 This concludes Task 2. Please proceed to the next task.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ### Task 3: (*Optional*) Using SwarmUI for text-to-image generation (without GPU)
 
  We can really showcase the benefit of adding a GPU to help accelerate your AI Workload by rerunning the above steps but only leveraging this Systems CPU resources. No GPU!
@@ -342,7 +350,9 @@ Feel free to click the Red X next to the generate button when you get tired of w
 
 This concludes Section 2. Please proceed to the next section.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ## Section 3: Create your own RAG enabled AI Assistant
 
 Natural Language Processing AI with Retrieval-Augmented Generation (RAG) – Modifying responses with your own information.
@@ -369,7 +379,7 @@ In this lab, we will install and use Open WebUI. Open WebUI is an extensible, fe
 
 Our first set of tasks is to download and install Open WebUI bundled with Ollama for Docker. This installation method uses a single container image that bundles Open WebUI with Ollama, allowing for a streamlined setup via a single command. To get started, follow the steps below.
 
-1. From a new Terminal session, enter the following docker run command to start the Open WebUI installation script. (Make sure the command is pasted as a single line command!)
+1. From a new Terminal session, copy and paste the following docker run command to start the Open WebUI installation script.
 
     ```bash
     docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
@@ -449,7 +459,9 @@ Our first set of tasks is to download and install Open WebUI bundled with Ollama
 
 This concludes Task 1. Please proceed to the next task.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ### Task 2: Using Open WebUI
 
 1. Now that you have downloaded a model, click on the New Chat icon in the left navigation.
@@ -472,7 +484,9 @@ This concludes Task 1. Please proceed to the next task.
 
 This concludes Task 2. Please proceed to the next task.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ### Task 3: Retrieval-Augmented Generation (RAG) Modifying responses with your own information
 
 Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an authoritative knowledge base outside of its training data sources before generating a response.
@@ -688,7 +702,9 @@ In the following steps of this lab, you will deploy an AI Assistant with RAG cap
 
 This concludes Section 3. Please proceed to the Summary.
 
+&nbsp;
 
+[↑ Back to Top](#)
 ## Summary
 
 For this HOL you experienced three main AI technology areas all running locally on HPE ProLiant Compute.
