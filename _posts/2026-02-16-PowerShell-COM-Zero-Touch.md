@@ -87,52 +87,6 @@ These features collectively provide a comprehensive set of cmdlets to
 manage various aspects of your HPE GreenLake environment and any
 existing Compute Ops Management service instances.
 
-# Preparation for using the PowerShell library
-
-To use the HPE Compute Ops Management PowerShell Library, an HPE
-GreenLake account is required. The library supports two authentication
-methods:
-
-**HPE Account credentials---single-factor authentication (with or ithout MFA).**
-
-- Requires an HPE Account (username and password)
-
-- Direct authentication using HPE Account credentials
-
-**Single Sign-On (SSO) passwordless authentication**
-
-- Requires a properly configured Identity provider (IdP) such as Okta, PingIdentity, or Microsoft Entra ID.
-
-- User authentication is handled through an external Identity Provider using SAML 2.0.
-
-- For more details, see [SAML Single Sign-On (SSO) with passwordless authentication](https://github.com/hpelabs/HPE-COM-PowerShell-Library?tab=readme-ov-file#saml-single-sign-on-sso-with-passwordless-authentication).
-
-If you have an HPE GreenLake account or a workspace with properly
-configured SSO for passwordless access, **skip this section.**
-
-> ⚠️ **Important note**   
->
->{: .small-space}
-> 
-> If your user account uses an identity provider---whether supported (Okta, Microsoft Entra ID, PingIdentity) or unsupported---that does not use passwordless authentication methods (push notifications or TOTP), authentication with the `Connect-HPEGL` cmdlet will fail.
-
-> 💡 **Note**   
->
->{: .small-space}
-> 
-> Multi-factor authentication (MFA) was implemented with the release of version [1.0.12](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases/tag/v1.0.12) of the HPECOMCmdlets PowerShell Library. SAML Single Sign-On (SSO) support for the three main providers was introduced beginning with version [1.0.18](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases/tag/v1.0.18).
-
-1. To create your HPE account for this library, go the HPE GreenLake interface at <https://common.cloud.hpe.com> and click on **Sign up**:
-
-   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image4.png){:class="img-600"}{: data-lightbox="gallery"}
-   
-2. Provide all the required information, accept the terms and conditions
-and click on **Create Account**:
-
-   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image5.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image5.png){:class="img-600"}{: data-lightbox="gallery"}
-
-3. Once completed, you are ready to access the lab, then to install and use the library.
-
 # Connecting to the lab environment
 
 To access the HPE Compute BU Enablement Environment, we will use VMware Horizon. Follow these steps:
@@ -187,11 +141,17 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image13a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image13a.png){: data-lightbox="gallery"}
 
-    **💡 Tip: Using the Copy Button**  
-    
-    Throughout this lab, you'll see a **Copy** button in the midle-right corner of each code block. Click this button to instantly copy the command(s) to your clipboard, then use **CTRL**+**V** to paste them directly into the PowerShell terminal. This helps avoid typing errors and speeds up your workflow.
+    <br>
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png)]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png){: data-lightbox="gallery"}
+    > **💡 Tip: Using the Copy Button**  
+    >
+    >{: .small-space}
+    >
+    > Throughout this lab, each code block displays a **Copy** button in the midle-right corner. Click it to copy the commands to your clipboard, then press **Ctrl**+**V** to paste them into the PowerShell terminal. This eliminates typing errors and speeds up your workflow.
+    >
+    > [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png)]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png){: data-lightbox="gallery"}
+
+    <br>
 
 5. While the PowerShell console is opened, you can optionally launch a browser to access the HPE GreenLake website and view the results of the commands you will be executing. If your browser is not already open and connected to HPE GreenLake, open a browser and navigate to <https://common.cloud.hpe.com>.
 
@@ -236,10 +196,9 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image17.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image17.png){: data-lightbox="gallery"}
 
-    Version **1.0.22** of the module includes over 200 cmdlets.
+    Version **1.0.22** of the module includes over 230 cmdlets.
 
-- In PowerShell, cmdlets use a verb-noun naming convention (e.g., `Get-HPECOMServer` retrieves server data in HPE Compute Ops
-Management). Cmdlets start with **HPECOM** for Compute Ops Management or **HPEGL** for HPE GreenLake (e.g., `New-HPEGLUser`). The library supports both platforms due to their close integration.
+- In PowerShell, cmdlets follow a verb-noun naming convention. In this library, cmdlet names begin with **HPECOM** for Compute Ops Management (e.g., `Get-HPECOMServer`) or **HPEGL** for HPE GreenLake (e.g., `New-HPEGLUser`), reflecting the close integration between both platforms.
 
 - To list all cmdlets in the module related to server resources, use the following command:
 
@@ -287,17 +246,53 @@ example does.
 
 <p class="step-meta">(Task 3 of 12) ⏱️ ~15 min</p>
 
-After the module is installed, the next first step is to connect to HPE GreenLake using the `Connect-HPEGL` command.
+After the module is installed, the next step is to connect to HPE GreenLake using the `Connect-HPEGL` command.
 
-At this point, there are two authentication methods available:
+The library supports two authentication methods:
 
-- **Single or Multi-Factor Authentication** (MFA): Authenticate using your email and password, with optional MFA for added security.
+**1. HPE Account Credentials (Single or Multi-Factor Authentication)**
 
-- **SAML Single Sign-On (SSO):** SSO is exclusively supported with Okta, Entra ID, and PingID, providing efficient authentication aligned with your organization's SSO configuration. Please note that specific prerequisites must be met for this method, including the requirement for passwordless authentication methods such as push notifications or TOTP. For detailed guidance on configuring SSO and enabling   passwordless authentication, refer to [Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets](https://hpelabs.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/)
+- Authenticate using your HPE Account email and password
+- Optional multi-factor authentication (MFA) for enhanced security (requires [v1.0.12+](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases/tag/v1.0.12) )
+- Supports standard password-based authentication flows
 
-Select the below option according to your user authentication method:
 
-- **Using Single or Multi-Factor Authentication**:
+**2. SAML Single Sign-On (SSO) with Passwordless Authentication**
+
+- **Integrate with Your Organization's Identity Provider**: Seamlessly connect with Okta, PingIdentity, or Microsoft Entra ID (exclusively!) for enterprise-wide authentication alignment.
+
+- **Passwordless Authentication Methods**: Leverage push notifications or Time-based One-Time Password (TOTP) for secure, user-friendly access without traditional passwords.
+
+- **Streamlined SSO Configuration**: Align authentication with your organization's existing SSO setup for consistent, centralized identity management.
+
+- **Prerequisites** (requires [v1.0.18+](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases/tag/v1.0.18)):
+    - Passwordless authentication must be enabled on your identity provider (Okta, Microsoft Entra ID, or PingIdentity)—such as push notifications or TOTP. Without these, `Connect-HPEGL` with SSO will fail. For detailed guidance on configuring SSO and enabling passwordless authentication, refer to [Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets](https://hpelabs.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/)
+
+    - Unsupported identity providers require standard HPE account credentials instead of SSO.
+
+
+
+## Step 1 - Create Your HPE Account
+
+If you already have an HPE account or workspace with SSO properly configured for passwordless access, proceed directly to [Step 2 - Authenticate to HPE GreenLake](#step-2---authenticate-to-hpe-greenlake).
+
+1. To create your HPE account for this library, go to the HPE GreenLake interface at <https://common.cloud.hpe.com> and click on **Sign up**:
+
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image4.png){:class="img-600"}{: data-lightbox="gallery"}
+   
+2. Provide all the required information, accept the terms and conditions, and click on **Create Account**:
+
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image5.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image5.png){:class="img-600"}{: data-lightbox="gallery"}
+
+3. Once completed, you are ready to access the lab, then to install and use the library.
+
+
+
+## Step 2 - Authenticate to HPE GreenLake
+
+Select the authentication method that applies to you: follow the steps below for HPE account credentials (single or multi-factor), or skip to [Using SAML Single Sign-On (SSO) with Okta, PingID, or Entra ID](#--using-saml-single-sign-on-sso-with-okta-pingid-or-entra-id) if your organization uses an identity provider:
+
+### - Using Single or Multi-Factor Authentication with HPE account 
 
   1. Begin by creating a credential object to securely store your HPE account credentials (email and password):
 
@@ -335,9 +330,11 @@ Select the below option according to your user authentication method:
 
         Open the Google Authenticator app on your device to retrieve the token and enter it when prompted.
 
-- **Using SAML Single Sign-On (SSO) with Okta, PingID or Entra ID**:
+  4. You can skip the next section and go to [Step 3 - Verify your connection](#step-3---verify-your-connection)
 
-  - Start by creating an email object:
+### - Using SAML Single Sign-On (SSO) with Okta, PingID or Entra ID 
+
+  - Start by creating an email variable:
 
     ```powershell
     $MyEmail = "your_email@your_domain.com"
@@ -349,19 +346,30 @@ Select the below option according to your user authentication method:
     Connect-HPEGL -SSOEmail $MyEmail
     ```
 
-  Once initiated, the cmdlet will prompt you to approve a push notification sent by your IdP. Follow the on-screen authentication steps displayed in your terminal. Typically, you'll need to:
+  - Once initiated, the cmdlet will prompt you to approve a push notification sent by your IdP. Follow the on-screen authentication steps displayed in your terminal. Typically, you'll need to:
 
-  - Check your IdP-enabled device for a push notification or authentication request.
-  
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: data-lightbox="gallery"}
+    - Check your IdP-enabled device for a push notification or authentication request.
+    
+        [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: data-lightbox="gallery"}
 
-  - Approve the request (for example, tap the number or "Yes, it's me" in Okta or confirm in PingID/Entra ID).
-  
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){:class="img-300"}{: data-lightbox="gallery"}
+    - Approve the request (for example, tap the number or "Yes, it's me" in Okta or confirm in PingID/Entra ID).
+    
+        [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){:class="img-300"}{: data-lightbox="gallery"}
 
-  - Complete any additional steps required by your organization's security policies.
+    - Complete any additional steps required by your organization's security policies.
+
+## Step 3 - Verify your connection
 
 Once authentication is successful, a secure connection to HPE GreenLake will be established, allowing you to proceed with subsequent operations.
+
+- If you have no workspace tied to your HPE account, the `Connect-HPEGL` command will return a warning message indicating that you need to create your first workspace:
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image27.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image27.png){: data-lightbox="gallery"}
+
+- If you already have one or more workspaces available, the command will return a warning message indicating that you need to use a second command to connect to one of the workspaces:
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image28.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image28.png){: data-lightbox="gallery"}
+
 The `Connect-HPEGL` cmdlet is responsible for initiating and managing this connection. Upon establishment, it maintains a persistent session using the `$HPEGreenLakeSession` connection tracker variable, which supports all further module cmdlet activities. Furthermore, the cmdlet issues a temporary API client credential for both HPE GreenLake and any Compute Ops Management service instances provisioned within your workspace.
 
 > **💡 Note** 
@@ -370,21 +378,12 @@ The `Connect-HPEGL` cmdlet is responsible for initiating and managing this conne
 > 
 > You can use `Get-Help Connect-HPEGL -Full` to access the complete help documentation, technical details, and in-depth explanations for `Connect-HPEGL`.
 
-If you have no workspace tied to your HPE account, the `Connect-HPEGL` command will return a warning message indicating that you need to create your first workspace:
-
-[![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image27.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image27.png){: data-lightbox="gallery"}
-
-If you already have one or more workspaces available, the command will return a warning message indicating that you need to use a second command to connect to one of the workspaces:
-
-[![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image28.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image28.png){: data-lightbox="gallery"}
 
 > **💡 Note**   
 >
 >{: .small-space}
 > 
-> The command to directly connect to an existing and known workspace is:
->
->  `Connect-HPEGL -Credential $credentials -Workspace "My_workspace_name"`
+> The command to directly connect to an existing and known workspace is: `Connect-HPEGL -Credential $credentials -Workspace "workspace_name"`
 
 
 [↑ Back to Top](#)
@@ -418,47 +417,37 @@ If you already have one or more workspaces available, the command will return a 
     $WorkspaceName
     ```
 
-3. Build the command step by step using PowerShell's tab completion feature:
+3. Now build the full command using PowerShell's **tab completion** feature. Tab completion is a built-in PowerShell mechanism that, after typing a parameter name followed by a space, lets you press the **Tab** key to cycle through all valid values for that parameter — no need to memorize them.
 
-    a. Start typing the command with the workspace name:
-   
-    ```powershell
-    New-HPEGLWorkspace -Name $WorkspaceName -Type 
-    ```
-   
-   b. After typing `-Type`, press **SPACE** then press the **Tab** key repeatedly to cycle through available workspace types. Select **'Standard enterprise workspace'**.
-   
-   c. Continue by adding the country parameter:
-   
-    ```powershell
-    -Country 
-    ```
-      
-    Press **SPACE** then press the **Tab** key to see the list of supported countries, then select your country.
-   
-   d. Complete the command by adding the street address:
-   
-    ```powershell
-    -Street "Your street address"
-    ```
-   
-   e. Your complete command should look like this:
-   
-    ```powershell
-    New-HPEGLWorkspace -Name $WorkspaceName -Type 'Standard enterprise workspace' -Country Canada -Street "123 Main Street"
-    ```
+    - Start by typing the command with the `-Type` parameter followed by a space, then press **Tab** repeatedly to cycle through the available workspace types and select **'Standard enterprise workspace'**:
 
-    > **💡 Tip**   
-    >
-    >{: .small-space}
-    > 
-    > Press **SPACE** after a parameter name, then press **Tab** to activate PowerShell's auto-completion for parameter values. This shows you valid options and helps avoid typos.
+      ```powershell
+      New-HPEGLWorkspace -Name $WorkspaceName -Type 
+      ```
 
-    >  **📌 Note**   
-    >
-    >{: .small-space}
-    > 
-    > In the example above, only the `name`, `type`, `country`, and `street` parameters are included because they are required. However, you can also specify optional parameters like `city`, `state`, `email`, and others.
+    - Add the `-Country` parameter followed by a space, then press **Tab** to browse the list of supported countries and select yours. You can also type the first letter(s) of your country before pressing **Tab** to jump directly to matching entries — for example, type `I` to jump to countries starting with "I" such as *Iceland*, *India*, *Ireland*, etc.:
+
+      ```powershell
+      -Country 
+      ```
+
+    - Complete the command with the `-Street` parameter. You can enter any address — real or fictional — since the workspace will be automatically deleted when the lab is reset:
+
+      ```powershell
+      -Street "Your street address"
+      ```
+
+    - Your complete command should look like this:
+
+      ```powershell
+      New-HPEGLWorkspace -Name $WorkspaceName -Type 'Standard enterprise workspace' -Country Canada -Street "123 Main Street"
+      ```
+
+        >  **📌 Note**   
+        >
+        >{: .small-space}
+        > 
+        > In the example above, only the `name`, `type`, `country`, and `street` parameters are included because they are required. However, you can also specify optional parameters like `city`, `state`, `email`, and others.
 
 3. After executing this command, the workspace is created, and the command automatically disconnects the session. To connect to your new workspace, enter:
 
