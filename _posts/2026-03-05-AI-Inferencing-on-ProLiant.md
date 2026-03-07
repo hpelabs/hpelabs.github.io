@@ -10,7 +10,7 @@ room: 1 # Set to 1 or 2
 
 Three real world AI inferencing solutions powered by HPE ProLiant Compute.
 
-## Accessing the Lab Enviornment
+## Accessing the Lab Environment
 
  Connect to your designated Ubuntu VM using Omnissa Horizon:
 

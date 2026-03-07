@@ -63,7 +63,7 @@ authentication methods to suit your needs.
 
 - **Device Management**: Add devices individually or in bulk using CSV files, manage device subscriptions and auto-subscriptions, set device locations and connect devices to services.
 
-- **Server configuration Management**: Create and apply BIOS, storage, OS, and firmware settings. Manager group and apply configurations to groups of servers.
+- **Server Configuration Management**: Create and apply BIOS, storage, OS, and firmware settings. Manage group and apply configurations to groups of servers.
 
 - **Security and Compliance**: Manage iLO security settings and run inventory and compliance checks.
 
@@ -137,7 +137,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14.png){: data-lightbox="gallery"}
 
-4. I recommend you: **1️⃣** expand the window, **2️⃣** close the Copilot agent, and **3️⃣** increase the terminal size to improve your experience:
+5. I recommend you: **1️⃣** expand the window, **2️⃣** close the Copilot agent, and **3️⃣** increase the terminal size to improve your experience:
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image13a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image13a.png){: data-lightbox="gallery"}
 
@@ -147,7 +147,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     >
     >{: .small-space}
     >
-    > Throughout this lab, each code block displays a **Copy** button in the midle-right corner. Click it to copy the commands to your clipboard, then press **Ctrl**+**V** to paste them into the PowerShell terminal. This eliminates typing errors and speeds up your workflow.
+    > Throughout this lab, each code block displays a **Copy** button in the middle-right corner. Click it to copy the commands to your clipboard, then press **Ctrl**+**V** to paste them into the PowerShell terminal. This eliminates typing errors and speeds up your workflow.
     >
     > [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png)]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png){: data-lightbox="gallery"}
 
@@ -216,7 +216,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     > 
     > `?` is an alias for `Where-Object` in PowerShell, and `-match` is the operator used to determine if a string matches a regular expression, such as `server` in this example.
 
-- `Get-Help` cmdlet is another essential PowerShell command for locating information about new modules. To utilize this command,  enter:
+- `Get-Help` cmdlet is another essential PowerShell command for locating information about new modules. To utilize this command, enter:
 
     ```powershell
     Get-Help Get-HPECOMserver -Full
@@ -234,8 +234,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     Help Get-HPECOMServer -Examples
     ```
 
-    This will display a list of examples demonstrating how to use `Get-HPECOMServer` along with detailed explanations of what each
-example does.
+    This will display a list of examples demonstrating how to use `Get-HPECOMServer` along with detailed explanations of what each example does.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image20.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image20.png){:class="img-700"}{: data-lightbox="gallery"}
 
@@ -330,7 +329,7 @@ Select the authentication method that applies to you: follow the steps below for
 
         Open the Google Authenticator app on your device to retrieve the token and enter it when prompted.
 
-  4. You can skip the next section and go to [Step 3 - Verify your connection](#step-3---verify-your-connection)
+  4. You can skip the next section and proceed directly to [Step 3 - Verify your connection](#step-3---verify-your-connection)
 
 ### - Using SAML Single Sign-On (SSO) with Okta, PingID or Entra ID 
 
@@ -469,7 +468,7 @@ The `Connect-HPEGL` cmdlet is responsible for initiating and managing this conne
 
 ## Step 2 - Add a user to your workspace
 
-There are several commands that are available to configure a workspace and the different resources available in a workspace, such as adding users, settings roles, location, etc. In this task, you will simply add
+There are several commands that are available to configure a workspace and the different resources available in a workspace, such as adding users, setting roles, location, etc. In this task, you will simply add
 a new user with a specific role.
 
 1. Invite **admin@hpelabs.us** as an administrator to your newly created workspace:
@@ -1565,7 +1564,7 @@ weekend (in four days).
     group at once. Testing firmware updates on an individual server prior to
     deploying them across the entire group is a recommended best practice.
 
-    By default, `-Update-HPECOMGroupFirmware` runs updates in parallel
+    By default, `Update-HPECOMGroupFirmware` runs updates in parallel
     across eligible servers. The `-SerialUpdates` parameter ensures that
     only one server in the group updates at a time. This prevents all
     servers from being offline simultaneously. When you combine
@@ -2108,7 +2107,7 @@ progress.
 
         [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image110.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image110.png){: data-lightbox="gallery"}
 
-6. After you finish changing the variable, save the file (**File** /**Save**) and switch back to the PowerShell terminal.
+6. After you finish changing the variables, save the file (**File** /**Save**) and switch back to the PowerShell terminal.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image111.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image111.png){: data-lightbox="gallery"}
 
@@ -2159,7 +2158,7 @@ Throughout this lab, you explored how to automate server lifecycle management us
 
 - Installed the HPECOMCmdlets library and authenticated to HPE GreenLake.
 
-- Created a workspace, add a user, provision a COM instance, configure a location, and install a subscription key.
+- Created a workspace, added a user, provisioned a COM instance, configured a location, and installed a subscription key.
 
 - Onboarded a server to COM using an activation key, assigned location and tags, and verified device status.
 
@@ -2171,7 +2170,7 @@ Throughout this lab, you explored how to automate server lifecycle management us
 
 - Explored firmware compliance, scheduled updates, utilization insights, and sustainability metrics.
 
-- Finished by cleaning the lab: remove device assignments, delete subscriptions, delete the COM instance, and disconnected.
+- Finished by cleaning the lab: removed device assignments, deleted subscriptions, deleted the COM service instance, and disconnected.
 
 - Finally, executed the COM-Zero-Touch-Automation PowerShell script to automate and streamline the entire configuration workflow---from provisioning and policy application to deprovisioning---enabling consistent, efficient, and error-free server management within the HPE
 GreenLake platform.
