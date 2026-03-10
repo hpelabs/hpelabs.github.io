@@ -218,7 +218,7 @@ We are going to do that pre-work first as it will allow the labs to flow more sm
 
 4. After a few minutes, the lab support files will appear on the desktop. These will be used in a later section of the hands-on-lab experience.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img30.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img30.jpg){:class="img-100"}{: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img30.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img30.png){:class="img-100"}{: data-lightbox="gallery"}
 
 5. In terminal, copy and paste the following command and press Enter.
 
@@ -297,7 +297,7 @@ Your environment has been set up in such a way that your VM has been configured 
 9. To see the impact on GPU utilization while Stable Diffusion generates images, open a new Terminal session. Right-click on the Terminal and select New Window. Enter the following command to monitor GPU activity:
 
     ```bash
-    watch -n0 nvidia-smi
+    nvtop
     ```
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img40.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img40.png){:class="img-600"}{: data-lightbox="gallery"}
