@@ -777,30 +777,4 @@ and the **HPECOMcmdlets** PowerShell library to build a complete
 automation workflow that provisions a workspace, configures services,
 and onboards and manages an HPE ProLiant server through COM.
 
-+----------------------+-------------------------------------------------------------------------+
-|                      | © Copyright 2025 Hewlett Packard Enterprise Development LP. The         |
-|                      | information contained herein is subject to change without notice. The   |
-|                      | only warranties for Hewlett Packard Enterprise products and services    |
-|                      | are set forth in the express warranty statements accompanying such      |
-|                      | products and services. Nothing herein should be construed as            |
-|                      | constituting an additional warranty. Hewlett Packard Enterprise shall   |
-|                      | not be liable for technical or editorial errors or omissions contained  |
-|                      | herein.                                                                 |
-|                      |                                                                         |
-|                      | This document contains confidential and/or legally privileged           |
-|                      | information. It is intended for Hewlett Packard Enterprise and Channel  |
-|                      | Partner Internal Use only. If you are not an intended recipient as      |
-|                      | identified on the front cover of this document, you are strictly        |
-|                      | prohibited from reviewing, redistributing, disseminating, or in any     |
-|                      | other way using or relying on the contents of this document.            |
-|                      |                                                                         |
-|                      | Trademark acknowledgments, if needed. All third-party marks are         |
-|                      | property of their respective owners.                                    |
-|                      |                                                                         |
-|                      | aXXXXXXXXENW                                                            |
-|                      |                                                                         |
-|                      | ![HPE green                                                             |
-|                      | element](/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image31.jpeg)HEWLETT PACKARD ENTERPRISE                              |
-|                      |                                                                         |
-|                      | Hpe.com                                                                 |
-+======================+=========================================================================+
+[↑ Back to Top](#)
