@@ -34,14 +34,14 @@ PowerShell Gallery can be accessed through the PowerShellGet module
 pre-installed with Windows PowerShell 5.0 and above.
 
 This project is also associated with a new public GitHub
-[repository](https://github.com/hpelabs/HPE-COM-PowerShell-Library)
+[repository](https://github.com/jullienl/HPE-COM-PowerShell-Library)
 from our HPE Labs team. This repository
 is where the source code is developed. You can also track
-[releases](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases),
+[releases](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases),
 report and view
-[issues](https://github.com/hpelabs/HPE-COM-PowerShell-Library/issues),
+[issues](https://github.com/jullienl/HPE-COM-PowerShell-Library/issues),
 and participate in
-[discussions](https://github.com/hpelabs/HPE-COM-PowerShell-Library/discussions).
+[discussions](https://github.com/jullienl/HPE-COM-PowerShell-Library/discussions).
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image2.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image2.png){: data-lightbox="gallery"}
 
@@ -89,9 +89,9 @@ existing Compute Ops Management service instances.
 
 # Connecting to the lab environment
 
-To access the HPE Compute BU Enablement Environment, we will use VMware Horizon. Follow these steps:
+Access the lab environment via VMware Omnissa Horizon by completing these steps:
 
-1. Using your Chrome browser, navigate to the appropriate URL based on your network location to open the Horizon Access Portal:
+1. Navigate to the appropriate URL based on your network location to open the Omnissa Horizon Web Client:
 
    - **External to HPE** (not connected to HPE VPN): <https://labs.compute.cloud.hpe.com>
 
@@ -153,15 +153,6 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 
     <br>
 
-5. While the PowerShell console is opened, you can optionally launch a browser to access the HPE GreenLake website and view the results of the commands you will be executing. If your browser is not already open and connected to HPE GreenLake, open a browser and navigate to <https://common.cloud.hpe.com>.
-
-6. Login with your HPE account credentials:
-
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image15.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image15.png){:class="img-300"}{: data-lightbox="gallery"}
-
-    If this is your first time using HPE GreenLake, it is expected that no workspace will be available in your environment. If you already have one or more workspaces, there is no issue; you can still proceed with this lab.
-
-7. You can now leave the page and begin your zero-touch automation experience.
 
 # Task 1 - How to Install HPECOMCmdlets
 
@@ -173,7 +164,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     Install-Module HPECOMCmdlets
     ```
 
-    [![A black screen with white text Description automatically generated]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image16.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image16.png){: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image16.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image16.png){: data-lightbox="gallery"}
 
     This command will download and install the module from the official PowerShell Gallery repository. If this is your first time installing a module from the PowerShell Gallery, it will ask you to confirm whether you trust the repository or not. 
     
@@ -196,7 +187,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image17.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image17.png){: data-lightbox="gallery"}
 
-    Version **1.0.22** of the module includes over 230 cmdlets.
+    Version [v1.0.23](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.23) of the module includes over 240 cmdlets.
 
 - In PowerShell, cmdlets follow a verb-noun naming convention. In this library, cmdlet names begin with **HPECOM** for Compute Ops Management (e.g., `Get-HPECOMServer`) or **HPEGL** for HPE GreenLake (e.g., `New-HPEGLUser`), reflecting the close integration between both platforms.
 
@@ -222,7 +213,7 @@ To access the HPE Compute BU Enablement Environment, we will use VMware Horizon.
     Get-Help Get-HPECOMserver -Full
     ```
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image19.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image19.png){: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image19.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image19.png){: data-lightbox="gallery"}{:class="img-700"}
 
     `Get-Help` (or the alias `Help`) is a PowerShell cmdlet that allows you to retrieve information on other PowerShell cmdlets and functions. 
     
@@ -252,7 +243,7 @@ The library supports two authentication methods:
 **1. HPE Account Credentials (Single or Multi-Factor Authentication)**
 
 - Authenticate using your HPE Account email and password
-- Optional multi-factor authentication (MFA) for enhanced security (requires [v1.0.12+](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases/tag/v1.0.12) )
+- Optional multi-factor authentication (MFA) for enhanced security (requires [v1.0.12+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.12) )
 - Supports standard password-based authentication flows
 
 
@@ -264,8 +255,8 @@ The library supports two authentication methods:
 
 - **Streamlined SSO Configuration**: Align authentication with your organization's existing SSO setup for consistent, centralized identity management.
 
-- **Prerequisites** (requires [v1.0.18+](https://github.com/hpelabs/HPE-COM-PowerShell-Library/releases/tag/v1.0.18)):
-    - Passwordless authentication must be enabled on your identity provider (Okta, Microsoft Entra ID, or PingIdentity)—such as push notifications or TOTP. Without these, `Connect-HPEGL` with SSO will fail. For detailed guidance on configuring SSO and enabling passwordless authentication, refer to [Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets](https://hpelabs.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/)
+- **Prerequisites** (requires [v1.0.18+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.18)):
+    - Passwordless authentication must be enabled on your identity provider (Okta, Microsoft Entra ID, or PingIdentity)—such as push notifications or TOTP. Without these, `Connect-HPEGL` with SSO will fail. For detailed guidance on configuring SSO and enabling passwordless authentication, refer to [Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets](https://jullienl.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/)
 
     - Unsupported identity providers require standard HPE account credentials instead of SSO.
 
@@ -383,6 +374,18 @@ The `Connect-HPEGL` cmdlet is responsible for initiating and managing this conne
 >{: .small-space}
 > 
 > The command to directly connect to an existing and known workspace is: `Connect-HPEGL -Credential $credentials -Workspace "workspace_name"`
+
+Now that you are connected to HPE GreenLake with the PowerShell module, you can optionally open a browser to access the HPE GreenLake portal and view the results of the commands you will run in the following sections. If your browser is not already open and connected to HPE GreenLake, navigate to <https://common.cloud.hpe.com> and sign in with your HPE account credentials:
+
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image15.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image15.png){:class="img-300"}{: data-lightbox="gallery"}
+
+> **💡 Note**   
+>
+>{: .small-space}
+> 
+> If this is your first time using HPE GreenLake, it is normal for no workspace to appear in your environment. If one or more workspaces are already available, you can still continue with this lab without issue.
+
+You may now leave this page open and begin your zero-touch automation experience.
 
 
 [↑ Back to Top](#)
@@ -628,16 +631,16 @@ instance. In this lab, you'll be using that specific method.
 >
 >{: .small-space}
 > 
-> For onboarding multiple servers, use the [HPE Compute Ops
-> Management Onboarding
-> Script](https://github.com/hpelabs/HPE-Compute-Ops-Management/tree/main/PowerShell/Onboarding).
-> This PowerShell tool automates connecting HPE servers to COM, applies
-> activation keys, and sets up initial iLO configurations (DNS, NTP,
-> tags, location, firmware/compliance policies). It also manages
-> authentication, device registration, and early configuration for a
-> streamlined "zero-touch" setup.
+> For onboarding multiple servers, a better approach is to use the [HPE Compute Ops Management Onboarding Script](https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/PowerShell/Onboarding).
+> This script automates the full onboarding workflow—from required pre-checks and preparation steps through final server onboarding to COM.
+> It handles key prerequisites such as authentication, device registration, activation key application, and initial iLO configuration (DNS, NTP, tags, location, and policy settings), helping deliver a consistent zero-touch process at scale.
+
 
 ## Step 1 - Onboard one server
+
+For this lab, you will onboard a single server manually so you can understand each command and validation step.  
+In production or at scale, use the [HPE Compute Ops Management Onboarding Script](https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/PowerShell/Onboarding), which automates all prerequisite checks, preparation tasks, and the onboarding workflow end to end.
+
 
 1. To generate an activation key for connecting your server to the Compute Ops Management instance in the region you provisioned earlier, use the following command:
 
@@ -777,7 +780,7 @@ sheet provided by your instructor. Enter:
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image36.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image36.png){: data-lightbox="gallery"}
 
-    This command will power on all servers managed by COM. Since you currently have only one server onboarded, it will specifically start that device.
+    This command powers on all servers managed by COM. Since you currently have only one server onboarded, it will start that specific device.
 
 ## Step 2 - Set device location and tags
 
@@ -1369,7 +1372,7 @@ efficient and accessible.
 
 3. If you want to see what's inside, you can use Windows Explorer to open the zip file:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image73.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image73.png){: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image73.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image73.png){: data-lightbox="gallery"}{:class="img-700"}
 
 4. Alternatively, you can use PowerShell's built-in `Expand-Archive` cmdlet to extract the contents of the zip file. Simply run the following by replacing the angle brackets with your server name, timestamp and destination folder:
 
@@ -2062,7 +2065,7 @@ your command line terminal.
 
 If you would like to see the true value of this library, you can run the
 Zero Touch Automation script available on GitHub:
-<https://github.com/hpelabs/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1>.
+<https://github.com/jullienl/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1>.
 This script offers complete end-to-end automation for everything you've
 accomplished in this lab, but this time through scripting. It
 demonstrates the power of the library by automating the entire
@@ -2071,7 +2074,7 @@ policy management and scheduling a firmware update---all in one go.
 You'll receive results messages for each step, making it easy to track
 progress.
 
-1. Open Chrome and visit <https://github.com/hpelabs/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1>
+1. Open Chrome and visit <https://github.com/jullienl/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1>
 
 2. Click **Download raw file**.
 
@@ -2184,12 +2187,12 @@ streamline onboarding, enforce policy‑driven governance, automate compliance, 
 
 **🚀** Looking to automate the onboarding of HPE servers into HPE
 GreenLake and Compute Ops Management, see
-[Onboarding-Script](https://github.com/hpelabs/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Prepare-and-Connect-iLOs-to-COM-v2.ps1).
+[Onboarding-Script](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Prepare-and-Connect-iLOs-to-COM-v2.ps1).
 
 **🚀** Looking to demonstrate the power of scripting with HPE GreenLake
 and Compute Ops Management, see [HPE Compute Ops Management Zero Touch
 Automation
-Example](https://github.com/hpelabs/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1).
+Example](https://github.com/jullienl/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1).
 This script automates the entire lifecycle from workspace provisioning
 through server configuration, policy management, and optional cleanup.
 It showcases best practices for programmatic infrastructure deployment
@@ -2200,10 +2203,10 @@ workflows.
 Management API, including Ansible playbooks, PowerShell, and Python
 scripts. These resources offer practical examples to help automate and
 streamline server management tasks. Visit the [GitHub
-project](https://github.com/hpelabs/HPE-Compute-Ops-Management).
+project](https://github.com/jullienl/HPE-Compute-Ops-Management).
 
 **🛠️** Interested in using Ansible with COM? Visit this open source
-[GitHub project](https://github.com/hpelabs/HPE-COM-baremetal)
+[GitHub project](https://github.com/jullienl/HPE-COM-baremetal)
 dedicated to server provisioning. Originally developed to support ESXi,
 RHEL, and Windows Server platforms, the project demonstrates extensive
 COM API capabilities---from initial setup (Day 0 operations), through
