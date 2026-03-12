@@ -35,7 +35,7 @@ pre-installed with Windows PowerShell 5.0 and above.
 
 This project is also associated with a new public GitHub
 [repository](https://github.com/jullienl/HPE-COM-PowerShell-Library)
-from our HPE Labs team. This repository
+from our community contributor, [Lionel Jullien](https://github.com/jullienl) from HPE. This repository
 is where the source code is developed. You can also track
 [releases](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases),
 report and view
