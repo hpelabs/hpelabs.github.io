@@ -575,6 +575,8 @@ The following step involves setting up services. There are several kinds of serv
 
     ```powershell
     Get-HPEGLUserRole -Email $MyEmail
+    ```
+    ```powershell
     Get-HPEGLUserRole -Email $NewUserEmail
     ```
 
@@ -628,6 +630,8 @@ This step is essential for automatically creating a ticket with HPE support.
 
     ```powershell
     Get-HPEGLDeviceAutoSubscription
+    ```
+    ```powershell
     Get-HPEGLDeviceAutoReassignSubscription
     ```
 
@@ -743,10 +747,8 @@ sheet provided by your instructor. Enter:
     >{: .small-space}
     > 
     > The `Connect-HPEGLDeviceComputeiLOtoCOM` cmdlet provides additional parameters to connect iLO through a COM Secure Gateway or through a web proxy.
-
-    > **💡Note**
     >
-    >{: .small-space}
+    > {: .small-space}
     > 
     > In scenarios involving a Secure Gateway (**not applicable to this lab**), the commands would be as follows:
     > 1. Obtain a valid subscription key:  
@@ -765,6 +767,7 @@ sheet provided by your instructor. Enter:
     > ```powershell
     > Connect-HPEGLDeviceComputeiLOtoCOM -iLOCredential $iLO_credential -IloIP "xxx.xxx.xxx.xxx" -ActivationKeyfromCOM $Activation_Key -SkipCertificateValidation -IloProxyServer sg01.domain.com -IloProxyPort 8080
     > ```
+    {: .no-copy}
 
 6. You can then verify the onboarded servers using the following cmdlet:
 
@@ -991,7 +994,7 @@ ILO settings enable the configuration of specific parameters to standardize iLO 
 
     ```powershell
     $iLOSettingName = "AI_iLO_Settings"
-    New-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -PasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Disabled
+    New-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -AccountServicePasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Disabled
     ```
     
     This command activates iLO virtual media, enforces password complexity, enables HTTPS, and disables third-party firmware updates.
@@ -1210,7 +1213,7 @@ To obtain detailed server inventory information, use the `Get-HPECOMServerInvent
     > The `-Async` parameter allows the cmdlet to return the asynchronous
     > job resource immediately. By default, the cmdlet will wait for the job
     > to finish before returning.
-
+    {: .no-copy}
 
 [↑ Back to Top](#)
 
@@ -1538,17 +1541,17 @@ in the TotalDownloadSize column of the firmware compliance report.
     - **ComponentFilename**: Filename of the firmware update package  
    
 
-> ⚠️ **Note**
->
->{: .small-space}
-> 
-> If there are no deviations, this command will not return any response.  
+    > ⚠️ **Note**
+    >
+    >{: .small-space}
+    > 
+    > If there are no deviations, this command will not return any response.  
 
-> 🔔 **Note** 
->
->{: .small-space}
-> 
-> The Firmware Compliance feature does not monitor HPE driver and software versions.
+    > 🔔 **Note** 
+    >
+    >{: .small-space}
+    > 
+    > The Firmware Compliance feature does not monitor HPE driver and software versions.
 
 ## Step 3 - Scheduling group firmware update
 
@@ -1755,10 +1758,10 @@ operational expenses.
 
     The report provides the total estimated energy consumption (in kilowatt-hours, kWh) for all servers in the specified region. The data includes collected values from the past 90 days (3 months), as well as projected consumption for the next 180 days (6 months) helping with planning and decision-making.
 
-3. To retrieve this summary specifically for the EU Central region, use:
+3. To retrieve this summary specifically for the region, use:
 
     ```powershell
-    Get-HPECOMSustainabilityInsights -Region eu-central -EnergyConsumptionTotal
+    Get-HPECOMSustainabilityInsights -Region $Region -EnergyConsumptionTotal
     ```
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image84.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image84.png){: data-lightbox="gallery"}
@@ -1883,7 +1886,7 @@ best practices.
     Now you will change the iLO setting in COM from ***Disabled*** to ***Enabled*** to simulate a configuration change. This will cause your server to become non-compliant with the group's iLO policy. Run this command to update the iLO setting:
 
     ```powershell
-    Set-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -PasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Enabled
+    Set-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -AccountServicePasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Enabled
     ```
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image88.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image88.png){: data-lightbox="gallery"}
@@ -1908,16 +1911,24 @@ best practices.
     $task = Invoke-HPECOMGroupiLOConfiguration -Region $Region -GroupName $GroupName -ServerSerialNumber $SN -Async
     ```
 
+5. Chck the job status
+
+    ```powershell
+    $task
+    ```
+
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image90.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image90.png){: data-lightbox="gallery"}
 
-    The command returns the job status, indicating that it is currently in a *Running* state.
+    The `$task` variable contains the job object returned by the `-Async` parameter, showing the job is currently in a *Running* state.
 
-5. Monitor the job progress
+6. Monitor the job progress
 
     While the iLO configuration is being applied, you can check the job status using these commands:
 
     ```powershell
     Get-HPECOMJob -Region $Region -Category Group -ShowRunning
+    ```
+    ```powershell
     Get-HPECOMJob -Region $Region -Category Group -JobResourceUri $task.resourceUri
     ```
     
@@ -1933,7 +1944,7 @@ best practices.
     
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image93.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image93.png){: data-lightbox="gallery"}
 
-6. Verify the setting has been applied
+7. Verify the setting has been applied
 
     Once the job is completed, query the iLO again to verify that AcceptThirdPartyFirmwareUpdates has been changed back to Enabled on your iLO:
 
@@ -1985,7 +1996,7 @@ environment.
     Get-HPEGLDevice | Remove-HPEGLDeviceFromService
     ```
     
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image95.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image95.png){: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image95.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image95.png){: data-lightbox="gallery"}{:class="img-700"}
 
 2. Confirm that the server has been removed from its assignment by running:
 
@@ -2008,7 +2019,7 @@ also important to delete your key from your workspace.
     Get-HPEGLSubscription | Remove-HPEGLSubscription
     ```
     
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: data-lightbox="gallery"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: data-lightbox="gallery"}{:class="img-700"}
 
 2. To verify that the subscription key has been removed, the following command should return no response:
 
