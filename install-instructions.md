@@ -264,7 +264,33 @@ Follow these rules when editing lab guides:
         git clone https://github.com/example/repo.git
         ```
         </code></pre>   
+    - **Disabling the Copy button** — By default, every code block displays a **Copy** button. To suppress it for a block that lab users should **not** execute (e.g., reference-only commands, output examples, or informational snippets), add `{: .no-copy}` on the line immediately after the closing triple backticks:
 
+        <pre><code>
+        ```powershell
+        $SubscriptionKey = Get-HPEGLSubscription ...
+        ```
+        {: .no-copy}
+        </code></pre>
+
+        This also works for an entire blockquote containing multiple code blocks — place `{: .no-copy}` after the last `>` line of the blockquote (at the same indentation level as the blockquote itself):
+
+        ```markdown
+        > Here are some reference commands (do not run):
+        > ```powershell
+        > Get-HPECOMServer -Region $Region
+        > ```
+        > ```powershell
+        > Get-HPEGLDevice
+        > ```
+        {: .no-copy}
+        ```
+
+        > 💡 **Tip**
+        >
+        >{: .small-space}
+        >
+        > Use `{: .no-copy}` for commands provided for illustration only — such as Secure Gateway examples, environment-specific snippets, or expected output samples — to prevent lab users from accidentally running them.
 - Use **inline code** (backticks ````` `text` `````) for variables, paths, and terminal commands within text. For example: `$variable`
 
 - Use **blockquotes** (`>`) for tips, warnings, and important notes.
