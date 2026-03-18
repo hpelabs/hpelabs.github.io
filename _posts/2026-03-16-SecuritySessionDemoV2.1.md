@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Security Session Demo - HPE ProLiant Compute"
-image: /assets/images/HOLs/SecuritySessionDemo/banner.png
+image: /assets/images/HOLs/SecuritySessionDemo/banner2.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: This is a security demonstration of enhanced iLO7 capabilities.
 room: 1 # Set to 1 or 2
