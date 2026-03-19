@@ -263,6 +263,20 @@ h1, h2, h3, h4, h5, h6 {
 .card {
   border: 1px solid {{ site.accent_colour }};
   border-radius: .25rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.card .card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card .tag {
+  position: relative;
+  z-index: 2;
 }
 
 .card .content {
@@ -1126,6 +1140,10 @@ html[data-theme="light"] label[for="nav-trigger"] {
   background-color: #ffffff;
 }
 
+[data-theme="light"] .post-list h3 {
+  color: #03a883 !important;
+}
+
 [data-theme="light"] .post-list h3 a {
   color: #03a883 !important;
   text-decoration: none;
@@ -1467,6 +1485,10 @@ html[data-theme="dark"] {
 [data-theme="dark"] .card .content {
   padding: 20px !important;
   background-color: #161b22;
+}
+
+[data-theme="dark"] .post-list h3 {
+  color: #03a883 !important;
 }
 
 [data-theme="dark"] .post-list h3 a {

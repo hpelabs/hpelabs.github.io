@@ -40,15 +40,11 @@ layout: default
       {%- for post in posts -%}
       {%- if page.show_hidden_posts or site.show_hidden_posts or post.hidden != true -%}
       <li class="card" data-categories="{% for cat in post.categories %}{{ cat | slugify }} {% endfor %}">
-        <a class="post-link" href="{{ post.url | relative_url }}">
+        <a class="card-link" href="{{ post.url | relative_url }}">
           <div class="bg-img" style="background-image: url({{post.image}})"></div>
         </a>
         <div class="content">
-          <h3>
-            <a class="post-link" href="{{ post.url | relative_url }}">
-              {{ post.title | escape }}
-            </a>
-          </h3>
+          <h3>{{ post.title | escape }}</h3>
           {%- assign post_date_ts = post.date | date: "%s" | plus: 0 -%}
           {%- assign post_modified_ts = post.last_modified_at | default: post.date | date: "%s" | plus: 0 -%}
           <span class="post-meta">
