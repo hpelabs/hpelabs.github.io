@@ -87,8 +87,7 @@ Windows Server 2025 and SQL Server 2025.
     Protect (backup) Microsoft SQL Server to HPE StoreOnce with HPE Catalyst
     plugin for SQL Server
 
-  - **Module 3: Microsoft SQL Server Data Lake with Alletra MP X10000 use
-cases**
+  - **Module 3: Microsoft SQL Server Data Lake with Alletra MP X10000 use cases**
 
     `Estimated time: 30 minutes`
 
@@ -100,7 +99,7 @@ cases**
 
     Introduction to SQL Server 2025 and its new Vector Search capabilities on HPE ProLiant Server
 
-  - **Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
+   - **Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
 
   `Estimated time: 45 minutes`
 
@@ -113,48 +112,42 @@ cases**
   From the classroom desktop computer, access the portal that allows you to select the manuals for the modules you are interested in. This will guide you through the hands-on lab with an AI assistant that you could query in case of needed.
 
     1.  Open a web browser (chrome for example)
-    2.  Enter HOL.SSHK2.COM in the address bar
+    2.  Go to: **[https://hol.sshk2.com](https://hol.sshk2.com)**
 
-> <img src="./media/media/image4.jpg"
-> style="width:6.91667in;height:4.07325in" />
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
-  3.  Enter your assigned Holuser# where is your team number (for
+    3.  Enter your assigned Holuser# where is your team number (for
     example for Team 1 enter holuser1, password is identical)
 
-> <img src="./media/media/image5.jpeg"
-> style="width:7.02778in;height:3.50069in" />
->
-  Once on this page, you can access any of the modules, however you must start with module 0 to connect to the lab infrastructure.
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
-  After that, you can select the module of your choice based on interest and time, as depicted below:
+    Once on this page, you can access any of the modules, however you must start with module 0 to connect to the lab infrastructure.
 
-> <img src="./media/media/image6.jpeg"
-> style="width:7.00926in;height:3.39079in" />
+    After that, you can select the module of your choice based on interest and time, as depicted below:
 
-  4.  After selecting the module, the page is divided into two main parts, on the left is the manual and, on the right, the AI assistant. On top, you can see some options that may ease your experience.
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image6.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image6.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
-> <img src="./media/media/image7.jpeg"
-> style="width:6.78704in;height:3.60442in" />
+    4.  After selecting the module, the page is divided into two main parts, on the left is the manual and, on the right, the AI assistant. On top, you can see some options that may ease your experience.
+
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image7.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image7.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
     For example, for each module,
 
       - If you prefer a larger or smaller window for the manual/AI assistant, you can pick the size using the sizing options (labelled 2 on the image above)
 
-      - You have some information like credentials that may have to be entered. You can find them by clicking on the credentials button on
-  top (number 3 from the image above).
+      - You have some information like credentials that may have to be entered. You can find them by clicking on the credentials button on top (number 3 from the image above).
       A new page will appear on top with specific information as depicted in the next image, and to copy the information you just have to select the button with overlapping squares on the right, next to the information.
 
-<img src="./media/media/image8.jpg"
-style="width:5.83333in;height:2.99114in" />
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){:class="img-900"}{: data-lightbox="gallery"}
 
-    - If you are more familiar with Spanish, you can click on Spanish to view the manual in Spanish.
+      - If you are more familiar with Spanish, you can click on Spanish to view the manual in Spanish.
 
-    - On the right side of the window is that AI assistant. You can enter any question related to the module you are using, and even take a screenshot of where you are and ask…
+      - On the right side of the window is that AI assistant. You can enter any question related to the module you are using, and even take a screenshot of where you are and ask…
 
   `Note : For a better experience, we recommend the following setup:
       - Use your secondary monitor (portrait orientation) to display the HOL guide.
-      1.  Move the page you want to read or follow instructions on to this monitor.
+        1.  Move the page you want to read or follow instructions on to this monitor.
 
-      2.  Keep your primary monitor in landscape orientation for active tasks.
+        2.  Keep your primary monitor in landscape orientation for active tasks.
 
      Your primary display is usually the main monitor you use for work, while your secondary display refers to an additional monitor that can be set up vertically (portrait orientation).`
