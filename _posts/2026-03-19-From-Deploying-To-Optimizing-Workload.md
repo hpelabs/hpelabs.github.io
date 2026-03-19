@@ -9,8 +9,6 @@ room: 1 # Set to 1 or 2
 
 Hands-On Lab information
 
-# From Deploying to Optimizing Workload Solutions with HPE Compute and Hybrid Cloud
-
 ## Overview
 
 This hands-on lab offers participants practical, choice-driven learning
@@ -46,7 +44,7 @@ strategies, and newly integrated AI features for designing and executing
 applications in contemporary environments.
 
 Your work environment includes a desktop computer (PC) with two monitors:
- We recommend to use the landscape-oriented monitor for hands-on tasks, and the
+We recommend to use the landscape-oriented monitor for hands-on tasks, and the
 portrait-oriented monitor for reviewing instructions and consulting with an AI assistant.
 
 This setup allows you to reference step-by-step guides while performing
@@ -62,13 +60,13 @@ There are 10 HPE ProLiant servers with associated storage in the remote lab, whi
 - Each team (or group of participants) is assigned a server and storage and can decide
   which modules to run.
 
-  The login sheet given by the instructors contains information related to
+The login sheet given by the instructors contains information related to
 your team number and the credentials to establish the connection through
 Omnissa horizon to an HPE lab in Houston where this infrastructure is hosted.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){:class="img-900"}{: data-lightbox="gallery"}
+ [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){:class="img-900"}{: data-lightbox="gallery"}
 
-  The first set of modules (modules 1-4) is designed to run on HPE
+The first set of modules (modules 1-4) is designed to run on HPE
 ProLiant DL380 or DL380a Gen11 as bare metal servers with Microsoft
 Windows Server 2025 and SQL Server 2025.
 
@@ -90,19 +88,16 @@ Windows Server 2025 and SQL Server 2025.
   - **Module 3: Microsoft SQL Server Data Lake with Alletra MP X10000 use cases**
 
     `Estimated time: 30 minutes`
-
     Setup SQL Server data lake with external table feature and S3 object storage like HPE Alletra MP X10000
 
   - **Module 4: Getting started with SQL Server 2025 Vector Search**
 
-  `Estimated time: 20 minutes`
-
+    `Estimated time: 20 minutes`
     Introduction to SQL Server 2025 and its new Vector Search capabilities on HPE ProLiant Server
 
-   - **Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
+  - **Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
 
-  `Estimated time: 45 minutes`
-
+    `Estimated time: 45 minutes`
     This last module uses a completely different environment and focuses on HPE Morpheus blueprint. It introduces HPE Morpheus blueprints for orchestrating end‑to‑end SQL Server and application stack deployments.
 
 # Getting started with this hands-on lab
@@ -111,8 +106,8 @@ Windows Server 2025 and SQL Server 2025.
 
   From the classroom desktop computer, access the portal that allows you to select the manuals for the modules you are interested in. This will guide you through the hands-on lab with an AI assistant that you could query in case of needed.
 
-  1.  Open a web browser (chrome for example)
-  2.  Go to: **[https://hol.sshk2.com](https://hol.sshk2.com)**
+- 1.Open a web browser (chrome for example)
+- 2.Go to: **[https://hol.sshk2.com](https://hol.sshk2.com)**
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
