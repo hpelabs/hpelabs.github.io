@@ -3,17 +3,11 @@ layout: post
 title: "From Deploying to Optimizing Workload Solutions with HPE Compute and Hybrid Cloud"
 image: /assets/images/HOLs/Deploy-Optimize-Workload/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
-excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
+excerpt: This hands-on lab offers participants practical, choice-driven learning experience for deploying and tuning modern workloads on HPE platforms by using Microsoft SQL Server as example.
 room: 1 # Set to 1 or 2
 ---
 
 Hands-On Lab Guide
-
-
-# Introduction
-
-Use of this material to deliver training without prior written
-permission from HPE is prohibited.
 
 
 # From Deploying to Optimizing Workload Solutions with HPE Compute and Hybrid Cloud
