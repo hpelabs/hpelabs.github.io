@@ -51,17 +51,19 @@ portrait-oriented monitor for reviewing instructions and consulting with an AI a
 
 This setup allows you to reference step-by-step guides while performing
 practical tasks, enhancing efficiency and accuracy during lab exercises, 
-from the hands on lab guide platform available though a web browser at HOL.SSHK2.COM
+from the hands on lab guide platform available though a web browser navigating to HOL.SSHK2.COM
 
 The PC will allow you to connect to the HPE remote lab through Omnissa horizon to your assigned HPE ProLiant
 Servers and HPE Primera storage systems installed specifically to run
 all modules of this hands on lab.
 
-- Each student group is assigned a server and storage and can decide
+There are 10 HPE ProLiant servers with associated storage in the remote lab, which means we can have up to 10 teams run the lab simultaneously.
+
+- Each team (or group of participants) is assigned a server and storage and can decide
   which modules to run.
 
   The login sheet given by the instructors contains information related to
-your team number(or group of participants) and the credentials to establish the connection through
+your team number and the credentials to establish the connection through
 Omnissa horizon to an HPE lab in Houston where this infrastructure is hosted.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){:class="img-900"}{: data-lightbox="gallery"}
@@ -70,46 +72,40 @@ Omnissa horizon to an HPE lab in Houston where this infrastructure is hosted.
 ProLiant DL380 or DL380a Gen11 as bare metal servers with Microsoft
 Windows Server 2025 and SQL Server 2025.
 
-  - **Module 1**: Achieve best OLTP performance
+  - **Module 1: Achieve best OLTP performance**
 
-    Estimated time: 1 hour 30 minutes
+    `Estimated time: 1 hour 30 minutes`
 
     Use SQL Server on bare metal HPE ProLiant Server and Primera storage and
     software to tune iLO/BIOS and SQL Server database including storage
     parameters to achieve best OLTP performance on the given configuration.
 
-  - **Module 2**: HPE StoreOnce Catalyst Plug-in for SQL Server
+  - **Module 2: HPE StoreOnce Catalyst Plug-in for SQL Server**
 
-    Estimated time: 40 minutes
+    `Estimated time: 40 minutes`
 
     Protect (backup) Microsoft SQL Server to HPE StoreOnce with HPE Catalyst
     plugin for SQL Server
 
-Module 3: Microsoft SQL Server Data Lake with Alletra MP X10000 use
-cases
+  - **Module 3: Microsoft SQL Server Data Lake with Alletra MP X10000 use
+cases**
 
-Estimated time: 30 minutes
+    `Estimated time: 30 minutes`
 
-Setup SQL Server data lake with external table feature and S3 object
-storage like HPE Alletra MP X10000
+    Setup SQL Server data lake with external table feature and S3 object storage like HPE Alletra MP X10000
 
-Module 4: Getting started with SQL Server 2025 Vector Search
+  - **Module 4: Getting started with SQL Server 2025 Vector Search**
 
-Estimated time: 20 minutes
+  `Estimated time: 20 minutes`
 
-Introduction to SQL Server 2025 and its new Vector Search capabilities
-on HPE ProLiant Server
+    Introduction to SQL Server 2025 and its new Vector Search capabilities on HPE ProLiant Server
 
-Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus
-Blueprint
+  - **Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
 
-Estimated time: 45 minutes
+  `Estimated time: 45 minutes`
 
-This last module uses a completely different environment and focuses on
-HPE Morpheus blueprint.
-
-It introduces HPE Morpheus blueprints for orchestrating end‑to‑end SQL
-Server and application stack deployments.
+    This last module uses a completely different environment and focuses on HPE Morpheus blueprint.
+    It introduces HPE Morpheus blueprints for orchestrating end‑to‑end SQL Server and application stack deployments.
 
 ## Getting started with this hands-on lab
 
