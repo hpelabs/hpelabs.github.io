@@ -137,7 +137,7 @@ For example, for each module,
   
   A new page will appear on top with specific information as depicted in the next image, and to copy the information you just have to select the button with overlapping squares on the right, next to the information.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){:class="img-600"}{: data-lightbox="gallery"}
 
   - If you are more familiar with Spanish, you can click on Spanish to view the manual in Spanish.
 
