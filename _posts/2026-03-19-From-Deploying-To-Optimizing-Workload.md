@@ -121,7 +121,7 @@ Windows Server 2025 and SQL Server 2025:
 
 - Once on this page, you can access any of the available module/guide (displayed as tiles). However, you must **start** with **0 Intro connection guide** to establish connectivity to the lab infrastructure.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5.jpeg){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5a.png){:class="img-900"}{: data-lightbox="gallery"}
 
 - After you have connected to the lab infrastructure, you can select the module(s) of your choice (one at a time) as depicted below:
 
