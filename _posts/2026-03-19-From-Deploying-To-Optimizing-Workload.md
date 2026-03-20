@@ -106,24 +106,25 @@ Windows Server 2025 and SQL Server 2025.
 
   From the classroom desktop computer, access the portal that allows you to select the manuals for the modules you are interested in. This will guide you through the hands-on lab with an AI assistant that you could query in case of needed.
 
-- 1.Open a web browser (chrome for example)
-- 2.Go to: **[https://hol.sshk2.com](https://hol.sshk2.com)**
+- Open a web browser (chrome for example)
+- Go to: **[https://hol.sshk2.com](https://hol.sshk2.com)**
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
-- 3.Enter your assigned **Holuser#** where '#' is your team number (for example for Team 1 enter holuser1; password is identical)
+- Enter your assigned **Holuser#** where '#' is your team number (for example for Team 1 enter holuser1; password is identical)
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
-- Once on this page, you can access any of the modules; however you must 'start' with 'module 0' to connect to the lab infrastructure.
+- Once on this page, you can access any of the available module/guide (displayed as tiles). However, you must **start** with **0 Intro connection guide** to establish connectivity to the lab infrastructure.
 
-- After you have coonected to the lab infrastructure, you can select the module(s) of your choice (one at a time) as depicted below:
+- After you have connected to the lab infrastructure, you can select the module(s) of your choice (one at a time) as depicted below:
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image6.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image6.jpeg){:class="img-900"}{: data-lightbox="gallery"}
 
-- 4.Clicking on the module opens a new page. The page is divided into two main parts:
+- Clicking on the module opens a new page. The page is divided into two main parts:
   - on the left is the manual
   - on the right, the AI assistant.
+
   On top, you can see some options that may ease your experience.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image7.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image7.jpeg){:class="img-900"}{: data-lightbox="gallery"}
@@ -145,7 +146,7 @@ For example, for each module,
   `Note: For a better experience, we recommend the following setup:`
   - Use your secondary monitor (portrait orientation) to display the HOL guide.
 
-   .Move the page you want to read or follow instructions on to this monitor.
-   .Keep your primary monitor in landscape orientation for active tasks.
+    - Move the page you want to read or follow instructions on to this monitor.
+    - Keep your primary monitor in landscape orientation for active tasks.
 
 **Your primary display is usually the main monitor you use for work, while your secondary display refers to an additional monitor that can be set up vertically (portrait orientation).**
