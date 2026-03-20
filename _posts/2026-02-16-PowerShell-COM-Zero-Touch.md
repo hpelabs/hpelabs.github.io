@@ -430,19 +430,22 @@ You may now leave this page open and begin your zero-touch automation experience
 1. To create your initial workspace (or an extra one just for this lab --- don't worry, it will be deleted once the lab ends), you need to provide a unique name. Since the name must be unique across all workspaces on the HPE GreenLake platform, we will use a random number to generate the name. Enter:
 
     ```powershell
-    $WorkspaceName = "HPEWorkspaceTxx_$(Get-Random)"
+    $WorkspaceName = "HPEWorkspaceTnn_$(Get-Random)"
     ```
 
-    **⚠️ Replace `xx` with your team number** (e.g., `01` for team 1, `05` for team 5, `12` for team 12).
+    **⚠️ Replace <span style="color:red">nn</span> with your team number** (e.g., `01` for team 1, `05` for team 5, `12` for team 12).
     
-    For example, **team 5** should use: `$WorkspaceName = "HPEWorkspaceT05_$(Get-Random)"`
+    > Example, **team 5** should use: **$WorkspaceName = "HPEWorkspaceT<span style="color:red">05</span>_$(Get-Random)"**
 
+    ---
     > #### ⚠️ CRITICAL REQUIREMENT ⚠️
     > {: .no_toc }
     >
-    > You **MUST** follow the naming convention **HPEWorkspaceTxx_** (with xx your team number) exactly. This is essential for the lab reset scripts to identify and clean up your workspace automatically.
+    > You **MUST** follow this naming convention exactly. This is essential for the lab reset scripts to identify and clean up your workspace automatically at the end of this session.
     > <br>   
     > **❌ Failure to use this naming format will prevent automatic cleanup and may require manual intervention.**
+    
+    ---
 
 2. This command generates a name such as *HPEWorkspaceT01_12345678* for team 1. You can verify your workspace name by executing:
 
@@ -512,6 +515,7 @@ a new user with a specific role.
     New-HPEGLUser -Email $NewUserEmail -RoleName 'Workspace Administrator'
     ```
 
+    ---
     > #### ⚠️ CRITICAL REQUIREMENT ⚠️
     > {: .no_toc }
     >
@@ -519,6 +523,8 @@ a new user with a specific role.
     > <br>  
     > **❌ Failure to add this user will prevent cleanup and break the lab for the next participant.**
 
+    ---
+    
 2. To verify the new user, execute the following command:
 
     ```powershell
@@ -1569,10 +1575,10 @@ weekend (in four days).
 > this lab because of time constraints and the potential impact on
 > servers used by other sessions. Thank you for your understanding.
 
-1. To create a scheduled firmware update task, you need to use the `Update-HPECOMGroupFirmware` cmdlet with the `-ScheduleTime` parameter as shown below:
+1. To create a scheduled firmware update task, you need to use the `Update-HPECOMGroupServerFirmware` cmdlet with the `-ScheduleTime` parameter as shown below:
 
     ```powershell
-    Update-HPECOMGroupFirmware -Region $Region -GroupName $GroupName -AllowFirmwareDowngrade -InstallHPEDriversAndSoftware -ScheduleTime (Get-Date).AddDays(4)
+    Update-HPECOMGroupServerFirmware -Region $Region -GroupName $GroupName -AllowFirmwareDowngrade -InstallHPEDriversAndSoftware -ScheduleTime (Get-Date).AddDays(4)
     ```
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image78.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image78.png){: data-lightbox="gallery"}
@@ -1593,14 +1599,14 @@ weekend (in four days).
     Get-HPECOMSchedule -Region $Region
     ```
 
-    There are several other important parameters with the `Update-HPECOMGroupFirmware`:
+    There are several other important parameters with the `Update-HPECOMGroupServerFirmware`:
 
     The `-ServerSerialNumber` parameter allows you to update only a
     specific server within the group instead of updating all servers in the
     group at once. Testing firmware updates on an individual server prior to
     deploying them across the entire group is a recommended best practice.
 
-    By default, `Update-HPECOMGroupFirmware` runs updates in parallel
+    By default, `Update-HPECOMGroupServerFirmware` runs updates in parallel
     across eligible servers. The `-SerialUpdates` parameter ensures that
     only one server in the group updates at a time. This prevents all
     servers from being offline simultaneously. When you combine
@@ -1908,7 +1914,7 @@ best practices.
     Now you will use COM to re-apply the correct iLO configuration to your server. This will change the **AcceptThirdPartyFirmwareUpdates** parameter back to **Enabled** on the iLO itself. Run the following command using the Async parameter so you don't have to wait for the job to complete:
 
     ```powershell
-    $task = Invoke-HPECOMGroupiLOConfiguration -Region $Region -GroupName $GroupName -ServerSerialNumber $SN -Async
+    $task = Invoke-HPECOMGroupServeriLOConfiguration -Region $Region -GroupName $GroupName -ServerSerialNumber $SN -Async
     ```
 
 5. Chck the job status
@@ -1966,7 +1972,7 @@ best practices.
 
 - Processes by which COM identifies configuration drift when group policies differ from server configurations.
 
-- Use of Invoke-HPECOMGroupiLOConfiguration to re-apply relevant group policies to designated servers.
+- Use of Invoke-HPECOMGroupServeriLOConfiguration to re-apply relevant group policies to designated servers.
 
 - Approaches for monitoring COM jobs in order to track the progress of configuration changes.
 
