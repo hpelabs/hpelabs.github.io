@@ -119,7 +119,7 @@ Windows Server 2025 and SQL Server 2025:
 This guide walks you through the introduction and explains how to connect to the remote infrastructure.   
 Be sure to **start** with **0 Intro connection guide** to establish connectivity to the lab environment.  
   
-The following screenshot depicts how the page looks like when a document is loaded (and this is the actual Module 0 - Introduction and connection guide) 
+  The following screenshot depicts how the page looks like when a document is loaded (and this is the actual Module 0 - Introduction and connection guide)   
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5c.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5c.jpg){:class="img-900"}{: data-lightbox="gallery"}
 
