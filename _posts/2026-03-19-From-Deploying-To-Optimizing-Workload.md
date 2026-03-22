@@ -113,7 +113,7 @@ Windows Server 2025 and SQL Server 2025:
 
 - Enter your credentials according to the login sheet that was given by your instructors.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4.jpg){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4a.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4a.jpg){:class="img-900"}{: data-lightbox="gallery"}
 
 - Once on this page, you can access any of the available module/guide (displayed as tiles). However, you must **start** with **0 Intro connection guide** to establish connectivity to the lab infrastructure.
 
