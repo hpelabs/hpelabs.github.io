@@ -1177,40 +1177,35 @@ If you are looking for information about how to do it manually, see
 [Generate CSR and Import an SSL
 Certificate](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_us&page=GUID-D7147C7F-2016-0901-06D0-000000000CC0.html).
 
-1.  The first step is to download the root CA certificate of the
-    certificate enrollment server to secure the connection between the
-    HPE iLO7 and the ACME server. This server is our internal lab
-    Certificate Authority (CA) server, running on Ubuntu with step-ca.\
-    We’ve saved you from the trouble and provided the root CA contents
-    here.
+1. The first step is to download the root CA certificate of the certificate enrollment server to secure the connection between the HPE iLO7 and the ACME server. This server is our internal lab Certificate Authority (CA) server, running on Ubuntu with step-ca. We’ve saved you from the trouble and provided the root CA contents here:
 
-```text
------BEGIN CERTIFICATE-----
-MIIBnDCCAUKgAwIBAgIRANV44hj14S7EMgYtFwMOx+YwCgYIKoZIzj0EAwIwLDEQ
-MA4GA1UEChMHSE9MQ0EwMTEYMBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMB4XDTI2
-MDEwNTAzNTcxMFoXDTM2MDEwMzAzNTcxMFowLDEQMA4GA1UEChMHSE9MQ0EwMTEY
-MBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
-QgAEhZyWmGjWm5TGlOgipIH1pd+ZnGqCt92BdTTF8hv4F6VDod5a4HsVXNp3+aE6
-SFXjt7TQrUEllguFNM7bPVk7FaNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB
-/wQIMAYBAf8CAQEwHQYDVR0OBBYEFKkMIYlOv6LVDXBOFxExMjNWmgDlMAoGCCqG
-SM49BAMCA0gAMEUCIQCDUN6pBnRH/GWaaN3kPrTX5KniGsMwe/JDAwFEtUKgfQIg
-X7RdmJcE9ZM1N4GBw7yl5EOaNrayuWnB9LBWmrN5O2s=
------END CERTIFICATE-----
-```
+   ```text
+   -----BEGIN CERTIFICATE-----
+   MIIBnDCCAUKgAwIBAgIRANV44hj14S7EMgYtFwMOx+YwCgYIKoZIzj0EAwIwLDEQ
+   MA4GA1UEChMHSE9MQ0EwMTEYMBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMB4XDTI2
+   MDEwNTAzNTcxMFoXDTM2MDEwMzAzNTcxMFowLDEQMA4GA1UEChMHSE9MQ0EwMTEY
+   MBYGA1UEAxMPSE9MQ0EwMSBSb290IENBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
+   QgAEhZyWmGjWm5TGlOgipIH1pd+ZnGqCt92BdTTF8hv4F6VDod5a4HsVXNp3+aE6
+   SFXjt7TQrUEllguFNM7bPVk7FaNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB
+   /wQIMAYBAf8CAQEwHQYDVR0OBBYEFKkMIYlOv6LVDXBOFxExMjNWmgDlMAoGCCqG
+   SM49BAMCA0gAMEUCIQCDUN6pBnRH/GWaaN3kPrTX5KniGsMwe/JDAwFEtUKgfQIg
+   X7RdmJcE9ZM1N4GBw7yl5EOaNrayuWnB9LBWmrN5O2s=
+   -----END CERTIFICATE-----
+   ```
 
 2. We can now navigate to our **Security** page in HPE iLO7.
 
-3.  Click on the **TLS Certificate** card.
+3. Click on the **TLS Certificate** card.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image102.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image102.png){: data-lightbox="gallery"}
 
-4.  We will now select **Configure Certificate**.
+4. We will now select **Configure Certificate**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image103.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image103.png){: data-lightbox="gallery"}
 
-5.  Fill in our details for **Manage TLS Certificate Automatically**.
+5. Fill in our details for **Manage TLS Certificate Automatically**.
 
-6.  Our **Server URL** is
+6. Our **Server URL** is
     <https://holacme01.hol.enablement.local:443/acme/acme/directory> ,
     you will also need to paste in the CA Certificate we shared in
     Step 1. For other values in the form, see table below. Then click
@@ -1225,16 +1220,16 @@ X7RdmJcE9ZM1N4GBw7yl5EOaNrayuWnB9LBWmrN5O2s=
       
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image104.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image104.png){: data-lightbox="gallery"}
 
-7.  You should see that the status of the certificate operation is “**In
+7. You should see that the status of the certificate operation is “**In
     progress**” and this takes a minute or so.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image105.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image105.png){: data-lightbox="gallery"}
 
-8.  Soon the status will be **Success**.
+8. Soon the status will be **Success**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image106.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image106.png){: data-lightbox="gallery"}
 
-9.  Note, an **iLO Reset Pending** icon has appeared and will need to be
+9. Note, an **iLO Reset Pending** icon has appeared and will need to be
     clicked to properly activate the Certificate. Click **Yes, reset**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image107.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image107.png){: data-lightbox="gallery"}
