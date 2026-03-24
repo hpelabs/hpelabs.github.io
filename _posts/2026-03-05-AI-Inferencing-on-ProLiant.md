@@ -77,14 +77,14 @@ In this lab we will be using Vaidio’s Vision AI Platform to experience Compute
 
 3. Login to the Vaidio computer vision application, with the following user credentials and then click on the Login button to continue.
 
-    Username:
-    ```text
-    HPEDemoUser
-    ```
-    Password:
-    ```text
-    Will2Win
-    ```
+   Username:
+   ```text
+   HPEDemoUser
+   ```
+   Password:
+   ```text
+   Will2Win
+   ```
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img09.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img09.png){:class="img-300"}{: data-lightbox="gallery"}
 
