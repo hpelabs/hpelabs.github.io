@@ -913,6 +913,8 @@ monitor and manage security settings proactively.
     From your Server page in Compute Ops Management, the HPE iLO7
     Security Status shows at risk. Click on the **Details** link.
 
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image157a.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image157a.png){: data-lightbox="gallery"}
+
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image77.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image77.png){: data-lightbox="gallery"}
 
 6.  What are some of the security items that need to be addressed?
