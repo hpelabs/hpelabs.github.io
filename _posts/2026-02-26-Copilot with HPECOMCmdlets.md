@@ -163,7 +163,7 @@ setup for this lab.
 
 3.  Login with your provided credentials from the team assignment sheet.
 
-4.  Click the **GitHub Copilot** icon.
+4.  Click the **VS Code** icon.
 
 5.  At the warning message "You need to grant microphone and camera
     permission to use RTAV", click **OK**.
