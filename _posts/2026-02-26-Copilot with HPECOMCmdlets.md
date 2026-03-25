@@ -490,7 +490,7 @@ services for this device.
 - Use the following prompt to create your location:
 
   ```text
-  Create a location with name LocationTnn and these parameters
+  Create a location with name Mydatacenter and these parameters
   Country, Street, City and PostalCode the same as the workspace
   State "none"
   Primary Contact Email the user's email
