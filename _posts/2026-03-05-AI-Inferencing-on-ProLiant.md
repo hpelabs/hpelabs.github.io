@@ -499,7 +499,7 @@ Open WebUI allows you to upload your own documents into a knowledge base that th
 
 In the following steps of this lab, you will deploy an AI Assistant with RAG capabilities.
 
-1. First we need to set the way Open WebUI will chuck the data we give it. With RAG, chunking is the process of splitting large documents into smaller, meaningful segments (chunks) so they can be efficiently indexed, retrieved, and used as context for a LLM. Click on the User Icon in the lower left corner of the browser. Then click on Admin Panel.
+1. First we need to set the way Open WebUI will chunck the data we give it. With RAG, chunking is the process of splitting large documents into smaller, meaningful segments (chunks) so they can be efficiently indexed, retrieved, and used as context for a LLM. Click on the User Icon in the lower left corner of the browser. Then click on Admin Panel.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img60.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img60.png){:class="img-600"}{: data-lightbox="gallery"}
 
