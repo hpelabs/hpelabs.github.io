@@ -4,7 +4,7 @@ title: "Use GitHub Copilot to help with your infrastructure automation with COM"
 image: /assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Experience the power of AI and get code written for you by GitHub Copilot, providing just plain English prompts, using a PowerShell library for Compute Ops Management.
-room: 1 # Set to 1 or 2
+room: 2 # Set to 1 or 2
 ---
 Hands-On Lab Guide
 
@@ -227,8 +227,7 @@ into GitHub, ensuring your rights to Copilot.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){:class="img-500"}{: data-lightbox="gallery"}
 
-  It shows the mode you will be using **Agent** and the LLM (Large Language
-Model) set to **Claude Sonnet 4.5**. 
+  It shows the mode you will be using **Agent** and the LLM (Large Language Model) set to **Claude Sonnet 4.5**. 
 
   An LLM, or Large Language Model, is a
 type of artificial intelligence that uses deep learning to understand
