@@ -63,7 +63,7 @@ Computer vision analyzes video footage from security cameras to detect and track
 
 In this lab we will be using Vaidio’s Vision AI Platform to experience Computer Vision in a live environment. Vaidio is a certified HPE Gold Partner ISV.
 
-1. From the Desktop in Linux, click on the Chromium Browser icon link on the left-hand side your jump server desktop.
+1. From the Desktop in Linux, click on the Chromium Browser icon link on the left-hand side of your jump server desktop.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img05.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img05.png){:class="img-400"}{: data-lightbox="gallery"}
 
@@ -112,7 +112,7 @@ In this lab we will be using Vaidio’s Vision AI Platform to experience Compute
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img15.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img15.png){:class="img-600"}{: data-lightbox="gallery"}
 
-10. Now click on the History link. Select a starting date that is less 30 days old and then click on Search.
+10. Now click on the History link. Select a starting date that is less than 30 days old and then click on Search.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img16.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img16.png){:class="img-600"}{: data-lightbox="gallery"}
 
@@ -499,7 +499,7 @@ Open WebUI allows you to upload your own documents into a knowledge base that th
 
 In the following steps of this lab, you will deploy an AI Assistant with RAG capabilities.
 
-1. First we need to set the way Open WebUI will chunck the data we give it. With RAG, chunking is the process of splitting large documents into smaller, meaningful segments (chunks) so they can be efficiently indexed, retrieved, and used as context for a LLM. Click on the User Icon in the lower left corner of the browser. Then click on Admin Panel.
+1. First we need to set the way Open WebUI will chunk the data we give it. With RAG, chunking is the process of splitting large documents into smaller, meaningful segments (chunks) so they can be efficiently indexed, retrieved, and used as context for a LLM. Click on the User Icon in the lower left corner of the browser. Then click on Admin Panel.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img60.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img60.png){:class="img-600"}{: data-lightbox="gallery"}
 
