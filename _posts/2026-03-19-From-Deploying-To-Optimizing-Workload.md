@@ -108,7 +108,7 @@ The following modules are available for selection, allowing flexibility based on
 
 - Enter your credentials according to the login sheet that was given by your instructors, and click on **Sign in**.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4b.png){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image4b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image4b.png){:class="img-900"}{: data-lightbox="gallery"}
 
 - This will first open the HPE COMPUTE & HYBRID CLOUD **HPE HOL Platform Home** page with its HOL intro lab guide.
 This guide walks you through the introduction and explains how to connect to the remote infrastructure.   
