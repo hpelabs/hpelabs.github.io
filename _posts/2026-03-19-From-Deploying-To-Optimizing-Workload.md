@@ -65,7 +65,7 @@ The following modules are available for selection, allowing flexibility based on
 
  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){:class="img-900"}{: data-lightbox="gallery"}
 
-  - **Module 1: Achieve best OLTP performance**
+  - **Module 1: Performance - Achieve best OLTP performance**
 
     `Estimated time: 1 hour 30 minutes`
 
@@ -73,26 +73,26 @@ The following modules are available for selection, allowing flexibility based on
     software to tune iLO/BIOS and SQL Server database including storage
     parameters to achieve best OLTP performance on the given configuration.
 
-  - **Module 2: HPE StoreOnce Catalyst Plug-in for SQL Server**
+  - **Module 2: Data Protection - HPE StoreOnce Catalyst Plug-in for SQL Server**
 
     `Estimated time: 40 minutes`
 
     Protect (backup) Microsoft SQL Server to HPE StoreOnce with HPE Catalyst
     plugin for SQL Server
 
-  - **Module 3: Microsoft SQL Server Data Lake with Alletra MP X10000 use cases**
+  - **Module 3: Data Lake - Microsoft SQL Server Data Lake with Alletra MP X10000 use cases**
 
     `Estimated time: 30 minutes`
 
     Setup SQL Server data lake with external table feature and S3 object storage like HPE Alletra MP X10000
 
-  - **Module 4: Getting started with SQL Server 2025 Vector Search**
+  - **Module 4: SQL Server in AI - Getting started with SQL Server 2025 Vector Search**
 
     `Estimated time: 20 minutes`   
 
     Introduction to SQL Server 2025 and its new Vector Search capabilities on HPE ProLiant Server
 
-  - **Module 5: Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
+  - **Module 5: Set up deployment - Deploy Microsoft SQL Server web stack with HPE Morpheus Blueprint**
 
     `Estimated time: 45 minutes`   
 
@@ -163,6 +163,6 @@ For example, for each module:
 
 **Your primary display is usually the main monitor you use for work, while your secondary display refers to an additional monitor that can be set up vertically (portrait orientation).**
 <br>
-- At the end, please use the **logout** button (top right corner).  
+- At the end, please use the **Sign out** button (top right corner).  
 
 Thank you for your interest and participation.
