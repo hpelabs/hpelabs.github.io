@@ -126,14 +126,14 @@ Be sure to **start** with **0 Intro connection guide** to establish connectivity
 
 - Use either one, once you have connected to the remote infrastucture, and pick the next module you would like to learn.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageR.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/imageR.png){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageM.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/imageM.png){:class="img-900"}{: data-lightbox="gallery"}
 
 - Clicking a module opens a new page displaying either the guide or slides (depending on the module). If both are available, you can choose which format to use.
 - If the guide is displayed:
 
   - The left pane contains the **table of contents**
-  - The center pane displays the guide content
-  - The right pane, if you select *Show Copilot* from the top menu, provides access to the AI assistant
+  - The center pane displays the **instruction guide** content
+  - The right pane, if you select *Show Copilot* from the top menu, provides access to the **AI assistant**
 
   On top, you can see some options that may ease your experience:
 
@@ -141,15 +141,13 @@ Be sure to **start** with **0 Intro connection guide** to establish connectivity
 
 For example, for each module:
 
-  - ❷ **Sizing options** — Adjust the split between the manual and AI assistant panels to your preference.
+  - **Lab information** — Click to reveal the credentials you may need during the lab. 
+  A popup will appear with your information; use the copy button (overlapping squares icon) next to each value to copy it.
 
-  - ❸ **Lab credentials** — Click to reveal the credentials you may need during the lab. A popup will appear with your information; use the copy button (overlapping squares icon) next to each value to copy it.
+    [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageTbl.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageTbl.png){:class="img-600"}{: data-lightbox="gallery"}
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image8.jpg){:class="img-600"}{: data-lightbox="gallery"}
-
-  - **Spanish** — Click to switch the manual language to Spanish.
-
-  - ❹ **AI assistant** — Ask any question related to the module you are working on. You can even take a screenshot of your current screen and include it in your question.
+  
+  - **Show/Hide Copilot** — Toggle button to show (or hide Copilot), and ask any question related to the module you are working on. 
 
 <br>
 
