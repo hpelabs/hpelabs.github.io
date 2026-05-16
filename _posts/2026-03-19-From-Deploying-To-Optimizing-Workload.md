@@ -122,7 +122,7 @@ Be sure to **start** with **0 Intro connection guide** to establish connectivity
   The following screenshot depicts how the page looks like (this is the actual Module 0 - **HOL Intro** Lab connection and introduction guide)   
   Review the available options on the page, in particular the menu bar on top.  
   
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5d.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5d.png){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image5d.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image5d.png){:class="img-600"}{: data-lightbox="gallery"}
     
 
   The link at the top **HOL_Home** takes you back to the homepage, where you can navigate and select the module(s) to run next; it is equivalent to the clickable button at the end of the guide entitled **Back to HOL Home**.  
