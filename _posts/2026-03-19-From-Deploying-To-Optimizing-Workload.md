@@ -114,27 +114,30 @@ The following modules are available for selection, allowing flexibility based on
 This guide walks you through the introduction and explains how to connect to the remote infrastructure.   
 Be sure to **start** with **0 Intro connection guide** to establish connectivity to the lab environment.  
   
-  The following screenshot depicts how the page looks like (this is the actual Module 0 - **HOL Intro** Lab connection and introduction guide)   
-  Review the available options on the page, in particular the menu bar on top.  
+  The screenshot below shows how the page appears (this is the actual Module 0 – **HOL Intro** Lab connection and introduction -guide).
+  Please review the available options on the page, with particular attention to the top menu bar.
+  Note that the menu is contextual and may vary depending on the module guide you are using.  
   
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image5d.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image5d.png){:class="img-900"}{: data-lightbox="gallery"}
     
+  The banner which includes the HPE logo **HOL Platform Home** takes you back to the homepage, where you can navigate and select the module(s) to run next; it is equivalent to the clickable button at the end of the HOL Intro guide entitled **Back to HOL Home**.  
 
-  The link at the top **HOL_Home** takes you back to the homepage, where you can navigate and select the module(s) to run next; it is equivalent to the clickable button at the end of the guide entitled **Back to HOL Home**.  
-
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5end.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image5end.jpg){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageR.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageR.png){:class="img-900"}{: data-lightbox="gallery"}
 
 - Use either one, once you have connected to the remote infrastucture, and pick the next module you would like to learn.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image6a.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image6a.jpg){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/ImageR.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/imageR.png){:class="img-900"}{: data-lightbox="gallery"}
 
-- Clicking on the module opens a new page. The page is divided into two main parts:
-  - On the left is the manual
-  - On the right, the AI assistant
+- Clicking a module opens a new page displaying either the guide or slides (depending on the module). If both are available, you can choose which format to use.
+- If the guide is displayed:
+
+  - The left pane contains the **table of contents**
+  - The center pane displays the guide content
+  - The right pane, if you select *Show Copilot* from the top menu, provides access to the AI assistant
 
   On top, you can see some options that may ease your experience:
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image7.jpeg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image7.jpeg){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image7B.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image7B.png){:class="img-900"}{: data-lightbox="gallery"}
 
 For example, for each module:
 
