@@ -109,9 +109,9 @@ Windows Server 2025 and SQL Server 2025:
 
   From the classroom desktop computer, access the portal that allows you to select the manuals for the modules you are interested in. This will guide you through the hands-on lab with an AI assistant that you could query in case of needed.
 
-- Go to **[https://hol.sshk2.com](https://hol.sshk2.com)**
+- Go to **[https://hol2.sshk2.com](https://hol2.sshk2.com)**
 
-- Enter your credentials according to the login sheet that was given by your instructors.
+- Enter your credentials according to the login sheet that was given by your instructors, and click on "Sign in".
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4a.jpg){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image4a.jpg){:class="img-900"}{: data-lightbox="gallery"}
 
