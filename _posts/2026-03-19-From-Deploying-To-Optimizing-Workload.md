@@ -47,28 +47,23 @@ Your work environment includes a desktop computer (PC) with two monitors:
 We recommend to use the landscape-oriented monitor for hands-on tasks, and the
 portrait-oriented monitor for reviewing instructions and consulting with an AI assistant.
 
-This setup allows you to reference step-by-step guides while performing
-practical tasks, enhancing efficiency and accuracy during lab exercises, 
-from the hands on lab guide platform available though a web browser navigating to HOL.SSHK2.COM
+This setup allows you to follow step-by-step guides while performing hands-on tasks, improving efficiency and accuracy during lab exercises, using the AI-empowered HOL platform accessible though a web browser at https://HOL2.SSHK2.COM
 
-The PC will allow you to connect to the HPE remote lab through Omnissa horizon to your assigned HPE ProLiant
-Servers and HPE Primera storage systems installed specifically to run
-all modules of this hands on lab.
+This PC allows you to connect to the HPE remote lab via Omnissa Horizon to access your assigned HPE ProLiant server and HPE Primera storage system, which are preconfigured to run all modules of this hands-on lab
 
-There are 10 HPE ProLiant servers with associated storage in the remote lab, which means we can have up to 10 teams run the lab simultaneously.
+There are 10 HPE ProLiant servers with dedicated storage in the remote lab, allowing up to 10 teams to run the lab in parallel.
 
 - Each team (or group of participants) is assigned a server and storage and can decide
   which modules to run.
 
-The login sheet given by the instructors contains information related to
-your team number and the credentials to establish the connection through
-Omnissa horizon to an HPE lab in Houston where this infrastructure is hosted.
+The instructor provided login sheet includes your **Team number** and the credentials needed to connect via Omnissa horizon to an HPE lab in Houston where the infrastructure is hosted.
+
+ [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image1.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/Image1.png){:class="img-900"}{: data-lightbox="gallery"}
+
+The hands on lab modules are designed to run on HPE ProLiant DL380 or DL380a Gen11 bare-metal servers with Microsoft Windows Server 2025 and SQL Server 2025.
+The following modules are available for selection, allowing flexibility based on your objectives and time constraints.
 
  [![]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Deploy-Optimize-Workload/image3.png){:class="img-900"}{: data-lightbox="gallery"}
-
-The first set of modules (modules 1-4) is designed to run on HPE
-ProLiant DL380 or DL380a Gen11 as bare metal servers with Microsoft
-Windows Server 2025 and SQL Server 2025:
 
   - **Module 1: Achieve best OLTP performance**
 
