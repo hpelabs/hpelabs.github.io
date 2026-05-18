@@ -954,8 +954,8 @@ a.bordered-image-thin:hover img {
   display: none;
   position: absolute;
   top: calc(100% + 6px);
-  left: 0;
-  min-width: 220px;
+  right: 0;
+  min-width: auto;
   background-color: var(--minima-background-color, #fff);
   border: 1px solid #444;
   border-top: 2px solid #03a883;
