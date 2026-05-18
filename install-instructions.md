@@ -432,6 +432,22 @@ Metadata Fields Explained:
     room:     # Not assigned to any room (homepage only)
     ```
 
+- **exclude**
+
+    Set to `true` to remove a lab from all listing pages (homepage and room pages) without deleting the file. The lab page itself remains accessible via its direct URL.
+
+    ```yaml
+    exclude: true   # Hidden from all listings
+    ```
+
+- **hide_read_time**
+
+    Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
+
+    ```yaml
+    hide_read_time: true
+    ```
+
 - **post_end_promo**
     
     Adds a final promotional line at the end of your lab guide.
