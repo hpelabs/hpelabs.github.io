@@ -174,12 +174,6 @@ For generative AI workloads such as product design, 3D animation, and image or v
 
 Generative AI generates lifelike and dynamic pictures, 3D animations (including character movements,) physics simulations, and environmental effects. You use it to curate new visual content, such as images or videos, that mimic real-world data.
 
-As an example of Generative AI Inferencing, we will install and use SwarmUI in our environment. The steps to install the environment are basically the following:
-
-- We have already installed and setup SwarmUI for this experience.
-
-- Launch and use SwarmUI to generate images from text prompts.
-
 In this lab we will use SwarmUI to experience Generative AI in a live environment.
 
 ### Task 1: Some pre-work to prepare our workstation
@@ -294,7 +288,7 @@ Your environment has been set up in such a way that your VM has been configured 
 
 8. Feel free to experiment with different settings and be creative with your image descriptions to generate unique results.
 
-9. To see the impact on GPU utilization while Stable Diffusion generates images, open a new Terminal session. Right-click on the Terminal and select New Window. Enter the following command to monitor GPU activity:
+9. To see the impact on GPU utilization while SwarmUI  generates images, open a new Terminal session. Right-click on the Terminal and select New Window. Enter the following command to monitor GPU activity:
 
    ```bash
    nvtop
@@ -574,7 +568,7 @@ In the following steps of this lab, you will deploy an AI Assistant with RAG cap
 14. Open WebUI allows you to add entire collections or selected files from a collection to the AI assistant’s knowledge base. Click on Select Knowledge and the click on both QuickSpecs files to add them into the knowledge base.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img73.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img73.png){:class="img-500"}{: data-lightbox="gallery"}
-15. Under the Capabilities section, uncheck the box next to Web Search and Image Generation and then click on Save & Create.
+15. Under the Capabilities section, uncheck the box next to Web Search, Image Generation, Terminal, and Builtin Tools. Then click on Save & Create.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img74.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img74.png){:class="img-600"}{: data-lightbox="gallery"}
 
@@ -669,7 +663,7 @@ In the following steps of this lab, you will deploy an AI Assistant with RAG cap
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img90.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img90.png){:class="img-600"}{: data-lightbox="gallery"}
 
-31. From the Access Control form in the Select a group dropdown, click on Team Members and then click the X.
+31. From the Access Control form in the Access List, click on "+ Add Access" and select the Team Members group.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img91.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/AI-Inferencing/img91.png){:class="img-400"}{: data-lightbox="gallery"}
 
