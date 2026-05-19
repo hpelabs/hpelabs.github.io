@@ -1055,14 +1055,16 @@ monitor and manage security settings proactively.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: data-lightbox="gallery"}
 
-35. Type the following ilorest commands into the RESTful Interface Tool,
-    pressing enter after each line. 
+35. Copy the following ilorest commands into the RESTful Interface Tool, making sure to replace xx with your Team number. 
     
     **xx** represents your Team Number
 
-
       ```bash
       ilorest login holgen12xx-ilo.hol.enablement.local -u Administrator -p hpent123
+      ``` 
+Once logged in to your assigned iLO, you can then continue with the following commands.
+
+      ```bash
 
       ilorest select SecureBoot
 
