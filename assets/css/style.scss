@@ -327,6 +327,34 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: .25rem;
 }
 
+/* Google Translate widget in post header */
+.post-translate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0.5em 0 0.25em 0;
+}
+
+.post-translate-label {
+  font-size: 1rem;
+}
+
+.post-translate select {
+  font-size: 0.85rem;
+  padding: 3px 8px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.post-translate select:hover,
+.post-translate select:focus {
+  border-color: #03a883;
+}
+
 .centred-content {
   margin: auto;
   text-align: center;
