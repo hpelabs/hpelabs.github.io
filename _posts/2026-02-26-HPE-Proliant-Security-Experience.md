@@ -1059,12 +1059,12 @@ monitor and manage security settings proactively.
     
     **xx** represents your Team Number
 
-      ```powershell
+      ```text
       ilorest login holgen12xx-ilo.hol.enablement.local -u Administrator -p hpent123
       ``` 
 Once logged in to your assigned iLO, you can then continue with the following commands.
 
-      ```powershell
+      ```text
       ilorest select SecureBoot
 
       ilorest set SecureBootEnable=True --commit
