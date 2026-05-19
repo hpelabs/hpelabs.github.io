@@ -72,7 +72,7 @@ Follow these steps:
     On the Horizon login screen, click the **Omnissa Horizon Web
     Client** button.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image3.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image3.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image3.png){: .img-300}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image3.png){: data-lightbox="gallery"}
 
 3.  Enter the username and password supplied by your instructor and
     click the **Login** button.
@@ -85,7 +85,7 @@ Follow these steps:
     - **Password**:\
       Supplied by instructor
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image4.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image4.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image4.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image4.png){: data-lightbox="gallery"}{:class="img-400"}
 
 4.  **Click** on the **graphic** that represents your Lab environment.
 
@@ -125,7 +125,7 @@ ethernet port is connected to a management network switch and the
 default password information has been gathered from the toe-tag on the
 front of the server.
 
-[![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image7.jpeg){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image7.jpeg){: data-lightbox="gallery"}
+[![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image7.jpeg)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image7.jpeg){: data-lightbox="gallery"}{:class="img-400"}
 
 In this lab environment, a DHCP server assigns IP addresses to known
 hosts using DHCP reservations. This ensures that the lab unit you access
@@ -185,7 +185,7 @@ sure to also record your server’s serial number.
     holgen12XX-ilo.hol.enablement.local** to continue to the HPE iLO7
     login screen.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image10.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image10.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image10.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image10.png){: data-lightbox="gallery"}{:class="img-500"}
 
 6.  Now enter **Administrator** and the **factory password from the
     table above**, into the Local login name and Password fields.
@@ -343,7 +343,7 @@ Firmware feature.
 5.  Click **Update** to save the scan settings. You should see that the
     scan settings have been saved successfully.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image22.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image22.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image22.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image22.png){: data-lightbox="gallery"}{:class="img-400"}
 
 6.  Click **Run Scan** to trigger a runtime firmware verification of the
     component firmware, to ensure validity. This scan is performed by
@@ -395,7 +395,7 @@ This concludes this portion of the lab.
 
 9.  Click **Update** to save the changes you entered.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26.png){: data-lightbox="gallery"}{:class="img-500"}
 
 This concludes this portion of the lab.
 
@@ -516,7 +516,7 @@ actually set it up at this time.
 1.  From the **Quick Links** on the right-hand side of the GreenLake
     Home Page, click **Manage Workspace**.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image29.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image29.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image29.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image29.png){: data-lightbox="gallery"}{:class="img-700"}
 
 2.  Select the **Workspace Details** card**.**
 
@@ -531,7 +531,7 @@ actually set it up at this time.
     Verify, Security Key or Biometric Authenticator and Google
     Authenticator.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image32.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image32.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image32.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image32.png){: data-lightbox="gallery"}{:class="img-400"}
 
 >💡**Note**💡   
 >
@@ -621,16 +621,16 @@ Management, we first need to obtain an Activation Key.
     existing key (Select a subscription key) box, **choose the available
     key** and click **Next**.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38.png){: data-lightbox="gallery"}{:class="img-700"}
 
 8.  Adding Server location and tags is optional, so we will click **Next** but generally this would be best practise to perform this task now.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38a.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38a.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38a.png){: data-lightbox="gallery"}{:class="img-700"}
 
 8.  Once you have reviewed the details, click **Finish and generate
     activation key.**
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image39.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image39.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image39.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image39.png){: data-lightbox="gallery"}{:class="img-700"}
 
 9.  We will now take note of our Activation Key, so we can use it in our
     HPE iLO7 to connect to Compute Ops Management. Click the **copy
@@ -647,7 +647,7 @@ Management, we first need to obtain an Activation Key.
 
 11. Click **Enable** to enable the Compute Ops Management connection.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image42.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image42.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image42.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image42.png){: data-lightbox="gallery"}{:class="img-700"}
 
 12. Then click on **Enter Activation Key.**
 
@@ -661,7 +661,7 @@ Management, we first need to obtain an Activation Key.
 14. After a few seconds, it should now show you as **Connected** with
     your **Workspace ID** and **Connection Type.**
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image45.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image45.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image45.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image45.png){: data-lightbox="gallery"}{:class="img-700"}
 
 This concludes this section of the lab.
 
@@ -713,7 +713,7 @@ Return to your HOL Horizon Browser session.
     Finally pick the **Category of Firmware** from the pull-down box and
     click **Next** to continue.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image50.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image50.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image50.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image50.png){: data-lightbox="gallery"}{:class="img-700"}
 
 6.  Now in step two of the process, use the pull-down menu in the
     **Gen12 baseline** to select the latest base SPP available.
@@ -771,7 +771,7 @@ group.
     **Server** as the **type**, then click **Next** to continue in the
     wizard.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image57.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image57.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image57.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image57.png){: data-lightbox="gallery"}{:class="img-700"}
 
 4.  In the next screen of the wizard, **use the pulldown menu** to
     **choose** your previously created **Firmware setting**.
@@ -781,7 +781,7 @@ group.
 5.  In the section, to **choose a BIOS server setting**, choose a
     setting that meets the needs of the customer.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image59.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image59.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image59.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image59.png){: data-lightbox="gallery"}{:class="img-600"}
 
 6.  In the section **Choose an iLO server setting** box, select **iLO
     settings enabled for security.**
@@ -860,7 +860,7 @@ group.
 
 21. Click **Close** to return to your team’s server group.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image72.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image72.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image72.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image72.png){: data-lightbox="gallery"}{:class="img-600"}
 
 22. The settings designated to automatically apply to servers as they
     are added to the group will be applied. **Note the Recent group
@@ -1107,7 +1107,7 @@ Once logged in to your assigned iLO, you can then continue with the following co
       | **Confirm Password** | hpent123 |
       | **Role** | Administrator |
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png){: data-lightbox="gallery"}{:class="img-600"}
 
 41. When we implemented our **HPE iLO7 Security Settings**, it forces
     any **new HPE iLO7 Accounts** to meet **Password complexity
