@@ -54,6 +54,7 @@ title-logo: #/assets/images/favicon/favicon-32x32.png
 header_pages:
   - room-1.md
   - room-2.md
+  - demos.md
   - search.md
 
 # Default front matter for all lab-guide posts

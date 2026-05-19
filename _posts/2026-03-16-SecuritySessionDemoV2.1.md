@@ -4,8 +4,7 @@ title: "Security Session Demo - HPE ProLiant Compute"
 image: /assets/images/HOLs/SecuritySessionDemo/banner2.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: This is a security demonstration of enhanced iLO7 capabilities.
-room: 2 # Set to 1 or 2
-exclude: true # Set to true to remove this post from all listings
+type: demo # Set to demo to show this post on the Demos page instead of the homepage
 ---
 
 Live demo Environment – 2026 Security Sessions (TechJam, RSA, Discover)

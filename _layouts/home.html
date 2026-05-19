@@ -21,6 +21,12 @@ layout: default
     {% assign posts = posts | where: "room", page.room %}
   {% endif %}
 
+  {% if page.post_type %}
+    {% assign posts = posts | where: "type", page.post_type %}
+  {% else %}
+    {% assign posts = posts | where_exp: "post", "post.type != 'demo'" %}
+  {% endif %}
+
   {%- if posts.size > 0 -%}
     <!-- Category Filter Chips -->
     {% unless page.room %}
@@ -30,15 +36,18 @@ layout: default
     {%- if page.list_title -%}
       {%- assign visible_count = 0 -%}
       {%- for post in posts -%}
-        {%- if post.exclude != true and (page.show_hidden_posts or site.show_hidden_posts or post.hidden != true) -%}
-          {%- assign visible_count = visible_count | plus: 1 -%}
-        {%- endif -%}
+        {%- unless post.exclude -%}
+          {%- if page.show_hidden_posts or site.show_hidden_posts or post.hidden != true -%}
+            {%- assign visible_count = visible_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endunless -%}
       {%- endfor -%}
       <h2 class="post-list-heading">{{ page.list_title }}: <span class="post-list-count">{{ visible_count }}</span></h2>
     {%- endif -%}
     <ul class="post-list">
       {%- for post in posts -%}
-      {%- if post.exclude != true and (page.show_hidden_posts or site.show_hidden_posts or post.hidden != true) -%}
+      {%- unless post.exclude -%}
+      {%- if page.show_hidden_posts or site.show_hidden_posts or post.hidden != true -%}
       <li class="card" data-categories="{% for cat in post.categories %}{{ cat | slugify }} {% endfor %}">
         <a class="card-link" href="{{ post.url | relative_url }}">
           <div class="bg-img" style="background-image: url({{post.image}})"></div>
@@ -58,6 +67,7 @@ layout: default
         </div>
       </li>
       {%- endif -%}
+      {%- endunless -%}
       {%- endfor -%}
     </ul>
 
