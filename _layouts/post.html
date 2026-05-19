@@ -24,16 +24,85 @@ layout: default
       •
       {% include custom/tags.html %}</p>{% endunless %}
 
+    <!-- Hidden Google Translate widget (translated in-place, same tab) -->
+    <div id="google_translate_element" style="display:none"></div>
+    <script>
+      // Clear googtrans cookie on every page load to prevent cross-page translation carry-over
+      function clearGoogTransCookie() {
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname + ';';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname + ';';
+      }
+      function resetTranslation() {
+        var sel = document.querySelector('#google_translate_element select.goog-te-combo');
+        if (sel) { sel.value = ''; sel.dispatchEvent(new Event('change')); }
+      }
+      clearGoogTransCookie();
+
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+      }
+      function doTranslate(lang) {
+        document.getElementById('post-translate').classList.remove('post-translate--open');
+        var sel = document.querySelector('#google_translate_element select.goog-te-combo');
+        if (sel) {
+          sel.value = lang;
+          sel.dispatchEvent(new Event('change'));
+        }
+      }
+      // Reset to English when page is restored from bfcache (browser back/forward)
+      window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+          clearGoogTransCookie();
+          resetTranslation();
+        }
+      });
+      // Remove Google Translate bar and body offset after translation
+      var _gtObserver = new MutationObserver(function() {
+        var bar = document.querySelector('.goog-te-banner-frame, #goog-gt-tt, .skiptranslate > iframe');
+        if (bar) bar.style.display = 'none';
+        if (document.body.style.top) document.body.style.top = '';
+        if (document.body.style.marginTop) document.body.style.marginTop = '';
+      });
+      _gtObserver.observe(document.body, { attributes: true, childList: true, subtree: true });
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+
     <div class="post-translate" id="post-translate">
       <button class="post-translate-btn" onclick="document.getElementById('post-translate').classList.toggle('post-translate--open')" aria-haspopup="true">
-        🌐 Translate this page ▾
+        🌐 Translate ▾
       </button>
       <ul class="post-translate-menu" role="menu">
-        {% assign langs = "es:🇪🇸 Spanish,fr:🇫🇷 French,de:🇩🇪 German,it:🇮🇹 Italian,pt:🇧🇷 Portuguese,nl:🇳🇱 Dutch,pl:🇵🇱 Polish,ru:🇷🇺 Russian,zh-CN:🇨🇳 Chinese (Simplified),zh-TW:🇹🇼 Chinese (Traditional),ja:🇯🇵 Japanese,ko:🇰🇷 Korean,ar:🇸🇦 Arabic,hi:🇮🇳 Hindi,tr:🇹🇷 Turkish,sv:🇸🇪 Swedish,da:🇩🇰 Danish,fi:🇫🇮 Finnish,nb:🇳🇴 Norwegian,cs:🇨🇿 Czech,sk:🇸🇰 Slovak,hu:🇭🇺 Hungarian,ro:🇷🇴 Romanian,uk:🇺🇦 Ukrainian,th:🇹🇭 Thai,vi:🇻🇳 Vietnamese,id:🇮🇩 Indonesian,ms:🇲🇾 Malay,he:🇮🇱 Hebrew,el:🇬🇷 Greek" | split: "," %}
-        {% for item in langs %}
-          {% assign parts = item | split: ":" %}
-          <li role="menuitem"><a href="https://translate.google.com/translate?sl=auto&tl={{ parts[0] }}&u={{ site.url | append: page.url | uri_escape }}" target="_blank" rel="noopener">{{ parts[1] }}</a></li>
-        {% endfor %}
+        <li role="menuitem"><a onclick="doTranslate('es'); return false;" href="#">🇪🇸 Spanish</a></li>
+        <li role="menuitem"><a onclick="doTranslate('fr'); return false;" href="#">🇫🇷 French</a></li>
+        <li role="menuitem"><a onclick="doTranslate('de'); return false;" href="#">🇩🇪 German</a></li>
+        <li role="menuitem"><a onclick="doTranslate('it'); return false;" href="#">🇮🇹 Italian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('pt'); return false;" href="#">🇧🇷 Portuguese</a></li>
+        <li role="menuitem"><a onclick="doTranslate('nl'); return false;" href="#">🇳🇱 Dutch</a></li>
+        <li role="menuitem"><a onclick="doTranslate('pl'); return false;" href="#">🇵🇱 Polish</a></li>
+        <li role="menuitem"><a onclick="doTranslate('ru'); return false;" href="#">🇷🇺 Russian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('zh-CN'); return false;" href="#">🇨🇳 Chinese (Simplified)</a></li>
+        <li role="menuitem"><a onclick="doTranslate('zh-TW'); return false;" href="#">🇹🇼 Chinese (Traditional)</a></li>
+        <li role="menuitem"><a onclick="doTranslate('ja'); return false;" href="#">🇯🇵 Japanese</a></li>
+        <li role="menuitem"><a onclick="doTranslate('ko'); return false;" href="#">🇰🇷 Korean</a></li>
+        <li role="menuitem"><a onclick="doTranslate('ar'); return false;" href="#">🇸🇦 Arabic</a></li>
+        <li role="menuitem"><a onclick="doTranslate('hi'); return false;" href="#">🇮🇳 Hindi</a></li>
+        <li role="menuitem"><a onclick="doTranslate('tr'); return false;" href="#">🇹🇷 Turkish</a></li>
+        <li role="menuitem"><a onclick="doTranslate('sv'); return false;" href="#">🇸🇪 Swedish</a></li>
+        <li role="menuitem"><a onclick="doTranslate('da'); return false;" href="#">🇩🇰 Danish</a></li>
+        <li role="menuitem"><a onclick="doTranslate('fi'); return false;" href="#">🇫🇮 Finnish</a></li>
+        <li role="menuitem"><a onclick="doTranslate('nb'); return false;" href="#">🇳🇴 Norwegian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('cs'); return false;" href="#">🇨🇿 Czech</a></li>
+        <li role="menuitem"><a onclick="doTranslate('sk'); return false;" href="#">🇸🇰 Slovak</a></li>
+        <li role="menuitem"><a onclick="doTranslate('hu'); return false;" href="#">🇭🇺 Hungarian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('ro'); return false;" href="#">🇷🇴 Romanian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('uk'); return false;" href="#">🇺🇦 Ukrainian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('th'); return false;" href="#">🇹🇭 Thai</a></li>
+        <li role="menuitem"><a onclick="doTranslate('vi'); return false;" href="#">🇻🇳 Vietnamese</a></li>
+        <li role="menuitem"><a onclick="doTranslate('id'); return false;" href="#">🇮🇩 Indonesian</a></li>
+        <li role="menuitem"><a onclick="doTranslate('ms'); return false;" href="#">🇲🇾 Malay</a></li>
+        <li role="menuitem"><a onclick="doTranslate('he'); return false;" href="#">🇮🇱 Hebrew</a></li>
+        <li role="menuitem"><a onclick="doTranslate('el'); return false;" href="#">🇬🇷 Greek</a></li>
       </ul>
     </div>
     <script>
