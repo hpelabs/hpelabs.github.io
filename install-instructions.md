@@ -432,9 +432,19 @@ Metadata Fields Explained:
     room:     # Not assigned to any room (homepage only)
     ```
 
+- **type**
+
+    Set to `demo` to assign a post to the **Demos** page instead of the labs homepage and room pages. Demo posts are automatically excluded from the labs homepage.
+
+    ```yaml
+    type: demo   # Shows on the Demos page, hidden from labs homepage and room pages
+    ```
+
+    Leave unset (or omit entirely) for regular lab guides.
+
 - **exclude**
 
-    Set to `true` to remove a lab from all listing pages (homepage and room pages) without deleting the file. The lab page itself remains accessible via its direct URL.
+    Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
 
     ```yaml
     exclude: true   # Hidden from all listings
