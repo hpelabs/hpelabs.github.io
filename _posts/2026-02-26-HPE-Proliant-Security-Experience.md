@@ -1065,7 +1065,6 @@ monitor and manage security settings proactively.
 Once logged in to your assigned iLO, you can then continue with the following commands.
 
       ```bash
-
       ilorest select SecureBoot
 
       ilorest set SecureBootEnable=True --commit
