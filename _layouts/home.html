@@ -9,6 +9,8 @@ layout: default
 
   {{ content }}
 
+  {% include custom/translate.html %}
+
   {% if page.sort_by == 'title' %}
     {% assign posts = site.posts | sort_natural: 'title' %}
   {% elsif site.paginate %}
