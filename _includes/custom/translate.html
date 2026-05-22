@@ -17,6 +17,11 @@
   }
   function doTranslate(lang) {
     document.getElementById('post-translate').classList.remove('post-translate--open');
+    if (lang === '') {
+      clearGoogTransCookie();
+      location.reload();
+      return;
+    }
     var sel = document.querySelector('#google_translate_element select.goog-te-combo');
     if (sel) {
       sel.value = lang;
