@@ -378,6 +378,16 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+.post-translate-separator {
+  height: 1px;
+  background-color: #ccc;
+  margin: 4px 0;
+}
+
+[data-theme="dark"] .post-translate-separator {
+  background-color: #30363d;
+}
+
 .post-translate-menu li a {
   display: block;
   padding: 5px 14px;
