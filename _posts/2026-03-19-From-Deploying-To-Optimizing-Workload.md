@@ -48,7 +48,7 @@ Your work environment includes a desktop computer (PC) with two monitors:
 We recommend to use the landscape-oriented monitor for hands-on tasks, and the
 portrait-oriented monitor for reviewing instructions and consulting with an AI assistant.
 
-This setup allows you to follow step-by-step guides while performing hands-on tasks, improving efficiency and accuracy during lab exercises, using the AI-empowered HOL platform accessible though a web browser at **https://HOL2.SSHK2.COM**
+This setup allows you to follow step-by-step guides while performing hands-on tasks, improving efficiency and accuracy during lab exercises, using the AI-empowered HOL platform accessible though a web browser at [https://hol2.sshk2.com](https://hol2.sshk2.com)
 
 This PC allows you to connect to the HPE remote lab via Omnissa Horizon to access your assigned HPE ProLiant server and HPE Primera storage system, which are preconfigured to run all modules of this hands-on lab
 
