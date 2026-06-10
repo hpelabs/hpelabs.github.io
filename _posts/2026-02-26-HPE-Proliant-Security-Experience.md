@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title: "HPE ProLiant Security Experience"
 image: /assets/images/HOLs/Proliant-Security/banner.jpg
@@ -296,33 +296,33 @@ This concludes this portion of the lab.
 
 <p class="step-meta">(Task4 of 15) ⏱️ ~5 min</p>
 
-The Firmware Verification feature allows you to run an on-demand scan or
-implement scheduled scans. To respond to detected issues, you can
-configure HPE iLO7 to:
-
-- Log the results.
-
-- Log the results and initiate a repair action that uses a recovery
-  install set.
-
-Depending on the scan results, information is logged in the Active
-Health System Log and the Integrated Management Log. The following
-firmware types are supported:
-
-- HPE iLO7 Firmware
-
-- System ROM (BIOS)
-
-- System Programmable Logic Device (CPLD)
-
-When a firmware verification scan is in progress, HPE recommends not
-installing firmware updates or uploading firmware to the iLO Repository
-during this process. If an invalid iLO or System ROM (BIOS) firmware
-file is detected, the invalid file is saved to a quarantine card in the
-HPE iLO7’s Repository. You can download the invalid file to investigate
-its type and origin. Quarantined images are not displayed on the iLO
-Repository page, and you cannot select them when you use the Flash
-Firmware feature.
+> The Firmware Verification feature allows you to run an on-demand scan or
+> implement scheduled scans. To respond to detected issues, you can
+> configure HPE iLO7 to:
+>
+> - Log the results.
+>
+> - Log the results and initiate a repair action that uses a recovery
+>   install set.
+>
+> Depending on the scan results, information is logged in the Active
+> Health System Log and the Integrated Management Log. The following
+> firmware types are supported:
+>
+> - HPE iLO7 Firmware
+>
+> - System ROM (BIOS)
+>
+> - System Programmable Logic Device (CPLD)
+>
+> When a firmware verification scan is in progress, HPE recommends not
+> installing firmware updates or uploading firmware to the iLO Repository
+> during this process. If an invalid iLO or System ROM (BIOS) firmware
+> file is detected, the invalid file is saved to a quarantine card in the
+> HPE iLO7’s Repository. You can download the invalid file to investigate
+> its type and origin. Quarantined images are not displayed on the iLO
+> Repository page, and you cannot select them when you use the Flash
+> Firmware feature.
 
 1.  Click on the **Firmware** link to explore the HPE iLO7 capability to
     manually scan the system firmware and to check the validity and
