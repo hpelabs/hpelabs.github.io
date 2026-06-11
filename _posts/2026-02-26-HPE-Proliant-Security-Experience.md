@@ -370,9 +370,6 @@ security banner, and modifying various other security-related
 parameters. For this exercise, we will configure a proxy server for
 HPE iLO7 to use within the environment.
 
-1.  Login to your team assigned HPE iLO7 with the **HPE_Admin** account
-    you created earlier.
-
 2.  In the left-hand navigation pane click **Security**.
 
 3.  Then click the **Access** wheel under **Quick Links**.
@@ -937,8 +934,10 @@ monitor and manage security settings proactively.
 > [**HPECOMCmdlets**](https://www.powershellgallery.com/packages/HPECOMCmdlets/1.0.11)
 > PowerShell module.
 
-10. Back at the COM screens, you see that now we have an error that is
+10. Back at the COM screen, if you click again on Details then Configure iLO ignore risk setting, you see that now we have an error that is
     being ignored.
+
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image77.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image77.png){: data-lightbox="gallery"}{:class="img-700"}
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79.png){: data-lightbox="gallery"}
 
@@ -1329,13 +1328,13 @@ documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00005106e
 
 [↑ Back to Top](#)
 
-# Task 13 - Deploying the Secure Gateway through VCenter
+# Task 13 - Configuring the Secure Gateway and connecting to COM
 
 <p class="step-meta">(Task13 of 15) ⏱️ ~15 min</p>
 
-In this portion of the lab, we will focus on deploying an OVF Template
-supplied by HPE to provision the Virtual Machine Appliance which will
-function as the Secure Gateway for Compute Ops Management.
+In this portion of the lab, we will power on the VM, configure the
+Secure Gateway through its Terminal User Interface (TUI) and then
+connect it to HPE Compute Ops Management.
 
 1.  Open a fresh **Web Browser** or **Tab** and navigate to your VCenter
     Server at **holsgwvc01.hol.enablement.local**
@@ -1347,85 +1346,14 @@ function as the Secure Gateway for Compute Ops Management.
 
 3.  Use credentials
     [**Administrator@vsphere.local**](mailto:Administrator@vsphere.local)
-    and **Disc0ver2025!** as the password.
+    and **HPESecurePassw0rd!** as the password.
 
 4.  You should be now logged in to the vSphere Client
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image117.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image117.png){: data-lightbox="gallery"}{:class="img-600"}
 
-5.  On the **left-hand side** of the screen, expand out the **vSphere
-    Client** **menu**, and click on **Content Libraries.**
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image118.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image118.png){: data-lightbox="gallery"}{:class="img-400"}
-
-6.  Click on **Images.**
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image119.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image119.png){: data-lightbox="gallery"}{:class="img-900"}
-
-7.  Click on **OVF and OVA Templates**.
-
-8.  Right click on the **HPESecureGateway-X.X.X file** and select **New
-    VM from This Template…**
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image120.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image120.png){: data-lightbox="gallery"}{:class="img-800"}
-
-9.  Set the Virtual Machine name as **TeamXX-SGW** where **XX** is your
-    team number and select **Datacenter** as the location for the VM.
-    Click **Next** to proceed.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image121.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image121.png){: data-lightbox="gallery"}
-
-10. Click **holsgwesx01.hol.enablement.local** as the compute resource,
-    then **Next** to proceed.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image122.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image122.png){: data-lightbox="gallery"}
-
-11. Click **Next** on **Review Details.**
-
-12. Now for **Select Storage**, click **NimbleSan01**, change **Select
-    virtual disk format** to **<u>Thin Provision</u>** (This is really
-    important) and hit **Next.**
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image123.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image123.png){: data-lightbox="gallery"}
-
-13. Leave the **defaults selected** for **Select Networks** and then
-    **hit Next**.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image124.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image124.png){: data-lightbox="gallery"}
-
-14. One last check and then hit **Finish** to complete the deployment.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image125.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image125.png){: data-lightbox="gallery"}
-
-15. You can now navigate back to **Inventory Page** where you will see
-    your **VM has been provisioned**. You will have to expand the host
-    to see the deployed VMs
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image127.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image127.png){: data-lightbox="gallery"}{:class="img-700"}
-
-16. Modify the network settings of the VM to use only one network
-    interface. Right-click on your VM and select **Edit Settings**.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image128.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image128.png){: data-lightbox="gallery"}{:class="img-700"}
-
-17. Now click on **Network Adapter 2** and deselect **Connect At Power
-    On** and then **OK** to confirm the change.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image129.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image129.png){: data-lightbox="gallery"}
-
-This concludes this section of the lab.
-
-[↑ Back to Top](#)
-
-# Task 14 - Configuring the Secure Gateway and connecting to COM
-
-<p class="step-meta">(Task14 of 15) ⏱️ ~10 min</p>
-
-In this portion of the lab, we will power on the VM, configure the
-Secure Gateway through its Terminal User Interface (TUI) and then
-connect it to HPE Compute Ops Management.
-
-1.  There are multiple ways to power on a VM, **click the Green Play
+1.  Please find your Team's pre-provisioned SGW and Power On the VM. There are multiple ways to power on a VM, **click the Green Play
     button** or any alternative you prefer.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image130.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image130.png){: data-lightbox="gallery"}{:class="img-600"}
@@ -1539,7 +1467,7 @@ connect it to HPE Compute Ops Management.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image138.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image138.png){: data-lightbox="gallery"}{:class="img-700"}
 
-20. Take note of the **Activation Key** and copy it.
+20. Take note of the **Activation Key** and write it down, as copy / paste will not work.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image139.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image139.png){: data-lightbox="gallery"}{:class="img-600"}
 
