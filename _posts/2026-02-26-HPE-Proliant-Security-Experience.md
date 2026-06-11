@@ -51,7 +51,7 @@ manage HPE ProLiant Servers with a strong focus around Security.
 
 # Task 1 - Accessing the HPE Compute BU Enablement Environment
 
-<p class="step-meta">(Task1 of 15) ⏱️ ~5 min</p>
+<p class="step-meta">(Task1 of 14) ⏱️ ~5 min</p>
 
 We will use Omnissa Horizon to access the lab environment and view
 server details in HPE Compute Ops Management.
@@ -101,13 +101,13 @@ a secure connection to our remote lab in Houston, but it does not
 operate like a traditional VPN. Only the applications you launch from
 this browser session are connected to the remote environment.
 
-This concludes this portion of the lab.
+This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
 # Task 2 - Embedded Server Management with HPE iLO7
 
-<p class="step-meta">(Task2 of 15) ⏱️ ~10 min</p>
+<p class="step-meta">(Task2 of 14) ⏱️ ~10 min</p>
 
 HPE Integrated Lights-Out (iLO) is an embedded server management
 technology from HPE that provides out-of-band management capabilities.
@@ -197,18 +197,18 @@ sure to also record your server’s serial number.
 8.  Administrators are presented with valuable information about their
     server on the Dashboard. The Host Overview and Host Health cards
     immediately provide relevant information as to the status of the
-    managed system. Notice that the HP Compute Ops Management section
+    managed system. Notice that the HPE Compute Ops Management section
     shows that the Connection Status has not been enabled.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image12.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image12.png){: data-lightbox="gallery"}
 
-> This concludes this portion of the lab.
+> This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
 # Task 3 - Managing Local Users
 
-<p class="step-meta">(Task3 of 15) ⏱️ ~10 min</p>
+<p class="step-meta">(Task3 of 14) ⏱️ ~10 min</p>
 
 > One of the initial tasks for administrators when deploying systems in
 > their environment is to ensure compliance with established corporate
@@ -231,17 +231,15 @@ sure to also record your server’s serial number.
     Management**.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image14.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image14.png){: data-lightbox="gallery"}
 
-<!-- -->
-
-6.  Click on **Users**.
+4.  Click on **Users**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image15.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image15.png){: data-lightbox="gallery"}
 
-7.  For the purposes of this lab, we will **leave the Administrator
+5.  For the purposes of this lab, we will **leave the Administrator
     account with the default toe-tag password** and set up another
     administrative user account to access the HPE iLO7.
 
-8.  In the upper right card of the Local Users frame, click **+ Add**
+6.  In the upper right card of the Local Users frame, click **+ Add**
     and enter the following settings to create your new user account.
 
       | **User Information** | |
@@ -256,27 +254,27 @@ sure to also record your server’s serial number.
 
 
 
-9.  Click on **Add** to save the new account.
+7.  Click on **Add** to save the new account.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image16.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image16.png){: data-lightbox="gallery"}
 
-10. You should now see that the new user has been added to the Local
+8.  You should now see that the new user has been added to the Local
     Users list.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image17.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image17.png){: data-lightbox="gallery"}
 
-11. **Logout** and then **log back in** with your newly created user.
+9.  **Logout** and then **log back in** with your newly created user.
 
-12. Take Note – You have just created a fully privileged Administrator
+10. Take Note – You have just created a fully privileged Administrator
     account with a very simple password. We will circle back on this in
     a later part of the Lab.
 
-13. Return to the **User Management** section in iLO Settings and Click
+11. Return to the **User Management** section in iLO Settings and Click
     on **Directory Groups**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image18.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image18.png){: data-lightbox="gallery"}
 
-14. The Directory Groups section is where administrators can enter up to six directory groups using Kerberos authentication and schema-free directory integration.
+12. The Directory Groups section is where administrators can enter up to six directory groups using Kerberos authentication and schema-free directory integration.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image19.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image19.png){: data-lightbox="gallery"}
 
@@ -287,13 +285,13 @@ Support Center.
 Search “Kerberos authentication” as an example and you will see the
 process detailed in one of the search results.
 
-This concludes this portion of the lab.
+This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
 # Task 4 - Firmware Verification
 
-<p class="step-meta">(Task4 of 15) ⏱️ ~5 min</p>
+<p class="step-meta">(Task4 of 14) ⏱️ ~5 min</p>
 
 The Firmware Verification feature allows you to run an on-demand scan or
 implement scheduled scans. To respond to detected issues, you can
@@ -354,13 +352,13 @@ Firmware feature.
 
 7.  Return to the HPE iLO7 **Dashboard** screen.
 
-This concludes this portion of the lab.
+This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
 # Task 5 - Applying a Web Proxy configuration
 
-<p class="step-meta">(Task5 of 15) ⏱️ ~5 min</p>
+<p class="step-meta">(Task5 of 14) ⏱️ ~5 min</p>
 
 HPE iLO7 enables organizations to customize security settings within
 the HPE iLO7, to meet their specific security and compliance
@@ -370,36 +368,36 @@ security banner, and modifying various other security-related
 parameters. For this exercise, we will configure a proxy server for
 HPE iLO7 to use within the environment.
 
-2.  In the left-hand navigation pane click **Security**.
+1.  In the left-hand navigation pane click **Security**.
 
-3.  Then click the **Access** wheel under **Quick Links**.
+2.  Then click the **Access** wheel under **Quick Links**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image24.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image24.png){: data-lightbox="gallery"}
 
-4.  In the far-right card for the **Web Proxy**, click the **edit**
+3.  In the far-right card for the **Web Proxy**, click the **edit**
     (pencil) icon.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image25.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image25.png){: data-lightbox="gallery"}
 
-5.  Click the checkbox for Web Proxy
+4.  Click the checkbox for Web Proxy
 
-6.  Now enter **hpeproxy.its.hpecorp.net** in the Web Proxy Server field
+5.  Now enter **hpeproxy.its.hpecorp.net** in the Web Proxy Server field
 
-7.  Enter **443** in the Web Proxy Port fields.
+6.  Enter **443** in the Web Proxy Port fields.
 
-8.  Leave the other settings blank.
+7.  Leave the other settings blank.
 
-9.  Click **Update** to save the changes you entered.
+8.  Click **Update** to save the changes you entered.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26.png){: data-lightbox="gallery"}{:class="img-400"}
 
-This concludes this portion of the lab.
+This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
 # Task 6 - Connecting to HPE Compute Ops Management
 
-<p class="step-meta">(Task6 of 15) ⏱️ ~5 min</p>
+<p class="step-meta">(Task6 of 14) ⏱️ ~5 min</p>
 
 
 The HPE GreenLake Cloud Platform enables IT administrators to connect
@@ -492,7 +490,7 @@ This concludes this section of the lab.
 
 # Task 7 - Secure Login Options for Enterprise IT Administrators
 
-<p class="step-meta">(Task7 of 15) ⏱️ ~5 min</p>
+<p class="step-meta">(Task7 of 14) ⏱️ ~5 min</p>
 
 In the previous section of this lab, we were able to login to our HPE
 Compute Ops Management Workspace with an email address and somewhat
@@ -501,7 +499,7 @@ meet Industry Security Standards and additional safeguards should be
 configured.
 
 Our HPE GreenLake Cloud Platform supports Multi-Factor Authentication as
-well as SAML SSO which combining both together, can go a long way to
+well as SAML SSO which, when combined, can go a long way to
 ensuring any bad actors do not access your IT Estate, especially through
 HPE Compute Ops Management.
 
@@ -529,12 +527,7 @@ actually set it up at this time.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image32.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image32.png){: data-lightbox="gallery"}{:class="img-400"}
 
->💡**Note**💡   
->
->{: .small-space} 
->
-> **For the purpose of this lab, we will NOT be configuring MFA on
-> these Workspaces.**
+> **Note**: **For the purpose of this lab, we will NOT be configuring MFA on these Workspaces.**
 
 When enabling Multifactor Authentication (MFA), you significantly
 enhance the security of your account when signing in to HPE GreenLake.
@@ -545,11 +538,7 @@ compromise, even if your password is stolen or guessed. Implementing MFA
 is a crucial step in safeguarding your sensitive data and ensuring
 secure access to HPE GreenLake services.
 
->💡**Note**💡   
->
->{: .small-space} 
->
-> MFA can also be configured at the user level from the **HPE user account details**. However, please do **NOT** enable it for this lab.
+> **Note**: MFA can also be configured at the user level from the **HPE user account details**. However, please do **NOT** enable it for this lab.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: data-lightbox="gallery"}
 
@@ -559,7 +548,7 @@ This concludes this section of the lab.
 
 # Task 8 - Establishing a connection from HPE iLO7 to HPE GreenLake
 
-<p class="step-meta">(Task8 of 15) ⏱️ ~10 min</p>
+<p class="step-meta">(Task8 of 14) ⏱️ ~10 min</p>
 
 For our lab purposes, the HPE GreenLake Workspace company in this
 environment is called *COM Security Lab XX*.
@@ -617,7 +606,7 @@ Management, we first need to obtain an Activation Key.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38.png){: data-lightbox="gallery"}{:class="img-700"}
 
-8.  Adding Server location and tags is optional, so we will click **Next** but generally this would be best practise to perform this task now.
+8.  Adding Server location and tags is optional, so we will click **Next** but generally this would be best practice to perform this task now.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image38a.png){: data-lightbox="gallery"}{:class="img-700"}
 
@@ -663,7 +652,7 @@ This concludes this section of the lab.
 
 # Task 9 - Securing your Server Fleet with HPE Compute Ops Management
 
-<p class="step-meta">(Task9 of 15) ⏱️ ~15 min</p>
+<p class="step-meta">(Task9 of 14) ⏱️ ~15 min</p>
 
 HPE Compute Ops Management provides the core platform for delivering HPE
 compute services, enabling a standardized, self‑service, and real‑time
@@ -742,7 +731,7 @@ This concludes this section of the lab.
 
 # Task 10 - Creating server groups and associating server settings
 
-<p class="step-meta">(Task10 of 15) ⏱️ ~15 min</p>
+<p class="step-meta">(Task10 of 14) ⏱️ ~15 min</p>
 
 Server groups allow you to organize servers based on specific criteria
 (e.g., location, function, or role). When you create or edit a server
@@ -869,7 +858,7 @@ This concludes this section of the lab.
 
 # Task 11 - Advanced Security settings for HPE iLO7
 
-<p class="step-meta">(Task11 of 15) ⏱️ ~15 min</p>
+<p class="step-meta">(Task11 of 14) ΓÅ▒∩╕Å ~15 min</p>
 
 HPE iLO (Integrated Lights-Out) provides robust security features to
 mitigate risks in networked environments. Features like Trusted Platform
@@ -883,17 +872,17 @@ processor itself.
 
 In this lab we will look at security parameters like in Network Settings
 where we can enable/disable various services (e.g., SSH, SNMP, Virtual
-Media.) We will configure <u>anonymous data</u> and IPMI/DCMI over LAN.
+Media.) We will configure _anonymous data_ and IPMI/DCMI over LAN.
 Idle Connection Timeout values can be set.
 
 While security is crucial, striking a balance between protection and
-usability is essential. Implement settings based on your organization’s
+usability is essential. Implement settings based on your organizationΓÇÖs
 needs.
 
 Finally, the HPE iLO7 Security Dashboard provides real-time insights to
 monitor and manage security settings proactively.
 
-1.  Navigate back to your assigned Servers **HPE iLO 7**.
+1.  Navigate back to your assigned Servers **HPE iLO7**.
 
 2.  From the **HPE iLO7 Dashboard** page, click on **Security** link.
 
@@ -924,7 +913,7 @@ monitor and manage security settings proactively.
 
 8.  Return to the HPE iLO7 **Security dashboard** screen**.** Select the
     option for **Secure Boot** and toggle on the ability to **Ignore
-    Risk**. This is not a best practice for the “real world”, but we are
+    Risk**. This is not a best practice for the ΓÇ£real worldΓÇ¥, but we are
     demonstrating features in HPE iLO7 and COM.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79a.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79a.png){: data-lightbox="gallery"}
@@ -934,37 +923,37 @@ monitor and manage security settings proactively.
 > [**HPECOMCmdlets**](https://www.powershellgallery.com/packages/HPECOMCmdlets/1.0.11)
 > PowerShell module.
 
-10. Back at the COM screen, if you click again on Details then Configure iLO ignore risk setting, you see that now we have an error that is
+9.  Back at the COM screen, if you click again on Details then Configure iLO ignore risk setting, you see that now we have an error that is
     being ignored.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image77.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image77.png){: data-lightbox="gallery"}{:class="img-700"}
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79.png){: data-lightbox="gallery"}
 
-11. We will now fix the SNMPv1 error, click on the browser tab that
+10. We will now fix the SNMPv1 error, click on the browser tab that
     returns you to your HPE iLO7 **Dashboard**.
 
-12. Click on **iLO Settings**.
+11. Click on **iLO Settings**.
 
-13. Click on **Access**.
+12. Click on **Access**.
 
-14. Click on the **SNMP hyperlink** on the SNMP card.
+13. Click on the **SNMP hyperlink** on the SNMP card.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image80.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image80.png){: data-lightbox="gallery"}
 
-15. In the SNMPv1 Settings section, select the **Edit icon (pencil)**.
+14. In the SNMPv1 Settings section, select the **Edit icon (pencil)**.
 
-16. Uncheck **SNMPv1 Request** and **SNMPv1 Trap** and then click the
+15. Uncheck **SNMPv1 Request** and **SNMPv1 Trap** and then click the
     **Update** button.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image81.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image81.png){: data-lightbox="gallery"}
 
-17. Return to the **Security Dashboard** in HPE iLO7 and validate that
+16. Return to the **Security Dashboard** in HPE iLO7 and validate that
     **SNMPv1** has been disabled.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image82.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image82.png){: data-lightbox="gallery"}
 
-18. Return to the Details page that you have loaded in Compute Ops
+17. Return to the Details page that you have loaded in Compute Ops
     Management. Scroll down and open the **OK** section. Note that
     SNMPv1 is no longer a risk.
 
@@ -976,23 +965,23 @@ monitor and manage security settings proactively.
 > a CA-signed certificate with ACME. For Secure Boot, we will utilize
 > the HPE restful interface to enable this functionality.
 
-19. We will now utilize Compute Ops Management to push out all the
-    recommended HPE iLO7 Security Settings to our assigned Server. Let’s
+18. We will now utilize Compute Ops Management to push out all the
+    recommended HPE iLO7 Security Settings to our assigned Server. LetΓÇÖs
     click on **Manage** and then **Groups** within Compute Ops
     Management.
 
-20. Click on the **hyperlinked Name** of your **Group/Team.**
+19. Click on the **hyperlinked Name** of your **Group/Team.**
 
-21. From the **Actions** drop down menu, select **Apply iLO Settings**.
+20. From the **Actions** drop down menu, select **Apply iLO Settings**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image84.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image84.png){: data-lightbox="gallery"}
 
-22. To view the list of HPE iLO7 settings that will be configured, click
+21. To view the list of HPE iLO7 settings that will be configured, click
     the **iLO settings enabled for security** link.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image85.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image85.png){: data-lightbox="gallery"}
 
-23. This list shows the **HPE** **recommended iLO settings** that will
+22. This list shows the **HPE** **recommended iLO settings** that will
     be pushed to our server to reduce the overall security risk:
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image86.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image86.png){: data-lightbox="gallery"}
@@ -1000,58 +989,58 @@ monitor and manage security settings proactively.
 > Note: Some iLO security settings might require a server reboot to take
 > effect.
 
-24. Click the **X** to close this popup.
+23. Click the **X** to close this popup.
 
-25. Select your **assigned Server** from the list and hit **Next**.
+24. Select your **assigned Server** from the list and hit **Next**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image87.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image87.png){: data-lightbox="gallery"}
 
-26. Review your changes, then hit **Apply iLO Settings.**
+25. Review your changes, then hit **Apply iLO Settings.**
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image88.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image88.png){: data-lightbox="gallery"}
 
-27. Hit **Close** on the success pop up, to return to your Group
+26. Hit **Close** on the success pop up, to return to your Group
     details.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image89.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image89.png){: data-lightbox="gallery"}{:class="img-600"}
 
-28. In the **Recent group Activity**, you should now see the **HPE iLO7
+27. In the **Recent group Activity**, you should now see the **HPE iLO7
     settings being successfully applied** and the **settings
     compliance** changed to **Compliant**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image90.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image90.png){: data-lightbox="gallery"}
 
-29. If we look to the **left of the screen**, we can see our **HPE iLO7
-    Security** section still showing **At risk**. Let’s click on the
+28. If we look to the **left of the screen**, we can see our **HPE iLO7
+    Security** section still showing **At risk**. LetΓÇÖs click on the
     **hyperlink.**
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image91.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image91.png){: data-lightbox="gallery"}{:class="img-400"}
 
-30. On the right, click again to select the **Server at Risk.**
+29. On the right, click again to select the **Server at Risk.**
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image92.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image92.png){: data-lightbox="gallery"}{:class="img-300"}
 
-31. We will then be directed to the Details page for our assigned
+30. We will then be directed to the Details page for our assigned
     Server. Where **iLO security status** is seen, Click on **Details.**
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image93.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image93.png){: data-lightbox="gallery"}{:class="img-600"}
 
-32. You should see **two items still at Risk**, both have
+31. You should see **two items still at Risk**, both have
     **dependencies** outside of the COM deployed HPE iLO7 settings which
     may require manual intervention to resolve.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image94.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image94.png){: data-lightbox="gallery"}{:class="img-600"}
 
-33. In the next section of this Hands-On Lab, we will be following steps
+32. In the next section of this Hands-On Lab, we will be following steps
     to **Request and Apply a Signed Certificate** from a **trusted
     Certificate Authority**.
 
-34. Let’s navigate to the Horizon **Desktop** and open the **RESTful
+33. LetΓÇÖs navigate to the Horizon **Desktop** and open the **RESTful
     Interface Tool** so we can use **Redfish** to **Enable Secure
     Boot**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: data-lightbox="gallery"}
 
-35. Copy the following ilorest commands into the RESTful Interface Tool, making sure to replace xx with your Team number. 
+34. Copy the following ilorest commands into the RESTful Interface Tool, making sure to replace xx with your Team number. 
     
     **xx** represents your Team Number
 
@@ -1078,23 +1067,23 @@ Once logged in to your assigned iLO, you can then continue with the following co
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: data-lightbox="gallery"}{:class="img-900"}
 
-36. Now that **Secure Boot** is enabled, let’s **close** out the
+35. Now that **Secure Boot** is enabled, letΓÇÖs **close** out the
     **RESTful Interface Tool** and head back to our **iLO7** to test out
     one of our Security Settings changes.
 
-37. Return to the **HPE iLO7 Dashboard** of your assigned Server.
+36. Return to the **HPE iLO7 Dashboard** of your assigned Server.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image97.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image97.png){: data-lightbox="gallery"}
 
-38. Earlier in the lab, we created a new Administrator privileged User
-    with a simple password. Let’s go back to **iLO7 Settings**, then
+37. Earlier in the lab, we created a new Administrator privileged User
+    with a simple password. LetΓÇÖs go back to **iLO7 Settings**, then
     **User Management** and look at creating another new user.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image98.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image98.png){: data-lightbox="gallery"}
 
-39. Then click on **Users**.
+38. Then click on **Users**.
 
-40. Click **+ Add** above the Local Users frame and enter the following settings to create your new user account.
+39. Click **+ Add** above the Local Users frame and enter the following settings to create your new user account.
 
       | **Login Name** | HPE_Admin1 |
       |---|---|
@@ -1105,20 +1094,20 @@ Once logged in to your assigned iLO, you can then continue with the following co
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image99.png){: data-lightbox="gallery"}{:class="img-600"}
 
-41. When we implemented our **HPE iLO7 Security Settings**, it forces
+40. When we implemented our **HPE iLO7 Security Settings**, it forces
     any **new HPE iLO7 Accounts** to meet **Password complexity
     requirements**. Your current user login is not affected by the
     change.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image100.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image100.png){: data-lightbox="gallery"}
 
-42. Set the password as **HPESecurePassw0rd!** and then click **Add**.
+41. Set the password as **HPESecurePassw0rd!** and then click **Add**.
     The results should look like the screen shot below.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image101.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image101.png){: data-lightbox="gallery"}
 >
 > HPE provides the Security Dashboard for every HPE iLO5, HPE iLO6 and
-> HPE iLO7 enabled platform and aggregates multiple platform’s security
+> HPE iLO7 enabled platform and aggregates multiple platformΓÇÖs security
 > status in HPE Compute Ops Management. For more information on HPE
 > ProLiant Security visit
 > [www.hpe.com/info/iLO](http://www.hpe.com/info/iLO) and view the HPE
@@ -1127,11 +1116,11 @@ Once logged in to your assigned iLO, you can then continue with the following co
 
 This concludes this section of the lab.
 
-[↑ Back to Top](#)
+[Γåæ Back to Top](#)
 
 # Task 12 - HPE iLO7 SSL Certificate Management
 
-<p class="step-meta">(Task12 of 15) ⏱️ ~15 min</p>
+<p class="step-meta">(Task12 of 14) ⏱️ ~15 min</p>
 
 By default, HPE iLO7 uses a self-signed certificate in SSL connections.
 While this allows for encrypted communication, it lacks the trust and
@@ -1268,7 +1257,7 @@ Certificate](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image111.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image111.png){: data-lightbox="gallery"}
 
-14. Go to **iLO Settings** and click **Rest iLO** in the **Quick
+14. Go to **iLO Settings** and click **Reset iLO** in the **Quick
     Actions** card.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image112.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image112.png){: data-lightbox="gallery"}
@@ -1285,11 +1274,13 @@ Certificate](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00002007en_
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image114.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image114.png){: data-lightbox="gallery"}
 >
 > **Note**: This process can also be automated using PowerShell with this
-> [script](https://github.com/jullienl/HPE-Synergy-OneView-demos/blob/master/Powershell/iLO/Enable%20iLO%20NDES%20automatic%20certificate%20enrollment.ps1).\
+> [script](https://github.com/jullienl/HPE-Synergy-OneView-demos/blob/master/Powershell/iLO/Enable%20iLO%20NDES%20automatic%20certificate%20enrollment.ps1).
 
 This concludes this section of the lab.
 
-<span id="_Toc220925652" class="anchor"></span>HPE Compute Ops Management Secure Gateway
+[↑ Back to Top](#)
+
+# HPE Compute Ops Management Secure Gateway
 
 The HPE Compute Ops Management Secure Gateway is an on-premises virtual
 appliance that optimizes secure connectivity between HPE infrastructure
@@ -1330,7 +1321,7 @@ documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00005106e
 
 # Task 13 - Configuring the Secure Gateway and connecting to COM
 
-<p class="step-meta">(Task13 of 15) ⏱️ ~15 min</p>
+<p class="step-meta">(Task13 of 14) ⏱️ ~15 min</p>
 
 In this portion of the lab, we will power on the VM, configure the
 Secure Gateway through its Terminal User Interface (TUI) and then
@@ -1353,32 +1344,32 @@ connect it to HPE Compute Ops Management.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image117.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image117.png){: data-lightbox="gallery"}{:class="img-600"}
 
 
-1.  Please find your Team's pre-provisioned SGW and Power On the VM. There are multiple ways to power on a VM, **click the Green Play
+5.  Please find your Team's pre-provisioned SGW and Power On the VM. There are multiple ways to power on a VM, **click the Green Play
     button** or any alternative you prefer.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image130.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image130.png){: data-lightbox="gallery"}{:class="img-600"}
 
-2.  Click **Launch Web Console** so you can access the Appliance TUI and
+6.  Click **Launch Web Console** so you can access the Appliance TUI and
     continue the configuration.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image131.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image131.png){: data-lightbox="gallery"}{:class="img-600"}
 
-3.  Enter the **default Username / Password** to login which is
+7.  Enter the **default Username / Password** to login which is
     **administrator / admin**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image132.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image132.png){: data-lightbox="gallery"}{:class="img-800"}
 
       > **Note:** For navigating through the TUI, you will need to use the **TAB** and **Enter** keys.
 
-4.  For the next two screens we will need to Accept the T&C’s. Click
+8.  For the next two screens we will need to Accept the T&Cs. Click
     **Agree** both times.
 
-5.  We will now update the password to **HPESecurePassw0rd!** and click
+9.  We will now update the password to **HPESecurePassw0rd!** and click
     **Save.**
 
-6.  Click **Next** on **Step 1.**
+10. Click **Next** on **Step 1.**
 
-7.  Enter the fully qualified domain name of your Secure Gateway using
+11. Enter the fully qualified domain name of your Secure Gateway using
     the table below.
     
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){:class="img-800"}{: data-lightbox="gallery"}
@@ -1412,78 +1403,78 @@ connect it to HPE Compute Ops Management.
       | Team-24 | team24-sgw.hol.enablement.local | 10.18.20.74 |
       | Team-25 | team25-sgw.hol.enablement.local | 10.18.20.75 |
 
-8.  Tab to **IP Address Source** and then to **Manual.** Use the
+12. Tab to **IP Address Source** and then to **Manual.** Use the
     spacebar to place a “**X**” in Manual.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}{:class="img-800"}
 
-10. For the IP address, use the table above to select your corresponding
+13. For the IP address, use the table above to select your corresponding
     IP Address.
 
-11. For the rest of the values use the table below.
+14. For the rest of the values use the table below.
 
       | **Prefix length** | 22           |
       | **Gateway**       | 10.18.20.1   |
       | **Primary DNS**   | 10.18.20.111 |
       | **Secondary DNS** | 10.18.20.112 |
 
-12. Once all values are entered correctly, select **Next** to proceed.
+15. Once all values are entered correctly, select **Next** to proceed.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133.png){: data-lightbox="gallery"}{:class="img-800"}
 
-13. Leave it as the default of No and Tab until your at Next -> as our Device IP and SGW's are on the same network.
+16. Leave it as the default of No and Tab until you're at Next -> as our Device IP and SGW's are on the same network.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133a.png){: data-lightbox="gallery"}{:class="img-800"}
 
-13. Leave the default options for **Time and Web Proxy** configuration
-    for step 4 of 6. Tab to **Next** and press **\<Enter\>** on your
+17. Leave the default options for **Time and Web Proxy** configuration
+    for step 4 of 6. Tab to **Next** and press **Enter** on your
     keyboard to continue.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image133b.png){: data-lightbox="gallery"}{:class="img-800"}
 
-14. For Step 5 of 6, pause for now and continue with the next steps.
+18. For Step 5 of 6, pause for now and continue with the next steps.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image134.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image134.png){: data-lightbox="gallery"}{:class="img-800"}
 
-15. Now return to your **Web Browser** that’s connected to **HPE Compute
+19. Now return to your **Web Browser** that’s connected to **HPE Compute
     Ops Management.**
 
-16. From the COM homepage, navigate to **Inventory**, then select
+20. From the COM homepage, navigate to **Inventory**, then select
     **Appliances** card.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image135.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image135.png){: data-lightbox="gallery"}{:class="img-800"}
 
-17. Click **Add Appliance**, ensure **Secure gateway** is selected.
+21. Click **Add Appliance**, ensure **Secure gateway** is selected.
     Click **Next** to continue.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image136.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image136.png){: data-lightbox="gallery"}{:class="img-600"}
 
-18. Set **30 minutes** for how long the activation key will be valid and
+22. Set **30 minutes** for how long the activation key will be valid and
     select **Next**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image137.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image137.png){: data-lightbox="gallery"}{:class="img-700"}
 
-19. Then click **Finish and generate activation key**.
+23. Then click **Finish and generate activation key**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image138.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image138.png){: data-lightbox="gallery"}{:class="img-700"}
 
-20. Take note of the **Activation Key** and write it down, as copy / paste will not work.
+24. Take note of the **Activation Key** and write it down, as copy / paste will not work.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image139.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image139.png){: data-lightbox="gallery"}{:class="img-600"}
 
-21. Type this into the TUI Step 5 of 6, for the **Secure Gateway
+25. Type this into the TUI Step 5 of 6, for the **Secure Gateway
     Appliance** and tab to **Next** and hit **Enter** to continue.
 
-22. The Secure Gateway should now be **connected** and you can **Close**
+26. The Secure Gateway should now be **connected** and you can **Close**
     this last **informational** step.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image140.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image140.png){: data-lightbox="gallery"}
 
-23. The TUI page should show your **Secure Gateway** as **Connected**.
+27. The TUI page should show your **Secure Gateway** as **Connected**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image141.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image141.png){: data-lightbox="gallery"}{:class="img-800"}
 
-24. The COM **Appliances** inventory page should display the same
+28. The COM **Appliances** inventory page should display the same
     information:
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image142.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image142.png){: data-lightbox="gallery"}
@@ -1495,7 +1486,7 @@ This concludes this section of the lab.
 
 # Task 14 - Connecting our HPE iLO7 to COM via the Secure Gateway
 
-<p class="step-meta">(Task15 of 15) ⏱️ ~10 min</p>
+<p class="step-meta">(Task14 of 14) ⏱️ ~10 min</p>
 
 In this portion of the lab, we will disconnect our existing HPE iLO7
 from COM, modify our Proxy details and then create a new Activation Key
