@@ -1493,7 +1493,7 @@ This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
-# Task 15 - Connecting our HPE iLO7 to COM via the Secure Gateway
+# Task 14 - Connecting our HPE iLO7 to COM via the Secure Gateway
 
 <p class="step-meta">(Task15 of 15) ⏱️ ~10 min</p>
 
