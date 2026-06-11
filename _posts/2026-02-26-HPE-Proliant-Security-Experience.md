@@ -362,13 +362,13 @@ This concludes this portion of the lab.
 
 <p class="step-meta">(Task5 of 15) ⏱️ ~5 min</p>
 
-> HPE iLO7 enables organizations to customize security settings within
-> the HPE iLO7, to meet their specific security and compliance
-> requirements. This may include uploading a trusted SSL security
-> certificate, integrating with directory services, enabling a login
-> security banner, and modifying various other security-related
-> parameters. For this exercise, we will configure a proxy server for
-> HPE iLO7 to use within the environment.
+HPE iLO7 enables organizations to customize security settings within
+the HPE iLO7, to meet their specific security and compliance
+requirements. This may include uploading a trusted SSL security
+certificate, integrating with directory services, enabling a login
+security banner, and modifying various other security-related
+parameters. For this exercise, we will configure a proxy server for
+HPE iLO7 to use within the environment.
 
 1.  Login to your team assigned HPE iLO7 with the **HPE_Admin** account
     you created earlier.
@@ -552,10 +552,8 @@ secure access to HPE GreenLake services.
 >
 >{: .small-space} 
 >
-> MFA can also be configured at the user level from the **HPE
-user account details**. However, please do **NOT** enable it for this
-lab.\
-\
+> MFA can also be configured at the user level from the **HPE user account details**. However, please do **NOT** enable it for this lab.
+
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: data-lightbox="gallery"}
 
 This concludes this section of the lab.
