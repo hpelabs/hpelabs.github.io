@@ -540,7 +540,7 @@ secure access to HPE GreenLake services.
 
 > **Note**: MFA can also be configured at the user level from the **HPE user account details**. However, please do **NOT** enable it for this lab.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: data-lightbox="gallery"}
+[![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: data-lightbox="gallery"}
 
 This concludes this section of the lab.
 
