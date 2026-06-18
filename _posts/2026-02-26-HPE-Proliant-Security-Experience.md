@@ -858,7 +858,7 @@ This concludes this section of the lab.
 
 # Task 11 - Advanced Security settings for HPE iLO7
 
-<p class="step-meta">(Task11 of 14) ΓÅ▒∩╕Å ~15 min</p>
+<p class="step-meta">(Task11 of 14) ⏱️ ~15 min</p>
 
 HPE iLO (Integrated Lights-Out) provides robust security features to
 mitigate risks in networked environments. Features like Trusted Platform
@@ -876,7 +876,7 @@ Media.) We will configure _anonymous data_ and IPMI/DCMI over LAN.
 Idle Connection Timeout values can be set.
 
 While security is crucial, striking a balance between protection and
-usability is essential. Implement settings based on your organizationΓÇÖs
+usability is essential. Implement settings based on your organization's
 needs.
 
 Finally, the HPE iLO7 Security Dashboard provides real-time insights to
@@ -913,7 +913,7 @@ monitor and manage security settings proactively.
 
 8.  Return to the HPE iLO7 **Security dashboard** screen**.** Select the
     option for **Secure Boot** and toggle on the ability to **Ignore
-    Risk**. This is not a best practice for the ΓÇ£real worldΓÇ¥, but we are
+      Risk**. This is not a best practice for the "real world", but we are
     demonstrating features in HPE iLO7 and COM.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79a.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image79a.png){: data-lightbox="gallery"}
@@ -966,7 +966,7 @@ monitor and manage security settings proactively.
 > the HPE restful interface to enable this functionality.
 
 18. We will now utilize Compute Ops Management to push out all the
-    recommended HPE iLO7 Security Settings to our assigned Server. LetΓÇÖs
+      recommended HPE iLO7 Security Settings to our assigned Server. Let's
     click on **Manage** and then **Groups** within Compute Ops
     Management.
 
@@ -1010,7 +1010,7 @@ monitor and manage security settings proactively.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image90.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image90.png){: data-lightbox="gallery"}
 
 28. If we look to the **left of the screen**, we can see our **HPE iLO7
-    Security** section still showing **At risk**. LetΓÇÖs click on the
+      Security** section still showing **At risk**. Let's click on the
     **hyperlink.**
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image91.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image91.png){: data-lightbox="gallery"}{:class="img-400"}
@@ -1034,7 +1034,7 @@ monitor and manage security settings proactively.
     to **Request and Apply a Signed Certificate** from a **trusted
     Certificate Authority**.
 
-33. LetΓÇÖs navigate to the Horizon **Desktop** and open the **RESTful
+33. Let's navigate to the Horizon **Desktop** and open the **RESTful
     Interface Tool** so we can use **Redfish** to **Enable Secure
     Boot**.
 
@@ -1067,7 +1067,7 @@ Once logged in to your assigned iLO, you can then continue with the following co
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: data-lightbox="gallery"}{:class="img-900"}
 
-35. Now that **Secure Boot** is enabled, letΓÇÖs **close** out the
+35. Now that **Secure Boot** is enabled, let's **close** out the
     **RESTful Interface Tool** and head back to our **iLO7** to test out
     one of our Security Settings changes.
 
@@ -1076,7 +1076,7 @@ Once logged in to your assigned iLO, you can then continue with the following co
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image97.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image97.png){: data-lightbox="gallery"}
 
 37. Earlier in the lab, we created a new Administrator privileged User
-    with a simple password. LetΓÇÖs go back to **iLO7 Settings**, then
+      with a simple password. Let's go back to **iLO7 Settings**, then
     **User Management** and look at creating another new user.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image98.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image98.png){: data-lightbox="gallery"}
@@ -1107,7 +1107,7 @@ Once logged in to your assigned iLO, you can then continue with the following co
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image101.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image101.png){: data-lightbox="gallery"}
 >
 > HPE provides the Security Dashboard for every HPE iLO5, HPE iLO6 and
-> HPE iLO7 enabled platform and aggregates multiple platformΓÇÖs security
+> HPE iLO7 enabled platform and aggregates multiple platform's security
 > status in HPE Compute Ops Management. For more information on HPE
 > ProLiant Security visit
 > [www.hpe.com/info/iLO](http://www.hpe.com/info/iLO) and view the HPE
@@ -1116,7 +1116,7 @@ Once logged in to your assigned iLO, you can then continue with the following co
 
 This concludes this section of the lab.
 
-[Γåæ Back to Top](#)
+[↑ Back to Top](#)
 
 # Task 12 - HPE iLO7 SSL Certificate Management
 
