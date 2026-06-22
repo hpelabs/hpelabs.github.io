@@ -299,6 +299,10 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.85;
 }
 
+.card .content .post-meta .post-meta-updated {
+  color: #8b949e;
+}
+
 .card .content p {
   margin: 0;
   display: -webkit-box;
@@ -1238,6 +1242,18 @@ html[data-theme="light"] label[for="nav-trigger"] {
   color: #111 !important;
 }
 
+[data-theme="light"] .post-updated-meta .post-meta-published {
+  color: #111 !important;
+}
+
+[data-theme="light"] .post-updated-meta .post-meta-updated {
+  color: #757575 !important;
+}
+
+[data-theme="light"] .card .content .post-meta .post-meta-updated {
+  color: #757575 !important;
+}
+
 [data-theme="light"] .card {
   background-color: #ffffff !important;
   border: 1px solid #e1e4e8 !important;
@@ -1583,6 +1599,14 @@ html[data-theme="dark"] {
 [data-theme="dark"] h3, [data-theme="dark"] h4,
 [data-theme="dark"] h5, [data-theme="dark"] h6 {
   color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .post-updated-meta .post-meta-published {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .post-updated-meta .post-meta-updated {
+  color: #8b949e !important;
 }
 
 [data-theme="dark"] .card {

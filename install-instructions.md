@@ -409,6 +409,10 @@ title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/HOLs/COM-ZeroTouch/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
+tags:
+  - greenlake
+  - powershell
+  - automation
 room: 1
 ---
 ```
@@ -431,6 +435,30 @@ Metadata Fields Explained:
     room: 2   # Room 2 only
     room:     # Not assigned to any room (homepage only)
     ```
+
+- **tags**
+
+    Keywords that categorize your lab guide. Tags are displayed in two places:
+
+    - On the **homepage** card, after the date and read time
+    - At the **top of the lab guide**, just below the title
+
+    Each tag is rendered as a **clickable link**. Clicking a tag runs a site search (`/search/?q=<tag>`) that lists every lab guide sharing that tag — making it easy for attendees to discover related labs.
+
+    Define tags as a YAML list (one per line, indented with two spaces and a dash):
+
+    ```yaml
+    tags:
+      - greenlake
+      - powershell
+      - automation
+    ```
+
+    > 💡 **Tip**
+    >
+    >{: .small-space}
+    >
+    > Use lowercase, single-word tags and reuse the same tags across related labs so the search groups them together. Avoid spaces in a tag (use `secure-gateway` rather than `secure gateway`). Leave the field empty (`tags:`) if the lab has no tags.
 
 - **type**
 
@@ -457,6 +485,23 @@ Metadata Fields Explained:
     ```yaml
     hide_read_time: true
     ```
+
+- **last_modified_at**
+
+    Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
+
+    - On the **homepage** card, next to the publication date — e.g. `Feb 16, 2026 [Updated: Jun 22, 2026]`
+    - At the **top of the lab guide**, just below the title — e.g. `Updated: Jun 22, 2026`
+
+    ```yaml
+    last_modified_at: 2026-06-22   # Use YYYY-MM-DD format
+    ```
+
+    > 💡 **Tip**
+    >
+    >{: .small-space}
+    >
+    > Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
 
 - **post_end_promo**
     

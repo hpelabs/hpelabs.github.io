@@ -231,6 +231,21 @@
   color: $brand-color;
 }
 
+.post-updated-meta {
+  font-size: $small-font-size;
+  color: $brand-color;
+  margin-top: -$spacing-unit * 0.5;
+
+  .post-meta-published {
+    color: $text-color;
+    font-weight: 500;
+  }
+
+  .post-meta-updated {
+    color: $brand-color;
+  }
+}
+
 .post-link {
   display: block;
   @include relative-font-size(1.5);

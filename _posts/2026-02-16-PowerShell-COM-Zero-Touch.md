@@ -4,6 +4,11 @@ title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/HOLs/COM-ZeroTouch/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
+last_modified_at: 2026-06-22 
+tags: 
+  - greenlake
+  - com 
+  - scripting
 room: 2 # Set to 1 or 2
 ---
 
@@ -167,7 +172,7 @@ To access the Windows virtual machine in our VMware Omnissa Horizon lab environm
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image13a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image13a.png){: data-lightbox="gallery"}
 
-    <br>
+
 
     > **💡 Tip: Using the Copy Button**  
     >
@@ -177,7 +182,47 @@ To access the Windows virtual machine in our VMware Omnissa Horizon lab environm
     >
     > [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png)]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png){: data-lightbox="gallery"}
 
-    <br>
+    
+
+### Recover From a Terminal Crash
+
+Throughout this lab you will define several PowerShell variables (your email, region, workspace name, iLO IP, etc.). These variables only live in memory, so if your PowerShell terminal crashes or is closed, they are lost and the remaining commands will fail.
+
+To recover quickly, copy the block below into the text file you opened in step 3 and keep it updated as you progress through the lab — fill in each value the moment you define it. If your terminal session is lost, open a **new terminal**, paste this block, and you will be back where you left off in seconds.
+
+```powershell
+# === HOL Session Recovery — re-run this block after a terminal crash ===
+
+# Variables defined during the lab (update each value as you go):
+$MyEmail       = "your_email@your_domain.com"          # Task 3
+$WorkspaceName = "HPEWorkspaceTnn_xxxxxxxx"            # Task 4 — use the EXACT name you created
+$NewUserEmail  = "admin@hpelabs.us"                    # Task 4
+$Region        = "eu-central"                          # Task 4
+$LocationName  = "Your_customized_location_name"       # Task 4
+$iLO_IP        = "xxx.xxx.xxx.xxx"                     # Task 5 — from your login sheet
+$iLO_Password  = "xxxxxxxxxxxx"                        # Task 5 — from your login sheet
+
+# Reconnect to your workspace — keep ONLY the line matching the method you used in Task 3:
+
+# Option A — HPE account (email + password, optional MFA):
+$credentials = Get-Credential -UserName $MyEmail
+Connect-HPEGL -Credential $credentials -Workspace $WorkspaceName
+
+# Option B — Password-based SSO (federated account that requires a password):
+# Connect-HPEGL -Credential (Get-Credential -UserName $MyEmail) -Workspace $WorkspaceName
+
+# Option C — Passwordless SSO (push notification or TOTP):
+# Connect-HPEGL -PasswordlessSSOEmail $MyEmail -Workspace $WorkspaceName
+
+# Recapture the server serial number (only after the server is onboarded in Task 5):
+$SN = Get-HPECOMServer -Region $Region | Select-Object -ExpandProperty SerialNumber
+```
+
+> **💡 Note**
+>
+>{: .small-space}
+>
+> The `Connect-HPEGL` line restores your HPE GreenLake session (`$HPEGreenLakeSession`), which is also lost when the terminal closes. Keep only the reconnect line (Option A, B, or C) that matches the authentication method you used in Task 3, and remove the others. Skip the variables and lines for any tasks you have not reached yet, and re-run the `$SN` line only once your server has been onboarded.
 
 
 # Task 1 - How to Install HPECOMCmdlets
@@ -213,7 +258,7 @@ To access the Windows virtual machine in our VMware Omnissa Horizon lab environm
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image17.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image17.png){: data-lightbox="gallery"}
 
-    Version [v1.0.23](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.23) of the module includes over 240 cmdlets.
+    Version [v1.0.26](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.26) of the module includes over 240 cmdlets.
 
 - In PowerShell, cmdlets follow a verb-noun naming convention. In this library, cmdlet names begin with **HPECOM** for Compute Ops Management (e.g., `Get-HPECOMServer`) or **HPEGL** for HPE GreenLake (e.g., `New-HPEGLUser`), reflecting the close integration between both platforms.
 
@@ -264,27 +309,43 @@ To access the Windows virtual machine in our VMware Omnissa Horizon lab environm
 
 After the module is installed, the next step is to connect to HPE GreenLake using the `Connect-HPEGL` command.
 
-The library supports two authentication methods:
+The library supports three authentication methods:
 
 1. **HPE Account Authentication (Single or Multi-Factor)**
 
     Authenticate using your HPE account email and password. Multi-factor authentication (MFA) is optionally supported for enhanced security (requires [v1.0.12+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.12)).
 
-2. **SAML Single Sign-On (SSO)**
+2. **Passwordless SAML Single Sign-On (SSO)** (requires [v1.0.18+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.18))
 
-    Connect using your organization's identity provider (IdP) — Okta, PingIdentity, or Microsoft Entra ID are supported. This method enables passwordless authentication via push notifications or Time-based One-Time Passwords (TOTP), aligning with your existing enterprise SSO setup for centralized identity management.
+    Connect to a federated (SSO) account using the `-PasswordlessSSOEmail` parameter with your federated email address. Authentication is completed via a push notification or a Time-based One-Time Password (TOTP) — no password is entered.
 
-    **Prerequisites** (requires [v1.0.18+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.18)):
-    - Passwordless authentication (push notifications or TOTP) must be enabled on your identity provider. Without it, `Connect-HPEGL` with SSO will fail. For configuration guidance, refer to [Configuring SAML SSO with HPE GreenLake and Passwordless Authentication](https://jullienl.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/).
-    - Identity providers other than Okta, PingIdentity, and Microsoft Entra ID are not supported for SSO — use standard HPE account credentials instead.
+    - **Supported identity providers:** Okta, PingIdentity, and Microsoft Entra ID. Other IdPs are not supported for SSO — use standard HPE account credentials instead.
+    - **Requirement:** Passwordless authentication (push notifications or TOTP) must be enabled on your identity provider. For configuration guidance, refer to [Configuring SAML SSO with HPE GreenLake and Passwordless Authentication](https://jullienl.github.io/Configuring-SAML-SSO-with-HPE-GreenLake-and-Passwordless-Authentication-for-HPECOMCmdlets/).
 
-If you already have an HPE account or workspace with SSO configured for passwordless access, proceed directly to [Step 2 - Authenticate to HPE GreenLake](#step-2---authenticate-to-hpe-greenlake).
+3. **Password-based SAML Single Sign-On (SSO)** (requires [v1.0.26+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.26))
+
+    Connect to a federated (SSO) account that requires a password, using the `-Credential` parameter with your federated email address — federation is detected automatically. If a second factor is required, a push or TOTP challenge fires automatically.
+
+    - **Supported identity providers:** Okta, PingIdentity, and Microsoft Entra ID. Other IdPs are not supported for SSO — use standard HPE account credentials instead.
+    - **Unattended automation:** Because no interactive push approval is needed when only a password is required, this method — combined with a securely stored credential — enables truly unattended SSO automation.
+
+If you already have an HPE account or workspace with SSO configured, proceed directly to [Step 2 - Authenticate to HPE GreenLake](#step-2---authenticate-to-hpe-greenlake).
 
 If you don't have an HPE account yet, you can create one in the next section. The process takes only a few minutes to complete.
 
 ## Step 1 - Create Your HPE Account
 
 🔔 If you already have an HPE account, go to [Step 2 - Authenticate to HPE GreenLake](#step-2---authenticate-to-hpe-greenlake).
+
+> **💡 What is an HPE account?**
+>
+>{: .small-space}
+>
+> An HPE account is the single set of credentials (your email address and password) used to sign in to HPE GreenLake at <https://common.cloud.hpe.com> and to all connected HPE cloud services, including Compute Ops Management. It is the identity this PowerShell library authenticates with through the `Connect-HPEGL` cmdlet.
+>
+>{: .small-space}
+>
+> It is **not** the same as the **Horizon credentials** you used to connect to the lab virtual machine, nor any local Windows or iLO account. If you have ever signed in to the HPE GreenLake portal, the HPE Support Center, or the legacy HPE Passport, you already have an HPE account and can reuse it here.
 
 1. To create your HPE account for this library, go to the HPE GreenLake interface at <https://common.cloud.hpe.com> and click on **Sign up**:
 
@@ -300,7 +361,17 @@ If you don't have an HPE account yet, you can create one in the next section. Th
 
 ## Step 2 - Authenticate to HPE GreenLake
 
-Select the authentication method that applies to you: follow the steps below for HPE account credentials (single or multi-factor), or skip to [Using SAML Single Sign-On (SSO) with Okta, PingID, or Entra ID](#--using-saml-single-sign-on-sso-with-okta-pingid-or-entra-id) if your organization uses an identity provider:
+Select the authentication method that applies to you:
+
+- **HPE account** (email and password, with optional MFA) ➜ Go to [Using Single or Multi-Factor Authentication with HPE account](#--using-single-or-multi-factor-authentication-with-hpe-account)
+- **Federated account** (your organization uses an identity provider) ➜ Go to [Using SAML Single Sign-On (SSO) with Okta, PingID, or Entra ID](#--using-saml-single-sign-on-sso-with-okta-pingid-or-entra-id)
+
+    > **💡 Note**
+    >
+    >{: .small-space}
+    >
+    > If you are unsure which one to use, choose **HPE account** — it is the standard method and works for most participants in this lab.
+
 
 ### - Using Single or Multi-Factor Authentication with HPE account 
 
@@ -361,23 +432,53 @@ Select the authentication method that applies to you: follow the steps below for
      >
      > Do not confuse the **Horizon credentials** you used at the beginning to connect to the lab environment with the **HPE GreenLake credentials** you are using now—they are not the same.
 
-  - To connect with SAML SSO through your organization's identity provider (IdP), enter the following command in your terminal:
+  - The library offers **two SSO options**. Choose the one that matches how your identity provider is configured:
 
-    ```powershell
-    Connect-HPEGL -SSOEmail $MyEmail
-    ```
+    - **[Option 1](#option-1--password-based-sso---credential-) — Password-based SSO** (`-Credential`): you enter your federated password; a second factor (push or TOTP) may follow if your IdP policy requires it.
 
-  - Once initiated, the cmdlet will prompt you to approve a push notification sent by your IdP. Follow the on-screen authentication steps displayed in your terminal. Typically, you'll need to:
+    - **[Option 2](#option-2--passwordless-sso---passwordlessssoemail-) — Passwordless SSO** (`-PasswordlessSSOEmail`): no password is entered; you approve a push notification or enter a TOTP code.
 
-    - Check your IdP-enabled device for a push notification or authentication request.
-    
-        [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: data-lightbox="gallery"}
+        > **💡 Note**
+        >
+        >{: .small-space}
+        >
+        > If you are unsure which option to use, try **Option 1 (Password-based SSO)** first. If your identity provider does not require a password, the library automatically ignores the one you supply and continues with the passwordless push/TOTP flow (displaying a warning so you know the password was not used) — so starting with Option 1 is always safe.
 
-    - Approve the request (for example, tap the number or "Yes, it's me" in Okta or confirm in PingID/Entra ID).
-    
-        [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){:class="img-300"}{: data-lightbox="gallery"}
+    #### Option 1 — Password-based SSO ( `-Credential` )
 
-    - Complete any additional steps required by your organization's security policies.
+    - If your federated account requires a **password** (password-based SSO, [v1.0.26+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.26)), connect with `-Credential` — federation is detected automatically:
+
+        ```powershell
+        Connect-HPEGL -Credential (Get-Credential -UserName $MyEmail)
+        ```
+
+    - You will be prompted for your federated password. If your IdP policy requires a second factor, a push or TOTP challenge fires automatically after the password is accepted.
+
+    #### Option 2 — Passwordless SSO ( `-PasswordlessSSOEmail` )
+
+    - To connect with **passwordless** SAML SSO through your organization's identity provider (IdP), enter the following command in your terminal:
+
+        ```powershell
+        Connect-HPEGL -PasswordlessSSOEmail $MyEmail
+        ```
+
+        > **💡 Note**
+        >
+        >{: .small-space}
+        >
+        > The `-SSOEmail` parameter was renamed to `-PasswordlessSSOEmail` in [v1.0.26](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.26). The `-SSOEmail` alias still works for backward compatibility.
+
+    - Once initiated, the cmdlet will prompt you to approve a push notification sent by your IdP. Follow the on-screen authentication steps displayed in your terminal. Typically, you'll need to:
+
+        - Check your IdP-enabled device for a push notification or authentication request.
+        
+            [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image25.png){: data-lightbox="gallery"}
+
+        - Approve the request (for example, tap the number or "Yes, it's me" in Okta or confirm in PingID/Entra ID).
+        
+            [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image26.png){:class="img-300"}{: data-lightbox="gallery"}
+
+        - Complete any additional steps required by your organization's security policies.
 
 ## Step 3 - Verify your connection
 
@@ -747,7 +848,7 @@ sheet provided by your instructor. Enter:
     > scenario.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image32.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image32.png){: data-lightbox="gallery"}
-
+    
     > 💡 **Note**
     >
     >{: .small-space}
@@ -756,7 +857,11 @@ sheet provided by your instructor. Enter:
     >
     > {: .small-space}
     > 
-    > In scenarios involving a Secure Gateway (**not applicable to this lab**), the commands would be as follows:
+    > In scenarios involving a Secure Gateway (**not applicable to this lab**), you have two options.
+    >
+    > {: .small-space}
+    > 
+    > **Option A — Connect a single iLO through the Secure Gateway** (set the Secure Gateway as the iLO's proxy):
     > 1. Obtain a valid subscription key:  
     > ```powershell
     > $SubscriptionKey = Get-HPEGLSubscription -ShowWithAvailableQuantity -ShowValid -FilterBySubscriptionType Server | Select-Object -First 1 -ExpandProperty key
@@ -773,6 +878,20 @@ sheet provided by your instructor. Enter:
     > ```powershell
     > Connect-HPEGLDeviceComputeiLOtoCOM -iLOCredential $iLO_credential -IloIP "xxx.xxx.xxx.xxx" -ActivationKeyfromCOM $Activation_Key -SkipCertificateValidation -IloProxyServer sg01.domain.com -IloProxyPort 8080
     > ```
+    >
+    > {: .small-space}
+    > 
+    > **Option B — Discover and onboard an entire estate behind a Secure Gateway in one batch job** (requires [v1.0.26+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.26)). This native, gateway-driven workflow needs **no activation key** (COM generates it automatically) and **updates the iLO firmware automatically** on any server that is below the minimum required version:
+    > 1. Discover the iLOs reachable through the Secure Gateway:  
+    > ```powershell
+    > Invoke-HPECOMSecureGatewayServerDiscovery -Region $Region -SecureGateway "sg01.domain.com"
+    > ```
+    > 2. Onboard every discovered server in a single batch job (firmware compliance handled automatically):  
+    > ```powershell
+    > Get-HPECOMSecureGatewayServerDiscovery -Region $Region -SecureGateway "sg01.domain.com" |
+    >     Connect-HPECOMSecureGatewayDiscoveredServer -IloCredential $iLO_credential -SubscriptionKey $SubscriptionKey
+    > ```
+    > `Connect-HPECOMSecureGatewayDiscoveredServer` can also configure DNS/NTP and assign a location, tags, and a service delivery contact inline using `-Dns`, `-Ntp`, `-LocationName`, `-Tags`, and `-ServiceDeliveryContact`. Add `-WhatIf` to preview every action without making any change.
     {: .no-copy}
 
 6. You can then verify the onboarded servers using the following cmdlet:

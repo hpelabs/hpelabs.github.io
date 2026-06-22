@@ -9,11 +9,19 @@ layout: default
   <header class="post-header">
     <a href="{{post.url}}"><div class="bg-img" style="background-image: url({{page.image}})"></div></a>
     <h1 id="main-title" class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+    {%- assign page_date_ts = page.date | date: "%s" | plus: 0 -%}
+    {%- assign page_modified_ts = page.last_modified_at | default: page.date | date: "%s" | plus: 0 -%}
+    <p class="post-updated-meta">
+      <span class="post-meta-published"><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: date_format }}</time></span>{%- if page_modified_ts > page_date_ts %} <span class="post-meta-updated">[Updated: <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: date_format }}</time>]</span>{%- endif -%}{%- if page.tags and page.tags.size > 0 %} • {% include custom/tags.html %}{%- endif -%}
+    </p>
     {% unless page.hide_post_meta %}<p class="post-meta">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: date_format }}
       </time>
+      {%- if page_modified_ts > page_date_ts -%}
+        • <span class="post-updated">Updated: <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: date_format }}</time></span>
+      {%- endif -%}
       {%- if page.author -%}
         • {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
