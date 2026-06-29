@@ -4,7 +4,7 @@ title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/HOLs/COM-ZeroTouch/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
-last_modified_at: 2026-06-22 
+last_modified_at: 2026-06-29
 tags: 
   - greenlake
   - com 
@@ -778,16 +778,16 @@ instance. In this lab, you'll be using that specific method.
 >
 >{: .small-space}
 > 
-> For onboarding multiple servers, a better approach is to use the [HPE Compute Ops Management Onboarding Script](https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/PowerShell/Onboarding).
-> This script automates the full onboarding workflow—from required pre-checks and preparation steps through final server onboarding to COM.
-> It handles key prerequisites such as authentication, device registration, activation key application, and initial iLO configuration (DNS, NTP, tags, location, and policy settings), helping deliver a consistent zero-touch process at scale.
+> For onboarding multiple servers or in production, a better approach is to use the [HPE Compute Ops Management Onboarding Scripts](https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/PowerShell/Onboarding). Two complementary scripts are available, pick the one that matches how your iLOs reach COM:
+> - [Prepare-and-Connect-iLOs-to-COM-v2.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Prepare-and-Connect-iLOs-to-COM-v2.ps1) — bulk, CSV-driven onboarding for any connection type (direct, web proxy, or Secure Gateway). It handles authentication, activation key generation, local iLO firmware updates, and initial iLO configuration (DNS, NTP, tags, location).
+> - [Discover-and-Onboard-iLOs-via-SecureGateway.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Discover-and-Onboard-iLOs-via-SecureGateway.ps1) — discovery-driven onboarding for estates entirely behind an HPE Secure Gateway. The gateway discovers the iLOs and updates their firmware server-side, so there is no IP list to build and no firmware files to stage (requires HPECOMCmdlets v1.0.26+).   
+>
+> Both deliver a consistent zero-touch process at scale.
 
 
 ## Step 1 - Onboard one server
 
 For this lab, you will onboard a single server manually so you can understand each command and validation step.  
-In production or at scale, use the [HPE Compute Ops Management Onboarding Script](https://github.com/jullienl/HPE-Compute-Ops-Management/tree/main/PowerShell/Onboarding), which automates all prerequisite checks, preparation tasks, and the onboarding workflow end to end.
-
 
 1. To generate an activation key for connecting your server to the Compute Ops Management instance in the region you provisioned earlier, use the following command:
 
@@ -855,6 +855,8 @@ sheet provided by your instructor. Enter:
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image32.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image32.png){: data-lightbox="gallery"}
     
+    <br>
+
     > 💡 **Note**
     >
     >{: .small-space}
@@ -885,7 +887,7 @@ sheet provided by your instructor. Enter:
     > Connect-HPEGLDeviceComputeiLOtoCOM -iLOCredential $iLO_credential -IloIP "xxx.xxx.xxx.xxx" -ActivationKeyfromCOM $Activation_Key -SkipCertificateValidation -IloProxyServer sg01.domain.com -IloProxyPort 8080
     > ```
     >
-    > {: .small-space}
+    >{: .small-space}
     > 
     > **Option B — Discover and onboard an entire estate behind a Secure Gateway in one batch job** (requires [v1.0.26+](https://github.com/jullienl/HPE-COM-PowerShell-Library/releases/tag/v1.0.26)). This native, gateway-driven workflow needs **no activation key** (COM generates it automatically) and **updates the iLO firmware automatically** on any server that is below the minimum required version:
     > 1. Discover the iLOs reachable through the Secure Gateway:  
@@ -898,7 +900,14 @@ sheet provided by your instructor. Enter:
     >     Connect-HPECOMSecureGatewayDiscoveredServer -IloCredential $iLO_credential -SubscriptionKey $SubscriptionKey
     > ```
     > `Connect-HPECOMSecureGatewayDiscoveredServer` can also configure DNS/NTP and assign a location, tags, and a service delivery contact inline using `-Dns`, `-Ntp`, `-LocationName`, `-Tags`, and `-ServiceDeliveryContact`. Add `-WhatIf` to preview every action without making any change.
+    >
+    >{: .small-space}
+    >
+    > To automate this at scale, see [🛡️ Discover-and-Onboard-iLOs-via-SecureGateway.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Discover-and-Onboard-iLOs-via-SecureGateway.ps1) (v1.0.26+). This Secure-Gateway-native onboarding script discovers every iLO behind an HPE Secure Gateway and onboards them in a single batch job — no CSV of IP addresses and no local firmware staging required (the gateway discovers the iLOs and updates their firmware server-side). It automates GreenLake authentication, COM instance / Secure Gateway / subscription / location validation, optional iLO DNS/NTP, subscription, location, tags and service-delivery contact, shared or per-iLO credentials (CSV), with a `-Check` pre-flight triage table and CSV status reporting. For direct, web-proxy, or CSV-driven onboarding, use its companion [Prepare-and-Connect-iLOs-to-COM-v2.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Prepare-and-Connect-iLOs-to-COM-v2.ps1) instead.
+    >
+    > 
     {: .no-copy}
+
 
 6. You can then verify the onboarded servers using the following cmdlet:
 
