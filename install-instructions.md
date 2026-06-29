@@ -409,15 +409,68 @@ title: "HPE Compute Ops Management Zero-Touch Automation"
 image: /assets/images/HOLs/COM-ZeroTouch/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: Learn to automate HPE server lifecycle management using the HPE Compute Ops Management PowerShell module—from workspace provisioning and device onboarding to policy enforcement, compliance monitoring, and sustainability insights within HPE GreenLake.
-tags:
+last_modified_at: 2026-06-29
+tags: 
   - greenlake
-  - powershell
-  - automation
-room: 1
+  - com 
+  - scripting
+room: 2 # Set to 1 or 2
+exclude: false
+hide_read_time: false
 ---
 ```
 
 Metadata Fields Explained:
+
+- **excerpt**
+    
+    Adds a short introduction displayed on the homepage.
+
+- **exclude**
+
+    Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
+
+    ```yaml
+    exclude: true   # Hidden from all listings
+    ```
+
+- **hide_read_time**
+
+    Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
+
+    ```yaml
+    hide_read_time: true
+    ```
+
+- **image**
+    
+    Banner image displayed:
+    
+    - In the header of your lab guide
+    - On the homepage preview card
+
+    [![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
+
+- **last_modified_at**
+
+    Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
+
+    - On the **homepage** card, next to the publication date — e.g. `Feb 16, 2026 [Updated: Jun 22, 2026]`
+    - At the **top of the lab guide**, just below the title — e.g. `Updated: Jun 22, 2026`
+
+    ```yaml
+    last_modified_at: 2026-06-22   # Use YYYY-MM-DD format
+    ```
+
+    > 💡 **Tip**
+    >
+    >{: .small-space}
+    >
+    > Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
+
+- **post_end_promo**
+    
+    Adds a final promotional line at the end of your lab guide.
 
 - **room**
 
@@ -469,56 +522,6 @@ Metadata Fields Explained:
     ```
 
     Leave unset (or omit entirely) for regular lab guides.
-
-- **exclude**
-
-    Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
-
-    ```yaml
-    exclude: true   # Hidden from all listings
-    ```
-
-- **hide_read_time**
-
-    Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
-
-    ```yaml
-    hide_read_time: true
-    ```
-
-- **last_modified_at**
-
-    Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
-
-    - On the **homepage** card, next to the publication date — e.g. `Feb 16, 2026 [Updated: Jun 22, 2026]`
-    - At the **top of the lab guide**, just below the title — e.g. `Updated: Jun 22, 2026`
-
-    ```yaml
-    last_modified_at: 2026-06-22   # Use YYYY-MM-DD format
-    ```
-
-    > 💡 **Tip**
-    >
-    >{: .small-space}
-    >
-    > Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
-
-- **post_end_promo**
-    
-    Adds a final promotional line at the end of your lab guide.
-    
-- **excerpt**
-    
-    Adds a short introduction displayed on the homepage.
-    
-- **image**
-    
-    Banner image displayed:
-    
-    - In the header of your lab guide
-    - On the homepage preview card
-
-    [![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
 
 
 [↑ Back to Top](#)
