@@ -24,6 +24,12 @@ HPE ProLiant DL-series servers and HPE GreenLake Compute Ops Management.
 
 In this hands-on lab, you will discover how the HPE Compute Ops Management PowerShell library can transform the way you manage data center infrastructure. By working through real-world scenarios, you will learn how to replace time-consuming manual operations with automated, repeatable workflows—covering the full server lifecycle from initial provisioning and device onboarding to policy enforcement, compliance monitoring, and decommissioning. You will gain practical experience automating critical IT tasks such as workspace configuration, firmware management, and iLO settings enforcement, while also learning how to leverage sustainability and utilization insights to make smarter infrastructure decisions. By the end of this lab, you will have the skills and confidence to design and implement automation workflows that reduce human error, enforce consistent configurations at scale, and accelerate server deployments across your HPE GreenLake environment.
 
+> **⚠️ Important**
+>
+>{: .small-space}
+> 
+> **Task 11 (Clean the lab for the next participant) is mandatory and must be completed before you leave.** This step releases your server and subscription key so they can be reassigned. Skipping it will leave resources locked to your workspace and break the lab for the next participant. Be sure to reserve about 5 minutes at the end of your session to complete it.
+
 ## Team Assignments
 
 This lab has 25 stations. Each station will have its own HPE DL-series
@@ -355,7 +361,7 @@ If you don't have an HPE account yet, you can create one in the next section. Th
 
    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image5.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image5.png){:class="img-600"}{: data-lightbox="gallery"}
 
-3. Once completed, you are ready to access the lab, then to install and use the library.
+3. Once completed, you are ready to access the lab and use the library.
 
 
 
@@ -2104,39 +2110,37 @@ These points illustrate the effectiveness of COM's policy-based management appro
 
 <p class="step-meta">(Task 11 of 12) ⏱️ ~5 min</p>
 
-Before concluding the lab, follow these steps to clean up your
-environment. Skipping these steps may leave resources locked to your
-workspace, which could affect future lab sessions.
+Before concluding the lab, it is essential to delete the workspace you created. This releases the server and subscription key resources you consumed **so they are available for the next lab session**, and also helps reduce unused resources and lower your carbon footprint.
 
-## Step 1 - Remove your server from its service assignment
+> **⚠️ Note**
+>
+>{: .small-space}
+> 
+> Skipping these steps will leave resources locked to your workspace, which will affect future lab sessions!
 
-It is essential to remove a server from its current service assignment
-before onboarding it to a different workspace. Failure to complete this
-step will prevent successful reassignment of the server in another
-environment.
+A workspace cannot be deleted until all devices, subscriptions, and service instances have been removed first. Follow the steps below:
 
-1. Ensure you remove all devices from their service assignment by running:
+## Step 1 - Remove your server from the workspace 
+
+1. To remove all devices from your workspace, run:
 
     ```powershell
-    Get-HPEGLDevice | Remove-HPEGLDeviceFromService
+    Get-HPEGLDevice | Remove-HPEGLDevice -Force
     ```
     
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image95.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image95.png){: data-lightbox="gallery"}{:class="img-700"}
 
-2. Confirm that the server has been removed from its assignment by running:
+2. Confirm that the server has been removed from your workspace by running:
 
     ```powershell
-    Get-HPEGLDevice -ShowRequireAssignment
+    Get-HPEGLDevice 
     ```
 
-    The expected response should show no more service and region information:
+    The command should return no response, confirming that all devices have been removed from your workspace.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image96.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image96.png){: data-lightbox="gallery"}
 
 ## Step 2 - Remove the subscription key
 
-Subscription keys are single-use on the HPE GreenLake platform, so it's
-also important to delete your key from your workspace.
 
 1. To delete your subscription key, run:
 
@@ -2144,7 +2148,7 @@ also important to delete your key from your workspace.
     Get-HPEGLSubscription | Remove-HPEGLSubscription
     ```
     
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: data-lightbox="gallery"}{:class="img-700"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image97.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image99.png){: data-lightbox="gallery"}{:class="img-700"}
 
 2. To verify that the subscription key has been removed, the following command should return no response:
 
@@ -2154,73 +2158,37 @@ also important to delete your key from your workspace.
 
 ## Step 3 - Remove the COM service instance
 
-Next, remove the COM service instance (the `$Region` you set earlier)
-from your workspace. This will permanently remove all the COM resources,
-logs and settings you set during this lab. This helps reduce unused
-resources and lowers your carbon footprint.
 
-1. To remove the COM service instance, enter:
+1. To remove the COM service instance, run:
 
     ```powershell
-    Get-HPEGLService -ShowProvisioned | Remove-HPEGLService
+    Get-HPEGLService -ShowProvisioned | Remove-HPEGLService -Force
     ```
     
-    This action is permanent and cannot be undone. When you execute this cmdlet, you will receive a warning at runtime explaining the irreversible nature of the operation. The system will prompt you to confirm your choice.
-
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image98.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image98.png){: data-lightbox="gallery"}
 
-3. Type `Y` and press **Enter** to proceed with the removal
-
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image99.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image99.png){: data-lightbox="gallery"}
-
-4. To verify that the COM service instance has been removed, the following command should return no response:
+2. To verify that the COM service instance has been removed, the following command should return no response:
 
     ```powershell
     Get-HPEGLService -ShowProvisioned
     ```
 
-## Step 4 - Disconnect from HPE GreenLake
+## Step 4 - Delete the workspace
 
-The cleanup process is now complete. The final task, which cannot be
-performed within the lab, is the deletion of the workspace itself. This
-step can only proceed once all associated data---including devices and
-users---has been removed from your workspace. These actions will be
-carried out by our lab reset script following this session. Your final
-responsibility is to disconnect from the HPE GreenLake platform, thereby
-ending your session and deleting both the temporary API credentials
-generated during connection and any related environment variables from
-your command line terminal.
+1. To permanently deletes the currently connected workspace from HPE GreenLake without confirmation, run:
 
-1. Begin by checking which HPE-related environment variables are still active in your session. To do this, run the following command:
-
-    ```powershell
-    Get-Variable -Name hpe*
+   ```powershell
+    Remove-HPEGLWorkspace -Force
     ```
-
+    
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image100.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image100.png){: data-lightbox="gallery"}
 
-    After completing the removal of the COM service instance in the previous task, you will observe that variables such as `$HPECOMRegions` are now empty. This confirms that the related resources have been successfully deleted from your environment.
+    This action permanently and irrevocably deletes all data associated with the workspace from HPE GreenLake and automatically 
+    terminates your session within the workspace.
 
-2. To complete your session and disconnect from the HPE GreenLake platform, enter:
 
-    ```powershell
-    Disconnect-HPEGL
-    ```
+The cleanup process is now complete. 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image101.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image101.png){: data-lightbox="gallery"}
-
-    This command will terminate your session, remove any temporary API credentials, and clear related environment variables from your command line terminal.
-
-3. To ensure all environment variables have been cleared from your session, run the following command one final time:
-
-    ```powershell
-    Get-Variable -Name hpe*
-    ```
-
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image102.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image102.png){: data-lightbox="gallery"}
-
-    This will display any remaining HPE-related variables. You may notice that several variables, such as `$HPEGreenLakeSession` (session information), `$HPECOMInvokeReturnData` (recent request output),
-    `$HPEGLAPIClientCredentialName` (API credentials created during login), and `$HPEGLworkspaces` (workspace references) are no longer present, confirming their successful removal.
 
 
 [↑ Back to Top](#)
