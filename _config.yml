@@ -16,7 +16,7 @@ show_excerpts_html: true
 open_external_links_in_new_tab: true
 
 # Google Analytics (GA4). Loads only in production builds.
-google_analytics: G-YE50BJ0SMH
+google_analytics: G-GDTBE7C094
 
 # Third party feature customisation (delete to turn off)
 # giscus_repo:
