@@ -15,6 +15,9 @@ replace_read_time_with_word_count: false
 show_excerpts_html: true
 open_external_links_in_new_tab: true
 
+# Google Analytics (GA4). Loads only in production builds.
+google_analytics: G-YE50BJ0SMH
+
 # Third party feature customisation (delete to turn off)
 # giscus_repo:
 # giscus_repo_id:
