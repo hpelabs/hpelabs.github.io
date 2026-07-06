@@ -55,7 +55,7 @@ manage HPE ProLiant Servers with a strong focus around Security.
 
 # Task 1 - Accessing the HPE Compute BU Enablement Environment
 
-<p class="step-meta">(Task1 of 14) ⏱️ ~5 min</p>
+<p class="step-meta">(Task 1 of 14) ⏱️ ~5 min</p>
 
 We will use Omnissa Horizon to access the lab environment and view
 server details in HPE Compute Ops Management.
@@ -111,7 +111,7 @@ This concludes this section of the lab.
 
 # Task 2 - Embedded Server Management with HPE iLO7
 
-<p class="step-meta">(Task2 of 14) ⏱️ ~10 min</p>
+<p class="step-meta">(Task 2 of 14) ⏱️ ~10 min</p>
 
 HPE Integrated Lights-Out (iLO) is an embedded server management
 technology from HPE that provides out-of-band management capabilities.
@@ -212,7 +212,7 @@ sure to also record your server’s serial number.
 
 # Task 3 - Managing Local Users
 
-<p class="step-meta">(Task3 of 14) ⏱️ ~10 min</p>
+<p class="step-meta">(Task 3 of 14) ⏱️ ~10 min</p>
 
 > One of the initial tasks for administrators when deploying systems in
 > their environment is to ensure compliance with established corporate
@@ -295,7 +295,7 @@ This concludes this section of the lab.
 
 # Task 4 - Firmware Verification
 
-<p class="step-meta">(Task4 of 14) ⏱️ ~5 min</p>
+<p class="step-meta">(Task 4 of 14) ⏱️ ~5 min</p>
 
 The Firmware Verification feature allows you to run an on-demand scan or
 implement scheduled scans. To respond to detected issues, you can
@@ -362,7 +362,7 @@ This concludes this section of the lab.
 
 # Task 5 - Applying a Web Proxy configuration
 
-<p class="step-meta">(Task5 of 14) ⏱️ ~5 min</p>
+<p class="step-meta">(Task 5 of 14) ⏱️ ~5 min</p>
 
 HPE iLO7 enables organizations to customize security settings within
 the HPE iLO7, to meet their specific security and compliance
@@ -401,7 +401,7 @@ This concludes this section of the lab.
 
 # Task 6 - Connecting to HPE Compute Ops Management
 
-<p class="step-meta">(Task6 of 14) ⏱️ ~5 min</p>
+<p class="step-meta">(Task 6 of 14) ⏱️ ~5 min</p>
 
 
 The HPE GreenLake Cloud Platform enables IT administrators to connect
@@ -494,7 +494,7 @@ This concludes this section of the lab.
 
 # Task 7 - Secure Login Options for Enterprise IT Administrators
 
-<p class="step-meta">(Task7 of 14) ⏱️ ~5 min</p>
+<p class="step-meta">(Task 7 of 14) ⏱️ ~5 min</p>
 
 In the previous section of this lab, we were able to login to our HPE
 Compute Ops Management Workspace with an email address and somewhat
@@ -552,7 +552,7 @@ This concludes this section of the lab.
 
 # Task 8 - Establishing a connection from HPE iLO7 to HPE GreenLake
 
-<p class="step-meta">(Task8 of 14) ⏱️ ~10 min</p>
+<p class="step-meta">(Task 8 of 14) ⏱️ ~10 min</p>
 
 For our lab purposes, the HPE GreenLake Workspace company in this
 environment is called *COM Security Lab XX*.
@@ -656,7 +656,7 @@ This concludes this section of the lab.
 
 # Task 9 - Securing your Server Fleet with HPE Compute Ops Management
 
-<p class="step-meta">(Task9 of 14) ⏱️ ~15 min</p>
+<p class="step-meta">(Task 9 of 14) ⏱️ ~15 min</p>
 
 HPE Compute Ops Management provides the core platform for delivering HPE
 compute services, enabling a standardized, self‑service, and real‑time
@@ -735,7 +735,7 @@ This concludes this section of the lab.
 
 # Task 10 - Creating server groups and associating server settings
 
-<p class="step-meta">(Task10 of 14) ⏱️ ~15 min</p>
+<p class="step-meta">(Task 10 of 14) ⏱️ ~15 min</p>
 
 Server groups allow you to organize servers based on specific criteria
 (e.g., location, function, or role). When you create or edit a server
@@ -862,7 +862,7 @@ This concludes this section of the lab.
 
 # Task 11 - Advanced Security settings for HPE iLO7
 
-<p class="step-meta">(Task11 of 14) ⏱️ ~15 min</p>
+<p class="step-meta">(Task 11 of 14) ⏱️ ~15 min</p>
 
 HPE iLO (Integrated Lights-Out) provides robust security features to
 mitigate risks in networked environments. Features like Trusted Platform
@@ -1124,7 +1124,7 @@ This concludes this section of the lab.
 
 # Task 12 - HPE iLO7 SSL Certificate Management
 
-<p class="step-meta">(Task12 of 14) ⏱️ ~15 min</p>
+<p class="step-meta">(Task 12 of 14) ⏱️ ~15 min</p>
 
 By default, HPE iLO7 uses a self-signed certificate in SSL connections.
 While this allows for encrypted communication, it lacks the trust and
@@ -1284,7 +1284,9 @@ This concludes this section of the lab.
 
 [↑ Back to Top](#)
 
-# HPE Compute Ops Management Secure Gateway
+# Task 13 - Configuring the Secure Gateway and connecting to COM
+
+<p class="step-meta">(Task 13 of 14) ⏱️ ~15 min</p>
 
 The HPE Compute Ops Management Secure Gateway is an on-premises virtual
 appliance that optimizes secure connectivity between HPE infrastructure
@@ -1320,12 +1322,6 @@ For more details on the Secure Gateway, including deployment,
 configuration, and troubleshooting, refer to the official [HPE Compute
 Ops Management Secure Gateway
 documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00005106en_us).
-
-[↑ Back to Top](#)
-
-# Task 13 - Configuring the Secure Gateway and connecting to COM
-
-<p class="step-meta">(Task13 of 14) ⏱️ ~15 min</p>
 
 In this portion of the lab, we will power on the VM, configure the
 Secure Gateway through its Terminal User Interface (TUI) and then
@@ -1490,7 +1486,7 @@ This concludes this section of the lab.
 
 # Task 14 - Connecting our HPE iLO7 to COM via the Secure Gateway
 
-<p class="step-meta">(Task14 of 14) ⏱️ ~10 min</p>
+<p class="step-meta">(Task 14 of 14) ⏱️ ~10 min</p>
 
 In this portion of the lab, we will disconnect our existing HPE iLO7
 from COM, modify our Proxy details and then create a new Activation Key
