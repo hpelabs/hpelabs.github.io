@@ -1547,26 +1547,26 @@ linking it to the Secure Gateway and apply this to our HPE iLO7.
 
 13. Click **Next** to continue.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png){: data-lightbox="gallery"}{:class="img-800"}
 
 14. Change the Expiration to **30 minutes** and select **Use existing
     subscription key**. Finally click **Next** to continue.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png){: data-lightbox="gallery"}{:class="img-800"}
 
 15. Leave defaults for Server location and tags, this is optional and then click Next.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png){: data-lightbox="gallery"}{:class="img-800"}
 
 16. Review your Activation Key Details, then hit **Finish and generate
     activation key**.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png){: data-lightbox="gallery"}{:class="img-800"}
 
 17. Take note of or **copy the Activation key**, then **close** the pop
     up.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png){: data-lightbox="gallery"}{:class="img-500"}
 
 18. Return to your **Web Browser** or **Tab** which is connected to your
     **Server’s HPE iLO7**, Click on **Compute Ops Management**.
