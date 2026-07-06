@@ -1381,31 +1381,31 @@ connect it to HPE Compute Ops Management.
 
       | Team Number | Full qualified domain name | IP address |
       |---|---|---|
-      | Team-01 | team01-sgw.hol.enablement.local | 10.18.20.51 |
-      | Team-02 | team02-sgw.hol.enablement.local | 10.18.20.52 |
-      | Team-03 | team03-sgw.hol.enablement.local | 10.18.20.53 |
-      | Team-04 | team04-sgw.hol.enablement.local | 10.18.20.54 |
-      | Team-05 | team05-sgw.hol.enablement.local | 10.18.20.55 |
-      | Team-06 | team06-sgw.hol.enablement.local | 10.18.20.56 |
-      | Team-07 | team07-sgw.hol.enablement.local | 10.18.20.57 |
-      | Team-08 | team08-sgw.hol.enablement.local | 10.18.20.58 |
-      | Team-09 | team09-sgw.hol.enablement.local | 10.18.20.59 |
-      | Team-10 | team10-sgw.hol.enablement.local | 10.18.20.60 |
-      | Team-11 | team11-sgw.hol.enablement.local | 10.18.20.61 |
-      | Team-12 | team12-sgw.hol.enablement.local | 10.18.20.62 |
-      | Team-13 | team13-sgw.hol.enablement.local | 10.18.20.63 |
-      | Team-14 | team14-sgw.hol.enablement.local | 10.18.20.64 |
-      | Team-15 | team15-sgw.hol.enablement.local | 10.18.20.65 |
-      | Team-16 | team16-sgw.hol.enablement.local | 10.18.20.66 |
-      | Team-17 | team17-sgw.hol.enablement.local | 10.18.20.67 |
-      | Team-18 | team18-sgw.hol.enablement.local | 10.18.20.68 |
-      | Team-19 | team19-sgw.hol.enablement.local | 10.18.20.69 |
-      | Team-20 | team20-sgw.hol.enablement.local | 10.18.20.70 |
-      | Team-21 | team21-sgw.hol.enablement.local | 10.18.20.71 |
-      | Team-22 | team22-sgw.hol.enablement.local | 10.18.20.72 |
-      | Team-23 | team23-sgw.hol.enablement.local | 10.18.20.73 |
-      | Team-24 | team24-sgw.hol.enablement.local | 10.18.20.74 |
-      | Team-25 | team25-sgw.hol.enablement.local | 10.18.20.75 |
+      | Team-01 | team01-sgw.hol.enablement.local | 10.18.26.51 |
+      | Team-02 | team02-sgw.hol.enablement.local | 10.18.26.52 |
+      | Team-03 | team03-sgw.hol.enablement.local | 10.18.26.53 |
+      | Team-04 | team04-sgw.hol.enablement.local | 10.18.26.54 |
+      | Team-05 | team05-sgw.hol.enablement.local | 10.18.26.55 |
+      | Team-06 | team06-sgw.hol.enablement.local | 10.18.26.56 |
+      | Team-07 | team07-sgw.hol.enablement.local | 10.18.26.57 |
+      | Team-08 | team08-sgw.hol.enablement.local | 10.18.26.58 |
+      | Team-09 | team09-sgw.hol.enablement.local | 10.18.26.59 |
+      | Team-10 | team10-sgw.hol.enablement.local | 10.18.26.60 |
+      | Team-11 | team11-sgw.hol.enablement.local | 10.18.26.61 |
+      | Team-12 | team12-sgw.hol.enablement.local | 10.18.26.62 |
+      | Team-13 | team13-sgw.hol.enablement.local | 10.18.26.63 |
+      | Team-14 | team14-sgw.hol.enablement.local | 10.18.26.64 |
+      | Team-15 | team15-sgw.hol.enablement.local | 10.18.26.65 |
+      | Team-16 | team16-sgw.hol.enablement.local | 10.18.26.66 |
+      | Team-17 | team17-sgw.hol.enablement.local | 10.18.26.67 |
+      | Team-18 | team18-sgw.hol.enablement.local | 10.18.26.68 |
+      | Team-19 | team19-sgw.hol.enablement.local | 10.18.26.69 |
+      | Team-20 | team20-sgw.hol.enablement.local | 10.18.26.70 |
+      | Team-21 | team21-sgw.hol.enablement.local | 10.18.26.71 |
+      | Team-22 | team22-sgw.hol.enablement.local | 10.18.26.72 |
+      | Team-23 | team23-sgw.hol.enablement.local | 10.18.26.73 |
+      | Team-24 | team24-sgw.hol.enablement.local | 10.18.26.74 |
+      | Team-25 | team25-sgw.hol.enablement.local | 10.18.26.75 |
 
 12. Tab to **IP Address Source** and then to **Manual.** Use the
     spacebar to place a “**X**” in Manual.
@@ -1417,8 +1417,8 @@ connect it to HPE Compute Ops Management.
 
 14. For the rest of the values use the table below.
 
-      | **Prefix length** | 22           |
-      | **Gateway**       | 10.18.20.1   |
+      | **Prefix length** | 24           |
+      | **Gateway**       | 10.18.26.1   |
       | **Primary DNS**   | 10.18.20.111 |
       | **Secondary DNS** | 10.18.20.112 |
 
