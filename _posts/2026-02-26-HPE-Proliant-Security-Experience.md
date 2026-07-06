@@ -1542,7 +1542,7 @@ linking it to the Secure Gateway and apply this to our HPE iLO7.
 11. Change the **Server connection type** to **Secure gateway** and
     select your **assigned** secure gateway from the **drop-down menu**.
 
-12. For the Authentication Mode make sure **Activation key** is
+12. For the Authentication Mode make sure **Use an activation key to connect servers** is
     selected.
 
 13. Click **Next** to continue.
@@ -1553,6 +1553,10 @@ linking it to the Secure Gateway and apply this to our HPE iLO7.
     subscription key**. Finally click **Next** to continue.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png){: data-lightbox="gallery"}{:class="img-700"}
+
+14. Leave defaults for Server location and tags, this is optional and then click Next.
+
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png){: data-lightbox="gallery"}{:class="img-700"}
 
 15. Review your Activation Key Details, then hit **Finish and generate
     activation key**.
