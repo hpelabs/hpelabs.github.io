@@ -1500,67 +1500,71 @@ linking it to the Secure Gateway and apply this to your HPE iLO7.
 11. Change the **Server connection type** to **Secure gateway** and
     select your **assigned** secure gateway from the **drop-down menu**.
 
-12. For the Authentication Mode make sure **Activation key** is
+12. For the Authentication Mode make sure **Use an activation key to connect servers** is
     selected.
 
 13. Click **Next** to continue.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image149.png){: data-lightbox="gallery"}{:class="img-800"}
 
 14. Change the Expiration to **30 minutes** and select **Use existing
     subscription key**. Finally click **Next** to continue.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150.png){: data-lightbox="gallery"}{:class="img-800"}
 
-15. Review your Activation Key Details, then hit **Finish and generate
+15. Leave defaults for Server location and tags, this is optional and then click Next.
+
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image150a.png){: data-lightbox="gallery"}{:class="img-800"}
+
+16. Review your Activation Key Details, then hit **Finish and generate
     activation key**.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png){: data-lightbox="gallery"}{:class="img-700"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image151.png){: data-lightbox="gallery"}{:class="img-800"}
 
-16. Take note of or **copy the Activation key**, then **close** the pop
+17. Take note of or **copy the Activation key**, then **close** the pop
     up.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image152.png){: data-lightbox="gallery"}{:class="img-500"}
 
-17. Return to your **Web Browser** or **Tab** which is connected to your
+18. Return to your **Web Browser** or **Tab** which is connected to your
     **Server’s HPE iLO7**, Click on **Compute Ops Management**.
 
-18. Click **Enable**.
+19. Click **Enable**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image153.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image153.png){: data-lightbox="gallery"}
 
-19. At the Activation Key is required screen, click on **Enter
+20. At the Activation Key is required screen, click on **Enter
     Activation key**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image154.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image154.png){: data-lightbox="gallery"}
 
-20. At the Enter Activation Key screen enter the **activation key** you
+21. At the Enter Activation Key screen enter the **activation key** you
     captured in the previous step and click on **Save**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image155.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image155.png){: data-lightbox="gallery"}
 
-21. Give it a few seconds and it should then return with a Connection
+22. Give it a few seconds and it should then return with a Connection
     Status of **Connected**, your **workspace ID** and **Connection Type
     Secure Gateway**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image156.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image156.png){: data-lightbox="gallery"}{:class="img-900"}
 
-22. If you then navigate back to your Browser or Tab that’s connected to COM, you will see your Server now Connected and going through its inventory process.
+23. If you then navigate back to your Browser or Tab that’s connected to COM, you will see your Server now Connected and going through its inventory process.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image157.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image157.png){: data-lightbox="gallery"}
 
-23. If you go a step further and Click on the **Hostname of your
+24. If you go a step further and Click on the **Hostname of your
     Server** or at this point, possibly the two bolded dash lines **-
     -**, you will get detailed information and see you are connected via
     the Secure Gateway.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image157a.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image157a.png){: data-lightbox="gallery"}
 
-24. Review the information on the Server Summary information screen.
+25. Review the information on the Server Summary information screen.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image158.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image158.png){: data-lightbox="gallery"}{:class="img-800"}
 
-25. You can also click on the **hyperlink** for your **Secure Gateway**
+26. You can also click on the **hyperlink** for your **Secure Gateway**
     to get **detailed information** for the server as well.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image159.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image159.png){: data-lightbox="gallery"}{:class="img-800"}
