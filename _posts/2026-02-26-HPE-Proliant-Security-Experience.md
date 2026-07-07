@@ -9,6 +9,7 @@ tags:
   - ilo
   - com 
 room: 2 # Set to 1 or 2
+last_modified_at: 2026-07-07
 ---
 
 Hands on Lab Guide
@@ -590,7 +591,7 @@ secure communication channel.
 
 For more information regarding the security protocols and firewall
 requirements, consult the [HPE Compute Ops Management security
-guide](https://www.hpe.com/psnow/doc/a50004539enw).
+guide](https://www.hpe.com/psnow/doc/a50004539enw). For the list of supported servers, refer to the [HPE Compute Ops Management Getting Started Guide](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00001293en_us&docLocale=en_US&page=GUID-BC7D1D1B-AE36-4F00-A1FB-C1B9E01DF101.html#ariaid-title1)
 
 To initiate the connection from HPE iLO7 to the HPE Compute Ops
 Management, you first need to obtain an Activation Key.
@@ -1251,9 +1252,9 @@ This concludes this section of the lab.
 <p class="step-meta">(Task 13 of 14) ⏱️ ~15 min</p>
 
 The HPE Compute Ops Management Secure Gateway is an on-premises virtual
-appliance that optimizes secure connectivity between HPE infrastructure
+appliance that optimizes secure connectivity between HPE infrastructure (or enterprise servers from Dell, Lenovo and Supermicro that support RedFish RESTful API)
 and HPE Compute Ops Management. Deployed on supported hypervisors
-(VMware ESXi 7/8), it addresses critical challenges in firewall
+(VMware ESXi 7/8, HPE VM Essentials and Nutanix AHV), it addresses critical challenges in firewall
 management, traffic efficiency, and operational control:
 
 **Key Benefits:**
