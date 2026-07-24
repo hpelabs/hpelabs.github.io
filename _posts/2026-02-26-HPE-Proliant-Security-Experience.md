@@ -10,6 +10,7 @@ tags:
   - com 
 room: 2 # Set to 1 or 2
 last_modified_at: 2026-07-07
+
 ---
 
 Hands on Lab Guide

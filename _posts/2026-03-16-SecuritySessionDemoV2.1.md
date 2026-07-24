@@ -5,6 +5,7 @@ image: /assets/images/HOLs/SecuritySessionDemo/banner2.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: This is a security demonstration of enhanced iLO7 capabilities.
 type: demo # Set to demo to show this post on the Demos page instead of the homepage
+exclude: true
 ---
 
 Live demo Environment – 2026 Security Sessions (TechJam, RSA, Discover)
