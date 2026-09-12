@@ -233,16 +233,13 @@ into GitHub, ensuring your rights to Copilot.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){:class="img-500"}{: data-lightbox="gallery"}
 
-  It shows the mode you will be using **Agent** and the LLM (Large Language Model) set to **Claude Sonnet 4.6**. 
+  It shows the mode you will be using **Agent** and the LLM (Large Language Model) set to **Auto**. 
 
   An LLM, or Large Language Model, is a
 type of artificial intelligence that uses deep learning to understand
 and generate human-like text. LLMs are trained on massive amounts of
 data and can perform tasks such as answering questions, summarizing
-information, translating languages, and generating content. In this lab,
-we will be using the LLM to write PowerShell code. While you are free to
-change the LLM, in our experience Claude Sonnet offers the best results
-for this particular task.
+information, translating languages, and generating content.
 
 [↑ Back to Top](#)
 
@@ -563,7 +560,7 @@ this file and our script would iterate over each line.
 import the csv file:
 
   ```text
-  Import file ilos.csv. Double check the field names in the csv file.
+  Import file ilos.csv. Double check the field names in the csv file. Do not use module HPEiLOCmdlets
   ```
 
   You should see it generated code to import the file into a variable `$iLOs` (it even figured out on its own the proper case for the name
