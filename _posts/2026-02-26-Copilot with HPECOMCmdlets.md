@@ -233,13 +233,19 @@ into GitHub, ensuring your rights to Copilot.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9.png){:class="img-500"}{: data-lightbox="gallery"}
 
-  It shows the mode you will be using **Agent** and the LLM (Large Language Model) set to **Auto**. 
+  It shows the mode you will be using (**Agent**) and the LLM (Large Language Model) set to **Auto**. 
 
   An LLM, or Large Language Model, is a
 type of artificial intelligence that uses deep learning to understand
 and generate human-like text. LLMs are trained on massive amounts of
 data and can perform tasks such as answering questions, summarizing
 information, translating languages, and generating content.
+
+  In this lab, we will be using the LLM to write PowerShell code. While you are free to change the 
+LLM, in our experience Claude Sonnet offers the best results for this particular task, so please change the model from Auto to Claude Sonnet 5 as shown below.
+
+  [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9e.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9e.png){:class="img-500"}{: data-lightbox="gallery"}
+
 
 [↑ Back to Top](#)
 
@@ -739,6 +745,10 @@ red in the screenshot to give Copilot the widest permission.
 - At some point, Copilot may even present you the following prompt. Click **Continue**, the process can take a long time (10 minutes or more) but it should complete eventually and do a thorough job of reviewing and correcting the code it generated.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14b.png){:class="img-400"}{: data-lightbox="gallery"}
+
+  Because this prompt is the most complicated task we are asking from our Copilot assistant, it may even fail with an error such as the following. If this happens, do not try again (which will likely end with the same result), but ignore the error and continue with the next prompt. Even though this prompt failed, other, simpler prompts further down might succeed.
+
+  [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14c.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image14c.png){:class="img-400"}{: data-lightbox="gallery"}
 
   You will likely see multiple edits throughout the file. Unlike humans,
 an AI agent can be quite good at fixing its own errors if we give it
