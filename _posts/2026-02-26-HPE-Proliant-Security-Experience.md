@@ -432,61 +432,33 @@ Once you have located your username and password, proceed to Step 1 of
 this lab.
 
 1.  Open a new tab and connect to HPE GreenLake at
-    [https://common.cloud.hpe.com/](https://common.cloud.hpe.com/) and then enter your assigned user
-    information from the following table as the Username. Your
-    instructor will provide a password if it is different from the table
-    below.
+    [https://common.cloud.hpe.com/](https://common.cloud.hpe.com/) and then enter your assigned username that was provided by your instructor. This will match the same username that was utilised to login to your Horizon Desktop.
+    
+    - **Username**:\
+      **HOL02-T01@labs.compute.cloud.hpe.com**
+      through **HOL02-T25@labs.compute.cloud.hpe.com**, (depends on your
+      team assignment)
 
-      | Team Number | GreenLake Username | User Password |
-      |---|---|---|
-      | Team-01 | comholuser+1@gmail.com | Refer to login sheet |
-      | Team-02 | comholuser+2@gmail.com | Refer to login sheet |
-      | Team-03 | comholuser+3@gmail.com | Refer to login sheet |
-      | Team-04 | comholuser+4@gmail.com | Refer to login sheet |
-      | Team-05 | comholuser+5@gmail.com | Refer to login sheet |
-      | Team-06 | comholuser+6@gmail.com | Refer to login sheet |
-      | Team-07 | comholuser+7@gmail.com | Refer to login sheet |
-      | Team-08 | comholuser+8@gmail.com | Refer to login sheet |
-      | Team-09 | comholuser+9@gmail.com | Refer to login sheet |
-      | Team-10 | comholuser+10@gmail.com | Refer to login sheet |
-      | Team-11 | comholuser+11@gmail.com | Refer to login sheet |
-      | Team-12 | comholuser+12@gmail.com | Refer to login sheet |
-      | Team-13 | comholuser+13@gmail.com | Refer to login sheet |
-      | Team-14 | comholuser+14@gmail.com | Refer to login sheet |
-      | Team-15 | comholuser+15@gmail.com | Refer to login sheet |
-      | Team-16 | comholuser+16@gmail.com | Refer to login sheet |
-      | Team-17 | comholuser+17@gmail.com | Refer to login sheet |
-      | Team-18 | comholuser+18@gmail.com | Refer to login sheet |
-      | Team-19 | comholuser+19@gmail.com | Refer to login sheet |
-      | Team-20 | comholuser+20@gmail.com | Refer to login sheet |
-      | Team-21 | comholuser+21@gmail.com | Refer to login sheet |
-      | Team-22 | comholuser+22@gmail.com | Refer to login sheet |
-      | Team-23 | comholuser+23@gmail.com | Refer to login sheet |
-      | Team-24 | comholuser+24@gmail.com | Refer to login sheet |
-      | Team-25 | comholuser+25@gmail.com | Refer to login sheet |
+    - **Password**:\
+      Supplied by instructor
 
+2.  Click **Next** to be prompted for a sign-in method, we will then select Sign in with SSO.
 
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image161.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image161.png){: data-lightbox="gallery"}
 
+3.  You will now get redirected to Microsoft's SSO Login authentication process. Please re-enter your assigned Username and hit Next.
 
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image162.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image162.png){: data-lightbox="gallery"}
 
-2.  Click **Next** to be prompted for a password.
+4.  Type in the password supplied by your instructor and press the **Enter** key or click **Sign In**. Clicking Yes to stay signed in, will then allow automatic login through SSO with any future login attempts.
 
-3.  Type in the password of **Refer to login sheet** (or the password supplied
-    by your instructor) and press the **Enter** key or click **Sign
-    In**.
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image163.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image163.png){: data-lightbox="gallery"}
 
-4.  If there’s a short advertising message, enjoy it and then close the
-    pop-up window.
-
-5.  When presented with a choice of workspaces, choose **COM Security
-    Lab XX** (where **XX** is your Team Number) and **Go to Workspace**.
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image28.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image28.png){: data-lightbox="gallery"}
+5.  If there’s a short advertising message, enjoy it and then close the pop-up window.
 
 6.  You are now on the HPE GreenLake Cloud Platform homepage. You can
-    see your workspace choice, to the right of the HPE GreenLake logo.
-    Don’t click on the Launch button for Compute Ops Management just
-    yet.
+    see your workspace overview, with various widgets showing important information.
+    Click on the hyperlink for Compute Ops Management to launch into COM.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27a.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27a.png){: data-lightbox="gallery"}
 
@@ -499,7 +471,7 @@ This concludes this section of the lab.
 <p class="step-meta">(Task 7 of 14) ⏱️ ~5 min</p>
 
 In the previous section of this lab, you were able to login to your HPE
-Compute Ops Management Workspace with an email address and somewhat
+Compute Ops Management Workspace with an SSO configured email address and somewhat
 complex password. In today’s world, this is no longer secure enough to
 meet Industry Security Standards and additional safeguards should be
 configured.
@@ -515,14 +487,10 @@ actually set it up at this time.
 
 ## Multi-Factor Authentication
 
-1.  From the **Quick Links** on the right-hand side of the GreenLake
+1.  From the **Four Squares Icon** on the right-hand side of the COM Workspace
     Home Page, click **Manage Workspace**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image29.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image29.png){: data-lightbox="gallery"}{:class="img-700"}
-
-2.  Select the **Workspace Details** card**.**
-
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image30.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image30.png){: data-lightbox="gallery"}
 
 3.  In the Actions pull down, navigate to the **Manage MFA** list.
 
@@ -539,7 +507,7 @@ actually set it up at this time.
 
 5.  When enabling Multifactor Authentication (MFA), you significantly enhance the security of your account when signing in to HPE GreenLake. By requiring multiple forms of verification, such as a password and a one-time code sent to your mobile device, MFA adds an extra layer of protection against unauthorized access. This reduces the risk of account compromise, even if your password is stolen or guessed. Implementing MFA is a crucial step in safeguarding your sensitive data and ensuring secure access to HPE GreenLake services.
 
-      > **Note**: MFA can also be configured at the user level from the **HPE user account details**. However, please do **NOT** enable it for this lab.
+      > **Note**: MFA can also be configured at the user level from the **HPE user account details**. However, our SSO logins have MFA disabled by policy for this lab.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image33.png){: data-lightbox="gallery"}
 
@@ -600,11 +568,11 @@ Management, you first need to obtain an Activation Key.
 1.  Click on the **HPE GreenLake logo** in the browser to return to the
     main menu.
 
-2.  From the HPE GreenLake Recent Services section, choose the
-    **Launch** button in the **Compute Ops Management** card to connect
-    to HPE Compute Ops Management main menu.
+2.  From the My Services section, click the
+    **Hyperlink** button for **Compute Ops Management** to connect
+    into HPE Compute Ops Management Overview.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27b.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image27b.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image164.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image164.png){: data-lightbox="gallery"}
 
 3.  You are at the Compute Ops Management Overview page.
 
