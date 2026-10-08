@@ -444,15 +444,15 @@ this lab.
 
 2.  Click **Next** to be prompted for a sign-in method, we will then select Sign in with SSO.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image161.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image161.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image161.png){: .img-400}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image161.png){: data-lightbox="gallery"}
 
 3.  You will now get redirected to Microsoft's SSO Login authentication process. Please re-enter your assigned Username and hit Next.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image162.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image162.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image162.png){: .img-400}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image162.png){: data-lightbox="gallery"}
 
 4.  Type in the password supplied by your instructor and press the **Enter** key or click **Sign In**. Clicking Yes to stay signed in, will then allow automatic login through SSO with any future login attempts.
 
-      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image163.png){: .img-600}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image163.png){: data-lightbox="gallery"}
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image163.png){: .img-400}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image163.png){: data-lightbox="gallery"}
 
 5.  If there’s a short advertising message, enjoy it and then close the pop-up window.
 
