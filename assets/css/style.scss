@@ -802,6 +802,12 @@ blockquote ol ol li {
 
 
 /* Responsive image size classes */
+.img-200 img {
+  width: 200px;
+  max-width: 100%;  /* Never exceed container width on mobile */
+  height: auto;
+}
+
 .img-300 img {
   width: 300px;
   max-width: 100%;  /* Never exceed container width on mobile */
