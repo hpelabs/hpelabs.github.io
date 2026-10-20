@@ -351,6 +351,8 @@ You now have everything needed to authenticate to the COM API and create your we
 
 In the next steps you call the COM API with **Bruno**, an API client installed on your desktop. Bruno sends the HTTP requests and shows you exactly what is sent to COM and what COM returns.
 
+> **Note**: This lab uses Bruno instead of Postman because Bruno needs no account or sign-in. A Bruno collection is a plain folder of files, so your station's collection and its settings were copied to your VM in advance. With Postman, every participant would first have to sign up to import a collection. The requests are standard HTTP calls, so they work the same way in any API client.
+
 The **COM Webhooks HOL** collection is already loaded in Bruno and contains the requests you need. Your station's Relay URL and shared secret are already set in its environment, so you do not have to enter them. You will use the Client ID and Client Secret you just saved to authenticate to the COM API, and then create your webhook.
 
 > **Note**: A public [Postman collection for COM](https://www.postman.com/jullienl/lionel-jullien-s-public-workspace/http-request/nralhjo/list-all-webhooks?sideView=agentMode) is also available. It contains more webhook request examples that you can reuse after the lab.
