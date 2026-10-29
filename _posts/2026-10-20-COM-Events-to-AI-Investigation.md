@@ -983,7 +983,7 @@ The Shim can run optional **enrichers** to collect iLO logs and hardware health 
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52a.png){: data-lightbox="gallery"}{:class="img-1000"}
 
-The AI analysis returns a structured report: a summary, the evidence it relied on, the likely root cause, a confidence level, and recommended actions. It separates what was observed from what is only a hypothesis, and it does not present an unverified conclusion as a certain cause. The project documentation describes this feature in the section [AI-assisted incident investigation and remediation](https://github.com/jullienl/HPE-COM-Event-Integrations#ai-assisted-incident-investigation-and-remediation).
+The AI analysis returns a structured report: a summary, the likely root cause, a confidence level, and recommended actions. It is written to keep what was observed apart from what is only a hypothesis, and not to present an unverified conclusion as a certain cause. In this task you check that yourself. The project documentation describes this feature in the section [AI-assisted incident investigation and remediation](https://github.com/jullienl/HPE-COM-Event-Integrations#ai-assisted-incident-investigation-and-remediation).
 
 [↑ Back to Top](#)
 
@@ -1207,7 +1207,7 @@ Now restart the Shim with the `ilo_ai` enricher and send the same incident again
 
     > **Troubleshooting**: If the report is missing in Mattermost and GitHub, look in the Shim window for a warning from `ilo_ai` or from the AI Gateway. Also check that you restarted the Shim with `-e ENRICHERS=ilo_ai` and sent the incident after the restart. A plain notification means that the analysis did not run.
 
-4. Open Mattermost. Compared with the baseline, the notification now carries the analysis of the AI agent in addition to the usual fields: a summary, the evidence it relied on, the likely root cause, a confidence level, and recommended actions.
+4. Open Mattermost. Compared with the baseline, the notification now carries the analysis of the AI agent in addition to the usual fields: a summary, the likely root cause, a confidence level, and recommended actions.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: data-lightbox="gallery"}{:class="img-800"}
 
@@ -1222,9 +1222,40 @@ Now restart the Shim with the `ilo_ai` enricher and send the same incident again
     - The **confidence** reflects the agent's assessment of how strongly the available evidence supports its explanation. It is not a guarantee of accuracy.
     - The **recommended actions** suggest diagnostic checks and remediation steps for an engineer to review before taking action.
 
-    The report separates what was observed from what is only a hypothesis. It is guidance for an engineer, not a verdict, and you still verify the hardware.
+    The report is guidance for an engineer, not a verdict. In the next step you check how well it keeps facts apart from conclusions.
 
-6. Close the incident again. In the second PowerShell tab, send the healthy version of the event:
+6. Sort the statements of your report into three categories:
+
+    | Category | What it is | Example to look for in your report |
+    |---|---|---|
+    | **Observed evidence** | A fact read from the iLO. You can verify it directly. | The state of a drive, its model or firmware, an IML entry. |
+    | **Probable cause** | A conclusion the agent draws from several facts. | Why the controller is also reported as Critical. |
+    | **Unverified hypothesis** | A possible explanation that the evidence does not prove. | A firmware defect, a cause outside the drive. |
+
+    Then verify the observed evidence yourself. In the second PowerShell tab, where `$BmcAddress` is set, read the drive and the IML of your simulated iLO with the same read-only account as the Shim:
+
+    ```powershell
+    cd $env:USERPROFILE\hol
+    $IloUser = (Select-String -Path .\shim-3-ai.env -Pattern '^ILO_USERNAME=(.*)$').Matches[0].Groups[1].Value
+    $IloPass = (Get-Content .\secrets\ilo-password.txt -Raw).Trim()
+    $Redfish = "https://$BmcAddress/redfish/v1/Systems/1"
+
+    $Drive = curl.exe -sk -u "${IloUser}:${IloPass}" "$Redfish/SmartStorage/ArrayControllers/12/DiskDrives/8" | ConvertFrom-Json
+    $Drive | Select-Object Location, Model, @{n='Firmware';e={$_.FirmwareVersion.Current.VersionString}}, @{n='Health';e={$_.Status.Health}}, FailurePredicted
+
+    $Iml = curl.exe -sk -u "${IloUser}:${IloPass}" "$Redfish/LogServices/IML/Entries" | ConvertFrom-Json
+    $Iml.Members | Where-Object { $_.Severity -and $_.Severity -ne 'OK' } | Select-Object Created, Severity, Message
+    ```
+
+    Compare the output with your report:
+
+    - Every statement you placed in **Observed evidence** must appear in this output. If the report states a fact that you cannot find here or in the event, treat it as a hypothesis.
+    - A **probable cause** is acceptable when the report shows how it follows from the observed facts, and when its confidence is not presented as certainty.
+    - An **unverified hypothesis** must be worded as one ("could", "if", "requires confirmation") and should come with a recommended action that would confirm or rule it out.
+
+    This is how you use an AI report in a real incident: you trust the facts you can verify, you weigh the conclusions against their confidence, and you turn the hypotheses into checks.
+
+7. Close the incident again. In the second PowerShell tab, send the healthy version of the event:
 
     ```powershell
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
@@ -1312,7 +1343,13 @@ This requires access to the COM API, so the Shim uses the personal API client th
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: data-lightbox="gallery"}{:class="img-900"}
 
-8. Compare the three runs you have seen in Task 3:
+8. Sort the statements of the new report into the same three categories as in the previous section, and compare with your first report:
+
+    - The **observed evidence** is the same: the iLO did not change.
+    - The advisory adds context, so the probable cause and the confidence can change.
+    - Check how the report presents the advisory. Its title matches the symptoms, but the report only has the title, not the list of affected models and firmware versions. A careful report therefore keeps the advisory as a hypothesis to confirm, for example "check whether this model and firmware are in the advisory", and does not present it as the proven cause.
+
+9. Compare the three runs you have seen in Task 3:
 
     | Run | What the Shim adds before delivery | What the notification contains |
     |---|---|---|
@@ -1322,7 +1359,7 @@ This requires access to the COM API, so the Shim uses the personal API client th
 
     The delivery targets, the Relay, and the queue did not change. Only the Shim configuration did.
 
-9. Close the incident:
+10. Close the incident:
 
     ```powershell
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
