@@ -1818,6 +1818,25 @@ body .highlight .err {
   html[data-theme="light"] .highlight .il    { color: #099 !important; }
 }
 
+.language-powershell {
+  --powershell-variable-color: #008080;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .language-powershell {
+    --powershell-variable-color: #EEFFFF;
+  }
+}
+
+[data-theme="dark"] .language-powershell {
+  --powershell-variable-color: #EEFFFF;
+}
+
+.language-powershell .highlight .nv + .nn,
+.language-powershell .highlight .nv + .nn + .p {
+  color: var(--powershell-variable-color) !important;
+}
+
 /* ============================================
    READING EXPERIENCE ENHANCEMENTS
    ============================================ */
