@@ -426,7 +426,7 @@ Metadata Fields Explained:
 
 <details markdown="1">
 <summary><strong>collapsible</strong></summary>
-
+<br>
 Set to `true` to make every top-level section (each `# heading`) collapsible. Click a heading to open or close its section. Sub-headings (`##` and below) stay inside their parent section, and anchor links (such as the table of contents) automatically open the section they point to.
 
 ```yaml
@@ -439,7 +439,7 @@ Leave unset (or omit entirely) to keep the page fully expanded with no collapse 
 
 <details markdown="1">
 <summary><strong>collapsible_expanded</strong></summary>
-
+<br>
 Used together with `collapsible: true`. Set to `true` to load the page with every section **open**. When omitted or `false`, all sections start **collapsed**.
 
 ```yaml
@@ -457,14 +457,14 @@ collapsible_expanded: true   # Sections are open on page load
 
 <details markdown="1">
 <summary><strong>excerpt</strong></summary>
-
+<br>
 Adds a short introduction displayed on the homepage.
 
 </details>
 
 <details markdown="1">
 <summary><strong>exclude</strong></summary>
-
+<br>
 Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
 
 ```yaml
@@ -475,7 +475,7 @@ exclude: true   # Hidden from all listings
 
 <details markdown="1">
 <summary><strong>hide_read_time</strong></summary>
-
+<br>
 Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
 
 ```yaml
@@ -486,7 +486,7 @@ hide_read_time: true
 
 <details markdown="1">
 <summary><strong>image</strong></summary>
-
+<br>
 Banner image displayed:
 
 - In the header of your lab guide
@@ -498,7 +498,7 @@ Banner image displayed:
 
 <details markdown="1">
 <summary><strong>last_modified_at</strong></summary>
-
+<br>
 Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
 
 - On the **homepage** card, next to the publication date — e.g. `Feb 16, 2026 [Updated: Jun 22, 2026]`
@@ -518,14 +518,14 @@ last_modified_at: 2026-06-22   # Use YYYY-MM-DD format
 
 <details markdown="1">
 <summary><strong>post_end_promo</strong></summary>
-
+<br>
 Adds a final promotional line at the end of your lab guide.
 
 </details>
 
 <details markdown="1">
 <summary><strong>room</strong></summary>
-
+<br>
 At events like **HPE Tech Jam**, lab sessions are typically split across two rooms, each running a different set of labs. The `room` field lets you assign each lab guide to a room so attendees can quickly find the labs available in their room.
 
 The **homepage** ([https://hpelabs.github.io](https://hpelabs.github.io)) always shows all available labs, while two dedicated room pages show only the labs assigned to that room:
@@ -545,7 +545,7 @@ room:     # Not assigned to any room (homepage only)
 
 <details markdown="1">
 <summary><strong>tags</strong></summary>
-
+<br>
 Keywords that categorize your lab guide. Tags are displayed in two places:
 
 - On the **homepage** card, after the date and read time
@@ -572,7 +572,7 @@ tags:
 
 <details markdown="1">
 <summary><strong>type</strong></summary>
-
+<br>
 Set to `demo` to assign a post to the **Demos** page instead of the labs homepage and room pages. Demo posts are automatically excluded from the labs homepage.
 
 ```yaml
