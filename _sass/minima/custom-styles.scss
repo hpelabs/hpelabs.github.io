@@ -73,6 +73,12 @@
   &[open] > summary h1::after { content: "\00a0\25BE"; }
 }
 
+// Hand-written <details> blocks in a post: indent the opened content under the summary.
+// Done in CSS because a 4-space indent in the Markdown would turn it into a code block.
+.post-content details:not(.collapsible-section) > :not(summary) {
+  margin-left: 1.5rem;
+}
+
 // ==========================================
 // Enhanced Table Styles
 // ==========================================
