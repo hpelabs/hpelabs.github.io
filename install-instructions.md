@@ -427,149 +427,159 @@ Metadata Fields Explained:
 <details markdown="1">
 <summary><strong>collapsible</strong></summary>
 
-    Set to `true` to make every top-level section (each `# heading`) collapsible. Click a heading to open or close its section. Sub-headings (`##` and below) stay inside their parent section, and anchor links (such as the table of contents) automatically open the section they point to.
+Set to `true` to make every top-level section (each `# heading`) collapsible. Click a heading to open or close its section. Sub-headings (`##` and below) stay inside their parent section, and anchor links (such as the table of contents) automatically open the section they point to.
 
-    ```yaml
-    collapsible: true   # Each # section can be collapsed
-    ```
+```yaml
+collapsible: true   # Each # section can be collapsed
+```
 
-    Leave unset (or omit entirely) to keep the page fully expanded with no collapse behavior.
+Leave unset (or omit entirely) to keep the page fully expanded with no collapse behavior.
+
 </details>
 
 <details markdown="1">
 <summary><strong>collapsible_expanded</strong></summary>
 
-    Used together with `collapsible: true`. Set to `true` to load the page with every section **open**. When omitted or `false`, all sections start **collapsed**.
+Used together with `collapsible: true`. Set to `true` to load the page with every section **open**. When omitted or `false`, all sections start **collapsed**.
 
-    ```yaml
-    collapsible: true
-    collapsible_expanded: true   # Sections are open on page load
-    ```
+```yaml
+collapsible: true
+collapsible_expanded: true   # Sections are open on page load
+```
 
-    > 💡 **Tip**
-    >
-    >{: .small-space}
-    >
-    > Start collapsed for long lab guides so attendees can see all the tasks at a glance and open only the one they are working on. Start expanded if you prefer the standard reading experience but still want the option to collapse sections.
+> 💡 **Tip**
+>
+>{: .small-space}
+>
+> Start collapsed for long lab guides so attendees can see all the tasks at a glance and open only the one they are working on. Start expanded if you prefer the standard reading experience but still want the option to collapse sections.
+
 </details>
 
 <details markdown="1">
 <summary><strong>excerpt</strong></summary>
-    
-    Adds a short introduction displayed on the homepage.
+
+Adds a short introduction displayed on the homepage.
+
 </details>
 
 <details markdown="1">
 <summary><strong>exclude</strong></summary>
 
-    Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
+Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
 
-    ```yaml
-    exclude: true   # Hidden from all listings
-    ```
+```yaml
+exclude: true   # Hidden from all listings
+```
+
 </details>
 
 <details markdown="1">
 <summary><strong>hide_read_time</strong></summary>
 
-    Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
+Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
 
-    ```yaml
-    hide_read_time: true
-    ```
+```yaml
+hide_read_time: true
+```
+
 </details>
 
 <details markdown="1">
 <summary><strong>image</strong></summary>
-    
-    Banner image displayed:
-    
-    - In the header of your lab guide
-    - On the homepage preview card
 
-    [![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
+Banner image displayed:
+
+- In the header of your lab guide
+- On the homepage preview card
+
+[![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
+
 </details>
 
 <details markdown="1">
 <summary><strong>last_modified_at</strong></summary>
 
-    Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
+Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
 
-    - On the **homepage** card, next to the publication date — e.g. `Feb 16, 2026 [Updated: Jun 22, 2026]`
-    - At the **top of the lab guide**, just below the title — e.g. `Updated: Jun 22, 2026`
+- On the **homepage** card, next to the publication date — e.g. `Feb 16, 2026 [Updated: Jun 22, 2026]`
+- At the **top of the lab guide**, just below the title — e.g. `Updated: Jun 22, 2026`
 
-    ```yaml
-    last_modified_at: 2026-06-22   # Use YYYY-MM-DD format
-    ```
+```yaml
+last_modified_at: 2026-06-22   # Use YYYY-MM-DD format
+```
 
-    > 💡 **Tip**
-    >
-    >{: .small-space}
-    >
-    > Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
+> 💡 **Tip**
+>
+>{: .small-space}
+>
+> Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
+
 </details>
 
 <details markdown="1">
 <summary><strong>post_end_promo</strong></summary>
-    
-    Adds a final promotional line at the end of your lab guide.
+
+Adds a final promotional line at the end of your lab guide.
+
 </details>
 
 <details markdown="1">
 <summary><strong>room</strong></summary>
 
-    At events like **HPE Tech Jam**, lab sessions are typically split across two rooms, each running a different set of labs. The `room` field lets you assign each lab guide to a room so attendees can quickly find the labs available in their room.
+At events like **HPE Tech Jam**, lab sessions are typically split across two rooms, each running a different set of labs. The `room` field lets you assign each lab guide to a room so attendees can quickly find the labs available in their room.
 
-    The **homepage** ([https://hpelabs.github.io](https://hpelabs.github.io)) always shows all available labs, while two dedicated room pages show only the labs assigned to that room:
+The **homepage** ([https://hpelabs.github.io](https://hpelabs.github.io)) always shows all available labs, while two dedicated room pages show only the labs assigned to that room:
 
-    - **Room 1**: [https://hpelabs.github.io/room-1/](https://hpelabs.github.io/room-1/)
-    - **Room 2**: [https://hpelabs.github.io/room-2/](https://hpelabs.github.io/room-2/)
+- **Room 1**: [https://hpelabs.github.io/room-1/](https://hpelabs.github.io/room-1/)
+- **Room 2**: [https://hpelabs.github.io/room-2/](https://hpelabs.github.io/room-2/)
 
-    To assign a lab to a room, set `room: 1` or `room: 2` in its front matter. Leave it empty to keep the lab on the homepage only.
+To assign a lab to a room, set `room: 1` or `room: 2` in its front matter. Leave it empty to keep the lab on the homepage only.
 
-    ```yaml
-    room: 1   # Room 1 only
-    room: 2   # Room 2 only
-    room:     # Not assigned to any room (homepage only)
-    ```
+```yaml
+room: 1   # Room 1 only
+room: 2   # Room 2 only
+room:     # Not assigned to any room (homepage only)
+```
+
 </details>
 
 <details markdown="1">
 <summary><strong>tags</strong></summary>
 
-    Keywords that categorize your lab guide. Tags are displayed in two places:
+Keywords that categorize your lab guide. Tags are displayed in two places:
 
-    - On the **homepage** card, after the date and read time
-    - At the **top of the lab guide**, just below the title
+- On the **homepage** card, after the date and read time
+- At the **top of the lab guide**, just below the title
 
-    Each tag is rendered as a **clickable link**. Clicking a tag runs a site search (`/search/?q=<tag>`) that lists every lab guide sharing that tag — making it easy for attendees to discover related labs.
+Each tag is rendered as a **clickable link**. Clicking a tag runs a site search (`/search/?q=<tag>`) that lists every lab guide sharing that tag — making it easy for attendees to discover related labs.
 
-    Define tags as a YAML list (one per line, indented with two spaces and a dash):
+Define tags as a YAML list (one per line, indented with two spaces and a dash):
 
-    ```yaml
-    tags:
-      - greenlake
-      - powershell
-      - automation
-    ```
+```yaml
+tags:
+  - greenlake
+  - powershell
+  - automation
+```
 
-    > 💡 **Tip**
-    >
-    >{: .small-space}
-    >
-    > Use lowercase, single-word tags and reuse the same tags across related labs so the search groups them together. Avoid spaces in a tag (use `secure-gateway` rather than `secure gateway`). Leave the field empty (`tags:`) if the lab has no tags.
+> 💡 **Tip**
+>
+>{: .small-space}
+>
+> Use lowercase, single-word tags and reuse the same tags across related labs so the search groups them together. Avoid spaces in a tag (use `secure-gateway` rather than `secure gateway`). Leave the field empty (`tags:`) if the lab has no tags.
+
 </details>
 
 <details markdown="1">
 <summary><strong>type</strong></summary>
 
-    Set to `demo` to assign a post to the **Demos** page instead of the labs homepage and room pages. Demo posts are automatically excluded from the labs homepage.
+Set to `demo` to assign a post to the **Demos** page instead of the labs homepage and room pages. Demo posts are automatically excluded from the labs homepage.
 
-    ```yaml
-    type: demo   # Shows on the Demos page, hidden from labs homepage and room pages
-    ```
+```yaml
+type: demo   # Shows on the Demos page, hidden from labs homepage and room pages
+```
 
-    Leave unset (or omit entirely) for regular lab guides.
+Leave unset (or omit entirely) for regular lab guides.
 
 </details>
 
