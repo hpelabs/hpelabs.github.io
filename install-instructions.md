@@ -424,7 +424,7 @@ hide_read_time: false
 
 Metadata Fields Explained:
 
-<details>
+<details markdown="1">
 <summary><strong>collapsible</strong></summary>
 
     Set to `true` to make every top-level section (each `# heading`) collapsible. Click a heading to open or close its section. Sub-headings (`##` and below) stay inside their parent section, and anchor links (such as the table of contents) automatically open the section they point to.
@@ -436,7 +436,7 @@ Metadata Fields Explained:
     Leave unset (or omit entirely) to keep the page fully expanded with no collapse behavior.
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>collapsible_expanded</strong></summary>
 
     Used together with `collapsible: true`. Set to `true` to load the page with every section **open**. When omitted or `false`, all sections start **collapsed**.
@@ -453,13 +453,13 @@ Metadata Fields Explained:
     > Start collapsed for long lab guides so attendees can see all the tasks at a glance and open only the one they are working on. Start expanded if you prefer the standard reading experience but still want the option to collapse sections.
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>excerpt</strong></summary>
     
     Adds a short introduction displayed on the homepage.
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>exclude</strong></summary>
 
     Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
@@ -469,7 +469,7 @@ Metadata Fields Explained:
     ```
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>hide_read_time</strong></summary>
 
     Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
@@ -479,7 +479,7 @@ Metadata Fields Explained:
     ```
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>image</strong></summary>
     
     Banner image displayed:
@@ -490,7 +490,7 @@ Metadata Fields Explained:
     [![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>last_modified_at</strong></summary>
 
     Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
@@ -509,13 +509,13 @@ Metadata Fields Explained:
     > Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>post_end_promo</strong></summary>
     
     Adds a final promotional line at the end of your lab guide.
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>room</strong></summary>
 
     At events like **HPE Tech Jam**, lab sessions are typically split across two rooms, each running a different set of labs. The `room` field lets you assign each lab guide to a room so attendees can quickly find the labs available in their room.
@@ -534,7 +534,7 @@ Metadata Fields Explained:
     ```
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>tags</strong></summary>
 
     Keywords that categorize your lab guide. Tags are displayed in two places:
@@ -560,7 +560,7 @@ Metadata Fields Explained:
     > Use lowercase, single-word tags and reuse the same tags across related labs so the search groups them together. Avoid spaces in a tag (use `secure-gateway` rather than `secure gateway`). Leave the field empty (`tags:`) if the lab has no tags.
 </details>
 
-<details>
+<details markdown="1">
 <summary><strong>type</strong></summary>
 
     Set to `demo` to assign a post to the **Demos** page instead of the labs homepage and room pages. Demo posts are automatically excluded from the labs homepage.
