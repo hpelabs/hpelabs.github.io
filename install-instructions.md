@@ -573,7 +573,7 @@ Metadata Fields Explained:
 
 </details>
 
-{: .small-space}
+<br>
 [↑ Back to Top](#)
 
 ### Generating a Banner Image
