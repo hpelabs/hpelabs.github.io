@@ -861,6 +861,13 @@ blockquote ol ol li {
   margin: 1em 0;
 }
 
+/* Keep code blocks and quotes beside the floated table of contents instead of running under it */
+.code-block-wrapper,
+.post-content div.highlighter-rouge,
+.post-content blockquote {
+  display: flow-root;
+}
+
 .code-block-wrapper pre {
   margin: 0;
   padding-right: 90px !important;

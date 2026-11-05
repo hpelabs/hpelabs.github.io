@@ -40,6 +40,40 @@
 }
 
 // ==========================================
+// Collapsible Sections (page.collapsible)
+// ==========================================
+.collapsible-section {
+  margin-top: $spacing-unit;
+
+  // Not a flex container: it must not form a block formatting context, or it would
+  // shrink next to the floated table of contents and push the chevron to the far edge.
+  > summary {
+    display: block;
+    cursor: pointer;
+    list-style: none;
+    line-height: 1.15;
+    text-indent: -12px; // same hanging indent as .post-content h1, which is inline here
+
+    &::-webkit-details-marker { display: none; }
+
+    h1 {
+      display: inline;
+      margin: 0;
+
+      // Non-breaking space glues the chevron to the last word so it never wraps alone
+      &::after {
+        content: "\00a0\25B8";
+        font-size: 1rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &[open] > summary { margin-bottom: $spacing-unit * 0.5; }
+  &[open] > summary h1::after { content: "\00a0\25BE"; }
+}
+
+// ==========================================
 // Enhanced Table Styles
 // ==========================================
 .post-content table {

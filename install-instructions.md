@@ -415,6 +415,8 @@ tags:
   - com 
   - scripting
 room: 2 # Set to 1 or 2
+collapsible: true
+collapsible_expanded: true
 exclude: false
 hide_read_time: false
 ---
@@ -422,27 +424,63 @@ hide_read_time: false
 
 Metadata Fields Explained:
 
-- **excerpt**
+<details>
+<summary><strong>collapsible</strong></summary>
+
+    Set to `true` to make every top-level section (each `# heading`) collapsible. Click a heading to open or close its section. Sub-headings (`##` and below) stay inside their parent section, and anchor links (such as the table of contents) automatically open the section they point to.
+
+    ```yaml
+    collapsible: true   # Each # section can be collapsed
+    ```
+
+    Leave unset (or omit entirely) to keep the page fully expanded with no collapse behavior.
+</details>
+
+<details>
+<summary><strong>collapsible_expanded</strong></summary>
+
+    Used together with `collapsible: true`. Set to `true` to load the page with every section **open**. When omitted or `false`, all sections start **collapsed**.
+
+    ```yaml
+    collapsible: true
+    collapsible_expanded: true   # Sections are open on page load
+    ```
+
+    > 💡 **Tip**
+    >
+    >{: .small-space}
+    >
+    > Start collapsed for long lab guides so attendees can see all the tasks at a glance and open only the one they are working on. Start expanded if you prefer the standard reading experience but still want the option to collapse sections.
+</details>
+
+<details>
+<summary><strong>excerpt</strong></summary>
     
     Adds a short introduction displayed on the homepage.
+</details>
 
-- **exclude**
+<details>
+<summary><strong>exclude</strong></summary>
 
     Set to `true` to remove a post from all listing pages (homepage, room pages, and demos page) without deleting the file. The page itself remains accessible via its direct URL.
 
     ```yaml
     exclude: true   # Hidden from all listings
     ```
+</details>
 
-- **hide_read_time**
+<details>
+<summary><strong>hide_read_time</strong></summary>
 
     Set to `true` to suppress the estimated read time shown on the homepage card for this lab.
 
     ```yaml
     hide_read_time: true
     ```
+</details>
 
-- **image**
+<details>
+<summary><strong>image</strong></summary>
     
     Banner image displayed:
     
@@ -450,8 +488,10 @@ Metadata Fields Explained:
     - On the homepage preview card
 
     [![]( {{ site.baseurl }}/assets/images/instructions/image-4.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-4.png){:class="img-800"}{: data-lightbox="gallery"}
+</details>
 
-- **last_modified_at**
+<details>
+<summary><strong>last_modified_at</strong></summary>
 
     Set the date a lab guide was last updated. When this date is **later** than the publication date (derived from the file name `YYYY-MM-DD`), an **Updated** date is automatically displayed in two places:
 
@@ -467,12 +507,16 @@ Metadata Fields Explained:
     >{: .small-space}
     >
     > Update this field whenever you make meaningful changes to a published lab guide so attendees can see at a glance that the content is current. If omitted (or not later than the publication date), no **Updated** date is shown.
+</details>
 
-- **post_end_promo**
+<details>
+<summary><strong>post_end_promo</strong></summary>
     
     Adds a final promotional line at the end of your lab guide.
+</details>
 
-- **room**
+<details>
+<summary><strong>room</strong></summary>
 
     At events like **HPE Tech Jam**, lab sessions are typically split across two rooms, each running a different set of labs. The `room` field lets you assign each lab guide to a room so attendees can quickly find the labs available in their room.
 
@@ -488,8 +532,10 @@ Metadata Fields Explained:
     room: 2   # Room 2 only
     room:     # Not assigned to any room (homepage only)
     ```
+</details>
 
-- **tags**
+<details>
+<summary><strong>tags</strong></summary>
 
     Keywords that categorize your lab guide. Tags are displayed in two places:
 
@@ -512,8 +558,10 @@ Metadata Fields Explained:
     >{: .small-space}
     >
     > Use lowercase, single-word tags and reuse the same tags across related labs so the search groups them together. Avoid spaces in a tag (use `secure-gateway` rather than `secure gateway`). Leave the field empty (`tags:`) if the lab has no tags.
+</details>
 
-- **type**
+<details>
+<summary><strong>type</strong></summary>
 
     Set to `demo` to assign a post to the **Demos** page instead of the labs homepage and room pages. Demo posts are automatically excluded from the labs homepage.
 
@@ -523,7 +571,9 @@ Metadata Fields Explained:
 
     Leave unset (or omit entirely) for regular lab guides.
 
+</details>
 
+{: .small-space}
 [↑ Back to Top](#)
 
 ### Generating a Banner Image
