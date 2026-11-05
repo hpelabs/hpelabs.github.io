@@ -71,7 +71,7 @@ COM can send events to an HTTPS endpoint through webhooks. In theory a target th
 | **Queue** (Azure Service Bus) | The durable buffer between the Relay and the Shim. |
 | **Shim** (`com-event-shim` image) | Runs on your VM. It pulls events from the queue, then normalizes, de-duplicates, enriches, and delivers them. |
 | **Core** ([com-event-core](https://github.com/jullienl/HPE-COM-Event-Integrations/blob/main/com-event-core)) | The shared package inside the Shim: normalization, de-duplication, raise/clear correlation, all target adapters, and the enrichers. |
-| **AI Gateway** ([ai-gateway](https://github.com/jullienl/ai-gateway), separate project) | The AI analyzer that Task 3 calls to turn iLO evidence into a report. |
+| **AI Gateway** ([ai-gateway](https://github.com/jullienl/ai-gateway), separate project) | The analyzer that Task 3 calls to turn iLO evidence into a report. |
 
  > 💡 **Why is it called a Shim?** In software, a shim is a thin layer placed between two components so that they can work together without either of them being changed. Here the Shim sits between the queue and your targets. It adapts each COM event to what each target expects, so neither COM nor the targets need to be modified.
 
@@ -865,7 +865,7 @@ The GitHub settings, the repository and the access token file, are in a second s
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-41.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-41.png){: data-lightbox="gallery"}{:class="img-1000"}
 
-8. You do not need a GitHub account to read the issues. You may need to refresh the GitHub issues page to see newly created issues. All teams share this repository, so use the serial number of your server, which you can find in COM, to identify your issue `Server <name> is powered OFF`, and open it.
+8. You do not need a GitHub account to read the issues. All teams share this repository, so use the serial number of your server, which you can find in COM, to identify your issue `Server <name> is powered OFF`, and open it. 
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-42.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-42.png){: data-lightbox="gallery"}{:class="img-900"}
 
@@ -979,11 +979,11 @@ This takes time and expertise, and it happens when an incident is already in pro
 
 ## What the project adds
 
-The Shim can run optional **enrichers** to collect iLO logs and hardware health data, add HPE advisory context when enabled and available, and send the evidence for AI analysis. It then attaches the analysis to the event before delivering it to your targets.
+The Shim can run optional **enrichers** before it delivers an event. An enricher adds information to the event, so every target receives it.
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52a.png){: data-lightbox="gallery"}{:class="img-1000"}
 
-The AI analysis returns a structured report: a summary, the likely root cause, a confidence level, and recommended actions. It is written to keep what was observed apart from what is only a hypothesis, and not to present an unverified conclusion as a certain cause. In this task you check that yourself. The project documentation describes this feature in the section [AI-assisted incident investigation and remediation](https://github.com/jullienl/HPE-COM-Event-Integrations#ai-assisted-incident-investigation-and-remediation).
+The AI analysis returns a structured report: a summary, the evidence it relied on, the likely root cause, a confidence level, and recommended actions. It separates what was observed from what is only a hypothesis, and it does not present an unverified conclusion as a certain cause. The project documentation describes this feature in the section [AI-assisted incident investigation and remediation](https://github.com/jullienl/HPE-COM-Event-Integrations#ai-assisted-incident-investigation-and-remediation).
 
 [↑ Back to Top](#)
 
@@ -1082,11 +1082,11 @@ First send the incident with no enricher, to see what the pipeline delivers on i
 
 4. The Shim logs which targets it uses. `ENRICHERS` is not set, so the Shim adds nothing before delivery, exactly as in Task 2.
 
-5. In **Station Info**, copy the three lines from the **Server for the AI steps** block. `$DeviceId` is your server's COM identity (part number plus serial), `$ServerName` is the name that identifies your team's incident in Mattermost and GitHub, and `$BmcAddress` is the address of your station's storage simulator.
+5. In **Station Info**, copy the `$DeviceId` line from the **Server for the AI steps** block. It is the identity of your own server in COM: its part number and its serial number.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52.png){: data-lightbox="gallery"}{:class="img-900"}
 
-6. Open the second PowerShell tab and paste the three lines into this tab:
+6. Open the second PowerShell tab and paste the line into this tab:
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-53.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-53.png){: data-lightbox="gallery"}{:class="img-600"}
 
@@ -1106,17 +1106,17 @@ First send the incident with no enricher, to see what the pipeline delivers on i
         @{
             id        = $DeviceId
             type      = "compute-ops-mgmt/server"
-            name      = $ServerName
+            name      = "hol-storage-server"
             operation = "Updated"
             updatedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
-            firmwareBundleUri = "/compute-ops-mgmt/v1/firmware-bundles/5430ab43ac184f4a8d3aeb9e4f8e2d9c"
+            firmwareBundleUri = "/compute-ops-mgmt/v1/firmware-bundles/86542f6c69ed49ceb75452ec85e753ad"
             hardware  = @{
                 serialNumber = $Serial
                 productId    = $DeviceId.Split('+')[0]
                 model        = "ProLiant DL325 Gen12"
                 health       = $Health
                 powerState   = "ON"
-                bmc          = @{ ip = $BmcAddress }
+                bmc          = @{ ip = "10.18.22.20:8004" }
             }
             tags = @{}
         } | ConvertTo-Json -Depth 6
@@ -1124,14 +1124,12 @@ First send the incident with no enricher, to see what the pipeline delivers on i
 
     $RaiseJson = New-Snapshot @{
         summary      = "CRITICAL"
-        storage      = "A SAS SSD reports unrecovered read errors and a predicted failure"
-        smartStorage = "Storage controller 12 reports a critical drive condition"
+        storage      = "MRSA StorCLI on Windows reports a BSOD and unexpected reboot after the S100i storage controller firmware update"
+        smartStorage = "S100i storage controller is enabled and reporting a critical condition"
     }
     ```
-    
-    This simplified payload contains the key fields needed for the exercise. The server identity ties the event to your lab server, and `hardware.health.summary` set to `CRITICAL` tells the Shim's health monitor to raise an incident. The `hardware.bmc.ip` field points to the simulated iLO, which the Shim queries for diagnostic evidence when the `ilo_ai` enricher is enabled.
 
-    The two storage messages describe the symptoms, but do not establish the root cause or the corrective action. With AI enrichment enabled, the Shim collects iLO evidence and sends it with these symptoms to the AI Gateway for analysis. The payload also includes `firmwareBundleUri`, a reference to the firmware bundle used later in **Add the HPE Customer Advisories**; it is not used in the baseline run.
+    This simplified payload includes the key fields needed for this exercise. Setting `hardware.health.summary` to `CRITICAL` causes the Shim's health monitor to raise an incident. The hardware fields identify the server, while `hardware.bmc.ip` points to the simulated iLO from which the Shim collects diagnostic evidence when the `ilo_ai` enricher is enabled.
 
 8. Send the simulated incident to your Relay. Copy and paste the whole block then press **Enter**:
 
@@ -1143,28 +1141,24 @@ First send the incident with no enricher, to see what the pipeline delivers on i
 
     The Relay answers `202`: it authenticated the request and put the event on your queue. 
 
+    Look at what the event contains. Your server identity and the health `CRITICAL` are there, together with two short storage messages, and `bmc` holds the address of the simulated iLO. The event does not say what exactly is wrong with the storage, why, or what to do. The Shim has to find that in the iLO. It also carries a `firmwareBundleUri`, which nothing uses yet and which you need in the next section.
 
-9. Watch the Shim window. There is no enricher, so the Shim delivers the event straight away, as in Task 2. It does not read the iLO and does not call the AI Gateway.
+8. Watch the Shim window. There is no enricher, so the Shim delivers the event straight away, as in Task 2. It does not read the iLO and does not call the AI Gateway.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50a.png){: data-lightbox="gallery"}{:class="img-900"}
 
-10. Open Mattermost and the GitHub issues of the lab repository, as you did in Task 2.
-
-    In the GitHub issues list, identify your event by the server name `team-xx-server` in the issue title, where `xx` is your two-digit team number (for example, `team-05-server`). 
+9. Open Mattermost and the GitHub issue of your server. They show the event as the Shim normalized it: the health `CRITICAL` and the two storage messages that were in the event, and nothing more. This is your baseline. It tells you that something is wrong, but not which component is affected, why, or what to do next.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50b.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    Both targets show the event as the Shim normalized it: the health `CRITICAL` and the two storage messages that were in the event, and nothing more. This is your baseline. It tells you that something is wrong, but not which component is affected, why, or what to do next.
-
-11. Close the incident. In the second PowerShell tab, send the healthy version of the event:
+10. Close the incident. In the second PowerShell tab, send the healthy version of the event:
 
     ```powershell
     $ClearJson = New-Snapshot @{ summary = "OK"; storage = "OK"; smartStorage = "OK" }
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
     ```
-    This block creates `$ClearJson` with the health summary and storage fields set to `OK`, then sends it to the Relay. The Shim interprets it as a recovery (`clear`) for the same server and health condition.
-    
-12. In the Shim window, confirm that the recovery (`clear`) event is delivered to both the Mattermost and GitHub adapters. Then verify that Mattermost displays a `Resolved` message and the corresponding GitHub issue is closed. This ensures the next run starts with a new issue.
+    The block prepares a healthy version of the event, `$ClearJson`, that you use to close the incident.
+    Mattermost shows a `Resolved` message and the GitHub issue is closed, so the next run opens a fresh issue.
 
 [↑ Back to Top](#)
 
@@ -1207,55 +1201,23 @@ Now restart the Shim with the `ilo_ai` enricher and send the same incident again
 
     > **Troubleshooting**: If the report is missing in Mattermost and GitHub, look in the Shim window for a warning from `ilo_ai` or from the AI Gateway. Also check that you restarted the Shim with `-e ENRICHERS=ilo_ai` and sent the incident after the restart. A plain notification means that the analysis did not run.
 
-4. Open Mattermost. Compared with the baseline, the notification now carries the analysis of the AI agent in addition to the usual fields: a summary, the likely root cause, a confidence level, and recommended actions.
+4. Open Mattermost. Compared with the baseline, the notification now carries the analysis of the AI agent in addition to the usual fields: a summary, the evidence it relied on, the likely root cause, a confidence level, and recommended actions.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: data-lightbox="gallery"}{:class="img-800"}
 
-5. Open the GitHub issues and find your new issue using `team-xx-server` in the title. The issue holds the same report. 
+5. Open the GitHub issues of the lab repository, as you did in Task 2, and find your issue with the serial number of your server. The issue holds the same report. 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: data-lightbox="gallery"}{:class="img-1000"}
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: data-lightbox="gallery"}{:class="img-900"}
 
     Read it carefully:
 
-    - The **summary** gives a concise overview of the incident and the main findings.
-    - The **likely root cause** is the agent's proposed explanation, based on the event symptoms and iLO evidence, such as component states and log entries. It is not a confirmed diagnosis.
-    - The **confidence** reflects the agent's assessment of how strongly the available evidence supports its explanation. It is not a guarantee of accuracy.
-    - The **recommended actions** suggest diagnostic checks and remediation steps for an engineer to review before taking action.
+    - The **evidence** is what the agent observed in the iLO, such as component states and log entries.
+    - The **likely root cause** is its conclusion, and the **confidence** tells you how much to trust it.
+    - The **recommended actions** are suggestions for the next steps.
 
-    The report is guidance for an engineer, not a verdict. In the next step you check how well it keeps facts apart from conclusions.
+    The report separates what was observed from what is only a hypothesis. It is guidance for an engineer, not a verdict, and you still verify the hardware.
 
-6. Sort the statements of your report into three categories:
-
-    | Category | What it is | Example to look for in your report |
-    |---|---|---|
-    | **Observed evidence** | A fact read from the iLO. You can verify it directly. | The state of a drive, its model or firmware, an IML entry. |
-    | **Probable cause** | A conclusion the agent draws from several facts. | Why the controller is also reported as Critical. |
-    | **Unverified hypothesis** | A possible explanation that the evidence does not prove. | A firmware defect, a cause outside the drive. |
-
-    Then verify the observed evidence yourself. In the second PowerShell tab, where `$BmcAddress` is set, read the drive and the IML of your simulated iLO with the same read-only account as the Shim:
-
-    ```powershell
-    cd $env:USERPROFILE\hol
-    $IloUser = (Select-String -Path .\shim-3-ai.env -Pattern '^ILO_USERNAME=(.*)$').Matches[0].Groups[1].Value
-    $IloPass = (Get-Content .\secrets\ilo-password.txt -Raw).Trim()
-    $Redfish = "https://$BmcAddress/redfish/v1/Systems/1"
-
-    $Drive = curl.exe -sk -u "${IloUser}:${IloPass}" "$Redfish/SmartStorage/ArrayControllers/12/DiskDrives/8" | ConvertFrom-Json
-    $Drive | Select-Object Location, Model, @{n='Firmware';e={$_.FirmwareVersion.Current.VersionString}}, @{n='Health';e={$_.Status.Health}}, FailurePredicted
-
-    $Iml = curl.exe -sk -u "${IloUser}:${IloPass}" "$Redfish/LogServices/IML/Entries" | ConvertFrom-Json
-    $Iml.Members | Where-Object { $_.Severity -and $_.Severity -ne 'OK' } | Select-Object Created, Severity, Message
-    ```
-
-    Compare the output with your report:
-
-    - Every statement you placed in **Observed evidence** must appear in this output. If the report states a fact that you cannot find here or in the event, treat it as a hypothesis.
-    - A **probable cause** is acceptable when the report shows how it follows from the observed facts, and when its confidence is not presented as certainty.
-    - An **unverified hypothesis** must be worded as one ("could", "if", "requires confirmation") and should come with a recommended action that would confirm or rule it out.
-
-    This is how you use an AI report in a real incident: you trust the facts you can verify, you weigh the conclusions against their confidence, and you turn the hypotheses into checks.
-
-7. Close the incident again. In the second PowerShell tab, send the healthy version of the event:
+6. Close the incident again. In the second PowerShell tab, send the healthy version of the event:
 
     ```powershell
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
@@ -1270,13 +1232,9 @@ Now restart the Shim with the `ilo_ai` enricher and send the same incident again
 
 ## Add the HPE Customer Advisories
 
-The iLO evidence tells the AI what the hardware reports. HPE Customer Advisories tell it what HPE already knows about the firmware your server runs. The `hpe_advisories` enricher asks COM for the firmware bundle that applies to your server, reads the open and resolved advisories of that bundle, and gives them to the AI agent together with the iLO evidence. 
+The iLO evidence tells the AI what the hardware reports. HPE Customer Advisories tell it what HPE already knows about the firmware your server runs. The `hpe_advisories` enricher asks COM for the firmware bundle that applies to your server, reads the open and resolved advisories of that bundle, and gives them to the AI agent together with the iLO evidence. When the server belongs to a COM group, it also checks the compliance of the server with the firmware baseline of that group.
 
-[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-57a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-57a.png){: data-lightbox="gallery"}{:class="img-1000"}
-
-When the server belongs to a COM group, it also checks the compliance of the server with the firmware baseline of that group.
-
-> **Note**: Your lab server was never updated through COM and is not in a group, so COM holds no firmware baseline and no compliance data for it, and the lookup would find no bundle. The simulated event therefore carries one in `firmwareBundleUri`: the HPE firmware bundle Gen12 SPP 2026.09.00.00. A server that was updated through COM provides this field itself, and it is the first place the `hpe_advisories` enricher looks.
+> **Note**: Your lab server was never updated through COM and is not in a group, so COM holds no firmware baseline and no compliance data for it, and the lookup would find no bundle. The simulated event therefore carries one in `firmwareBundleUri`: the HPE firmware bundle SPP 2026.03.00.00. A server that was updated through COM provides this field itself, and it is the first place the `hpe_advisories` enricher looks.
 
 This requires access to the COM API, so the Shim uses the personal API client that you created in Task 1.
 
@@ -1293,7 +1251,7 @@ This requires access to the COM API, so the Shim uses the personal API client th
 
     The Client Secret goes into a file of the `secrets` folder, like the other secrets of this lab, so it stays out of the container environment. The Client ID is not secret and is passed in the command.
 
-3. Start the Shim again with the second enricher `hpe_advisories` and the COM settings:
+3. Start the Shim again with the second enricher and the COM settings:
 
     ```powershell
     cd $env:USERPROFILE\hol
@@ -1318,9 +1276,6 @@ This requires access to the COM API, so the Shim uses the personal API client th
     | `-e COM_CLIENT_ID=$ClientId` | Your personal API client, used to get a token for the COM API. |
     | `-e COM_CLIENT_SECRET_FILE=...` | The file that holds your Client Secret. |
 
-
-    > **Note**: You can also use `ENRICHERS=hpe_advisories` without `ilo_ai`. In that mode, advisory enrichment adds the list of HPE Customer Advisories associated with the server's firmware bundle, but no iLO evidence collection or AI analysis. Association with the bundle does not by itself confirm that an advisory explains the incident.
-
 4. The Shim logs both enrichers:
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-58.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-58.png){: data-lightbox="gallery"}{:class="img-900"}
@@ -1331,7 +1286,7 @@ This requires access to the COM API, so the Shim uses the personal API client th
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
     ```
 
-    If you closed that tab, paste the `$DeviceId`, `$ServerName` and `$BmcAddress` lines from **Station Info** again, then recreate and send the incident using the commands in **Send a baseline incident**. You can then skip this command.
+    If you closed that tab, paste the `$DeviceId` line from **Station Info** again, then run the block of the previous section again. It prepares the variables and sends the incident, so you can skip this command.
 
 6. Watch the Shim window. The log lines look like the ones of the previous section, and the event takes a little longer because the Shim first asks COM for your firmware bundle and its advisories. If COM cannot be reached or the credentials are wrong, the Shim logs a warning and delivers the event without the advisories, as it does for any enrichment that fails.
 
@@ -1343,13 +1298,7 @@ This requires access to the COM API, so the Shim uses the personal API client th
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: data-lightbox="gallery"}{:class="img-900"}
 
-8. Sort the statements of the new report into the same three categories as in the previous section, and compare with your first report:
-
-    - The **observed evidence** is the same: the iLO did not change.
-    - The advisory adds context, so the probable cause and the confidence can change.
-    - Check how the report presents the advisory. Its title matches the symptoms, but the report only has the title, not the list of affected models and firmware versions. A careful report therefore keeps the advisory as a hypothesis to confirm, for example "check whether this model and firmware are in the advisory", and does not present it as the proven cause.
-
-9. Compare the three runs you have seen in Task 3:
+8. Compare the three runs you have seen in Task 3:
 
     | Run | What the Shim adds before delivery | What the notification contains |
     |---|---|---|
@@ -1359,7 +1308,7 @@ This requires access to the COM API, so the Shim uses the personal API client th
 
     The delivery targets, the Relay, and the queue did not change. Only the Shim configuration did.
 
-10. Close the incident:
+9. Close the incident:
 
     ```powershell
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
@@ -1405,16 +1354,9 @@ What you built in this lab is a working reference, not a toy. [HPE COM Event Int
 - **It is safe to deploy.** The Shim only makes outbound connections, so no inbound port is opened into the customer network. It reads the iLO with a read-only account and `GET` requests only. Secrets stay in files, not in the container environment, and the Relay rejects any request without the shared secret.
 - **It is open and extensible.** The adapters, the enrichers and the contract with the AI service are documented. A partner can add a target for a tool that is not yet supported, or replace the AI service with its own, without changing the rest of the pipeline.
 
-The following diagram shows the **Relay + Shim** deployment in a customer environment, including its network connections and ports:
+This diagram shows how the pieces fit in a customer environment. The Relay and its queue run in a managed cloud (Azure or AWS), the Shim runs on premises, and only the Shim makes connections, always outbound. No inbound connection is opened into the customer network.
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-61.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-61.png){: data-lightbox="gallery"}{:class="img-800"}
-
-**Not covered in this lab:** The on-premises **Bridge** combines webhook reception and event processing in a single container, replacing the Relay, cloud queue, and Shim. It requires a publicly reachable HTTPS endpoint and supports optional on-disk buffering. The AI Gateway remains a separate service if AI analysis is enabled.
-
-The next diagram shows this deployment's network connections and ports:
-
-[![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-62.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-62.png){: data-lightbox="gallery"}{:class="img-800"}
-
 
 ## Choose a deployment model
 
