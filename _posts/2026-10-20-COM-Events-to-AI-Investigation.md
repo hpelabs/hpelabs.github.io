@@ -13,6 +13,8 @@ tags:
   - docker
 room: 2 # Set to 1 or 2
 exclude: true
+collapsible: true
+collapsible_expanded: true
 ---
 
 Hands-on Lab Guide
@@ -149,17 +151,7 @@ To access the Windows virtual machine in our VMware Omnissa Horizon lab environm
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-0e.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-0e.png){: data-lightbox="gallery"}{:class="img-700"}
 
-> **💡 Tip: Using the Copy Button**  
->
->{: .small-space}
->
-> Throughout this lab, each code block displays a **Copy** button in the middle-right corner. Click it to copy the commands to your clipboard, then press **Ctrl**+**V** to paste them into the PowerShell terminal. This eliminates typing errors and speeds up your workflow.
->
-> Always paste with the keyboard (**Ctrl**+**V**, or **Ctrl**+**Shift**+**V**), not with a right-click. The Horizon web client only sends your clipboard to the VM when you paste from the keyboard, and in the terminal a right-click copies instead of pasting when some text is selected.
->
-> [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png)]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image14a.png){: data-lightbox="gallery"}{:class="img-600"}
 
-  
 [↑ Back to Top](#)
 
 # Task 1 - Webhook creation
@@ -263,6 +255,8 @@ The filter starts by selecting the `compute-ops/server` resource type with `type
 ```txt
 type eq 'compute-ops/server' and old/hardware/powerState eq 'ON' and changed/hardware/powerState eq True
 ```
+  {: .no-copy}
+
 
 This matches any server event whose power state changed from `ON` to something else, which is a power off.
 
@@ -421,6 +415,7 @@ The **COM Webhooks HOL** collection is already loaded in Bruno and contains the 
     ```json
     "destination": "{{process.env.RELAY_URL}}",
     ```
+    {: .no-copy}
     {% endraw %}
 
     This is the URL where COM posts every event that matches your filter. COM is a SaaS service, so it can only deliver to a publicly reachable HTTPS endpoint, and your lab VM is not one. In this lab the destination is the **Relay**, a small receiver hosted in Azure.
@@ -441,6 +436,7 @@ The **COM Webhooks HOL** collection is already loaded in Bruno and contains the 
     ```json
     "state": "ENABLED",
     ```
+    {: .no-copy}
 
     `state` is the on/off switch of the webhook:
 
@@ -456,6 +452,7 @@ The **COM Webhooks HOL** collection is already loaded in Bruno and contains the 
     ```json
     "eventFilter": "type eq 'compute-ops/server' and old/hardware/powerState eq 'ON' and changed/hardware/powerState eq True",
     ```
+    {: .no-copy}
 
     This is the filter you built earlier in this task. COM evaluates it against every server event and sends only those that match all three conditions:
 
@@ -531,6 +528,14 @@ Your lab account can read only your own queue and Relay, so you can follow your 
     ```powershell
     az login 
     ```
+
+    > **💡 Tip**: Using the **Copy** Button
+    >
+    >{: .small-space}
+    >
+    > The commands you run in this lab are in code blocks with a **Copy** button in the middle-right corner. Click it to copy the command to your clipboard, then press **Ctrl**+**V** to paste it into the PowerShell terminal. This avoids typing errors. Code blocks without a **Copy** button are examples to read, not to run.
+    >
+    > Always paste with the keyboard (**Ctrl**+**V**, or **Ctrl**+**Shift**+**V**), not with a right-click. The Horizon web client only sends your clipboard to the VM on a keyboard paste, and in the terminal a right-click copies instead of pasting when some text is selected.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-22a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-22a.png){: data-lightbox="gallery"}{:class="img-800"}
 
