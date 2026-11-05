@@ -79,6 +79,17 @@
   margin-left: 1.5rem;
 }
 
+// Space under the summary equals the paragraph spacing under the content, so the gaps match
+.post-content details:not(.collapsible-section) > summary + * {
+  margin-top: $spacing-unit * 0.5;
+}
+
+// The <br> after each summary adds one line (24px) above the content, so mirror it below
+// (the last paragraph already has a 15px bottom margin).
+.post-content details[open]:not(.collapsible-section) {
+  padding-bottom: $spacing-unit * 0.3;
+}
+
 // ==========================================
 // Enhanced Table Styles
 // ==========================================
