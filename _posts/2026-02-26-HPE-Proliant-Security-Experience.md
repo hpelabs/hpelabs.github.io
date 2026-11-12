@@ -985,20 +985,21 @@ monitor and manage security settings proactively.
 
 34. Copy the following ilorest commands into the RESTful Interface Tool, making sure to replace **xx** with your Team number (**xx** represents your Team Number).
 
-      ```text
-      ilorest login holgen12xx-ilo.hol.enablement.local -u Administrator -p hpent123
-      ``` 
-Once logged in to your assigned iLO, you can then continue with the following commands to enable secure boot:
+    ```text
+    ilorest login holgen12xx-ilo.hol.enablement.local -u Administrator -p hpent123
+    ``` 
+    
+    Once logged in to your assigned iLO, you can then continue with the following commands to enable secure boot:
 
-      ```text
-      ilorest select SecureBoot
+    ```text
+    ilorest select SecureBoot
 
-      ilorest set SecureBootEnable=True --commit
+    ilorest set SecureBootEnable=True --commit
 
-      ilorest reboot On
+    ilorest reboot On
 
-      ilorest logout
-      ```
+    ilorest logout
+    ```
       
       &nbsp;
 >
