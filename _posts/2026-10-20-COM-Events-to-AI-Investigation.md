@@ -74,6 +74,7 @@ COM can send events to an HTTPS endpoint through webhooks. In theory a target th
 | **Shim** (`com-event-shim` image) | Runs on your VM. It pulls events from the queue, then normalizes, de-duplicates, enriches, and delivers them. |
 | **Core** ([com-event-core](https://github.com/jullienl/HPE-COM-Event-Integrations/blob/main/com-event-core)) | The shared package inside the Shim: normalization, de-duplication, raise/clear correlation, all target adapters, and the enrichers. |
 | **AI Gateway** ([ai-gateway](https://github.com/jullienl/ai-gateway), separate project) | The analyzer that Task 3 calls to turn iLO evidence into a report. |
+{: .col1-30}
 
  > 💡 **Why is it called a Shim?** In software, a shim is a thin layer placed between two components so that they can work together without either of them being changed. Here the Shim sits between the queue and your targets. It adapts each COM event to what each target expects, so neither COM nor the targets need to be modified.
 
@@ -186,6 +187,7 @@ For each resource, certain specific properties are capable of initiating the dis
 | `compute-ops/job` | [Get v1beta3 job by ID](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops-mgmt/public/openapi/compute-ops-mgmt-latest/operation/get_v1beta3_job_by_id/) | `state` |
 | `compute-ops/group/compliance` | [Get v1beta2 compliance by compliance ID](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops-mgmt/public/openapi/compute-ops-mgmt-latest/operation/get_v1beta2_compliance_by_compliance_id/#!c=200&path=id&t=response) | `complianceStatus` |
 | `compute-ops/firmware-bundle` | [Get v1beta2 firmware bundle by id](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops-mgmt/public/openapi/compute-ops-mgmt-latest/operation/get_v1beta2_firmware_bundle_by_id/) | `advisories`, `isActive` |
+{: .col1-30 .col2-30}
 
 
   > The process of creating webhooks in Compute Ops Management and the various resource types that are available are documented in the [API documentation](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops-mgmt/webhooks/overview/). 
@@ -237,6 +239,7 @@ The table below describes each attribute with an example:
 | `new` | Allows matching on [monitorable properties](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops-mgmt/webhooks/resources/#resource-types) of the current state of the resource | `new/complianceStatus`, `new/isActive` | `type eq 'compute-ops/group' and new/groupComplianceStatus ne 'Compliant'` | Match any events related to groups whose `groupComplianceStatus` is not currently `Compliant` |
 | `old` | Allows matching on [monitorable properties](https://developer.greenlake.hpe.com/docs/greenlake/services/compute-ops-mgmt/webhooks/resources/#resource-types) of the previous state of the resource | `old/devices`, `old/settings` | `type eq 'compute-ops/group' and old/name eq 'Group Name'` | Match any events related to a group whose previous `name` was "Group Name" until the group's name is changed again |
 | `name` | Alias for `new/name` | | `type eq 'compute-ops/group' and name ne 'New Group'` | Match any events related to groups whose current `name` is not "New Group" |
+{: .col1-15 .col3-15 .col4-30}
 
 [↑ Back to Top](#)
 
@@ -525,9 +528,9 @@ Your lab account can read only your own queue and Relay, so you can follow your 
 
 2. Then run:
 
-    ```powershell
-    az login 
-    ```
+   ```powershell
+   az login 
+   ```
 
     > **💡 Tip**: Using the **Copy** Button
     >
@@ -553,39 +556,40 @@ Your lab account can read only your own queue and Relay, so you can follow your 
 
 6. In **Station Info**, find the **Azure CLI variables** block and copy it: 
     
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-25a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-25a.png){: data-lightbox="gallery"}{:class="img-700"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-25a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-25a.png){: data-lightbox="gallery"}{:class="img-700"}
 
-    The block contains four PowerShell variables that the commands in this task reuse. They hold the names of your own Azure resources: the resource group, the Service Bus namespace, your queue, and your Relay app. 
+   The block contains four PowerShell variables that the commands in this task reuse. They hold the names of your own Azure resources: the resource group, the Service Bus namespace, your queue, and your Relay app. 
     
-    The variables exist only in the terminal where you set them, so keep using the same terminal until the end of this task.
+   The variables exist only in the terminal where you set them, so keep using the same terminal until the end of this task.
        
 7. Paste the block into the terminal to set the variables: 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-26.png){: data-lightbox="gallery"}{:class="img-600"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-26.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-26.png){: data-lightbox="gallery"}{:class="img-600"}
 
 8. Check that the Relay is running. It is a container in Azure Container Apps, and this command lists its running replicas:
 
-    ```powershell
-    az containerapp replica list --resource-group $ResourceGroup --name $Relay --query "[].{replica:name, state:properties.runningState}" -o table
-    ```
+   ```powershell
+   az containerapp replica list --resource-group $ResourceGroup --name $Relay --query "[].{replica:name, state:properties.runningState}" -o table
+   ```
 
-    You should see at least one replica in the `Running` state. The Relay is kept running for the whole lab: COM does not retry, so an event sent while the Relay is down would be lost.
+   You should see at least one replica in the `Running` state. The Relay is kept running for the whole lab: COM does not retry, so an event sent while the Relay is down would be lost.
 
 9. Look at your Relay log:
 
-    ```powershell
-    az containerapp logs show --resource-group $ResourceGroup --name $Relay --tail 30
-    ```
+   ```powershell
+   az containerapp logs show --resource-group $ResourceGroup --name $Relay --tail 30
+   ```
 
-    Each line is a JSON object. Look for this message:
+   Each line is a JSON object. Look for this message:
 
-    ```text
-    handshake received; echoing verification token
-    ```
+   ```text
+   handshake received; echoing verification token
+   ```
+   {: .no-copy}
 
-    This is the verification handshake that COM ran when you created your webhook in Task 1: COM sent a challenge, and the Relay echoed it back, which turned the webhook `status` to `ACTIVE`. 
+   This is the verification handshake that COM ran when you created your webhook in Task 1: COM sent a challenge, and the Relay echoed it back, which turned the webhook `status` to `ACTIVE`. 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-27.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-27.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-27.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-27.png){: data-lightbox="gallery"}{:class="img-900"}
 
 10. Get the public address of your Relay:
     
@@ -605,7 +609,7 @@ Your lab account can read only your own queue and Relay, so you can follow your 
     curl.exe -s "https://$FQDN/healthz"    # {"status":"ok"}
     curl.exe -s "https://$FQDN/readyz"     # {"status":"ready"}
     ```
-
+ 
     A monitoring tool can poll these two URLs in the same way to alert you when the Relay stops accepting events.
 
 12. See how the Relay was started. It is a container image published on [GitHub Container Registry](https://github.com/jullienl/HPE-COM-Event-Integrations/pkgs/container/com-event-relay), run as an Azure Container App with a public HTTPS address. This command shows its main settings:
@@ -637,7 +641,7 @@ Your lab account can read only your own queue and Relay, so you can follow your 
     | `maxDeliveryCount` | The number of attempts before an event moves to the dead-letter queue. |
     | `timeToLive` | How long an event can wait in the queue before it expires. `P14D` means 14 days. |
 
-    Two access keys protect the queue. The Relay holds a key that can only send, and the Shim uses a key that can only listen. Neither can do the other's job.
+   Two access keys protect the queue. The Relay holds a key that can only send, and the Shim uses a key that can only listen. Neither can do the other's job.
 
 Keep this terminal open. You will come back to the queue and the Relay log after your first real event.
 
@@ -663,37 +667,37 @@ ChatOps is the most common destination for events, and Slack is the usual choice
 
 1. Docker is already installed on your VM. In the **Windows Terminal** you used for Azure, click the **+** sign to open a second tab. Keep the first tab open, because it holds your Azure variables:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-28a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-28a.png){: data-lightbox="gallery"}{:class="img-9000"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-28a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-28a.png){: data-lightbox="gallery"}{:class="img-9000"}
 
 2. Go to your station folder, and check that the setup completed:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    docker version
-    Get-Content .\logon.log -Tail 3
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   docker version
+   Get-Content .\logon.log -Tail 3
+   ```
 
-    `docker version` must show a `Server` section, and the last line of `logon.log` must be `ready`. This means the Docker engine is running and the Shim image is downloaded.
+   `docker version` must show a `Server` section, and the last line of `logon.log` must be `ready`. This means the Docker engine is running and the Shim image is downloaded.
 
 2. Look at the Shim settings prepared for your station:
 
-    ```powershell
-    Get-Content .\shim-1-mattermost.env
-    ```
+   ```powershell
+   Get-Content .\shim-1-mattermost.env
+   ```
 
-    The file holds the minimum for this step: the queue to read and the Mattermost target. Your folder has one settings file per step of the lab, and each one adds to the previous one. Sensitive values are not in these files. Each one is a `..._FILE` setting that points to a file in the `secrets` folder, which Docker mounts into the container as read-only files. This keeps the secrets out of the container environment.
+   The file holds the minimum for this step: the queue to read and the Mattermost target. Your folder has one settings file per step of the lab, and each one adds to the previous one. Sensitive values are not in these files. Each one is a `..._FILE` setting that points to a file in the `secrets` folder, which Docker mounts into the container as read-only files. This keeps the secrets out of the container environment.
 
 3. Start the Shim with a single target, Mattermost:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    docker run --rm --name com-event-shim `
-      --env-file .\shim-1-mattermost.env `
-      -v "${PWD}\secrets:/run/secrets:ro" `
-      -e TARGETS=mattermost `
-      -e SERVER_MONITORS=power `
-      ghcr.io/jullienl/com-event-shim:1.0.6
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   docker run --rm --name com-event-shim `
+     --env-file .\shim-1-mattermost.env `
+     -v "${PWD}\secrets:/run/secrets:ro" `
+     -e TARGETS=mattermost `
+     -e SERVER_MONITORS=power `
+     ghcr.io/jullienl/com-event-shim:1.0.6
+   ```
 
     | Part of the command | Meaning |
     |---|---|
@@ -704,11 +708,11 @@ ChatOps is the most common destination for events, and Slack is the usual choice
     | `-e SERVER_MONITORS=power` | Watches the power state of the server. A power off is a problem (`raise`) and a power on is a recovery (`clear`). |
     | `ghcr.io/jullienl/com-event-shim:1.0.6` | The Shim image. |
 
-    > **Note**: If the image cannot be downloaded, load the backup copy from your folder with `docker load -i .\com-event-shim.tar`, then run the command again.
+   > **Note**: If the image cannot be downloaded, load the backup copy from your folder with `docker load -i .\com-event-shim.tar`, then run the command again.
 
-    The `TARGETS` setting selects the target adapters. The HPE COM Event Integrations framework supports many of them, such as ServiceNow, Jira, Slack, Teams, PagerDuty and Splunk, and a generic webhook adapter for any other HTTP endpoint. See the [list of supported integrations](https://github.com/jullienl/HPE-COM-Event-Integrations#supported-integrations).
+   The `TARGETS` setting selects the target adapters. The HPE COM Event Integrations framework supports many of them, such as ServiceNow, Jira, Slack, Teams, PagerDuty and Splunk, and a generic webhook adapter for any other HTTP endpoint. See the [list of supported integrations](https://github.com/jullienl/HPE-COM-Event-Integrations#supported-integrations).
 
-    The `SERVER_MONITORS` setting selects which conditions of the server snapshot the Shim turns into raise and clear events, for example `power` or `health`. `health` is the default. This lab uses `power` in Task 2 and `health` in Task 3:
+   The `SERVER_MONITORS` setting selects which conditions of the server snapshot the Shim turns into raise and clear events, for example `power` or `health`. `health` is the default. This lab uses `power` in Task 2 and `health` in Task 3:
 
     | Condition | Raise when | Clear when | Severity |
     |---|---|---|---|
@@ -717,30 +721,29 @@ ChatOps is the most common destination for events, and Slack is the usual choice
     | `connection` | The server disconnects from COM | The server reconnects | major |
     | `subscription` | The subscription leaves `SUBSCRIBED` or expires | The subscription is `SUBSCRIBED` and valid | minor |
 
-    Each condition has its own correlation key, such as `server:<serial>:power`, so a recovery for one condition never closes an incident opened for another. COM must deliver both problem and recovery updates for every condition you monitor. You can use one broader webhook for all those updates, or register multiple webhooks with narrower filters for different conditions or transitions; they can all point to the same Relay. This lab uses separate raise and clear webhooks to demonstrate the two transitions.
+   Each condition has its own correlation key, such as `server:<serial>:power`, so a recovery for one condition never closes an incident opened for another. COM must deliver both problem and recovery updates for every condition you monitor. You can use one broader webhook for all those updates, or register multiple webhooks with narrower filters for different conditions or transitions; they can all point to the same Relay. This lab uses separate raise and clear webhooks to demonstrate the two transitions.
 
-    > **Monitoring several conditions**: Use a comma-separated setting, such as `SERVER_MONITORS=health,power,connection`, when the conditions share the same targets and enrichment settings. The Shim evaluates every enabled condition in each received server snapshot, with independent correlation and de-duplication keys. COM's `eventFilter` must also deliver snapshots relevant to every enabled condition and both transition directions; the Shim cannot evaluate an update that COM filtered out.
+   > **Monitoring several conditions**: Use a comma-separated setting, such as `SERVER_MONITORS=health,power,connection`, when the conditions share the same targets and enrichment settings. The Shim evaluates every enabled condition in each received server snapshot, with independent correlation and de-duplication keys. COM's `eventFilter` must also deliver snapshots relevant to every enabled condition and both transition directions; the Shim cannot evaluate an update that COM filtered out.
 
-    > **Note**: Separate containers are useful for different workflows, for example health incidents with AI analysis and ITSM tickets, and power events with chat notifications only. Each workflow needs its own Shim configuration, its own queue, and its own Relay, because a Relay writes to a single queue. Route each workflow's webhooks to its Relay. Never connect two differently configured Shims to the same queue: they compete for the messages instead of each receiving a copy, so one Shim can take an event that the other one needed. This lab uses a single workflow, so keep the commands as they are.
+   > **Note**: Separate containers are useful for different workflows, for example health incidents with AI analysis and ITSM tickets, and power events with chat notifications only. Each workflow needs its own Shim configuration, its own queue, and its own Relay, because a Relay writes to a single queue. Route each workflow's webhooks to its Relay. Never connect two differently configured Shims to the same queue: they compete for the messages instead of each receiving a copy, so one Shim can take an event that the other one needed. This lab uses a single workflow, so keep the commands as they are.
     
-    > **Note**: Chat adapters such as Slack, Mattermost and Teams only post, so they show a `Resolved` message for every enabled condition that is healthy in a snapshot. Enable only the conditions you want alerts on.
-
+   > **Note**: Chat adapters such as Slack, Mattermost and Teams only post, so they show a `Resolved` message for every enabled condition that is healthy in a snapshot. Enable only the conditions you want alerts on.
 
 4. The Shim logs that it started and which targets it uses:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-29.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-29.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-29.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-29.png){: data-lightbox="gallery"}{:class="img-900"}
 
 5. Leave the **Windows Terminal** open so that you can follow the Shim logs, then open Mattermost from the desktop:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-30.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-30.png){: data-lightbox="gallery"}{:class="img-600"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-30.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-30.png){: data-lightbox="gallery"}{:class="img-600"}
 
 6. Sign in with your Mattermost username and password from the **Station Info**:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-31.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-31.png){: data-lightbox="gallery"}{:class="img-700"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-31.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-31.png){: data-lightbox="gallery"}{:class="img-700"}
 
 7. Open your channel, `COM-Events-team-NN`. It is private to your team and has no messages yet. The Shim posts your notifications there.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-32.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-32.png){: data-lightbox="gallery"}{:class="img-700"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-32.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-32.png){: data-lightbox="gallery"}{:class="img-700"}
 
 [↑ Back to Top](#)
 
@@ -751,53 +754,53 @@ Everything is in place: the webhook in COM, the Relay, the queue, and the Shim. 
 
 1. In the HPE GreenLake tab of Chrome, launch COM from **≡** > **Services** > **Compute Ops Management**:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-33.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-33.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-33.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-33.png){: data-lightbox="gallery"}{:class="img-900"}
 
 2. Open **Servers**, select your server, then click **Actions**, select **Power off**, and confirm. Leave the **Force power off** option unselected.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-34.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-34.png){: data-lightbox="gallery"}{:class="img-800"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-34.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-34.png){: data-lightbox="gallery"}{:class="img-800"}
 
-    COM detects the new power state and sends the event to your webhook. This can take up to a minute or two.
+   COM detects the new power state and sends the event to your webhook. This can take up to a minute or two.
 
 3. Watch the Shim window. When the event arrives, the Shim logs that it delivered it:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35.png){: data-lightbox="gallery"}{:class="img-800"}   
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35.png){: data-lightbox="gallery"}{:class="img-800"}   
 
 4. Open Bruno and select the **List deliveries of server shutdown raise webhook** request:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35a.png){: data-lightbox="gallery"}{:class="img-1000"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35a.png){: data-lightbox="gallery"}{:class="img-1000"}
 
-    This COM API request calls `/webhooks/<webhook_id>/deliveries`. It returns the 10 most recent deliveries of the webhook and its 5 most recent failures.
+   This COM API request calls `/webhooks/<webhook_id>/deliveries`. It returns the 10 most recent deliveries of the webhook and its 5 most recent failures.
 
 5. Click **Send**:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35b.png){: data-lightbox="gallery"}{:class="img-800"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-35b.png){: data-lightbox="gallery"}{:class="img-800"}
 
-    The response contains a lot of data. It is the payload that COM sent to the Relay when your server was powered off. It follows the `server` data schema, because the `eventFilter` you defined when you created the webhook selects the `compute-ops/server` resource type (`type eq 'compute-ops/server'`). 
+   The response contains a lot of data. It is the payload that COM sent to the Relay when your server was powered off. It follows the `server` data schema, because the `eventFilter` you defined when you created the webhook selects the `compute-ops/server` resource type (`type eq 'compute-ops/server'`). 
 
 6. Open Mattermost. Your channel shows a new notification, `Server <name> is powered OFF`, with the severity, the action (`raise`), the model, and the serial number of your server.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-36.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-36.png){: data-lightbox="gallery"}{:class="img-800"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-36.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-36.png){: data-lightbox="gallery"}{:class="img-800"}
 
 7. Go back to the first tab of the **Windows Terminal**, the one with your Azure variables, and run the Relay log command from the previous section again:
 
-    ```powershell
-    az containerapp logs show --resource-group $ResourceGroup --name $Relay --tail 10
-    ```
+   ```powershell
+   az containerapp logs show --resource-group $ResourceGroup --name $Relay --tail 10
+   ```
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-37.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-37.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-37.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-37.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    The Relay logged `event enqueued` with status `202`. 
+   The Relay logged `event enqueued` with status `202`. 
 
 8. Now check the queue:    
 
-    ```powershell
-    az servicebus queue show --resource-group $ResourceGroup --namespace-name $Namespace --name $Queue --query countDetails
-    ```
+   ```powershell
+   az servicebus queue show --resource-group $ResourceGroup --namespace-name $Namespace --name $Queue --query countDetails
+   ```
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-38.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-38.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-38.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-38.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    `activeMessageCount` is back to `0`: the Shim took the event from the queue and confirmed it. If your Shim had been stopped, the event would still be waiting here.
+   `activeMessageCount` is back to `0`: the Shim took the event from the queue and confirmed it. If your Shim had been stopped, the event would still be waiting here.
 
 > **Troubleshooting**: If no notification appears after two or three minutes, check these points in order:
 >
@@ -833,48 +836,48 @@ The GitHub settings, the repository and the access token file, are in a second s
 
 1. Power your server back on. In Compute Ops Management, select your server, click **Actions**, and select **Power on**.
 
-    No event reaches your Shim. The webhook you created only matches a server going from `ON` to `OFF`, so a power on does not match its filter.
+   No event reaches your Shim. The webhook you created only matches a server going from `ON` to `OFF`, so a power on does not match its filter.
 
 2. Stop the Shim with **Ctrl**+**C**. Because of `--rm`, the container is removed and its de-duplication memory is lost.
 
 3. See what the new settings file adds to the first one. Only the GitHub settings are new:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    Compare-Object (Get-Content .\shim-1-mattermost.env) (Get-Content .\shim-2-github.env)
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   Compare-Object (Get-Content .\shim-1-mattermost.env) (Get-Content .\shim-2-github.env)
+   ```
 
 4. Start the Shim again with two targets. Two things change: the settings file, and the `TARGETS` line:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    docker run --rm --name com-event-shim `
-      --env-file .\shim-2-github.env `
-      -v "${PWD}\secrets:/run/secrets:ro" `
-      -e TARGETS=mattermost,github `
-      -e SERVER_MONITORS=power `
-      ghcr.io/jullienl/com-event-shim:1.0.6
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   docker run --rm --name com-event-shim `
+     --env-file .\shim-2-github.env `
+     -v "${PWD}\secrets:/run/secrets:ro" `
+     -e TARGETS=mattermost,github `
+     -e SERVER_MONITORS=power `
+     ghcr.io/jullienl/com-event-shim:1.0.6
+   ```
 
-    The log confirms both targets:
+   The log confirms both targets:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-39.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-39.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-39.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-39.png){: data-lightbox="gallery"}{:class="img-900"}
 
 5. Power off your server again from Compute Ops Management (**Actions** > **Power off**).
 
 6. Watch the Shim window. The event is delivered to both targets. Each adapter logs what it sent, and the `delivered to` lines confirm the result:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-40.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-40.png){: data-lightbox="gallery"}{:class="img-1000"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-40.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-40.png){: data-lightbox="gallery"}{:class="img-1000"}
   
 7. Open the GitHub issues of the lab repository. In Chrome, open a new tab and click the **GitHub Issues** bookmark in the **HOL** folder of the bookmarks bar:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-41.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-41.png){: data-lightbox="gallery"}{:class="img-1000"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-41.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-41.png){: data-lightbox="gallery"}{:class="img-1000"}
 
 8. You do not need a GitHub account to read the issues. All teams share this repository, so use the serial number of your server, which you can find in COM, to identify your issue `Server <name> is powered OFF`, and open it. 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-42.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-42.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-42.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-42.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    Its label, `com:server:<serial>:power`, is the correlation key. The Shim uses it in the next section to find this issue again and close it.
+   Its label, `com:server:<serial>:power`, is the correlation key. The Shim uses it in the next section to find this issue again and close it.
 
 9. Look at Mattermost. It shows a second `powered OFF` notification. This is a new power off, and the Shim does not remember the first one: stopping the container cleared its de-duplication memory.
 
@@ -884,13 +887,13 @@ Now see de-duplication at work, with the same Shim still running:
 
 2. Open your issue in GitHub again. It is still **open**, and no message is posted in Mattermost.
 
-    The raise webhook only reports a power off. When the server comes back, COM does not send anything, so the Shim cannot know that the problem is over. A recovery needs its own webhook, with a filter for the power on. The Shim then marks it as a `clear` with the same `correlation_key`, so the GitHub adapter finds the issue it opened by its label and closes it. Mattermost posts a `Resolved` message. Without the second webhook, issues open but never close. You create it in the next section.
+   The raise webhook only reports a power off. When the server comes back, COM does not send anything, so the Shim cannot know that the problem is over. A recovery needs its own webhook, with a filter for the power on. The Shim then marks it as a `clear` with the same `correlation_key`, so the GitHub adapter finds the issue it opened by its label and closes it. Mattermost posts a `Resolved` message. Without the second webhook, issues open but never close. You create it in the next section.
 
 3. Power your server off again.
 
 4. Watch the Shim window. This time it does not deliver anything:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-43.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-43.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-43.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-43.png){: data-lightbox="gallery"}{:class="img-900"}
 
 5. Check Mattermost and GitHub. There is no new message and no second issue.
 
@@ -899,17 +902,19 @@ The Shim builds a de-duplication key from the problem, the action, and the sever
 The memory lasts one hour by default, counted from the last time the event was delivered to that target. A repeat that arrives within the hour is skipped. After the hour, the same event is treated as new and delivered again. A recovery (`clear`) has its own key, so it is never skipped because of an earlier power off, and restarting the Shim clears the memory.
 
 > **Note**: You can change the length of the de-duplication memory with the `DEDUP_TTL_SECONDS` setting. For example, adding `-e DEDUP_TTL_SECONDS=60` to the `docker run` command sets it to one minute. The value `0` turns de-duplication off, so every event is delivered:
+>
+>{: .small-space}
 > 
-> ```powershell
->    docker run --rm --name com-event-shim `
->        --env-file .\shim-2-github.env `
->        -v "${PWD}\secrets:/run/secrets:ro" `
->        -e TARGETS=mattermost,github `
->        -e SERVER_MONITORS=power `
->        -e DEDUP_TTL_SECONDS=60 `
->        ghcr.io/jullienl/com-event-shim:1.0.6
->    ```
->    {: .no-copy}
+>```powershell
+>docker run --rm --name com-event-shim `
+> --env-file .\shim-2-github.env `
+> -v "${PWD}\secrets:/run/secrets:ro" `
+> -e TARGETS=mattermost,github `
+> -e SERVER_MONITORS=power `
+> -e DEDUP_TTL_SECONDS=60 `
+> ghcr.io/jullienl/com-event-shim:1.0.6
+>```
+>{: .no-copy}
 
 [↑ Back to Top](#)
 
@@ -920,44 +925,44 @@ Your server is powered off and its GitHub issue is still open. Create the recove
 
 1. Create the second webhook with Bruno, in the same way as the first one. In the Bruno collection, right-click the **RAISE** request you used in Task 1 and select **Clone**. 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-44.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-44.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-44.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-44.png){: data-lightbox="gallery"}{:class="img-900"}
 
 2. Rename the new request to `CLEAR - Create a webhook that activates when server powered on`. To do so, right-click the cloned request and select **Rename**:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-45.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-45.png){: data-lightbox="gallery"}{:class="img-800"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-45.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-45.png){: data-lightbox="gallery"}{:class="img-800"}
 
 3. In the body of the new request, change two properties and leave `destination`, `state`, and `headers` as they are:
 
-    ```json
-    "name": "Azure Relay - Webhook event for server power on",
-    "eventFilter": "type eq 'compute-ops/server' and new/hardware/powerState eq 'ON' and changed/hardware/powerState eq True",
-    ```
+   ```json
+   "name": "Azure Relay - Webhook event for server power on",
+   "eventFilter": "type eq 'compute-ops/server' and new/hardware/powerState eq 'ON' and changed/hardware/powerState eq True",
+   ```
 
-    The filter uses `new` where the first one used `old`. It matches a server whose power state after the event is `ON`, and only when the power state changed. This is the opposite transition of the first webhook: it fires when your server is powered on.
+   The filter uses `new` where the first one used `old`. It matches a server whose power state after the event is `ON`, and only when the power state changed. This is the opposite transition of the first webhook: it fires when your server is powered on.
 
 4. Click **Prettify** to format the JSON in the body, then click **Save**.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-46.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-46.png){: data-lightbox="gallery"}{:class="img-1000"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-46.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-46.png){: data-lightbox="gallery"}{:class="img-1000"}
 
 5. Click **Send** to create the webhook. As in Task 1, COM runs the handshake with your Relay. Select **List all webhooks** and click **Send**. The response must now show `"total": 2`, and both webhooks must have `"status": "ACTIVE"`.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-47.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-47.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-47.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-47.png){: data-lightbox="gallery"}{:class="img-900"}
 
 6. Now test the recovery. Your Shim is still running with both targets. In Compute Ops Management, select your server, click **Actions**, and select **Power on**. The power action can take a few minutes to complete in COM.
 
 7. Watch the Shim window. The power on is a different action, `clear`, so it has its own de-duplication key and is delivered to both targets:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-48.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-48.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-48.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-48.png){: data-lightbox="gallery"}{:class="img-900"}
 
 8. Open Mattermost, which shows a green `Resolved` message:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-49.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-49.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-49.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-49.png){: data-lightbox="gallery"}{:class="img-900"}
 
 9. Open your GitHub issue again. It is now **closed**. If you do not see it, refresh the page and select **Closed** in the issues list.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    The raise and the clear are tied together by the `correlation_key`, so the clear closed exactly the issue that the raise opened.
+   The raise and the clear are tied together by the `correlation_key`, so the clear closed exactly the issue that the raise opened.
 
 You now have a complete event-driven loop: an incident opens a ticket and notifies a channel, and the recovery closes the ticket.
 
@@ -1055,10 +1060,10 @@ First send the incident with no enricher, to see what the pipeline delivers on i
 
 2. See what the third settings file adds to the second one:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    Compare-Object (Get-Content .\shim-2-github.env) (Get-Content .\shim-3-ai.env)
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   Compare-Object (Get-Content .\shim-2-github.env) (Get-Content .\shim-3-ai.env)
+   ```
 
     | Setting | Meaning |
     |---|---|
@@ -1071,14 +1076,14 @@ First send the incident with no enricher, to see what the pipeline delivers on i
 
 3. Start the Shim again, first with no enricher. This gives you a baseline. Two things change compared with Task 2: the settings file, and the monitored condition:
 
-    ```powershell
-    docker run --rm --name com-event-shim `
-      --env-file .\shim-3-ai.env `
-      -v "${PWD}\secrets:/run/secrets:ro" `
-      -e TARGETS=mattermost,github `
-      -e SERVER_MONITORS=health `
-      ghcr.io/jullienl/com-event-shim:1.0.6
-    ```
+   ```powershell
+   docker run --rm --name com-event-shim `
+     --env-file .\shim-3-ai.env `
+     -v "${PWD}\secrets:/run/secrets:ro" `
+     -e TARGETS=mattermost,github `
+     -e SERVER_MONITORS=health `
+     ghcr.io/jullienl/com-event-shim:1.0.6
+   ```
 
     | Part of the command | Meaning |
     |---|---|
@@ -1089,80 +1094,81 @@ First send the incident with no enricher, to see what the pipeline delivers on i
 
 5. In **Station Info**, copy the `$DeviceId` line from the **Server for the AI steps** block. It is the identity of your own server in COM: its part number and its serial number.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52.png){: data-lightbox="gallery"}{:class="img-900"}
 
 6. Open the second PowerShell tab and paste the line into this tab:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-53.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-53.png){: data-lightbox="gallery"}{:class="img-600"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-53.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-53.png){: data-lightbox="gallery"}{:class="img-600"}
 
 7. Create a realistic simulated storage incident using your server's identity and the predefined fault details. Copy and paste the entire block into the second PowerShell tab, then press **Enter**:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    $RelayUrl = (Select-String -Path .\bruno.env -Pattern '^RELAY_URL=(.*)$').Matches[0].Groups[1].Value.Trim()
-    $Secret   = (Get-Content .\secrets\com-shared-secret.txt -Raw).Trim()
-    $Serial   = $DeviceId.Split('+')[1]
-    $Headers  = @{
-        "x-shim-secret"                 = $Secret
-        "x-compute-ops-mgmt-event-type" = "compute-ops-mgmt.server.updated"
-    }
+   ```powershell
+   cd $env:USERPROFILE\hol
+   $RelayUrl = (Select-String -Path .\bruno.env -Pattern '^RELAY_URL=(.*)$').Matches[0].Groups[1].Value.Trim()
+   $Secret   = (Get-Content .\secrets\com-shared-secret.txt -Raw).Trim()
+   $Serial   = $DeviceId.Split('+')[1]
+   $Headers  = @{
+       "x-shim-secret"                 = $Secret
+       "x-compute-ops-mgmt-event-type" = "compute-ops-mgmt.server.updated"
+   }
 
-    function New-Snapshot($Health) {
-        @{
-            id        = $DeviceId
-            type      = "compute-ops-mgmt/server"
-            name      = "hol-storage-server"
-            operation = "Updated"
-            updatedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
-            firmwareBundleUri = "/compute-ops-mgmt/v1/firmware-bundles/86542f6c69ed49ceb75452ec85e753ad"
-            hardware  = @{
-                serialNumber = $Serial
-                productId    = $DeviceId.Split('+')[0]
-                model        = "ProLiant DL325 Gen12"
-                health       = $Health
-                powerState   = "ON"
-                bmc          = @{ ip = "10.18.22.20:8004" }
-            }
-            tags = @{}
-        } | ConvertTo-Json -Depth 6
-    }
+   function New-Snapshot($Health) {
+       @{
+           id        = $DeviceId
+           type      = "compute-ops-mgmt/server"
+           name      = "hol-storage-server"
+           operation = "Updated"
+           updatedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+           firmwareBundleUri = "/compute-ops-mgmt/v1/firmware-bundles/86542f6c69ed49ceb75452ec85e753ad"
+           hardware  = @{
+               serialNumber = $Serial
+               productId    = $DeviceId.Split('+')[0]
+               model        = "ProLiant DL325 Gen12"
+               health       = $Health
+               powerState   = "ON"
+               bmc          = @{ ip = "10.18.22.20:8004" }
+           }
+           tags = @{}
+       } | ConvertTo-Json -Depth 6
+   }
 
-    $RaiseJson = New-Snapshot @{
-        summary      = "CRITICAL"
-        storage      = "MRSA StorCLI on Windows reports a BSOD and unexpected reboot after the S100i storage controller firmware update"
-        smartStorage = "S100i storage controller is enabled and reporting a critical condition"
-    }
-    ```
+   $RaiseJson = New-Snapshot @{
+       summary      = "CRITICAL"
+       storage      = "MRSA StorCLI on Windows reports a BSOD and unexpected reboot after the S100i storage controller firmware update"
+       smartStorage = "S100i storage controller is enabled and reporting a critical condition"
+   }
+   ```
 
-    This simplified payload includes the key fields needed for this exercise. Setting `hardware.health.summary` to `CRITICAL` causes the Shim's health monitor to raise an incident. The hardware fields identify the server, while `hardware.bmc.ip` points to the simulated iLO from which the Shim collects diagnostic evidence when the `ilo_ai` enricher is enabled.
+   This simplified payload includes the key fields needed for this exercise. Setting `hardware.health.summary` to `CRITICAL` causes the Shim's health monitor to raise an incident. The hardware fields identify the server, while `hardware.bmc.ip` points to the simulated iLO from which the Shim collects diagnostic evidence when the `ilo_ai` enricher is enabled.
 
 8. Send the simulated incident to your Relay. Copy and paste the whole block then press **Enter**:
 
-    ```powershell
-    (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
-    ```
+   ```powershell
+   (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
+   ```
     
-    `Invoke-WebRequest` sends the JSON payload in `$RaiseJson` to your Relay URL as an HTTP `POST`, using `$Headers` to include the shared secret and event type. This simulates the webhook request that COM would send. `.StatusCode` displays the HTTP response code.
+   `Invoke-WebRequest` sends the JSON payload in `$RaiseJson` to your Relay URL as an HTTP `POST`, using `$Headers` to include the shared secret and event type. This simulates the webhook request that COM would send. `.StatusCode` displays the HTTP response code.
 
-    The Relay answers `202`: it authenticated the request and put the event on your queue. 
+   The Relay answers `202`: it authenticated the request and put the event on your queue. 
 
-    Look at what the event contains. Your server identity and the health `CRITICAL` are there, together with two short storage messages, and `bmc` holds the address of the simulated iLO. The event does not say what exactly is wrong with the storage, why, or what to do. The Shim has to find that in the iLO. It also carries a `firmwareBundleUri`, which nothing uses yet and which you need in the next section.
+   Look at what the event contains. Your server identity and the health `CRITICAL` are there, together with two short storage messages, and `bmc` holds the address of the simulated iLO. The event does not say what exactly is wrong with the storage, why, or what to do. The Shim has to find that in the iLO. It also carries a `firmwareBundleUri`, which nothing uses yet and which you need in the next section.
 
-8. Watch the Shim window. There is no enricher, so the Shim delivers the event straight away, as in Task 2. It does not read the iLO and does not call the AI Gateway.
+9. Watch the Shim window. There is no enricher, so the Shim delivers the event straight away, as in Task 2. It does not read the iLO and does not call the AI Gateway.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50a.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50a.png){: data-lightbox="gallery"}{:class="img-900"}
 
-9. Open Mattermost and the GitHub issue of your server. They show the event as the Shim normalized it: the health `CRITICAL` and the two storage messages that were in the event, and nothing more. This is your baseline. It tells you that something is wrong, but not which component is affected, why, or what to do next.
+10. Open Mattermost and the GitHub issue of your server. They show the event as the Shim normalized it: the health `CRITICAL` and the two storage messages that were in the event, and nothing more. This is your baseline. It tells you that something is wrong, but not which component is affected, why, or what to do next.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-50b.png){: data-lightbox="gallery"}{:class="img-900"}
 
-10. Close the incident. In the second PowerShell tab, send the healthy version of the event:
+11. Close the incident. In the second PowerShell tab, send the healthy version of the event:
 
     ```powershell
     $ClearJson = New-Snapshot @{ summary = "OK"; storage = "OK"; smartStorage = "OK" }
     (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
     ```
     The block prepares a healthy version of the event, `$ClearJson`, that you use to close the incident.
+    
     Mattermost shows a `Resolved` message and the GitHub issue is closed, so the next run opens a fresh issue.
 
 [↑ Back to Top](#)
@@ -1173,64 +1179,64 @@ Now restart the Shim with the `ilo_ai` enricher and send the same incident again
 
 1. Stop the Shim with **Ctrl**+**C** and start it again. Only one thing changes, the new `ENRICHERS` line:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    docker run --rm --name com-event-shim `
-      --env-file .\shim-3-ai.env `
-      -v "${PWD}\secrets:/run/secrets:ro" `
-      -e TARGETS=mattermost,github `
-      -e SERVER_MONITORS=health `
-      -e ENRICHERS=ilo_ai `
-      ghcr.io/jullienl/com-event-shim:1.0.6
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   docker run --rm --name com-event-shim `
+     --env-file .\shim-3-ai.env `
+     -v "${PWD}\secrets:/run/secrets:ro" `
+     -e TARGETS=mattermost,github `
+     -e SERVER_MONITORS=health `
+     -e ENRICHERS=ilo_ai `
+     ghcr.io/jullienl/com-event-shim:1.0.6
+   ```
 
     | Part of the command | Meaning |
     |---|---|
     | `-e ENRICHERS=ilo_ai` | Adds a stage before delivery that reads the iLO evidence and asks the AI agent to analyze it. |
 
-    The Shim logs that the enricher is enabled:
+   The Shim logs that the enricher is enabled:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-51.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-51.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-51.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-51.png){: data-lightbox="gallery"}{:class="img-900"}
 
 2. In the second PowerShell tab, send the same incident again:
 
-    ```powershell
-    (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
-    ```
+   ```powershell
+   (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
+   ```
 
 3. Watch the Shim window. Before it delivers the event, the Shim now reads the evidence from the iLO and calls the AI Gateway. This can take up to a minute. Look for these lines, where the values will differ:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-54.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-54.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-54.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-54.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    The `GET` lines are the Shim reading the Redfish evidence from the iLO. The first two highlighted lines are new compared with the baseline run: the POST to `/agent/com-rca` is the Shim sending that evidence to the AI agent, and the `analysed` line gives the confidence the agent reports. The analysis is done once, before delivery, so Mattermost and GitHub receive the same report. If the analysis fails, the Shim logs a warning and still delivers the event without it.
+   The `GET` lines are the Shim reading the Redfish evidence from the iLO. The first two highlighted lines are new compared with the baseline run: the POST to `/agent/com-rca` is the Shim sending that evidence to the AI agent, and the `analysed` line gives the confidence the agent reports. The analysis is done once, before delivery, so Mattermost and GitHub receive the same report. If the analysis fails, the Shim logs a warning and still delivers the event without it.
 
-    > **Troubleshooting**: If the report is missing in Mattermost and GitHub, look in the Shim window for a warning from `ilo_ai` or from the AI Gateway. Also check that you restarted the Shim with `-e ENRICHERS=ilo_ai` and sent the incident after the restart. A plain notification means that the analysis did not run.
+   > **Troubleshooting**: If the report is missing in Mattermost and GitHub, look in the Shim window for a warning from `ilo_ai` or from the AI Gateway. Also check that you restarted the Shim with `-e ENRICHERS=ilo_ai` and sent the incident after the restart. A plain notification means that the analysis did not run.
 
 4. Open Mattermost. Compared with the baseline, the notification now carries the analysis of the AI agent in addition to the usual fields: a summary, the evidence it relied on, the likely root cause, a confidence level, and recommended actions.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: data-lightbox="gallery"}{:class="img-800"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-55.png){: data-lightbox="gallery"}{:class="img-800"}
 
 5. Open the GitHub issues of the lab repository, as you did in Task 2, and find your issue with the serial number of your server. The issue holds the same report. 
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-56.png){: data-lightbox="gallery"}{:class="img-900"}
 
-    Read it carefully:
+   Read it carefully:
 
-    - The **evidence** is what the agent observed in the iLO, such as component states and log entries.
-    - The **likely root cause** is its conclusion, and the **confidence** tells you how much to trust it.
-    - The **recommended actions** are suggestions for the next steps.
+   - The **evidence** is what the agent observed in the iLO, such as component states and log entries.
+   - The **likely root cause** is its conclusion, and the **confidence** tells you how much to trust it.
+   - The **recommended actions** are suggestions for the next steps.
 
-    The report separates what was observed from what is only a hypothesis. It is guidance for an engineer, not a verdict, and you still verify the hardware.
+   The report separates what was observed from what is only a hypothesis. It is guidance for an engineer, not a verdict, and you still verify the hardware.
 
 6. Close the incident again. In the second PowerShell tab, send the healthy version of the event:
 
-    ```powershell
-    (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
-    ```
+   ```powershell
+   (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
+   ```
 
-    Mattermost shows a `Resolved` message and the GitHub issue is closed, as in Task 2. The Shim does not call the AI for a recovery: when a problem is over, there is nothing left to investigate.
+   Mattermost shows a `Resolved` message and the GitHub issue is closed, as in Task 2. The Shim does not call the AI for a recovery: when a problem is over, there is nothing left to investigate.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-57.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-57.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-57.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-57.png){: data-lightbox="gallery"}{:class="img-900"}
 
 [↑ Back to Top](#)
 
@@ -1247,31 +1253,31 @@ This requires access to the COM API, so the Shim uses the personal API client th
 
 2. Give the Shim access to the COM API. Run this block in the Shim window and paste your Client ID and your Client Secret from your Notepad file when asked:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    $ClientId     = Read-Host "Paste your Client ID"
-    $ClientSecret = Read-Host "Paste your Client Secret"
-    [IO.File]::WriteAllText("$($PWD.Path)\secrets\com-client-secret.txt", $ClientSecret.Trim())
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   $ClientId     = Read-Host "Paste your Client ID"
+   $ClientSecret = Read-Host "Paste your Client Secret"
+   [IO.File]::WriteAllText("$($PWD.Path)\secrets\com-client-secret.txt", $ClientSecret.Trim())
+   ```
 
-    The Client Secret goes into a file of the `secrets` folder, like the other secrets of this lab, so it stays out of the container environment. The Client ID is not secret and is passed in the command.
+   The Client Secret goes into a file of the `secrets` folder, like the other secrets of this lab, so it stays out of the container environment. The Client ID is not secret and is passed in the command.
 
 3. Start the Shim again with the second enricher and the COM settings:
 
-    ```powershell
-    cd $env:USERPROFILE\hol
-    docker run --rm --name com-event-shim `
-      --env-file .\shim-3-ai.env `
-      -v "${PWD}\secrets:/run/secrets:ro" `
-      -e TARGETS=mattermost,github `
-      -e SERVER_MONITORS=health `
-      -e ENRICHERS=hpe_advisories,ilo_ai `
-      -e HPE_ADVISORIES_MIN_SEVERITY=warning `
-      -e COM_BASE_URL=https://us-west.api.greenlake.hpe.com `
-      -e COM_CLIENT_ID=$ClientId `
-      -e COM_CLIENT_SECRET_FILE=/run/secrets/com-client-secret.txt `
-      ghcr.io/jullienl/com-event-shim:1.0.6
-    ```
+   ```powershell
+   cd $env:USERPROFILE\hol
+   docker run --rm --name com-event-shim `
+     --env-file .\shim-3-ai.env `
+     -v "${PWD}\secrets:/run/secrets:ro" `
+     -e TARGETS=mattermost,github `
+     -e SERVER_MONITORS=health `
+     -e ENRICHERS=hpe_advisories,ilo_ai `
+     -e HPE_ADVISORIES_MIN_SEVERITY=warning `
+     -e COM_BASE_URL=https://us-west.api.greenlake.hpe.com `
+     -e COM_CLIENT_ID=$ClientId `
+     -e COM_CLIENT_SECRET_FILE=/run/secrets/com-client-secret.txt `
+     ghcr.io/jullienl/com-event-shim:1.0.6
+   ```
 
     | Part of the command | Meaning |
     |---|---|
@@ -1280,28 +1286,29 @@ This requires access to the COM API, so the Shim uses the personal API client th
     | `-e COM_BASE_URL=...` | The address of the COM API for your region, the same one Bruno uses. |
     | `-e COM_CLIENT_ID=$ClientId` | Your personal API client, used to get a token for the COM API. |
     | `-e COM_CLIENT_SECRET_FILE=...` | The file that holds your Client Secret. |
+    {: .col1-40}
 
 4. The Shim logs both enrichers:
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-58.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-58.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-58.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-58.png){: data-lightbox="gallery"}{:class="img-900"}
 
 5. In the second PowerShell tab, send the same incident again (RAISE):
 
-    ```powershell
-    (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
-    ```
+   ```powershell
+   (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $RaiseJson -UseBasicParsing).StatusCode
+   ```
 
-    If you closed that tab, paste the `$DeviceId` line from **Station Info** again, then run the block of the previous section again. It prepares the variables and sends the incident, so you can skip this command.
+   If you closed that tab, paste the `$DeviceId` line from **Station Info** again, then run the block of the previous section again. It prepares the variables and sends the incident, so you can skip this command.
 
 6. Watch the Shim window. The log lines look like the ones of the previous section, and the event takes a little longer because the Shim first asks COM for your firmware bundle and its advisories. If COM cannot be reached or the credentials are wrong, the Shim logs a warning and delivers the event without the advisories, as it does for any enrichment that fails.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-59.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-59.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-59.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-59.png){: data-lightbox="gallery"}{:class="img-900"}
 
 7. Open Mattermost and the GitHub issue. Compared with the previous run, the report now has an **HPE Customer Advisories** section that lists the open and resolved advisories of the firmware bundle that applies to your server. The AI agent only cites an advisory when its title and component match the symptoms in the event and in the iLO evidence. When one matches, the analysis names it and gives its link. An advisory that is listed as resolved is not proof that your server has the fix: the bundle is the baseline that applies to your server, not necessarily the firmware it runs.
 
-    > **Troubleshooting**: If the **HPE Customer Advisories** section is missing, look in the Shim window for a warning from `hpe_advisories`. The usual causes are a Client ID or Client Secret that was pasted incorrectly (run step 2 again) or a Shim that was started without the `COM_*` settings of step 3.
+   > **Troubleshooting**: If the **HPE Customer Advisories** section is missing, look in the Shim window for a warning from `hpe_advisories`. The usual causes are a Client ID or Client Secret that was pasted incorrectly (run step 2 again) or a Shim that was started without the `COM_*` settings of step 3.
 
-    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: data-lightbox="gallery"}{:class="img-900"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-60.png){: data-lightbox="gallery"}{:class="img-900"}
 
 8. Compare the three runs you have seen in Task 3:
 
@@ -1311,15 +1318,15 @@ This requires access to the COM API, so the Shim uses the personal API client th
     | iLO evidence | Evidence read from the iLO and an AI analysis | The event and the AI report. |
     | Advisories and iLO evidence | The advisories of your firmware bundle, then the evidence and the analysis | The event and an AI report that can cite a matching HPE Customer Advisory. |
 
-    The delivery targets, the Relay, and the queue did not change. Only the Shim configuration did.
+   The delivery targets, the Relay, and the queue did not change. Only the Shim configuration did.
 
 9. Close the incident:
 
-    ```powershell
-    (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
-    ```
+   ```powershell
+   (Invoke-WebRequest -Method Post -Uri $RelayUrl -Headers $Headers -ContentType "application/json" -Body $ClearJson -UseBasicParsing).StatusCode
+   ```
 
-    Mattermost shows a `Resolved` message and the GitHub issue is closed. The advisory lookup and the AI call only happen for a problem, never for a recovery.
+   Mattermost shows a `Resolved` message and the GitHub issue is closed. The advisory lookup and the AI call only happen for a problem, never for a recovery.
 
 **This is the end of the lab.** You can stop the Shim with **Ctrl**+**C**. Return your login sheet to your proctor, and continue with the summary below.
 
@@ -1374,6 +1381,7 @@ The project offers two deployment models. This lab uses Relay + Shim.
 | Durable buffer | Cloud queue (Azure Service Bus or AWS SQS) | Optional on-disk spool |
 | Components to deploy | Two: the Relay and the Shim | One container |
 | Best when | The target is in a restricted or private network, or you want no inbound path | You can expose an HTTPS endpoint and want the smallest footprint |
+{: .col1-30}
 
 The README has a decision tree, [Which deployment should I choose?](https://github.com/jullienl/HPE-COM-Event-Integrations#which-deployment-should-i-choose), and the Bridge has its own [end-to-end runbook](https://github.com/jullienl/HPE-COM-Event-Integrations/blob/main/com-event-bridge/docs/Deploy-End-to-End-On-Prem.md).
 
@@ -1402,6 +1410,7 @@ Even for ServiceNow or OpsRamp, Relay + Shim is useful when the internal endpoin
 | "We cannot send data to a public AI service." | The AI Gateway with an on-premises OpenAI-compatible model. |
 | "We already use ServiceNow or OpsRamp." | The native COM integration first. Position Relay + Shim when the endpoint must stay private, or when they need correlation, fan-out or enrichment. |
 | "We are a partner and want to build on COM." | The open contract and the adapter model, which let you [add a target](https://github.com/jullienl/HPE-COM-Event-Integrations/blob/main/com-event-core/README.md#adding-a-new-target) or your own analysis service. The project is MIT licensed. |
+{: .col1-40}
 
 ## Get started
 
@@ -1428,6 +1437,8 @@ Even for ServiceNow or OpsRamp, Relay + Shim is useful when the internal endpoin
 | Container images | `ghcr.io/jullienl/com-event-relay`, `ghcr.io/jullienl/com-event-shim` and `ghcr.io/jullienl/com-event-bridge` on GitHub Container Registry. |
 | [AI Gateway](https://github.com/jullienl/ai-gateway) | The analyzer behind `ENRICHERS=ilo_ai`, with its [Operator Guide](https://github.com/jullienl/ai-gateway/blob/main/GUIDE.md). |
 | [License](https://github.com/jullienl/HPE-COM-Event-Integrations/blob/main/LICENSE) and [issues](https://github.com/jullienl/HPE-COM-Event-Integrations/issues) | MIT license, and where to report problems or share adapter validation feedback. |
+{: .col1-20}
+
 
 **🤖** Want to use the AI-assisted incident investigation in your own environment? See
 [AI-assisted incident investigation and remediation](https://github.com/jullienl/HPE-COM-Event-Integrations#ai-assisted-incident-investigation-and-remediation)
