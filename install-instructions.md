@@ -313,6 +313,9 @@ Follow these rules when editing lab guides:
         
         [![]( {{ site.baseurl }}/assets/images/instructions/image-6.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/instructions/image-6.png){:class="img-100pct"}{: data-lightbox="gallery"}
 
+- Use **color** for emphasis on critical actions. In standard Markdown, there is no native color syntax. However, you can use `<span style="color:red">IMPORTANT</span>: Please note...` to return <span style="color:red">IMPORTANT</span>: Please note...
+    
+
 - Use **underline** for emphasis on critical terms (e.g., <u>IMPORTANT</u>).
     - In standard Markdown, there is no native underline syntax. However, you can use `**<u>IMPORTANT</u>: Please note...**` to return **<u>IMPORTANT</u>: Please note...**
 
@@ -391,7 +394,20 @@ Supported Image Sizes in {:class="img-xxx"}:
 - `img-700`
 - `img-800`
 - `img-900`
+- `img-1000`
 - `img-100pct` (full width)
+
+**Custom width without a class:** for a one-off size that has no class (for example 650 px), skip `{:class="img-xxx"}` and add a `style` attribute inside the inner `{: ... }` block, next to `.bordered-image-thin`:
+
+```markdown
+[![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image7.png){: .bordered-image-thin style="width:650px; max-width:100%; height:auto"}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image7.png){: data-lightbox="gallery"}
+```
+
+> 💡 **Tip**
+>
+>{: .small-space}
+>
+> Keep `max-width:100%` so the image never overflows on small screens, and do not combine an `img-xxx` class with an inline `style` on the same image. Prefer the classes for common sizes so the guides stay consistent.
 
 
 [↑ Back to Top](#)

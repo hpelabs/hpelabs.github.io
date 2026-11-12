@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     btn.addEventListener('click', function() {
       const code = pre.querySelector('code');
-      const text = code ? code.textContent : pre.textContent;
+      const text = (code ? code.textContent : pre.textContent).replace(/\s+$/, '');
       navigator.clipboard.writeText(text).then(function() {
         btn.textContent = 'Copied!';
         btn.classList.add('copied');
