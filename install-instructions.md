@@ -344,6 +344,23 @@ Follow these rules when editing lab guides:
     | **Team-02** | hol2-ilo.local | Administrator | whatever |
     | **Team-03** | hol3-ilo.local | Administrator | whatever |
 
+    **Wider first column:** all columns have the same width by default. When the first column holds long text, such as a command or a setting name, add a `{: .col1-NN}` line right after the table, where `NN` is the percentage of the table width given to the first column (from `5` to `90`, in steps of 5):
+
+    ```text
+    | Part of the command | Meaning |
+    |---|---|
+    | `-e COM_CLIENT_SECRET_FILE=...` | The file that holds your Client Secret. |
+    {: .col1-40}
+    ```
+
+    > 💡 **Tip**
+    >
+    >{: .small-space}
+    >
+    > Indent the `{: .col1-40}` line like the table itself, for example 4 spaces when the table is inside a numbered step. For another width, edit the `@for` loop in `assets/css/style.scss`.
+    >
+    > The same widths exist for columns 2 to 4 with `{: .col2-NN}`, `{: .col3-NN}` and `{: .col4-NN}`. You can combine several on one line, for example `{: .col1-20 .col2-30}`; the remaining columns share the rest of the width.
+
 
 - Always include photos with proper formatting when inserting images (see "[Adding Images in Markdown](#-adding-images-in-markdown)" section).
 

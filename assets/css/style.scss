@@ -484,6 +484,17 @@ table {
   word-break: break-word;
 }
 
+/* Column width: add {: .col1-40} or {: .col3-35} (columns 1 to 4, 5 to 90, step 5) under a table */
+@for $i from 1 through 18 {
+  $w: $i * 5;
+  @for $c from 1 through 4 {
+    table.col#{$c}-#{$w} th:nth-child(#{$c}),
+    table.col#{$c}-#{$w} td:nth-child(#{$c}) {
+      width: #{$w}#{'%'};
+    }
+  }
+}
+
 /* Fixes "tag" styling */
 .tag,
 .tag:visited {
