@@ -11,8 +11,8 @@ tags:
   - webhooks
   - AI
   - docker
-room: 2 # Set to 1 or 2
-exclude: true
+# room: 2 # Set to 1 or 2
+exclude: false
 collapsible: true
 collapsible_expanded: true
 ---

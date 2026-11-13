@@ -2,6 +2,9 @@
 layout: default
 ---
 
+{% if page.home_pilot %}
+  {% include custom/home-pilot.html %}
+{% else %}
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -86,3 +89,4 @@ layout: default
   {% endif %}
 
 </div>
+{% endif %}

@@ -21,6 +21,10 @@ This repository hosts practical guides, tutorials, and lab material focused on H
 
 	http://127.0.0.1:4000/hpelabs/
 
+The homepage pilot is enabled by `home_pilot: true` in `index.html`. Its topic
+filters use lab tags; set an optional `home_title` in a lab's front matter for
+a shorter card title. The room and demo pages keep their existing layout.
+
 ## Structure
 
 - `_posts/`: blog and tutorial content

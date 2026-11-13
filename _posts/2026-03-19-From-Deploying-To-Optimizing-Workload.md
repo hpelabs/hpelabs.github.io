@@ -4,7 +4,7 @@ title: "From Deploying to Optimizing Workload Solutions with HPE Compute and Hyb
 image: /assets/images/HOLs/Deploy-Optimize-Workload/banner.jpg
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
 excerpt: This hands-on lab offers participants practical, choice-driven learning experience for deploying and tuning modern workloads on HPE platforms by using Microsoft SQL Server as example.
-room: 1 # Set to 1 or 2
+# room: 1 # Set to 1 or 2
 hide_read_time: true
 ---
 
