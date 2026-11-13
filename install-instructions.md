@@ -291,6 +291,28 @@ Follow these rules when editing lab guides:
         >{: .small-space}
         >
         > Use `{: .no-copy}` for commands provided for illustration only — such as Secure Gateway examples, environment-specific snippets, or expected output samples — to prevent lab users from accidentally running them.
+
+    - **Highlighting text inside a code block** — Markdown code blocks (triple backticks) display their content literally, so you cannot highlight part of it. To highlight a value that lab users must replace (e.g., a tenant ID or company name), write the code block in HTML and wrap the text with `<mark>...</mark>`:
+
+        ```html
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://<mark>&lt;your-company&gt;</mark>.okta.com/.well-known/openid-configuration</code></pre></div></div>
+        ```
+
+        instead of:
+
+        ```text
+        https://login.microsoftonline.com/<TENANT-ID>/v2.0/.well-known/openid-configuration
+        ```
+
+        Output:
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://<mark>&lt;your-company&gt;</mark>.okta.com/.well-known/openid-configuration</code></pre></div></div>
+
+        > 💡 **Tip**
+        >
+        >{: .small-space}
+        >
+        > Keep the whole HTML block on a single line, and escape `<` and `>` as `&lt;` and `&gt;` inside the `<code>` element, otherwise the browser treats them as HTML tags.
         
 - Use **inline code** (backticks ````` `text` `````) for variables, paths, and terminal commands within text. For example: `$variable`
 
