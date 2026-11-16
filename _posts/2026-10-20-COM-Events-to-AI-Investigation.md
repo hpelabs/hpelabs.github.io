@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "From HPE COM Events to AI-Assisted Incident Investigation and Remediation"
+title: "From HPE COM Events to AIOps: AI-Assisted Incident Investigation and Remediation"
 image: /assets/images/HOLs/COM-Events/banner.jpg 
 post_end_promo: <i><b>Continue your journey with more HPE Compute Technical Enablement Hands-on Labs for infrastructure, security, technologies, and solutions.</b></i>
-excerpt: Build an event-driven operations pipeline that connects HPE Compute Ops Management webhooks to reliable notifications and simulated ITSM tickets. Then add AI-assisted incident investigation using simulated iLO Redfish evidence and HPE Customer Advisories.
+excerpt: Build an event-driven AIOps pipeline that connects HPE Compute Ops Management webhooks to reliable notifications and simulated ITSM tickets. Then use an AI agent powered by an LLM to investigate a simulated incident with iLO Redfish evidence and HPE Customer Advisories, and suggest a likely root cause and fix.
 last_modified_at: 2026-10-20
 tags: 
   - greenlake
@@ -21,7 +21,7 @@ Hands-on Lab Guide
 
 # Introduction
 
-This lab takes you through a Compute Ops Management (COM) event from webhook registration to delivery. You will first observe a real server power event, then use simulated events to explore AI analysis, Redfish evidence, and HPE Customer Advisory context.
+This lab takes you through a Compute Ops Management (COM) event from webhook registration to delivery. You will first observe a real server power event, then use simulated events to explore AIOps: an AI agent powered by a large language model (LLM) analyzes the incident with Redfish evidence and HPE Customer Advisories, and suggests a likely root cause and fix.
 
 
 [↑ Back to Top](#)
@@ -37,7 +37,7 @@ Throughout this lab, you’ll learn:
 - How to deliver the same event to several targets by changing the `TARGETS` setting
 - How de-duplication avoids repeated messages and tickets, and how raise/clear correlation closes the ticket when the server recovers
 - How to enable enrichers with the `ENRICHERS` setting without changing the Relay, the queue, or the targets
-- How the Shim reads read-only evidence from an iLO through Redfish, and how an AI agent turns it into a report
+- How the Shim reads read-only evidence from an iLO through Redfish, and how an AI agent uses an LLM to turn it into a report with a likely root cause and recommended actions
 - How to separate observed evidence, probable causes, and unverified hypotheses, and how to use the confidence level of the report
 - How HPE Customer Advisories add context to an incident
 - How to position this open-source solution with your customers and partners
@@ -1012,7 +1012,7 @@ The Shim does not talk to an AI model itself. It sends the evidence to the **AI 
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Events/image-52b.png){: data-lightbox="gallery"}{:class="img-900"}
 
-It provides the `com-rca` agent (root cause analysis of a COM incident) and can use GitHub Copilot, OpenAI, Anthropic, or an on-premises OpenAI-compatible model. In this lab a shared AI Gateway serves all stations.
+It provides the `com-rca` agent (root cause analysis of a COM incident) and can use a large language model (LLM) from GitHub Copilot, OpenAI, Anthropic, or an on-premises OpenAI-compatible service. In this lab a shared AI Gateway serves all stations.
 
 The two projects each own one side of the exchange. The AI Gateway owns the agent prompt and the connection to the model. HPE COM Event Integrations owns the contract: the enrichment input that the Shim sends and the output it expects back. Any service that implements this contract can replace the AI Gateway. See the [AI Gateway Operator Guide](https://github.com/jullienl/ai-gateway/blob/main/GUIDE.md) for deployment and provider configuration.
 
@@ -1361,7 +1361,7 @@ What you built in this lab is a working reference, not a toy. [HPE COM Event Int
 - **It is quick to adopt.** Everything runs as containers. The Azure and AWS runbooks build the Relay and the queue from scratch, and a customer can start with one target and add others later by changing `TARGETS`.
 - **It is reliable by design.** A durable queue sits between COM and the targets, so an event is not lost when a target is slow or down. A failed delivery is retried, and an event that keeps failing is set aside instead of blocking the others.
 - **It reduces noise.** De-duplication avoids a second ticket for a problem that is already known, and raise/clear correlation closes the ticket when the recovery arrives, so issues do not pile up.
-- **It speeds up the first response.** The AI analysis starts from real evidence read from the iLO and from the HPE Customer Advisories that match the firmware, and the report states its confidence. The responder opens a ticket that already contains a likely cause and a suggested next step.
+- **It brings AIOps to COM events and speeds up the first response.** The AI analysis starts from real evidence read from the iLO and from the HPE Customer Advisories that match the firmware, and the report states its confidence. The responder opens a ticket that already contains a likely cause and a suggested next step.
 - **It keeps the customer in control of AI.** The AI Gateway can use GitHub Copilot, OpenAI, Anthropic, or an on-premises OpenAI-compatible model, so customers with data residency or privacy constraints can keep the analysis in their own environment.
 - **It is safe to deploy.** The Shim only makes outbound connections, so no inbound port is opened into the customer network. It reads the iLO with a read-only account and `GET` requests only. Secrets stay in files, not in the container environment, and the Relay rejects any request without the shared secret.
 - **It is open and extensible.** The adapters, the enrichers and the contract with the AI service are documented. A partner can add a target for a tool that is not yet supported, or replace the AI service with its own, without changing the rest of the pipeline.
