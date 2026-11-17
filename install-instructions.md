@@ -301,7 +301,7 @@ Follow these rules when editing lab guides:
         instead of:
 
         ```text
-        https://login.microsoftonline.com/<TENANT-ID>/v2.0/.well-known/openid-configuration
+        https://<your-company>.okta.com/.well-known/openid-configuration
         ```
 
         Output:
