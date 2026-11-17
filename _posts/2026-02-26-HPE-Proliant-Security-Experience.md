@@ -9,8 +9,9 @@ tags:
   - ilo
   - com 
 # room: 2 # Set to 1 or 2
-last_modified_at: 2026-07-07
-
+last_modified_at: 2026-11-17
+collapsible: true
+collapsible_expanded: true
 ---
 
 Hands on Lab Guide
@@ -109,7 +110,7 @@ Your Horizon desktop is ready for the lab:
 -  **Open it now and keep it open during the lab.** Copy values from this
   file rather than from this guide.
 
-   [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image6b.png)]( {{ site. baseurl }}/assets/images/HOLs/Proliant-Security/image6b.png){: data-lightbox="gallery"}{:class="img-700"}
+   [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image6b.png)]( {{ site. baseurl }}/assets/images/HOLs/Proliant-Security/image6b.png){: data-lightbox="gallery"}{:class="img-600"}
 
    This file holds all the credentials and details you need during the lab, so keep it open and within reach.
 
