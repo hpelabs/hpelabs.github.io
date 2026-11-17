@@ -152,7 +152,7 @@ is in the same section.
     with in the previous section. Remember that for these labs to work,
     you will need to stay within the context of this browser session.
 
-2.  Double-click the **Team-xx iLO** shortcut on your desktop:
+2.  Double-click the **Team-<span style="color:red">xx</span> iLO** shortcut on your desktop, where <span style="color:red">xx</span> is your team number:
 
     > **Note**: **DO NOT USE IE or EDGE.**
 
@@ -166,7 +166,7 @@ is in the same section.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image9.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image9.png){: data-lightbox="gallery"}{:class="img-900"}
 
 4.  On the newly displayed prompt, click on the **Proceed to
-    holgen12XX-ilo.hol.enablement.local** to continue to the HPE iLO7
+    holgen12<span style="color:red">xx</span>-ilo.hol.enablement.local** link, where <span style="color:red">xx</span> is your team number, to continue to the HPE iLO7
     login screen.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image10.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image10.png){: data-lightbox="gallery"}{:class="img-500"}
@@ -417,7 +417,7 @@ Compute Ops Management.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26b.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image26b.png){: data-lightbox="gallery"}{:class="img-700"}
 
-      It is the same username you used to sign in to your Horizon desktop, in the format **HOL02-Txx@labs.compute.cloud.hpe.com**, where **xx** is your team number.
+      It is the same username you used to sign in to your Horizon desktop, in the format **HOL02-T<span style="color:red">xx</span>@labs.compute.cloud.hpe.com**, where <span style="color:red">xx</span> is your team number.
 
 3. Paste your username into the GreenLake sign in page and click **Continue**:  
 
@@ -510,7 +510,7 @@ This concludes this section of the lab.
 <p class="step-meta">(Task 8 of 14) ⏱️ ~10 min</p>
 
 For our lab purposes, the HPE GreenLake Workspace company in this
-environment is called *COM Security Lab XX*, where XX is your team
+environment is called *COM Security Lab <span style="color:red">xx</span>*, where <span style="color:red">xx</span> is your team
 number (see **Station-Info.txt**).
 
 The connection between HPE iLO7 and HPE GreenLake is initiated by the
@@ -1268,7 +1268,7 @@ desktop.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image117.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image117.png){: data-lightbox="gallery"}{:class="img-900"}
 
-5.  Find your team's Secure Gateway VM and power it on, for example by clicking the green **Power On** (play) button. The VM is named **Teamxx-SGW**, where **xx** is your team number. You can also find its name in the **SECURE GATEWAY** section of **Station-Info.txt**.
+5.  Find your team's Secure Gateway VM and power it on, for example by clicking the green **Power On** (play) button. The VM is named **Team<span style="color:red">xx</span>-SGW**, where <span style="color:red">xx</span> is your team number. You can also find its name in the **SECURE GATEWAY** section of **Station-Info.txt**.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image130.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image130.png){: data-lightbox="gallery"}{:class="img-700"}
 
