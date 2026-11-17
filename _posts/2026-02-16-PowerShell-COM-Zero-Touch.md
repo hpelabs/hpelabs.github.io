@@ -428,7 +428,7 @@ You may now leave this page open and begin your zero-touch automation experience
    New-HPEGLUser -Email "com.demoad@gmail.com" -RoleName 'Workspace Administrator'
    ```
 
-    > **⚠️ Note**
+    > **⚠️ Important**
     >
     >{: .small-space}
     > 
@@ -436,7 +436,7 @@ You may now leave this page open and begin your zero-touch automation experience
     >
     >{: .small-space}
     > 
-    > An organization administrator cannot access a workspace unless a workspace administrator grants access, so without it the lab team cannot release your server and subscription key.
+    > Today, HPE GreenLake does not give organization administrators automatic access to the workspaces in their organization. A workspace administrator must invite them first. We are working with the HPE GreenLake team to remove this limitation. Until then, without this invitation, the lab team cannot open your workspace to remove your server and release your subscription key if your cleanup at the end of the lab does not complete, and the next participant cannot use them.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image30a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image30a.png){:class="img-600"}{: data-lightbox="gallery"}
 
