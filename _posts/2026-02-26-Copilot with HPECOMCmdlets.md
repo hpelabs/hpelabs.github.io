@@ -540,20 +540,20 @@ method that would work just as well if we had dozens or even hundreds of
 servers to add, even though in this lab you will only add one. We should
 prepare a file with the details of the server(s) we want to add. 
 
-- In VS Code menu click **File** -\> **New File**:
+- In VS Code menu click **File** ➜ **New File**:
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image18.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image18.png){:class="img-300"}{: data-lightbox="gallery"}
 
-- Type the file name **ilos.csv** and **Enter**:
+- Type the file name **iLOs.csv** and **Enter**:
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image19.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image19.png){:class="img-600"}{: data-lightbox="gallery"}
 
   A standard Windows dialog will appear to choose the location where you
-want to save the file. It should be in folder **HOL09-T<span style="color:red">nn</span>** \> **GitHubCopilotLab**. 
+want to save the file. It should be in folder **HOL09-T<span style="color:red">nn</span>** \> **GitHubCopilot Lab**. 
 
 - Click **Create File**.
 
-  [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png){:class="img-900"}{: data-lightbox="gallery"}
+  [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image20.png){:class="img-800"}{: data-lightbox="gallery"}
 
 - Decline VS Code's suggestion to install an extension to handle CSV files
 (at the bottom right of the screen), we don't really need it for the
@@ -561,17 +561,15 @@ simple work we have to do:
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21.png){:class="img-500"}{: data-lightbox="gallery"}
 
-- Open **Station-Info.txt**, copy the two lines under **Content of ilos.csv**, and paste them into the **ilos.csv** file. They look like this, with your own iLO IP and password:
+- Open **Station-Info.txt**, copy the two lines under **Content of ilos.csv**, and paste them into the **ilos.csv** file:
 
-  ```csv
-  IP, Username, Password
-  10.18.22.<xx>, Administrator, <iLO's password>
-  ```
+  [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21a1.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21a1.png){:class="img-500"}{: data-lightbox="gallery"}
 
-  Make sure the data is on 2 lines like shown above, with no extra space
-at the beginning or end of either line (space after a comma is OK). 
+  Make sure the data is on 2 lines like shown below: 
 
-- Save the file with **Ctrl**-**S** or **File**-\>**Save** in VS Code's menu.
+  [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21a2.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image21a2.png){:class="img-700"}{: data-lightbox="gallery"}
+
+- Save the file with **Ctrl**-**S** or **File** ➜ **Save** in VS Code's menu.
 
   > If we had more servers to onboard, we would simply add more lines into
 this file and our script would iterate over each line.
@@ -580,11 +578,10 @@ this file and our script would iterate over each line.
 import the csv file:
 
   ```text
-  Import file ilos.csv. Double check the field names in the csv file. Do not use module HPEiLOCmdlets
+  Import file iLOs.csv. Double check the field names in the csv file. Do not use module HPEiLOCmdlets
   ```
 
-  You should see it generated code to import the file into a variable `$iLOs` (it even figured out on its own the proper case for the name
-iLO!). It may have put the code in the middle of the script, before
+  You should see it generated code to import the file into a variable `$iLOs`. It may have put the code in the middle of the script, before
 creating the workspace, but that's OK.
 
 - To add servers into COM, we need an activation key that we can ask COM
