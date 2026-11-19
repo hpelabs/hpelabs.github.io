@@ -2037,7 +2037,7 @@ To see the full value of this library, run the [Zero Touch Automation script](ht
    Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
    ```
 
-9. Run the script, passing your workspace name:
+9. Run the script:
 
    ```powershell
    .\COM-Zero-Touch-Automation.ps1
