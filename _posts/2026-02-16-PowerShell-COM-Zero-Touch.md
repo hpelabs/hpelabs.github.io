@@ -82,47 +82,19 @@ and participate in
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image2.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image2.png){:class="img-800"}{: data-lightbox="gallery"}
 
-This library provides a variety of key features for managing HPE
-GreenLake and Compute Ops Management. Here are the main features:
+The library covers the HPE GreenLake platform and every Compute Ops Management instance in your workspace:
 
-- **Authentication**: Establish secure connections to HPE GreenLake using SAML/OIDC Single Sign-On (SSO) or single/multi-factor authentication. Whether you have an existing workspace or not, the library supports flexible
-authentication methods to suit your needs.
+- **Authentication and sessions**: Connect with SAML 2.0 or OIDC single sign-on (Okta, Microsoft Entra ID, PingIdentity), passwordless or password-based, or with an HPE Account with or without MFA. One session covers every COM region, and sessions can be saved and restored for multi-workspace automation.
 
-- **Workspace Management**: Create and manage HPE GreenLake workspaces.
+- **Workspace, identity and access**: Create and manage workspaces, organizations and tenant workspaces; claim domains and configure SSO connections and authentication policies; invite users and manage user groups, roles, and scope-based access control (SBAC).
 
-- **Session Tracking**: Automatically track sessions with the global session tracker $HPEGreenLakeSession.
+- **Services, subscriptions and devices**: Provision Compute Ops Management, manage subscriptions and auto-subscription policies, add devices individually or in bulk from CSV files, set locations and tags, and remove (unclaim) devices.
 
-- **User Management**: Invite and manage users within your HPE GreenLake environment, assign roles.
+- **Server onboarding and configuration**: Connect iLOs to COM directly, through a web proxy, or through a Secure Gateway (with automatic discovery). Create BIOS, storage, OS, firmware and iLO settings, and apply them to server groups.
 
-- **Resource Management**: Manage resources such as servers, storage, and networking within your HPE GreenLake environment.
+- **Operations, compliance and insights**: Schedule firmware updates and other jobs, require approval for sensitive operations, check firmware, iLO settings and external storage compliance, collect inventory, health, warranty and logs, and review utilization and sustainability insights.
 
-- **Service Provisioning**: Provision services like Compute Ops Management, manage service roles and subscriptions.
-
-- **Device Management**: Add devices individually or in bulk using CSV files, manage device subscriptions and auto-subscriptions, set device locations and connect devices to services.
-
-- **Server Configuration Management**: Create and apply BIOS, storage, OS, and firmware settings. Manage group and apply configurations to groups of servers.
-
-- **Security and Compliance**: Manage iLO security settings and run inventory and compliance checks.
-
-- **Job Scheduling and Execution**: Schedule and execute various tasks like firmware updates, OS installations, and sustainability reports.
-
-- **Notification and Integration**: Enable email notifications for service events and summaries, integrate with external services like ServiceNow.
-
-- **Appliance Management**: Add HPE OneView and Secure Gateway appliances, upgrade HPE OneView appliances.
-
-- **Monitoring and Alerts**: Monitor alerts for your resources to ensure optimal performance and uptime.
-
-- **Reporting**: Generate detailed reports on resource usage, performance, and other metrics.
-
-- **Automation**: Automate repetitive tasks and workflows using PowerShell scripts and cmdlets.
-
-- **Integration**: Seamlessly integrate with other tools and platforms using REST APIs and webhooks.
-
-- **Security**: Implement security best practices and manage access control for your HPE GreenLake environment.
-
-These features collectively provide a comprehensive set of cmdlets to
-manage various aspects of your HPE GreenLake environment and any
-existing Compute Ops Management service instances.
+- **Notifications, integration and appliances**: Enable email notifications, deliver platform events to external endpoints with webhooks, integrate with ServiceNow, and manage HPE OneView, OVE and Secure Gateway appliances.
 
 # Connecting to the lab environment
 
