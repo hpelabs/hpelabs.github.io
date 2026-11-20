@@ -2064,3 +2064,7 @@ body .highlight .err {
   color: #007057 !important;
 }
 
+/* Code blocks: only the code itself is grey; the outer wrapper would show a strip from the inner margin */
+[data-theme="light"] div.highlighter-rouge {
+  background-color: transparent !important;
+}
