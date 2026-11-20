@@ -19,7 +19,7 @@
       {%- assign post_date_ts = post.date | date: "%s" | plus: 0 -%}
       {%- assign post_modified_ts = post.last_modified_at | default: post.date | date: "%s" | plus: 0 -%}
       <span class="home-card-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post_modified_ts > post_date_ts %} &middot; Updated {{ post.last_modified_at | date: "%b %-d, %Y" }}{% endif %}{% unless post.hide_read_time %} &middot; {% include custom/read_time_or_words.html %}{% endunless %}</span>
-      <a class="home-read-link" href="{{ post.url | relative_url }}" aria-label="Open {{ post.title | escape }}">Explore lab <span aria-hidden="true">&rarr;</span></a>
+      <a class="home-read-link" href="{{ post.url | relative_url }}" aria-label="Open {{ post.title | escape }}">{{ include.cta | default: "Explore lab" }} <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </li>

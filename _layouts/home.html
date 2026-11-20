@@ -4,6 +4,8 @@ layout: default
 
 {% if page.home_pilot %}
   {% include custom/home-pilot.html %}
+{% elsif page.post_type == 'demo' %}
+  {% include custom/demos-pilot.html %}
 {% else %}
 <div class="home">
   {%- if page.title -%}

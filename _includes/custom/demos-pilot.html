@@ -1,0 +1,32 @@
+{%- assign demos = "" | split: "" -%}
+{%- assign sorted_posts = site.posts | sort_natural: 'title' -%}
+{%- for post in sorted_posts -%}
+  {%- unless post.exclude -%}
+    {%- if post.type == 'demo' -%}
+      {%- if page.show_hidden_posts or site.show_hidden_posts or post.hidden != true -%}
+        {%- assign demos = demos | push: post -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+
+<div class="home home-pilot">
+  {% include custom/translate.html %}
+  {{ content }}
+
+  <section class="home-guides" id="available-demos" aria-labelledby="demos-heading">
+    <div class="home-section-heading">
+      <div><p class="home-eyebrow">SEE IT IN ACTION</p><h1 id="demos-heading">{{ page.title | escape }} <span class="post-list-count">{{ demos.size }}</span></h1></div>
+      <span class="home-heading-note">Guided presentation environments</span>
+    </div>
+    {% if demos.size > 0 %}
+    <ul class="post-list home-post-list">
+      {% for post in demos %}
+        {% include custom/home-pilot-card.html post=post cta="Explore demo" %}
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="home-empty">No demos are available right now.</p>
+    {% endif %}
+  </section>
+</div>

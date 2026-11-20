@@ -23,7 +23,11 @@ This repository hosts practical guides, tutorials, and lab material focused on H
 
 The homepage pilot is enabled by `home_pilot: true` in `index.html`. Its topic
 filters use lab tags; set an optional `home_title` in a lab's front matter for
-a shorter card title. The room and demo pages keep their existing layout.
+a shorter card title. The demos page (`post_type: demo`) uses the same cards.
+The room pages keep their existing layout.
+Search results use the same hover styling as the homepage cards. Click anywhere
+on a result to open the lab. Matching text is bold, and dates and tags stay
+grouped in the card footer.
 
 ## Structure
 
