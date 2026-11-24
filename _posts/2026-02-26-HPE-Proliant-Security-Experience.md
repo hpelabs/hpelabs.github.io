@@ -146,8 +146,7 @@ hosts using DHCP reservations. This ensures that the lab unit you access
 receives the same IP address each time it boots after the lab is reset.
 Your team's HPE iLO7 FQDN and default Administrator credentials are in
 the **YOUR SERVER AND ITS iLO 7** section of **Station-Info.txt** on
-your desktop. Be sure to also record your server's serial number, which
-is in the same section.
+your desktop.
 
 1.  Use your Horizon enabled Chrome browser session that you connected
     with in the previous section. Remember that for these labs to work,
@@ -517,8 +516,8 @@ number (see **Station-Info.txt**).
 The connection between HPE iLO7 and HPE GreenLake is initiated by the
 HPE iLO7 for security purposes. During the onboarding process, an
 HPE-issued client certificate is used by the HPE iLO7 to connect to HPE
-Compute Ops Management. The HPE CA Certificate uses SHA256 with a key
-size of EC 384 bits and is transmitted over a Mutual Transport Layer
+Compute Ops Management. The HPE CA Certificate uses SHA256 with an EC key
+size of 384 bits and is transmitted over a Mutual Transport Layer
 Security (mTLS) connection from the HPE iLO7 to HPE GreenLake and
 Compute Ops Management over HTTPS (port 443). In a typical TLS setup,
 only the server is authenticated by the client. In mTLS, both the client
@@ -633,8 +632,7 @@ Return to your HOL Horizon Browser session.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image49.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image49.png){: data-lightbox="gallery"}{:class="img-1000"}
 
 5.  On the Setting details page, **enter your Team name with -Firmware**
-    appended to it (for example **Team-07-Firmware**, see the **COMPUTE
-    OPS MANAGEMENT NAMES** section of **Station-Info.txt**). Also
+    appended to it (for example **Team-07-Firmware**). Also
     **enter your team’s name as a Description**.
     Finally pick the **Category of Firmware** from the pull-down box and
     click **Next** to continue.
@@ -972,19 +970,9 @@ monitor and manage security settings proactively.
       >
       >{: .small-space}
       >
-      > If `ilorest reboot On` returns an **InvalidOperationForSystemState** error, the server is already powered on, so it cannot be powered on again. Power it off first, then power it back on so the new Secure Boot setting is applied:
+      > If `ilorest set SecureBootEnable=True --commit` returns an **UnableToModifyDuringSystemPOST** error, the server is powered on, so the setting  cannot be applied. Check that the jobs from the previous steps are complete, then power it off, using either the COM interface or the iLO interface then retry the command.
       >
-      >{: .small-space}
-      >
-      > ```text
-      > ilorest reboot ForceOff
-      > ilorest reboot On
-      > ```
-      >
-      >{: .small-space}
-      >
-      > [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96a.png){: data-lightbox="gallery"}{:class="img-600"}
-
+      
 34. Close the **RESTful Interface Tool** and return to your **iLO7**. **Secure Boot** is enabled once the server completes a full POST (Power-On Self-Test) after the reboot. This can take a few minutes, so wait for POST to finish before you validate the security setting changes.
 
 35. Return to the **HPE iLO7 Dashboard** of your assigned Server.
