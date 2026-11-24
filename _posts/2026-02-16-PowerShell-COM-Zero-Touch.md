@@ -336,7 +336,7 @@ You may now leave this page open and begin your zero-touch automation experience
 
 ## Step 1 - Create your first workspace
 
-1. Next, create a workspace. Return to VS Code and, in **Station-Info.ps1**, in the Lab variables block, click anywhere on the `$WorkspaceName` line, and press **F8**. This defines your workspace name variable in the terminal. The name follows the format `COM-ZeroTouch-Lab-xx`, where `xx` is your team number:
+1. Next, create a workspace. Return to VS Code and, in **Station-Info.ps1**, in the Lab variables block, click anywhere on the `$WorkspaceName` line, and press **F8**. This defines your workspace name variable in the terminal. The name follows the format <code>COM-ZeroTouch-Lab-<span style="color:red">xx</span></code>, where <span style="color:red">xx</span> is your team number:
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image28c.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image28c.png){:class="img-800"}{: data-lightbox="gallery"}
 
@@ -2065,19 +2065,15 @@ streamline onboarding, enforce policy‑driven governance, automate compliance, 
 
 # Want more?
 
-**🚀** Looking to automate the onboarding of HPE servers into HPE
-GreenLake and Compute Ops Management, see
-[Onboarding-Script](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Prepare-and-Connect-iLOs-to-COM-v2.ps1).
+**🧪** Try the [GitHub Copilot and HPECOMCmdlets hands-on lab]({{ site.baseurl }}/Copilot-with-HPECOMCmdlets/) to build a Compute Ops Management automation script with AI-assisted prompts.
 
-**🚀** Looking to demonstrate the power of scripting with HPE GreenLake
-and Compute Ops Management, see [HPE Compute Ops Management Zero Touch
-Automation
-Example](https://github.com/jullienl/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1).
-This script automates the entire lifecycle from workspace provisioning
-through server configuration, policy management, and optional cleanup.
-It showcases best practices for programmatic infrastructure deployment
-and provides a foundation for building production-ready automation
-workflows.
+**📖** Explore the [PowerShell Library for HPE Compute Ops Management article](https://jullienl.github.io/PowerShell-library-for-HPE-GreenLake) for installation, authentication, session management, onboarding examples, best practices, and troubleshooting. For the most complete and up-to-date library reference, consult the [HPECOMCmdlets README](https://github.com/jullienl/HPE-COM-PowerShell-Library/blob/main/README.md).
+
+**🚀** Explore the [Zero-Touch Automation example](https://github.com/jullienl/HPE-COM-PowerShell-Library/blob/main/Examples/COM-Zero-Touch-Automation.ps1) used in this lab. It demonstrates the lifecycle from workspace provisioning and server onboarding through configuration, firmware updates, and optional cleanup.
+
+**🚀** To prepare and onboard multiple servers from a CSV file, see [Prepare-and-Connect-iLOs-to-COM-v2.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Prepare-and-Connect-iLOs-to-COM-v2.ps1). It can configure iLO connectivity, update firmware when needed, and connect devices directly, through a proxy, or through a Secure Gateway.
+
+**🚀** To discover and onboard servers through a Secure Gateway, see [Discover-and-Onboard-iLOs-via-SecureGateway.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Discover-and-Onboard-iLOs-via-SecureGateway.ps1). The gateway discovers iLOs on its network and handles firmware updates; the script also offers a preflight check and CSV status report.
 
 **🔔** Explore a variety of sample scripts designed for the Compute Ops
 Management API, including Ansible playbooks, PowerShell, and Python
