@@ -146,8 +146,7 @@ hosts using DHCP reservations. This ensures that the lab unit you access
 receives the same IP address each time it boots after the lab is reset.
 Your team's HPE iLO7 FQDN and default Administrator credentials are in
 the **YOUR SERVER AND ITS iLO 7** section of **Station-Info.txt** on
-your desktop. Be sure to also record your server's serial number, which
-is in the same section.
+your desktop.
 
 1.  Use your Horizon enabled Chrome browser session that you connected
     with in the previous section. Remember that for these labs to work,
@@ -517,8 +516,8 @@ number (see **Station-Info.txt**).
 The connection between HPE iLO7 and HPE GreenLake is initiated by the
 HPE iLO7 for security purposes. During the onboarding process, an
 HPE-issued client certificate is used by the HPE iLO7 to connect to HPE
-Compute Ops Management. The HPE CA Certificate uses SHA256 with a key
-size of EC 384 bits and is transmitted over a Mutual Transport Layer
+Compute Ops Management. The HPE CA Certificate uses SHA256 with an EC key
+size of 384 bits and is transmitted over a Mutual Transport Layer
 Security (mTLS) connection from the HPE iLO7 to HPE GreenLake and
 Compute Ops Management over HTTPS (port 443). In a typical TLS setup,
 only the server is authenticated by the client. In mTLS, both the client
@@ -633,8 +632,7 @@ Return to your HOL Horizon Browser session.
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image49.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image49.png){: data-lightbox="gallery"}{:class="img-1000"}
 
 5.  On the Setting details page, **enter your Team name with -Firmware**
-    appended to it (for example **Team-07-Firmware**, see the **COMPUTE
-    OPS MANAGEMENT NAMES** section of **Station-Info.txt**). Also
+    appended to it (for example **Team-07-Firmware**). Also
     **enter your team’s name as a Description**.
     Finally pick the **Category of Firmware** from the pull-down box and
     click **Next** to continue.
@@ -953,37 +951,42 @@ monitor and manage security settings proactively.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95b.png){: data-lightbox="gallery"}
    
-35. Once logged in to your assigned iLO, you can then continue with the following commands to enable secure boot:
+35. Once logged in to your assigned iLO, check the current server state:
+
+    ```text
+    ilorest serverstate
+    ```
+
+    Secure Boot can be enabled whether the server is powered on or off, but not while it is in POST. If the state is `InPost`, wait a minute and run the command again until the state is `FinishedPost` or `PowerOff`.
+
+36. Enable Secure Boot:
 
     ```text
     ilorest select SecureBoot
-
     ilorest set SecureBootEnable=True --commit
+    ```
 
-    ilorest reboot On
+37. The new setting is applied at the next boot. Run the command that matches the state reported by `ilorest serverstate`:
 
+    - If the server is **powered off** (`PowerOff`), power it on:
+
+      ```text
+      ilorest reboot On
+      ```
+
+    - If the server is **powered on** (`FinishedPost`), restart it:
+
+      ```text
+      ilorest reboot ForceRestart
+      ```
+
+    Then log out:
+
+    ```text
     ilorest logout
     ```
-      
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: data-lightbox="gallery"}{:class="img-900"}
-
-      > **Note**: Check the output of each command before you run the next one.
-      >
-      >{: .small-space}
-      >
-      > If `ilorest reboot On` returns an **InvalidOperationForSystemState** error, the server is already powered on, so it cannot be powered on again. Power it off first, then power it back on so the new Secure Boot setting is applied:
-      >
-      >{: .small-space}
-      >
-      > ```text
-      > ilorest reboot ForceOff
-      > ilorest reboot On
-      > ```
-      >
-      >{: .small-space}
-      >
-      > [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96a.png){: data-lightbox="gallery"}{:class="img-600"}
 
 34. Close the **RESTful Interface Tool** and return to your **iLO7**. **Secure Boot** is enabled once the server completes a full POST (Power-On Self-Test) after the reboot. This can take a few minutes, so wait for POST to finish before you validate the security setting changes.
 
@@ -1516,16 +1519,15 @@ full control of their hardware, no matter where it’s located.
 
 # Want more?
 
-Back home, you can head to the [HPE Demonstration Portal](https://hpedemoportal.ext.hpe.com) and request a time slot to demonstrate these products
+**🔒** Review the [HPE iLO 7 security guidelines](https://cdn.support.hpe.com/hpesc/public/docDisplay?docId=sd00005342en_us&page=GUID-E66D5770-790D-4E25-8294-394563E30C01.html&docLocale=en_US) for recommendations on securing management access, authentication, and certificates.
 
-For COM Interest, request a 90-day evaluation
+**🧪** Explore the [HPE Compute Ops Management Zero-Touch Automation hands-on lab]({{ site.baseurl }}/PowerShell-COM-Zero-Touch/) to automate server onboarding and lifecycle management with PowerShell.
 
-Pull out your phone and view HPE GreenLake and HPE Compute Ops
-Management, to move to the next step in a wholistic IT system management
-strategy.
+**🚀** To discover and onboard servers through a Secure Gateway, see [Discover-and-Onboard-iLOs-via-SecureGateway.ps1](https://github.com/jullienl/HPE-Compute-Ops-Management/blob/main/PowerShell/Onboarding/Discover-and-Onboard-iLOs-via-SecureGateway.ps1).
 
-**Login**: com.demouser@gmail.com   
-**Password**: Refer to login sheet
+**🖥️** Request a demonstration through the [HPE Demonstration Portal](https://hpedemoportal.ext.hpe.com/) or request a [90-day evaluation](https://www.hpe.com/us/en/hpe-compute-ops-management.html?emodal=/us/en/greenlake/fragments/modal-fragment/uc-modal-form.fragment.html) of Compute Ops Management.
+
+**📱** Scan the QR code to open [HPE GreenLake](https://common.cloud.hpe.com/) on your phone:
 
 [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image160.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image160.png){: data-lightbox="gallery"}{:class="img-200"}
 
