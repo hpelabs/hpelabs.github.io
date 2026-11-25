@@ -939,54 +939,96 @@ monitor and manage security settings proactively.
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image94.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image94.png){: data-lightbox="gallery"}{:class="img-600"}
 
-32. For the first issue, **Default SSL certificate in Use**, you will **Request and Apply a Signed Certificate** from a **trusted Certificate Authority** in the next section of this Hands-On Lab. For the **Secure Boot** issue, you can fix it now by using **HPE iLOrest** to enable Secure Boot. **HPE iLOrest** is an HPE command-line utility for managing iLO through the Redfish REST API. Navigate to the Horizon **Desktop** and open the **RESTful Interface Tool**:
+32. For the first issue, **Default SSL certificate in Use**, you will **Request and Apply a Signed Certificate** from a **trusted Certificate Authority** in the next section of this Hands-On Lab. 
+
+      For the **Secure Boot** issue, you can fix it now by using **HPE iLOrest** to enable Secure Boot:
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95.png){: data-lightbox="gallery"}
+
+      **HPE iLOrest** is an HPE command-line utility for managing iLO through the Redfish REST API. Navigate to the Horizon **Desktop** and open the **RESTful Interface Tool**.
 
 33. Copy the iLOrest commands from the **ENABLE SECURE BOOT WITH iLOREST** section of **Station-Info.txt** 
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95a.png)]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95a.png){: data-lightbox="gallery"}
 
-34. Paste it into the RESTful Interface Tool. 
+34. Paste the command into the RESTful Interface Tool and press **Enter** to log in to your iLO. You must be logged in before you can run the other iLOrest commands:
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95b.png){: data-lightbox="gallery"}
    
-35. Once logged in to your assigned iLO, check the current server state:
+35. Secure Boot cannot be changed while the server is in POST. Because your lab server has no operating system installed, it may keep trying to network boot (PXE), which iLO reports as POST. To make sure the setting can be applied, you will power off the server first.
+
+    Before you do, make sure COM has finished applying the settings from the previous steps. In COM, open your server group and check the **Recent group activity** pane: the BIOS and iLO settings jobs must show as complete. 
+    
+      [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95c.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image95c.png){: data-lightbox="gallery"}
+    
+    If a job is still running, wait for it to finish, as powering off the server could interrupt it.
+
+    Once the jobs are complete, return to the **RESTful Interface Tool** and power off the server:
+
+    ```text
+    ilorest reboot ForceOff
+    ```
+
+    If the server is already off, this command may return an error, which you can ignore.
+
+36. Check that the server is off:
 
     ```text
     ilorest serverstate
     ```
 
-    Secure Boot can be enabled whether the server is powered on or off, but not while it is in POST. If the state is `InPost`, wait a minute and run the command again until the state is `FinishedPost` or `PowerOff`.
+    Wait until the state is `PowerOff`. If it is not, wait a few seconds and run the command again.
 
-36. Enable Secure Boot:
+37. Enable Secure Boot, power on the server so the setting is applied at boot, then log out:
 
     ```text
     ilorest select SecureBoot
     ilorest set SecureBootEnable=True --commit
-    ```
-
-37. The new setting is applied at the next boot. Run the command that matches the state reported by `ilorest serverstate`:
-
-    - If the server is **powered off** (`PowerOff`), power it on:
-
-      ```text
-      ilorest reboot On
-      ```
-
-    - If the server is **powered on** (`FinishedPost`), restart it:
-
-      ```text
-      ilorest reboot ForceRestart
-      ```
-
-    Then log out:
-
-    ```text
+    ilorest reboot On
     ilorest logout
     ```
 
       [![]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/Proliant-Security/image96.png){: data-lightbox="gallery"}{:class="img-900"}
+
+      > **💡 Note**
+      >
+      >{: .small-space}
+      >
+      > Secure Boot can also be configured with the COM API, using a custom BIOS setting. For details, see [Creating Server BIOS/Workload Profile Settings](https://support.hpe.com/hpesc/public/docDisplay?docId=sd00004003en_us&docLocale=en_US&page=GUID-6F540F40-02B7-47B5-9E8C-92F4BBCCBC63.html#ariaid-title1) in the COM User Guide. The setting is created with a `POST` request to the COM Settings v1 API:
+      >
+      >{: .small-space}
+      >
+      > ```text
+      > POST https://eu-central.api.greenlake.hpe.com/compute-ops-mgmt/v1/settings
+      > Accept: application/json
+      > Authorization: Bearer <access_token>
+      > Content-Type: application/json
+      > ```
+      >
+      >{: .small-space}
+      >
+      > ```json
+      > {
+      >   "name": "BIOS - Secure Boot enabled",
+      >   "description": "",
+      >   "category": "BIOS",
+      >   "settings": {
+      >     "DEFAULT": {
+      >       "enableCustomWorkloadProfile": true,
+      >       "redfishData": {
+      >         "Attributes": {
+      >           "SecureBootEnable": "Enabled",
+      >           "WorkloadProfile": "Virtualization-MaxPerformance"
+      >         }
+      >       }
+      >     }
+      >   }
+      > }
+      > ```
+      >
+      >{: .small-space}
+      >
+      > ⚠️ A known COM issue currently prevents this from working, and a fix is in progress. When the setting is applied to a server, COM reports *Apply BIOS settings successful*, but adds: *The following BIOS settings were not applied because the setting was not found on the server: SecureBootEnable*. This is why the lab uses iLOrest.
 
 34. Close the **RESTful Interface Tool** and return to your **iLO7**. **Secure Boot** is enabled once the server completes a full POST (Power-On Self-Test) after the reboot. This can take a few minutes, so wait for POST to finish before you validate the security setting changes.
 
