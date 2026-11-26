@@ -904,10 +904,16 @@ ILO settings enable the configuration of specific parameters to standardize iLO 
 
    ```powershell
    $iLOSettingName = "AI_iLO_Settings"
-   New-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -AccountServicePasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Disabled
+   New-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -AccountServicePasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Disabled -HardwareVerification Enabled
    ```
     
-    This command activates iLO virtual media, enforces password complexity, enables HTTPS, and disables third-party firmware updates.
+    This command activates iLO virtual media, enforces password complexity, enables HTTPS, disables third-party firmware updates, and enables hardware verification.
+
+    > **💡 Note**
+    >
+    >{: .small-space}
+    > 
+    > With hardware verification enabled, Compute Ops Management records a trusted baseline of the server hardware (memory, drives, processors, power supplies, chassis and devices such as storage controllers or network adapters) when the server joins the group. Any component added, removed or modified afterwards is flagged until an administrator reviews and accepts the change. You will check this in Task 10.
 
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image49.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image49.png){:class="img-600"}{: data-lightbox="gallery"}
 
@@ -1364,16 +1370,80 @@ automatically applied.
 
 # Task 9 - Updating and Ensuring Server Firmware Compliance
 
-<p class="step-meta">(Task 9 of 12) ⏱️ ~10 min</p>
+<p class="step-meta">(Task 9 of 12) ⏱️ ~15 min</p>
 
 This section outlines the procedures for configuring key server
-management functions in COM. It covers maintaining server firmware
-compliance to uphold security and performance standards, reviewing group
-firmware deviations, and scheduling group firmware updates. Adhering to
-these steps will enhance the efficiency of monitoring and maintaining
-your server infrastructure.
+management functions in COM. It covers reviewing the firmware analysis
+report to understand the security value of an update, maintaining server
+firmware compliance to uphold security and performance standards,
+reviewing group firmware deviations, and scheduling group firmware
+updates. Adhering to these steps will enhance the efficiency of
+monitoring and maintaining your server infrastructure.
 
-## Step 1 - Checking group firmware compliance 
+## Step 1 - Reviewing the firmware analysis report
+
+Before updating firmware, it helps to know what the update would bring. Compute Ops Management continuously compares every server with the latest firmware baseline of its generation, and reports what an update would change, including the **security bulletins** and **customer advisories** it would resolve. The analysis is refreshed automatically when the server inventory changes, when an advisory or bulletin is updated, or when a new baseline is supported, so there is nothing to run first.
+
+1. To display the report summary for each server generation, enter:
+
+   ```powershell
+   Get-HPECOMFirmwareAnalysisReport -Region $Region
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75a.png){:class="img-800"}{: data-lightbox="gallery"}
+
+    For each generation, the summary shows the baseline used for the analysis, the number of servers to update and already up to date, and the number of advisories and bulletins that the update resolves.
+
+2. To list the servers that need an update, run:
+
+   ```powershell
+   Get-HPECOMFirmwareAnalysisReport -Region $Region -ShowServersToUpdate
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75b.png){:class="img-1000"}{: data-lightbox="gallery"}
+
+    For each server, the report shows the number of components to update, the critical updates, the advisories resolved, whether a reboot is required, and the download size.
+
+3. To list the security bulletins and customer advisories resolved by the update, run:
+
+   ```powershell
+   Get-HPECOMFirmwareAnalysisReport -Region $Region -ShowAdvisories
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75c.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image75c.png){:class="img-1000"}{: data-lightbox="gallery"}
+
+    Each entry shows the severity, the title, the number of servers affected, and a link to the HPE support document. To focus on the most important ones, filter by severity and type:
+
+   ```powershell
+   Get-HPECOMFirmwareAnalysisReport -Region $Region -ShowAdvisories -Severity Critical, High -Type 'Security Bulletin'
+   ```
+
+    > **⚠️ Note**
+    >
+    >{: .small-space}
+    > 
+    > Your server was onboarded only a few minutes ago, so it may not be analyzed yet. In that case, the commands above return no server, and the following command lists your server with the reason it has not been analyzed:
+    >
+    > ```powershell
+    > Get-HPECOMFirmwareAnalysisReport -Region $Region -ShowServersNotAnalyzed
+    > ```
+    >
+    >{: .small-space}
+    > 
+    > The screenshots are included to illustrate the anticipated output once the analysis is complete.
+
+    > **💡 Note**
+    >
+    >{: .small-space}
+    > 
+    > The server lists of the report can be piped directly to the firmware update cmdlets. For example, to preview an update of every server whose update resolves at least one advisory or bulletin:
+    >
+    > ```powershell
+    > Get-HPECOMFirmwareAnalysisReport -Region $Region -ShowServersToUpdate | Where-Object advisoriesResolved -gt 0 | Update-HPECOMServerFirmware -FirmwareBaselineReleaseVersion $Gen11_Firmware_Baseline -WhatIf
+    > ```
+    {: .no-copy}
+
+## Step 2 - Checking group firmware compliance 
 
 The initial step in this process is to verify your group's firmware
 compliance status. This compliance report provides a clear assessment of
@@ -1425,7 +1495,7 @@ efficiently.
     >     
     > You may achieve a perfect 100% compliance score with no deviations depending on the status of your allocated server.
 
-## Step 2 - Checking group firmware deviations
+## Step 3 - Checking group firmware deviations
 
 Before updating the server firmware, you can examine any deviations in
 firmware components from your group's established baseline. This step
@@ -1465,7 +1535,7 @@ in the TotalDownloadSize column of the firmware compliance report.
     > 
     > The Firmware Compliance feature does not monitor HPE driver and software versions.
 
-## Step 3 - Scheduling group firmware update
+## Step 4 - Scheduling group firmware update
 
 After identifying the firmware deviation within the group definition,
 you may choose to perform a group firmware update. For this exercise,
@@ -1544,15 +1614,16 @@ weekend (in four days).
 
 # Task 10 - Essential Next Steps for Server Management and Sustainability
 
-<p class="step-meta">(Task 10 of 12) ⏱️ ~15 min</p>
+<p class="step-meta">(Task 10 of 12) ⏱️ ~20 min</p>
 
 After completing setup and firmware updates, the next essential steps
 focus on ongoing server management and sustainability. Use HPE Compute
 Ops Management PowerShell cmdlets to monitor server performance and
 sustainability, generate utilization insights, and review energy
 reports. Streamline authentication for accessing iLO interfaces by
-implementing Single Sign-On (SSO), and confirm that your COM
-configuration of iLO settings is correct through practical verification.
+implementing Single Sign-On (SSO), confirm that your COM
+configuration of iLO settings is correct through practical verification,
+and check the security and hardware verification status of your server.
 
 ## Step 1 - Server utilization insights
 
@@ -1804,6 +1875,8 @@ best practices.
    Set-HPECOMSettingiLOSettings -Region $Region -Name $iLOSettingName -Description "iLO Settings for AI Servers" -VirtualMedia Enabled -AccountServicePasswordComplexity Enabled -WebServerSSL Enabled -AcceptThirdPartyFirmwareUpdates Enabled
    ```
 
+    Settings that are not specified in the command, such as hardware verification, keep their current value.
+
     [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image88.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image88.png){:class="img-600"}{: data-lightbox="gallery"}
 
 3. Check the compliance status
@@ -1886,6 +1959,86 @@ best practices.
 - Approaches for monitoring COM jobs in order to track the progress of configuration changes.
 
 These points illustrate the effectiveness of COM's policy-based management approach, enabling administrators to specify desired states within group settings and allowing COM to automatically detect and remediate configuration drift across servers.
+
+## Step 5 - Checking server security and hardware verification
+
+In Task 6, you enabled hardware verification in the iLO settings of your group. When your server joined the group, Compute Ops Management recorded a trusted baseline of its hardware. From now on, any component that is added, removed or modified (memory, drives, processors, power supplies, chassis, storage controllers, network adapters) is detected, and the server is flagged as at risk until an administrator reviews and accepts the change. This protects against unauthorized hardware changes, such as a swapped drive or an added device.
+
+1. To review the security status of your server, enter:
+
+   ```powershell
+   Get-HPECOMServer -Region $Region -Name $SN -ShowSecurityParameters
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94a.png){:class="img-100pct"}{: data-lightbox="gallery"}
+
+    The output shows the overall security status, the iLO security status, and the hardware verification status of your server. A hardware verification status of **OK** means that the hardware matches the trusted baseline.
+
+2. To get the same view for the whole group, with the number of servers per status, run:
+
+   ```powershell
+   Get-HPECOMGroup -Region $Region -Name $GroupName -ShowSecurityStatus
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94b.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94b.png){:class="img-500"}{: data-lightbox="gallery"}
+
+    > **💡 Note**
+    >
+    >{: .small-space}
+    > 
+    > Without `-Name`, this command returns the security status of all your groups, which is a quick way to find the groups that contain servers at risk.
+
+3. To display the hardware verification details of the servers in your group, run:
+
+   ```powershell
+   Get-HPECOMGroupServerHardwareVerification -Region $Region -GroupName $GroupName
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94c.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94c.png){:class="img-900"}{: data-lightbox="gallery"}
+
+    Your server should show **Verified**, with the date the baseline was recorded. When a hardware change is detected, the status becomes **Failed** and the **ComponentsChanged** column lists the categories of the changed components.
+
+    > **📝 Note: What happens when the hardware changes**
+    > 
+    > {: .small-space}
+    >  
+    > Changing hardware is not possible in this lab, so the following example illustrates the process on a server where an embedded storage controller was removed. The `-Status RISK` filter lists the servers with hardware changes, and `-ShowChanges` details each change with its category, type (Added, Removed, Modified), component name, location, model and serial number:
+    > 
+    > {: .small-space}
+    > 
+    > ```powershell
+    > Get-HPECOMGroupServerHardwareVerification -Region $Region -GroupName $GroupName -Status RISK
+    > Get-HPECOMGroupServerHardwareVerification -Region $Region -GroupName $GroupName -ShowChanges
+    >  ```
+    > 
+    > {: .small-space}
+    >  
+    >  ![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94d.png){: .bordered-image-thin}{:class="img-600"}
+    > 
+    > {: .small-space}
+    >  
+    >  Once the change is confirmed as legitimate, the administrator accepts it. The current hardware becomes the new trusted baseline and the status returns to **Verified**:
+    > 
+    > {: .small-space}
+    >     
+    > ```powershell
+    > Get-HPECOMGroupServerHardwareVerification -Region $Region -GroupName $GroupName -Status RISK | Approve-HPECOMGroupServerHardwareChange
+    > ```
+    > 
+    > {: .small-space}
+    >  
+    > ![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94e.png){: .bordered-image-thin}
+    {: .no-copy}
+
+4. Since your server has no hardware change, there is nothing to accept. You can check how the cmdlet validates the request before sending anything by running it with `-WhatIf`:
+
+   ```powershell
+   Approve-HPECOMGroupServerHardwareChange -Region $Region -GroupName $GroupName -ServerName $SN -WhatIf
+   ```
+
+    [![]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94f.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-ZeroTouch/image94f.png){:class="img-1000"}{: data-lightbox="gallery"}
+
+    The cmdlet reports that there are no hardware changes to accept and does not send the request. Like all cmdlets of the library, it checks every condition first (the group exists, the server is a member, hardware verification is enabled, a change is pending), so your automation scripts get a clear status instead of an API error.
 
 
 [↑ Back to Top](#)
@@ -2051,7 +2204,9 @@ Throughout this lab, you explored how to automate server lifecycle management us
 
 - Used COM SSO to access iLO, detected configuration drift, and automatically re‑applied policy.
 
-- Explored firmware compliance, scheduled updates, utilization insights, and sustainability metrics.
+- Reviewed the security and hardware verification status of your server and learned how hardware changes are detected and accepted.
+
+- Reviewed the firmware analysis report to identify the security bulletins and advisories resolved by an update, then explored firmware compliance, scheduled updates, utilization insights, and sustainability metrics.
 
 - Cleaned up your workspace by removing the server, the subscription key, the COM service instance, and the workspace itself.
 
