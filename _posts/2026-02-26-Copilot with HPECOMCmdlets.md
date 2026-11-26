@@ -177,7 +177,7 @@ into GitHub, ensuring your rights to Copilot.
 
   This area shows how Copilot is set up for your session:
 
-  - **Copilot Fusion** is the model selection, and **Standard** is its setting. You will keep this default for the whole lab (see below).
+  - **Copilot Fusion** is the model selection, and **Standard** is its setting. Keep this default for now (see below).
   - **Copilot** is the agent that carries out your requests.
   - **Interactive** means Copilot works with you step by step in this chat.
   - **Manual permissions** means Copilot asks for your approval before it runs a command or fetches information. You will see these requests during the lab.
@@ -188,7 +188,7 @@ and generate human-like text. LLMs are trained on massive amounts of
 data and can perform tasks such as answering questions, summarizing
 information, translating languages, and generating content.
 
-  **Copilot Fusion** is not a single LLM. For each request, it picks the model best suited to the task, or combines several models, so you get strong results without having to choose a model yourself. In this lab, Copilot will write PowerShell code, and Fusion automatically selects a powerful model for this kind of work, as you will see with your first prompt. **Keep Copilot Fusion selected.**
+  **Copilot Fusion** is not a single LLM. It picks the model best suited to your task, or combines several models, so you get strong results without having to choose a model yourself. In this lab, Copilot will write PowerShell code, and Fusion automatically selects a powerful model for this kind of work, as you will see with your first prompt. **Keep Copilot Fusion selected**, unless it picks a model other than **Claude Opus 5.5** (see below).
 
 [↑ Back to Top](#)
 
@@ -228,11 +228,21 @@ be different even with the exact same prompts, that is the nature of AI.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9a.png){:class="img-500"}{: data-lightbox="gallery"}
 
-- Just below your prompt, Copilot tells you which model Copilot Fusion picked for this request. Here it selected **Claude Opus 5.5** because the task has high complexity.
+- Just below your prompt, Copilot tells you which model Copilot Fusion picked for your conversation. Here it selected **Claude Opus 5.5** because the task has high complexity.
 
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9g.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9g.png){:class="img-500"}{: data-lightbox="gallery"}
 
-  Fusion makes this choice again for every request, so you may see a different model mentioned later in the lab, or a different model than your neighbor for the same prompt. That is expected.
+  Copilot shows this message when Fusion picks a model, usually at the start of a conversation. Fusion generally keeps the same model for your next prompts, so you won't see this message after each one. 
+
+  > ⚠️ **Important note**
+  >
+  >{: .small-space}
+  >
+  > To keep results consistent across participants, everyone should use **Claude Opus 5.5** for this lab. If Copilot Fusion picked a different model for your first prompt, click **Copilot Fusion** in the prompt area and select **Claude Opus 5.5** instead, then send your prompt again. Keep **Claude Opus 5.5** selected for the rest of the lab.
+  >
+  >{: .small-space}
+  >
+  > [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9h.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image9h.png){:class="img-400"}{: data-lightbox="gallery"}
 
 - Because **Manual permissions** is on, Copilot asks before it does anything outside the chat. Here it wants to read the HPECOMCmdlets documentation on GitHub, so it can use the module correctly. When a request like the one below appears, click **Allow Once** (or **Allow**, depending on the request):
 
@@ -314,6 +324,17 @@ effect):
   ```
   
   [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16a.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16a.png){:class="img-500"}{: data-lightbox="gallery"}
+
+  > 💡 **Note**
+  >
+  >{: .small-space}
+  >
+  > You can check which model Copilot used at any point: hover over a response to display the model that generated it. If it is not **Claude Opus 5.5**, select **Claude Opus 5.5** in the model picker, as explained earlier.
+  >
+  >{: .small-space}
+  >
+  > [![]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16c.png){: .bordered-image-thin}]( {{ site.baseurl }}/assets/images/HOLs/COM-Copilot-With-HPECOMCmdlets/image16c.png){:class="img-500"}{: data-lightbox="gallery"}
+
 
 [↑ Back to Top](#)
 
